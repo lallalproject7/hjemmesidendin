@@ -31,7 +31,7 @@
             <p class="eyebrow">Bestilling</p>
             <h1 class="bestill-tittel">Bestill nettsiden din</h1>
             <p class="section-lead">Fyll ut skjemaet under – det tar under ti minutter. Etter innsending kommer du til betalingssiden, og vi setter i gang.</p>
-
+<p id="kapasitet" class="kapasitet" hidden></p>
             <div class="trygghet">
                 <p>✓ Fast pris: <strong>8 900 kr</strong> – ingen månedskostnad</p>
                 <p>✓ Én gratis endringsrunde (inntil 10 småjusteringer) innen 14 dager</p>
@@ -170,14 +170,42 @@
             </div>
             <div>
                 <h3>Informasjon</h3>
-                <p><a href="#">Personvernerklæring</a></p>
-                <p><a href="#">Salgsbetingelser</a></p>
+                <p><a href="personvern.html">Personvernerklæring</a></p>
+<p><a href="vilkar.html">Salgsbetingelser</a></p>
             </div>
         </div>
         <div class="footer-bottom">
             <p>© 2026 Hjemmesidendin. Alle rettigheter reservert.</p>
         </div>
     </footer>
+    <script>
+        async function visKapasitet() {
+            try {
+                const res = await fetch('/.netlify/functions/status');
+                if (!res.ok) return;
+                const status = await res.json();
+
+                const now = new Date();
+                const nextMonday = new Date(now);
+                nextMonday.setDate(now.getDate() + ((8 - now.getDay()) % 7 || 7));
+                const mondayAfter = new Date(nextMonday);
+                mondayAfter.setDate(nextMonday.getDate() + 7);
+
+                const fmt = d => d.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long' });
+                const el = document.getElementById('kapasitet');
+
+                if (status.available > 0) {
+                    el.textContent = `${status.available} av ${status.capacity} plasser ledige for oppstart mandag ${fmt(nextMonday)}`;
+                    el.classList.remove('kapasitet-fullt');
+                } else {
+                    el.textContent = `Fullt denne uken – neste ledige oppstart: mandag ${fmt(mondayAfter)}`;
+                    el.classList.add('kapasitet-fullt');
+                }
+                el.hidden = false;
+            } catch (e) { /* silently skip if unavailable */ }
+        }
+        visKapasitet();
+    </script>
 
 </body>
 </html>

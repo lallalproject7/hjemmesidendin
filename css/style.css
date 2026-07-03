@@ -547,3 +547,43 @@ summary:focus-visible {
 .juridisk p { margin-bottom: .8rem; }
 
 .juridisk a { color: var(--signal); }
+
+/* ---------- Kapasitet ---------- */
+
+.kapasitet {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: .5rem 1.1rem;
+    border-radius: 999px;
+    background: #e7f0e9;
+    border: 1px solid #bcd4c2;
+    color: var(--pine);
+    font-weight: 600;
+    font-size: .92rem;
+}
+
+.kapasitet-fullt {
+    background: #fdeee3;
+    border-color: #f0c9a8;
+    color: #93430f;
+}
+
+/* ---------- Kapasitet ---------- */
+
+.kapasitet {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: .5rem 1.1rem;
+    border-radius: 999px;
+    background: #e7f0e9;
+    border: 1px solid #bcd4c2;
+    color: var(--pine);
+    font-weight: 600;
+    font-size: .92rem;
+}
+
+.kapasitet-fullt {
+    background: #fdeee3;
+    border-color: #f0c9a8;
+    color: #93430f;
+}

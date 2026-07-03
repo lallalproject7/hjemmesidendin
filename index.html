@@ -30,16 +30,17 @@
     <section class="hero">
         <div class="container">
             <h1>Ferdig hjemmeside til din bedrift.<br><span class="accent">Betal én gang. Eid for alltid.</span></h1>
-            <p class="hero-lead">Velg bransjen din, velg designet du liker, fyll ut ett skjema – og få en profesjonell nettside levert på fem virkedager. Ingen månedspris. Ingen binding. Ingen komplikasjoner.</p>
             <div class="hero-actions">
+                <p class="hero-lead">Velg bransjen din, velg designet du liker, fyll ut ett skjema – og få en profesjonell nettside levert innen 7 virkedager. Ingen månedspris. Ingen binding. Ingen komplikasjoner.</p>
                 <a href="#bransjer" class="btn btn-primary">Se demoer for din bransje</a>
                 <a href="#slik" class="btn btn-ghost">Slik fungerer det</a>
             </div>
             <ul class="hero-trust">
                 <li>Fast engangspris</li>
-                <li>Levert på 5 virkedager</li>
+                <li>Levert innen 7 virkedager etter oppstart</li>
                 <li>Du eier alt – domene og nettside</li>
             </ul>
+            <p id="kapasitet" class="kapasitet" hidden></p>
         </div>
     </section>
 
@@ -67,7 +68,7 @@
                 <div class="step">
                     <span class="step-num">4</span>
                     <h3>Motta nettsiden</h3>
-                    <p>Innen fem virkedager er siden din på nett – klar til å hente kunder.</p>
+                    <p>Vi bygger fra mandag, og innen 7 virkedager er siden din på nett – klar til å hente kunder.</p>
                 </div>
             </div>
         </div>
@@ -129,11 +130,12 @@
                 <p class="pris-under">Engangspris. Ingen månedskostnad.</p>
                 <ul class="pris-liste">
                     <li>Komplett nettside tilpasset din bedrift</li>
-                    <li>Ditt eget domene (f.eks. dittfirma.no) – registrert i ditt navn</li>
                     <li>Kontaktskjema som sender henvendelser rett til din e-post</li>
+                    <li>Vi registrerer domenet ditt (f.eks. dittfirma.no) – i ditt navn, du eier det</li>
                     <li>Tilpasset mobil, nettbrett og PC</li>
                     <li>Personvernerklæring og lovpålagte sider inkludert</li>
-                    <li>Levert på 5 virkedager</li>
+                    <li>Levert innen 7 virkedager etter oppstart</li>
+                    
                 </ul>
                 <a href="bestill.html" class="btn btn-primary">Bestill nettside – 8 900 kr</a>
                 <p class="pris-note">Trenger du endringer senere? Oppdateringer tilbys som egen tjeneste – kun for våre kunder. Du betaler bare når du faktisk trenger noe.</p>
@@ -161,7 +163,7 @@
                 </div>
                 <div class="tid-steg">
                     <h3>4. Vi bygger – du får beskjed underveis</h3>
-                    <p>Mandag setter vi i gang, og du får e-post ved hver milepæl. Nettsiden leveres ferdig på nett innen fredag samme uke.</p>
+                    <p>Mandag setter vi i gang, og du får e-post ved hver milepæl. Nettsiden leveres ferdig på nett innen 7 virkedager.</p>
                 </div>
                 <div class="tid-steg">
                     <h3>5. Din endringsrunde – 14 dager</h3>
@@ -187,6 +189,14 @@
             <details class="faq-item">
                 <summary>Hva om jeg vil endre noe på siden senere?</summary>
                 <p>Da bestiller du en oppdatering fra oss – en enkel tjeneste med fast pris, kun tilgjengelig for eksisterende kunder. Du betaler bare når du trenger det.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Hvordan fungerer det med domenet?</summary>
+                <p>Vi ordner alt det tekniske for deg. Domenet registreres med din bedrift som eier, og vi setter opp alt slik at nettsiden din er på lufta – du trenger ikke gjøre noe selv. Den årlige domeneavgiften (ca. 150–200 kr) betaler du direkte til domeneleverandøren, ikke til oss.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Må jeg kunne noe teknisk?</summary>
+                <p>Nei, ingenting. Du fyller ut ett skjema med informasjon om bedriften din – resten tar vi oss av. Når siden er levert, er alt ferdig oppsatt og i drift.</p>
             </details>
             <details class="faq-item">
                 <summary>Hva må jeg sende inn?</summary>
@@ -224,6 +234,33 @@
             <p>© 2026 Hjemmesidendin. Alle rettigheter reservert.</p>
         </div>
     </footer>
+<script>
+        async function visKapasitet() {
+            try {
+                const res = await fetch('/.netlify/functions/status');
+                if (!res.ok) return;
+                const status = await res.json();
 
+                const now = new Date();
+                const nextMonday = new Date(now);
+                nextMonday.setDate(now.getDate() + ((8 - now.getDay()) % 7 || 7));
+                const mondayAfter = new Date(nextMonday);
+                mondayAfter.setDate(nextMonday.getDate() + 7);
+
+                const fmt = d => d.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long' });
+                const el = document.getElementById('kapasitet');
+
+                if (status.available > 0) {
+                    el.textContent = `${status.available} av ${status.capacity} plasser ledige for oppstart mandag ${fmt(nextMonday)}`;
+                    el.classList.remove('kapasitet-fullt');
+                } else {
+                    el.textContent = `Fullt denne uken – neste ledige oppstart: mandag ${fmt(mondayAfter)}`;
+                    el.classList.add('kapasitet-fullt');
+                }
+                el.hidden = false;
+            } catch (e) { /* silently skip if unavailable */ }
+        }
+        visKapasitet();
+    </script>
 </body>
 </html>
