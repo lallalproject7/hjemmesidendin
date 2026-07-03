@@ -1,0 +1,497 @@
+/* =========================================================
+   Hjemmesidendin – store stylesheet
+   Palette: deep forest / warm sand / signal orange
+   ========================================================= */
+
+:root {
+    --pine: #1d3a2f;          /* deep forest green – headers & dark blocks */
+    --pine-soft: #45594f;     /* softer green-grey for body text */
+    --signal: #e8641b;        /* signal orange – primary action */
+    --signal-dark: #c24f0e;
+    --sand: #f7f4ee;          /* warm sand background */
+    --surface: #ffffff;
+    --line: #e3ded3;
+    --radius: 12px;
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "Inter", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--pine-soft);
+    background: var(--sand);
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin-inline: auto;
+}
+
+.container-narrow { width: min(720px, 92%); }
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--pine);
+    line-height: 1.12;
+}
+
+h1 { font-size: clamp(2.1rem, 5vw, 3.3rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; margin-bottom: 1.2rem; }
+h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
+
+.accent { color: var(--signal); }
+
+.eyebrow {
+    font-family: var(--font-display);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: .6rem;
+}
+
+.section-lead { max-width: 58ch; margin-bottom: 2.2rem; }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: .9rem 1.7rem;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.btn-primary { background: var(--signal); color: #fff; }
+.btn-primary:hover { background: var(--signal-dark); }
+
+.btn-ghost { border-color: var(--pine); color: var(--pine); }
+.btn-ghost:hover { background: var(--pine); color: #fff; }
+
+.btn-small { padding: .55rem 1.2rem; font-size: .92rem; }
+
+/* ---------- Header ---------- */
+
+.header {
+    background: var(--sand);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: .95rem;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--pine);
+    text-decoration: none;
+}
+
+.logo span { color: var(--signal); }
+
+.nav { display: flex; gap: 1.5rem; }
+
+.nav a {
+    text-decoration: none;
+    color: var(--pine-soft);
+    font-weight: 500;
+    font-size: .95rem;
+}
+.nav a:hover { color: var(--signal); }
+
+/* ---------- Hero ---------- */
+
+.hero {
+    padding-block: 5.5rem 4.5rem;
+    text-align: center;
+    background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(232, 100, 27, .07), transparent),
+        var(--sand);
+}
+
+.hero-lead {
+    max-width: 60ch;
+    margin: 1.4rem auto 2rem;
+    font-size: 1.15rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .9rem;
+    margin-bottom: 2rem;
+}
+
+.hero-trust {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5rem 1.8rem;
+    font-size: .93rem;
+}
+
+.hero-trust li::before {
+    content: "✓";
+    color: var(--signal);
+    font-weight: 700;
+    margin-right: .4rem;
+}
+
+/* ---------- Sections ---------- */
+
+.section { padding-block: 4.5rem; }
+
+.section-alt {
+    background: var(--surface);
+    border-block: 1px solid var(--line);
+}
+
+.grid { display: grid; gap: 1.4rem; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ---------- Steps ---------- */
+
+.step {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.6rem;
+}
+
+.step-num {
+    display: inline-grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: var(--pine);
+    color: #fff;
+    font-family: var(--font-display);
+    font-weight: 700;
+    margin-bottom: .9rem;
+}
+
+/* ---------- Bransjer ---------- */
+
+.bransje {
+    display: block;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.8rem 1.6rem;
+    text-decoration: none;
+    color: var(--pine-soft);
+    opacity: .55;
+}
+
+.bransje h3 { margin-top: .6rem; }
+
+.bransje-icon { font-size: 1.8rem; }
+
+.bransje-active {
+    opacity: 1;
+    border: 2px solid var(--signal);
+    background: var(--surface);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.bransje-active:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(29, 58, 47, .12);
+}
+
+.bransje-active p { color: var(--signal); font-weight: 600; }
+
+/* ---------- Pris ---------- */
+
+.priskort {
+    background: var(--pine);
+    color: #d9e3dd;
+    border-radius: calc(var(--radius) * 1.5);
+    padding: 2.8rem 2.4rem;
+    text-align: center;
+}
+
+.pris-belop {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 6vw, 3.6rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.pris-under { margin-top: .5rem; margin-bottom: 1.8rem; }
+
+.pris-liste {
+    list-style: none;
+    text-align: left;
+    max-width: 46ch;
+    margin: 0 auto 1.8rem;
+    display: grid;
+    gap: .55rem;
+}
+
+.pris-liste li::before {
+    content: "✓";
+    color: var(--signal);
+    font-weight: 700;
+    margin-right: .55rem;
+}
+
+.pris-note {
+    font-size: .9rem;
+    opacity: .85;
+    max-width: 50ch;
+    margin-inline: auto;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq-item {
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.4rem;
+    margin-bottom: .8rem;
+}
+
+.faq-item summary {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--pine);
+    cursor: pointer;
+}
+
+.faq-item[open] summary { margin-bottom: .6rem; }
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: var(--pine);
+    color: #c9d6cf;
+    padding-top: 3.5rem;
+    margin-top: 2rem;
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer h3 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: .7rem;
+}
+
+.footer p { margin-bottom: .4rem; font-size: .95rem; }
+
+.footer a { color: #f0b98d; text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+.footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.footer-logo span { color: var(--signal); }
+
+.footer-bottom {
+    border-top: 1px solid #2e4d40;
+    margin-top: 2.5rem;
+    padding-block: 1.2rem;
+    text-align: center;
+    font-size: .85rem;
+}
+
+/* ---------- Focus & motion ---------- */
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--signal);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+    .nav { display: none; }
+    .footer-inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .hero { padding-block: 3.5rem 3rem; }
+}
+
+/* ---------- Bestillingsskjema ---------- */
+
+.bestill-tittel { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: .8rem; }
+
+.trygghet {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--signal);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2.5rem;
+    display: grid;
+    gap: .4rem;
+}
+
+.form { display: grid; gap: 1.1rem; }
+
+.form-del {
+    font-size: 1.15rem;
+    margin-top: 1.6rem;
+    margin-bottom: .2rem;
+    padding-bottom: .4rem;
+    border-bottom: 2px solid var(--line);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+}
+
+.form-field { display: grid; gap: .35rem; }
+
+.form-field label {
+    font-weight: 600;
+    font-size: .92rem;
+    color: var(--pine);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    font: inherit;
+    padding: .7rem .85rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--pine);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: 2px solid var(--signal);
+    outline-offset: 1px;
+    border-color: var(--signal);
+}
+
+.form-check label {
+    display: flex;
+    gap: .6rem;
+    align-items: flex-start;
+    font-weight: 400;
+    font-size: .92rem;
+    color: var(--pine-soft);
+}
+
+.form-check input { margin-top: .25rem; }
+
+.form-hint {
+    font-size: .88rem;
+    color: var(--pine-soft);
+    margin-top: -.4rem;
+}
+
+.form-hint a, .form-note a { color: var(--signal); }
+
+.form-note { font-size: .88rem; color: var(--pine-soft); }
+
+@media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+}
+
+/* ---------- Takk-side ---------- */
+
+.takk { text-align: center; }
+
+.takk-ikon { font-size: 3rem; margin-bottom: .5rem; }
+
+.takk h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: .8rem; }
+
+.takk .section-lead { margin-inline: auto; }
+
+.takk-steg {
+    background: var(--pine);
+    color: #d9e3dd;
+    border-radius: calc(var(--radius) * 1.5);
+    padding: 2.2rem 2rem;
+    margin-block: 2.2rem;
+}
+
+.takk-steg h2 { color: #fff; margin-bottom: .6rem; }
+
+.takk-steg .btn { margin-block: 1.2rem .8rem; }
+
+.takk-steg .form-note { color: #b8c9c0; }
+
+.takk-neste {
+    text-align: left;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.8rem 2rem;
+}
+
+.takk-neste h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+
+.takk-neste ol {
+    padding-left: 1.2rem;
+    display: grid;
+    gap: .7rem;
+}
+
+.takk-neste a { color: var(--signal); }
+
+.takk-tilbake {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--pine-soft);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.takk-tilbake:hover { color: var(--signal); }

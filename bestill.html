@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestill nettside – Hjemmesidendin</title>
+    <meta name="description" content="Bestill din ferdige nettside. Fyll ut skjemaet – vi bygger og leverer innen 7 virkedager.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">hjemmesiden<span>din</span></a>
+            <nav class="nav">
+                <a href="index.html#slik">Slik fungerer det</a>
+                <a href="index.html#bransjer">Bransjer</a>
+                <a href="index.html#pris">Pris</a>
+                <a href="index.html#faq">Spørsmål</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== BESTILLING ===== -->
+    <section class="section">
+        <div class="container container-narrow">
+            <p class="eyebrow">Bestilling</p>
+            <h1 class="bestill-tittel">Bestill nettsiden din</h1>
+            <p class="section-lead">Fyll ut skjemaet under – det tar under ti minutter. Etter innsending kommer du til betalingssiden, og vi setter i gang.</p>
+
+            <div class="trygghet">
+                <p>✓ Fast pris: <strong>8 900 kr</strong> – ingen månedskostnad</p>
+                <p>✓ Én gratis endringsrunde (inntil 10 småjusteringer) innen 14 dager</p>
+                <p>✓ Full refusjon dersom vi ikke kan levere</p>
+            </div>
+
+            <form name="bestilling" method="POST" data-netlify="true" action="takk.html" class="form">
+                <input type="hidden" name="form-name" value="bestilling">
+
+                <h2 class="form-del">1. Velg design</h2>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="bransje">Bransje</label>
+                        <select id="bransje" name="bransje" required>
+                            <option value="" disabled selected>Velg din bransje</option>
+                            <option>Elektriker</option>
+                            <option>Rørlegger (kommer snart)</option>
+                            <option>Snekker (kommer snart)</option>
+                            <option>Maler (kommer snart)</option>
+                            <option>Renhold (kommer snart)</option>
+                            <option>Gartner (kommer snart)</option>
+                            <option>Flyttebyrå (kommer snart)</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="design">Design</label>
+                        <select id="design" name="design" required>
+                            <option value="" disabled selected>Velg design</option>
+                            <option>Design 1 (som i demoen)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h2 class="form-del">2. Om bedriften din</h2>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="firmanavn">Firmanavn</label>
+                        <input type="text" id="firmanavn" name="firmanavn" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="orgnr">Organisasjonsnummer</label>
+                        <input type="text" id="orgnr" name="orgnr" inputmode="numeric" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="kontaktperson">Kontaktperson</label>
+                        <input type="text" id="kontaktperson" name="kontaktperson" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="telefon">Telefon</label>
+                        <input type="tel" id="telefon" name="telefon" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="epost">E-post</label>
+                        <input type="email" id="epost" name="epost" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="adresse">Forretningsadresse</label>
+                        <input type="text" id="adresse" name="adresse" required>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="tjenester">Hvilke tjenester tilbyr du? (kort liste)</label>
+                    <textarea id="tjenester" name="tjenester" rows="3" placeholder="F.eks: Sikringsskap, elbillader, belysning, feilsøking" required></textarea>
+                </div>
+
+                <div class="form-field">
+                    <label for="omrade">Hvilket område jobber du i?</label>
+                    <input type="text" id="omrade" name="omrade" placeholder="F.eks: Skien, Porsgrunn og omegn" required>
+                </div>
+
+                <h2 class="form-del">3. Domene</h2>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="domene">Ønsket domenenavn</label>
+                        <input type="text" id="domene" name="domene" placeholder="dittfirma.no" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="domene2">Alternativ (hvis opptatt)</label>
+                        <input type="text" id="domene2" name="domene2" placeholder="dittfirma-as.no">
+                    </div>
+                </div>
+                <p class="form-hint">Vi sjekker at domenet er ledig og bekrefter med deg før noe registreres. Domenet registreres i ditt navn – du eier det. Vil du sjekke selv? <a href="https://www.norid.no/no/domeneoppslag/" target="_blank" rel="noopener">Søk hos Norid</a>.</p>
+
+                <h2 class="form-del">4. Logo og bilder</h2>
+
+                <div class="form-field">
+                    <label for="logo">Har du logo?</label>
+                    <select id="logo" name="logo" required>
+                        <option value="" disabled selected>Velg</option>
+                        <option>Ja – jeg sender den på e-post etter bestilling</option>
+                        <option>Nei – sett opp firmanavnet i en ren tekststil (inkludert)</option>
+                    </select>
+                </div>
+                <p class="form-hint">Logo og bilder sendes til oss på e-post etter bestilling – du trenger ikke ha alt klart nå. Har du ikke egne bilder, setter vi opp siden med profesjonelle plassholdere.</p>
+
+                <h2 class="form-del">5. Annet</h2>
+
+                <div class="form-field">
+                    <label for="kommentar">Noe annet vi bør vite? (valgfritt)</label>
+                    <textarea id="kommentar" name="kommentar" rows="3" placeholder="F.eks: åpningstider, sertifiseringer, spesielle ønsker"></textarea>
+                </div>
+
+                <div class="form-field form-check">
+                    <label>
+                        <input type="checkbox" name="vilkar" required>
+                        Jeg har lest og godtar <a href="#" target="_blank">salgsbetingelsene</a> og <a href="#" target="_blank">personvernerklæringen</a>. Jeg forstår at produktet er spesialtilpasset og uten angrerett, og at kjøpet gjelder næringsvirksomhet (B2B).
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Send bestilling og gå til betaling</button>
+                <p class="form-note">Etter innsending kommer du til en bekreftelsesside med sikker betaling via Stripe. Arbeidet starter når betaling og materiell er mottatt.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <p class="footer-logo">hjemmesiden<span>din</span></p>
+                <p>Ferdige nettsider til fast pris – laget i Norge.</p>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <p><a href="mailto:post@hjemmesidendin.no">post@hjemmesidendin.no</a></p>
+            </div>
+            <div>
+                <h3>Informasjon</h3>
+                <p><a href="#">Personvernerklæring</a></p>
+                <p><a href="#">Salgsbetingelser</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Hjemmesidendin. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
