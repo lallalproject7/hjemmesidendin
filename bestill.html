@@ -38,8 +38,10 @@
                 <p>✓ Full refusjon dersom vi ikke kan levere</p>
             </div>
 
-            <form name="bestilling" method="POST" data-netlify="true" action="takk.html" class="form">
+            <form name="bestilling" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="takk.html" class="form"></form>
                 <input type="hidden" name="form-name" value="bestilling">
+
+                <p class="skjult-felt" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
 
                 <h2 class="form-del">1. Velg design</h2>
 
@@ -66,19 +68,31 @@
                     </div>
                 </div>
 
-                <h2 class="form-del">2. Om bedriften din</h2>
+                <h2 class="form-del">2. Om virksomheten din</h2>
 
                 <div class="form-row">
                     <div class="form-field">
-                        <label for="firmanavn">Firmanavn</label>
-                        <input type="text" id="firmanavn" name="firmanavn" required>
+                        <label for="virksomhetsform">Virksomhetsform</label>
+                        <select id="virksomhetsform" name="virksomhetsform" required>
+                            <option value="" disabled selected>Velg</option>
+                            <option>Enkeltpersonforetak (ENK)</option>
+                            <option>Aksjeselskap (AS)</option>
+                            <option>Frilanser uten org.nr</option>
+                            <option>Annet</option>
+                        </select>
                     </div>
                     <div class="form-field">
-                        <label for="orgnr">Organisasjonsnummer</label>
-                        <input type="text" id="orgnr" name="orgnr" inputmode="numeric" required>
+                        <label for="firmanavn">Firmanavn / ditt navn</label>
+                        <input type="text" id="firmanavn" name="firmanavn" required>
                     </div>
                 </div>
 
+                <div class="form-field">
+                    <label for="orgnr">Organisasjonsnummer (valgfritt)</label>
+                    <input type="text" id="orgnr" name="orgnr" inputmode="numeric">
+                </div>
+
+                <p class="form-hint">Har du ikke org.nr? Ingen problem – nettside og domene kan registreres på deg som privatperson.</p>
                 <div class="form-row">
                     <div class="form-field">
                         <label for="kontaktperson">Kontaktperson</label>
@@ -124,17 +138,56 @@
                     </div>
                 </div>
 <p class="form-hint">Domenet registreres med bedriften din som eier. Firmanavn, organisasjonsnummer, adresse og e-post fra dette skjemaet brukes til registreringen. Årlig fornyelse (ca. 150–200 kr) faktureres deg direkte fra domeneleverandøren på e-post.</p>
-                <h2 class="form-del">4. Logo og bilder</h2>
+                <h2 class="form-del">4. Logo, bilder og visuell stil</h2>
 
                 <div class="form-field">
-    <label for="logo">Logo</label>
-    <select id="logo" name="logo" required>
-        <option value="" disabled selected>Velg</option>
-        <option>Jeg har logo – sender den på e-post innen søndag</option>
-        <option>Jeg vil ha firmanavnet i profesjonell tekststil (som i demoen – inkludert)</option>
-        <option>Jeg har ikke bestemt meg – start med tekststil, så kan logo legges til senere</option>
-    </select>
-</div>
+                    <label for="logo">Logo</label>
+                    <select id="logo" name="logo" required>
+                        <option value="" disabled selected>Velg</option>
+                        <option>Jeg laster opp logoen her</option>
+                        <option>Jeg vil ha firmanavnet i profesjonell tekststil (inkludert)</option>
+                        <option>Jeg har ikke bestemt meg – start med tekststil</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="logofil">Last opp logo (valgfritt – jpg, png, svg eller pdf, maks 8 MB)</label>
+                    <input type="file" id="logofil" name="logofil" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
+                </div>
+
+                <div class="form-field">
+                    <label for="bilde1">Last opp bilder (valgfritt – inntil 3 bilder)</label>
+                    <input type="file" id="bilde1" name="bilde1" accept=".jpg,.jpeg,.png,.webp">
+                    <input type="file" id="bilde2" name="bilde2" accept=".jpg,.jpeg,.png,.webp">
+                    <input type="file" id="bilde3" name="bilde3" accept=".jpg,.jpeg,.png,.webp">
+                </div>
+
+                <div class="form-field">
+                    <label for="stil">Hvis du ikke har egne bilder – hvordan vil du at siden skal se ut?</label>
+                    <select id="stil" name="stil">
+                        <option value="" disabled selected>Velg (valgfritt)</option>
+                        <option>Fargeprofil – siden tilpasses min merkefarge</option>
+                        <option>Ren ikon-stil – profesjonelle fagikoner</option>
+                        <option>Tall og fakta – erfaring, oppdrag, responstid i fokus</option>
+                        <option>Kundesitater – gode ord fra kunder i fokus</option>
+                        <option>Overlat det til dere – velg det som passer best</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="merkefarge">Din merkefarge (valgfritt)</label>
+                    <select id="merkefarge" name="merkefarge">
+                        <option value="" disabled selected>Velg (valgfritt)</option>
+                        <option>Elektriker-blå</option>
+                        <option>Skogsgrønn</option>
+                        <option>Signalrød</option>
+                        <option>Jordbrun</option>
+                        <option>Stålgrå</option>
+                        <option>Solgul</option>
+                        <option>Samme som i demoen</option>
+                    </select>
+                </div>
+                <p class="form-hint">Mangler du noe nå? Ingen stress – materiell kan også ettersendes på e-post innen søndag. Etter det leveres siden med valgt stil, og bilder kan legges til senere som en oppdatering.</p>
                 <p class="form-hint">Logo og bilder sendes til oss på e-post etter bestilling – du trenger ikke ha alt klart nå. Har du ikke egne bilder, setter vi opp siden med profesjonelle plassholdere.</p>
 
                 <h2 class="form-del">5. Annet</h2>
@@ -144,12 +197,12 @@
                     <textarea id="kommentar" name="kommentar" rows="3" placeholder="F.eks: åpningstider, sertifiseringer, spesielle ønsker"></textarea>
                 </div>
 
-                <div class="form-field form-check">
-    <label>
-        <input type="checkbox" name="vilkar" required>
-        Jeg har lest og godtar <a href="vilkar.html" target="_blank">salgsbetingelsene</a> og <a href="personvern.html" target="_blank">personvernerklæringen</a>. Jeg forstår at produktet er spesialtilpasset og uten angrerett, og at kjøpet gjelder næringsvirksomhet (B2B).
-    </label>
-</div>
+               <div class="form-field form-check">
+                    <label>
+                        <input type="checkbox" name="vilkar" required>
+                        Jeg har lest og godtar <a href="vilkar.html" target="_blank">salgsbetingelsene</a> og <a href="personvern.html" target="_blank">personvernerklæringen</a>. Jeg bekrefter at kjøpet gjelder min næringsvirksomhet eller mitt selvstendige virke, at produktet spesialtilpasses meg, og at arbeidet starter etter avtale – det foreligger derfor ikke angrerett.
+                    </label>
+                </div>
 
                 <button type="submit" class="btn btn-primary btn-block">Send bestilling og gå til betaling</button>
                 <p class="form-note">Etter innsending kommer du til en bekreftelsesside med sikker betaling via Stripe. Arbeidet starter når betaling og materiell er mottatt.</p>

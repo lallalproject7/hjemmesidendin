@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endringsrunde – Hjemmesidendin</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">hjemmesiden<span>din</span></a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container container-narrow">
+            <p class="eyebrow">Gratis – inkludert i kjøpet</p>
+            <h1 class="bestill-tittel">Din endringsrunde</h1>
+            <p class="section-lead">Send inn én samlet liste med inntil 10 småjusteringer innen 14 dager etter levering. Vi utfører endringene og gir beskjed når de er på plass.</p>
+
+            <form name="endringsrunde" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="takk-endring.html" class="form">
+                <input type="hidden" name="form-name" value="endringsrunde">
+                <p class="skjult-felt" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
+
+                <h2 class="form-del">1. Din nettside</h2>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="domene">Domenet ditt</label>
+                        <input type="text" id="domene" name="domene" placeholder="dittfirma.no" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="epost">E-post (samme som ved bestilling)</label>
+                        <input type="email" id="epost" name="epost" required>
+                    </div>
+                </div>
+
+                <h2 class="form-del">2. Dine endringer (inntil 10)</h2>
+                <p class="form-hint">Vær så konkret som mulig – f.eks. «Endre prisen på service fra 1 200 til 1 400 kr» eller «Bytt overskriften på forsiden til …».</p>
+
+                <div class="form-field"><label for="e1">Endring 1</label><input type="text" id="e1" name="endring1" required></div>
+                <div class="form-field"><label for="e2">Endring 2</label><input type="text" id="e2" name="endring2"></div>
+                <div class="form-field"><label for="e3">Endring 3</label><input type="text" id="e3" name="endring3"></div>
+                <div class="form-field"><label for="e4">Endring 4</label><input type="text" id="e4" name="endring4"></div>
+                <div class="form-field"><label for="e5">Endring 5</label><input type="text" id="e5" name="endring5"></div>
+                <div class="form-field"><label for="e6">Endring 6</label><input type="text" id="e6" name="endring6"></div>
+                <div class="form-field"><label for="e7">Endring 7</label><input type="text" id="e7" name="endring7"></div>
+                <div class="form-field"><label for="e8">Endring 8</label><input type="text" id="e8" name="endring8"></div>
+                <div class="form-field"><label for="e9">Endring 9</label><input type="text" id="e9" name="endring9"></div>
+                <div class="form-field"><label for="e10">Endring 10</label><input type="text" id="e10" name="endring10"></div>
+
+                <h2 class="form-del">3. Nye bilder eller logo (valgfritt)</h2>
+
+                <div class="form-field">
+                    <label for="fil1">Last opp filer (jpg, png, svg, webp eller pdf – maks 8 MB per fil)</label>
+                    <input type="file" id="fil1" name="fil1" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
+                    <input type="file" id="fil2" name="fil2" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
+                    <input type="file" id="fil3" name="fil3" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Send endringsliste</button>
+                <p class="form-note">Endringsrunden gjelder i 14 dager etter levering og dekker justeringer av eksisterende innhold. Nye undersider, nytt design eller ny funksjonalitet bestilles som <a href="index.html#oppdateringer">oppdatering</a>.</p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <p class="footer-logo">hjemmesiden<span>din</span></p>
+                <p>Ferdige nettsider til fast pris – laget i Norge.</p>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <p><a href="mailto:post@hjemmesidendin.no">post@hjemmesidendin.no</a></p>
+            </div>
+            <div>
+                <h3>Informasjon</h3>
+                <p><a href="personvern.html">Personvernerklæring</a></p>
+                <p><a href="vilkar.html">Salgsbetingelser</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Hjemmesidendin. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

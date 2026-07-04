@@ -587,3 +587,54 @@ summary:focus-visible {
     border-color: #f0c9a8;
     color: #93430f;
 }
+
+/* ---------- Kapasitet fix ---------- */
+
+.kapasitet[hidden] { display: none; }
+
+/* ---------- Hvorfor nettside ---------- */
+
+.grid-2 { grid-template-columns: 1fr 1fr; }
+
+.grunn {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.6rem;
+}
+
+/* ---------- Oppdateringer ---------- */
+
+.oppdatering-liste {
+    display: grid;
+    gap: .6rem;
+    margin-bottom: 1.8rem;
+}
+
+.oppdatering-rad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: .9rem 1.3rem;
+}
+
+.oppdatering-rad strong {
+    font-family: var(--font-display);
+    color: var(--pine);
+    white-space: nowrap;
+}
+
+.form-field input[type="file"] {
+    padding: .55rem .85rem;
+    background: var(--sand);
+}
+
+@media (max-width: 700px) {
+    .grid-2 { grid-template-columns: 1fr; }
+}
+
+.skjult-felt { position: absolute; left: -9999px; }
