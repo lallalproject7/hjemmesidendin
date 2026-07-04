@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestill oppdatering – Hjemmesidendin</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">hjemmesiden<span>din</span></a>
+            <nav class="nav">
+                <a href="index.html#oppdateringer">Priser</a>
+                <a href="index.html#faq">Spørsmål</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container container-narrow">
+            <p class="eyebrow">Kun for våre kunder</p>
+            <h1 class="bestill-tittel">Bestill oppdatering</h1>
+            <p class="section-lead">Fyll ut skjemaet, så bekrefter vi bestillingen og sender deg en sikker betalingslenke på e-post. Arbeidet starter når betalingen er mottatt.</p>
+
+            <form name="oppdatering" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="takk-oppdatering.html" class="form">
+                <input type="hidden" name="form-name" value="oppdatering">
+                <p class="skjult-felt" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
+
+                <h2 class="form-del">1. Din nettside</h2>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="domene">Domenet ditt</label>
+                        <input type="text" id="domene" name="domene" placeholder="dittfirma.no" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="epost">E-post (samme som ved bestilling)</label>
+                        <input type="email" id="epost" name="epost" required>
+                    </div>
+                </div>
+
+                <h2 class="form-del">2. Hva trenger du?</h2>
+
+                <div class="form-field">
+                    <label for="tjeneste">Velg tjeneste</label>
+                    <select id="tjeneste" name="tjeneste" required>
+                        <option value="" disabled selected>Velg</option>
+                        <option>Endring av tekster/priser/åpningstider – 490 kr</option>
+                        <option>Bytte eller innsetting av bilder/logo – 490 kr</option>
+                        <option>Ny seksjon på eksisterende side – 790 kr</option>
+                        <option>Helt ny underside – 1 490 kr</option>
+                        <option>Endring av farger og visuell stil – 690 kr</option>
+                        <option>Årspakke: 4 endringsrunder – 1 690 kr</option>
+                        <option>Annet – send beskrivelse, så gir vi fast pris</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="beskrivelse">Beskriv endringene du ønsker</label>
+                    <textarea id="beskrivelse" name="beskrivelse" rows="5" placeholder="F.eks: Endre åpningstider i footer, bytte prisen på service fra 1 200 til 1 400 kr, og legge til setning om elbillader på forsiden." required></textarea>
+                </div>
+
+                <div class="form-field">
+                    <label for="fil1">Nye bilder eller logo (valgfritt – maks 8 MB per fil)</label>
+                    <input type="file" id="fil1" name="fil1" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
+                    <input type="file" id="fil2" name="fil2" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
+                    <input type="file" id="fil3" name="fil3" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Send forespørsel</button>
+                <p class="form-note">Vi svarer innen én virkedag med bekreftelse og betalingslenke. Gjelder kun nettsider levert av Hjemmesidendin.</p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <p class="footer-logo">hjemmesiden<span>din</span></p>
+                <p>Ferdige nettsider til fast pris – laget i Norge.</p>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <p><a href="mailto:post@hjemmesidendin.no">post@hjemmesidendin.no</a></p>
+            </div>
+            <div>
+                <h3>Informasjon</h3>
+                <p><a href="personvern.html">Personvernerklæring</a></p>
+                <p><a href="vilkar.html">Salgsbetingelser</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Hjemmesidendin. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

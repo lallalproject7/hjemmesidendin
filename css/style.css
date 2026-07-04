@@ -638,3 +638,9 @@ summary:focus-visible {
 }
 
 .skjult-felt { position: absolute; left: -9999px; }
+
+.priskort .pris-note a {
+    color: var(--amber, #f0b98d);
+    color: #f0b98d;
+    text-decoration: underline;
+}
