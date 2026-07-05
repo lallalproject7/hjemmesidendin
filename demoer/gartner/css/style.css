@@ -1,0 +1,382 @@
+/* =========================================================
+   Grønn Hage – demo stylesheet (Design: "Årstid")
+   Palette: mose / jord / sesongfarger
+   Organic seasonal look – serif warmth, four-season cards
+   ========================================================= */
+
+:root {
+    --mose: #2f4a2c;            /* moss green – headers */
+    --mose-deep: #1f3320;       /* darkest – footer & dark section */
+    --gress: #4c7c3f;           /* grass – primary action */
+    --gress-dark: #3a6130;
+    --sol: #e0a83c;             /* sun accent */
+    --floete: #f8f6ef;          /* cream background */
+    --surface: #ffffff;
+    --line: #e3e0d2;
+    --ink-soft: #52604c;        /* body text */
+    /* season accents */
+    --s-var: #7fb069;
+    --s-sommer: #e0a83c;
+    --s-host: #c26e3d;
+    --s-vinter: #6d94b8;
+    --radius: 12px;
+    --font-display: "Lora", serif;
+    --font-body: "Assistant", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    background: var(--floete);
+}
+
+img { max-width: 100%; display: block; }
+
+.container { width: min(1120px, 92%); margin-inline: auto; }
+.container-narrow { width: min(780px, 92%); }
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--mose);
+    line-height: 1.15;
+    font-weight: 600;
+}
+
+h1 { font-size: clamp(2.3rem, 5.5vw, 3.4rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); margin-bottom: 1.5rem; }
+h3 { font-size: 1.15rem; margin-bottom: .5rem; }
+
+.accent { color: var(--gress); font-style: italic; }
+
+.eyebrow {
+    font-family: var(--font-body);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gress);
+    margin-bottom: .7rem;
+}
+
+.eyebrow-light { color: var(--sol); }
+
+.section-lead { max-width: 55ch; margin-bottom: 2rem; }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: .85rem 1.7rem;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.btn-primary { background: var(--gress); color: #fff; }
+.btn-primary:hover { background: var(--gress-dark); }
+
+.btn-lys { background: var(--sol); color: var(--mose-deep); font-weight: 700; }
+.btn-lys:hover { background: #c9932e; }
+
+.btn-small { padding: .5rem 1.2rem; font-size: .92rem; }
+.btn-block { width: 100%; text-align: center; }
+
+/* ---------- Header ---------- */
+
+.header {
+    background: var(--floete);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: .95rem;
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--mose);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.logo strong { color: var(--gress); }
+
+.nav { display: flex; gap: 1.5rem; }
+
+.nav a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-weight: 500;
+    font-size: .95rem;
+}
+.nav a:hover { color: var(--gress); }
+
+/* ---------- Hero ---------- */
+
+.hero {
+    text-align: center;
+    padding-block: 4.5rem 3rem;
+    background:
+        radial-gradient(ellipse 55% 50% at 50% -15%, rgba(127, 176, 105, .14), transparent 65%),
+        var(--floete);
+}
+
+.hero-lead {
+    max-width: 52ch;
+    margin: 1.2rem auto 0;
+    font-size: 1.12rem;
+}
+
+/* ---------- Årstidene (hovedrollen) ---------- */
+
+.arstid-liste {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.3rem;
+}
+
+.arstid {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.arstid-hode {
+    padding: 1.4rem 1.4rem 1.1rem;
+    color: #fff;
+}
+
+.arstid-var .arstid-hode { background: linear-gradient(150deg, var(--s-var), #5d8a4a); }
+.arstid-sommer .arstid-hode { background: linear-gradient(150deg, var(--s-sommer), #c98f28); }
+.arstid-host .arstid-hode { background: linear-gradient(150deg, var(--s-host), #a3562d); }
+.arstid-vinter .arstid-hode { background: linear-gradient(150deg, var(--s-vinter), #557a9c); }
+
+.arstid-ikon { font-size: 1.6rem; display: block; margin-bottom: .3rem; }
+
+.arstid-hode h3 { color: #fff; margin: 0; }
+
+.arstid-mnd {
+    font-size: .82rem;
+    opacity: .9;
+    letter-spacing: .04em;
+}
+
+.arstid ul {
+    list-style: none;
+    padding: 1.2rem 1.4rem 1.4rem;
+    display: grid;
+    gap: .5rem;
+    align-content: start;
+    font-size: .95rem;
+}
+
+.arstid ul li::before {
+    content: "–";
+    margin-right: .5rem;
+    font-weight: 700;
+}
+
+.arstid-var ul li::before { color: var(--s-var); }
+.arstid-sommer ul li::before { color: var(--s-sommer); }
+.arstid-host ul li::before { color: var(--s-host); }
+.arstid-vinter ul li::before { color: var(--s-vinter); }
+
+/* ---------- Hagepakken ---------- */
+
+.section-dark { background: var(--mose-deep); }
+
+.hagepakke-inner { text-align: center; }
+
+.section-dark h2 { color: #fff; }
+.section-dark p { color: #cfdcc8; max-width: 60ch; margin-inline: auto; }
+
+.hagepakke-liste {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .6rem 1.8rem;
+    margin-block: 1.6rem 2rem;
+    font-weight: 600;
+    color: #e8efe3;
+}
+
+.hagepakke-liste li::before {
+    content: "✓";
+    color: var(--sol);
+    font-weight: 700;
+    margin-right: .45rem;
+}
+
+/* ---------- Photo placeholders ---------- */
+
+.photo-placeholder {
+    background:
+        radial-gradient(ellipse 70% 60% at 25% 15%, rgba(224, 168, 60, .14), transparent 60%),
+        linear-gradient(155deg, #3d5c37, var(--mose-deep));
+    border-radius: var(--radius);
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    color: #a4bd97;
+    font-size: .9rem;
+}
+
+.photo-om { aspect-ratio: 1 / 1; }
+
+/* ---------- Sections ---------- */
+
+.section { padding-block: 4.5rem; }
+
+.grid { display: grid; gap: 1.4rem; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* ---------- Form ---------- */
+
+.section-form { background: var(--surface); border-block: 1px solid var(--line); }
+
+.form { display: grid; gap: 1.1rem; margin-top: .5rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+
+.form-field { display: grid; gap: .35rem; }
+
+.form-field label {
+    font-weight: 600;
+    font-size: .92rem;
+    color: var(--mose);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    font: inherit;
+    padding: .75rem .9rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--floete);
+    color: var(--mose);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: 2px solid var(--gress);
+    outline-offset: 1px;
+    border-color: var(--gress);
+}
+
+.form-note { font-size: .87rem; color: var(--ink-soft); }
+.form-note a { color: var(--gress); }
+
+/* ---------- Om oss ---------- */
+
+.om-inner {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.om-inner p { margin-bottom: 1rem; }
+
+.hero-trust {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    font-size: .93rem;
+    font-weight: 600;
+    margin-top: 1.2rem;
+}
+
+.hero-trust li::before {
+    content: "✓";
+    color: var(--gress);
+    font-weight: 700;
+    margin-right: .4rem;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: var(--mose-deep);
+    color: #c3d1bb;
+    padding-top: 3.5rem;
+}
+
+.footer h3 { color: #fff; font-size: 1rem; margin-bottom: .8rem; font-family: var(--font-body); font-weight: 600; }
+.footer p { margin-bottom: .45rem; font-size: .95rem; }
+.footer a { color: var(--sol); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+.footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+}
+.footer-logo strong { color: var(--sol); }
+
+.footer-bottom {
+    border-top: 1px solid #2c4429;
+    margin-top: 2.5rem;
+    padding-block: 1.2rem;
+    text-align: center;
+    font-size: .85rem;
+}
+
+/* ---------- Focus & motion ---------- */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--sol);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1000px) {
+    .arstid-liste { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 900px) {
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+    .om-inner { grid-template-columns: 1fr; }
+    .nav { display: none; }
+}
+
+@media (max-width: 600px) {
+    .arstid-liste { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+}

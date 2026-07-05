@@ -1,0 +1,389 @@
+/* =========================================================
+   Berg Malerfirma – demo stylesheet (Design: "Palett")
+   Palette: kritthvit / blekkblå / malingsprikker
+   Light airy look – paint swatches as design element
+   ========================================================= */
+
+:root {
+    --blekk: #2b3a55;           /* ink blue – headers */
+    --blekk-deep: #1d2940;      /* darkest – footer */
+    --primary: #3d5a99;         /* painter blue – primary action */
+    --primary-dark: #2e4577;
+    --kritt: #fdfcfa;           /* chalk white background */
+    --surface: #ffffff;
+    --line: #e6e3dd;
+    --ink-soft: #55617a;        /* body text */
+    /* paint swatch colors */
+    --sw1: #e5a33d;             /* oker */
+    --sw2: #c96f52;             /* terrakotta */
+    --sw3: #7ba374;             /* salvie */
+    --sw4: #5a8fc4;             /* himmelblå */
+    --sw5: #b48ec6;             /* lavendel */
+    --radius: 12px;
+    --font-display: "Outfit", sans-serif;
+    --font-body: "Karla", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    background: var(--kritt);
+}
+
+img { max-width: 100%; display: block; }
+
+.container { width: min(1120px, 92%); margin-inline: auto; }
+.container-narrow { width: min(760px, 92%); }
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--blekk);
+    line-height: 1.12;
+}
+
+h1 { font-size: clamp(2.3rem, 5.5vw, 3.5rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 600; margin-bottom: 1.5rem; }
+h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .5rem; }
+
+.accent {
+    background: linear-gradient(120deg, var(--sw1), var(--sw2) 30%, var(--sw3) 60%, var(--sw4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.eyebrow {
+    font-family: var(--font-display);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: .6rem;
+}
+
+.section-lead { max-width: 55ch; margin-bottom: 2rem; }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: .85rem 1.7rem;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+
+.btn-small { padding: .5rem 1.2rem; font-size: .92rem; }
+.btn-block { width: 100%; }
+
+/* ---------- Header ---------- */
+
+.header {
+    background: var(--kritt);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: .95rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    text-decoration: none;
+    color: var(--blekk);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.logo strong { color: var(--primary); font-weight: 700; }
+
+.logo-dot {
+    width: .95rem;
+    height: .95rem;
+    border-radius: 50%;
+    background: conic-gradient(var(--sw1), var(--sw2), var(--sw3), var(--sw4), var(--sw5), var(--sw1));
+}
+
+.nav { display: flex; gap: 1.5rem; }
+
+.nav a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-weight: 500;
+    font-size: .95rem;
+}
+.nav a:hover { color: var(--primary); }
+
+/* ---------- Hero ---------- */
+
+.hero {
+    text-align: center;
+    padding-block: 4.5rem 3rem;
+}
+
+.hero-lead {
+    max-width: 52ch;
+    margin: 1.2rem auto 0;
+    font-size: 1.12rem;
+}
+
+/* Fargekart – swatch strip */
+.fargekart {
+    display: flex;
+    justify-content: center;
+    gap: .6rem;
+    margin-top: 2rem;
+}
+
+.farge {
+    width: 3.4rem;
+    height: 2.2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(43, 58, 85, .15);
+}
+
+.f1 { background: var(--sw1); transform: rotate(-2deg); }
+.f2 { background: var(--sw2); transform: rotate(1.5deg); }
+.f3 { background: var(--sw3); transform: rotate(-1deg); }
+.f4 { background: var(--sw4); transform: rotate(2deg); }
+.f5 { background: var(--sw5); transform: rotate(-1.5deg); }
+
+/* ---------- Før / etter ---------- */
+
+.foretter-liste { display: grid; gap: 3rem; }
+
+.foretter { display: grid; gap: 1rem; }
+
+.foretter-par {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.foretter-par figure { margin: 0; position: relative; }
+
+.foretter-par figcaption {
+    position: absolute;
+    top: .8rem;
+    left: .8rem;
+    font-family: var(--font-display);
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .25rem .7rem;
+    border-radius: 999px;
+    background: rgba(29, 41, 64, .85);
+    color: #fff;
+}
+
+.foretter-par figure:last-child figcaption { background: var(--primary); }
+
+.foretter-tekst h3 { margin-bottom: .3rem; }
+.foretter-tekst p { max-width: 65ch; }
+
+/* ---------- Photo placeholders ---------- */
+
+.photo-placeholder {
+    background: linear-gradient(150deg, #3a4c6e, var(--blekk-deep));
+    border-radius: var(--radius);
+    aspect-ratio: 16 / 10;
+    display: grid;
+    place-items: center;
+    color: #9aa7bf;
+    font-size: .9rem;
+}
+
+.photo-etter {
+    background:
+        radial-gradient(ellipse 80% 80% at 25% 15%, rgba(229, 163, 61, .2), transparent 60%),
+        linear-gradient(150deg, #4b6390, var(--blekk));
+}
+
+.photo-om { aspect-ratio: 1 / 1; }
+
+/* ---------- Sections & cards ---------- */
+
+.section { padding-block: 4.5rem; }
+
+.section-alt { background: var(--surface); border-block: 1px solid var(--line); }
+
+.grid { display: grid; gap: 1.4rem; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.card {
+    background: var(--kritt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.6rem;
+    position: relative;
+}
+
+.card-dot {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    margin-bottom: .8rem;
+}
+
+.d1 { background: var(--sw1); }
+.d2 { background: var(--sw2); }
+.d3 { background: var(--sw3); }
+.d4 { background: var(--sw4); }
+.d5 { background: var(--sw5); }
+
+/* ---------- Form ---------- */
+
+.section-form { background: var(--surface); border-block: 1px solid var(--line); }
+
+.form { display: grid; gap: 1.1rem; margin-top: .5rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+
+.form-field { display: grid; gap: .35rem; }
+
+.form-field label {
+    font-weight: 600;
+    font-size: .92rem;
+    color: var(--blekk);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    font: inherit;
+    padding: .75rem .9rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--kritt);
+    color: var(--blekk);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 1px;
+    border-color: var(--primary);
+}
+
+.form-note { font-size: .87rem; color: var(--ink-soft); }
+.form-note a { color: var(--primary); }
+
+/* ---------- Om oss ---------- */
+
+.om-inner {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.om-inner p { margin-bottom: 1rem; }
+
+.hero-trust {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    font-size: .93rem;
+    font-weight: 600;
+    margin-top: 1.2rem;
+}
+
+.hero-trust li::before {
+    content: "●";
+    color: var(--sw3);
+    margin-right: .4rem;
+}
+
+.hero-trust li:nth-child(2)::before { color: var(--sw1); }
+.hero-trust li:nth-child(3)::before { color: var(--sw4); }
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: var(--blekk-deep);
+    color: #b8c2d6;
+    padding-top: 3.5rem;
+}
+
+.footer h3 { color: #fff; font-size: 1rem; margin-bottom: .8rem; }
+.footer p { margin-bottom: .45rem; font-size: .95rem; }
+.footer a { color: #9db7e0; text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+}
+.footer-logo strong { color: #9db7e0; }
+
+.footer-bottom {
+    border-top: 1px solid #2c3a58;
+    margin-top: 2.5rem;
+    padding-block: 1.2rem;
+    text-align: center;
+    font-size: .85rem;
+}
+
+/* ---------- Focus & motion ---------- */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--sw1);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; transform: none !important; }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+    .om-inner { grid-template-columns: 1fr; }
+    .nav { display: none; }
+}
+
+@media (max-width: 600px) {
+    .grid-3 { grid-template-columns: 1fr; }
+    .foretter-par { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .fargekart { flex-wrap: wrap; }
+}

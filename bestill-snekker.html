@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestill nettside – Snekker – Hjemmesidendin</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">hjemmesiden<span>din</span></a>
+            <nav class="nav">
+                <a href="demoer/snekker/index.html" target="_blank">Se demoen</a>
+                <a href="index.html#pris">Pris</a>
+                <a href="index.html#faq">Spørsmål</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container container-narrow">
+            <p class="eyebrow">Bestilling – Snekker</p>
+            <h1 class="bestill-tittel">Bestill nettsiden din</h1>
+            <p class="section-lead">Dette skjemaet er laget spesielt for snekkere og tømrere. Hvert felt forklarer hva vi trenger og hvor det brukes på nettsiden din – slik blir siden riktig på første forsøk.</p>
+
+            <div class="trygghet">
+                <p>✓ Fast pris: <strong>8 900 kr</strong> – ingen månedskostnad</p>
+                <p>✓ Én gratis endringsrunde (inntil 10 småjusteringer) innen 14 dager</p>
+                <p>✓ Full refusjon dersom vi ikke kan levere</p>
+            </div>
+
+            <form name="bestilling-snekker" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="takk.html" class="form">
+                <input type="hidden" name="form-name" value="bestilling-snekker">
+                <p class="skjult-felt" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
+
+                <h2 class="form-del">1. Design og farger</h2>
+                <p class="form-hint">Du har valgt <strong>Snekker-designet</strong> («Eik & Skog» – galleri i fokus). <a href="demoer/snekker/index.html" target="_blank">Se demoen igjen</a> hvis du vil.</p>
+
+                <div class="form-field">
+                    <label>Fargevalg – velg paletten for nettsiden din</label>
+                    <div class="fargevalg">
+                        <label class="fargevalg-alt"><input type="radio" name="farge" value="Som i demoen" checked><span class="sw" style="background:#1e3b2f"></span> Som i demoen (anbefalt)</label>
+                        <label class="fargevalg-alt"><input type="radio" name="farge" value="Valnøtt"><span class="sw" style="background:#3e2f23"></span> Valnøtt</label>
+                        <label class="fargevalg-alt"><input type="radio" name="farge" value="Grafitt"><span class="sw" style="background:#33383f"></span> Grafitt</label>
+                        <label class="fargevalg-alt"><input type="radio" name="farge" value="Dyp blå"><span class="sw" style="background:#1e4f7a"></span> Dyp blå</label>
+                        <label class="fargevalg-alt"><input type="radio" name="farge" value="Burgunder"><span class="sw" style="background:#6e2f3a"></span> Burgunder</label>
+                    </div>
+                    <p class="form-hint">Usikker? Fargen kan alltid justeres i endringsrunden – helt gratis.</p>
+                </div>
+
+                <h2 class="form-del">2. Om virksomheten din</h2>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="virksomhetsform">Virksomhetsform</label>
+                        <select id="virksomhetsform" name="virksomhetsform" required>
+                            <option value="" disabled selected>Velg</option>
+                            <option>Enkeltpersonforetak (ENK)</option>
+                            <option>Aksjeselskap (AS)</option>
+                            <option>Frilanser uten org.nr</option>
+                            <option>Annet</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="firmanavn">Firmanavn / ditt navn</label>
+                        <input type="text" id="firmanavn" name="firmanavn" required>
+                        <p class="form-hint">Vises i toppen av siden, i bunnteksten og i sidetittelen.</p>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="orgnr">Organisasjonsnummer (valgfritt)</label>
+                    <input type="text" id="orgnr" name="orgnr" inputmode="numeric">
+                    <p class="form-hint">Vises i bunnteksten – det bygger tillit hos kundene. Har du ikke org.nr? Ingen problem – nettside og domene kan registreres på deg som privatperson.</p>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="kontaktperson">Kontaktperson</label>
+                        <input type="text" id="kontaktperson" name="kontaktperson" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="telefon">Telefon (vises på nettsiden)</label>
+                        <input type="tel" id="telefon" name="telefon" required>
+                        <p class="form-hint">Dette blir ring-knappen kundene dine trykker på.</p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="epost">E-post</label>
+                        <input type="email" id="epost" name="epost" required>
+                        <p class="form-hint">Brukes til kontakt med deg, domeneregistrering og som mottaker av henvendelser fra nettsiden.</p>
+                    </div>
+                    <div class="form-field">
+                        <label for="adresse">Forretningsadresse</label>
+                        <input type="text" id="adresse" name="adresse" required>
+                        <p class="form-hint">Vises i bunnteksten på nettsiden.</p>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="omrade">Hvilket område jobber du i?</label>
+                    <input type="text" id="omrade" name="omrade" placeholder="F.eks: Skien, Porsgrunn og omegn" required>
+                    <p class="form-hint">Brukes i overskrifter og tekster – viktig for at kunder i ditt område finner deg på Google.</p>
+                </div>
+
+                <h2 class="form-del">3. Innhold for snekkersiden din</h2>
+                <p class="form-hint"><strong>Viktig for deg:</strong> snekkersiden lever av prosjektgalleriet – det er det første kundene ser. Derfor ber vi om litt mer fra deg her enn i andre bransjer. Det er verdt det.</p>
+
+                <div class="form-field">
+                    <label>Hvilke tjenester tilbyr du?</label>
+                    <div class="sjekkliste">
+                        <label><input type="checkbox" name="tjenester" value="Kjøkken/innredning"> Kjøkken / innredning</label>
+                        <label><input type="checkbox" name="tjenester" value="Terrasser/uterom"> Terrasser / uterom</label>
+                        <label><input type="checkbox" name="tjenester" value="Renovering"> Renovering</label>
+                        <label><input type="checkbox" name="tjenester" value="Dører/vinduer"> Dører / vinduer</label>
+                        <label><input type="checkbox" name="tjenester" value="Gulv/listverk"> Gulv / listverk</label>
+                        <label><input type="checkbox" name="tjenester" value="Småjobber"> Småjobber</label>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="erfaring">Fagbrev og erfaring</label>
+                    <input type="text" id="erfaring" name="erfaring" placeholder="F.eks: Tømrer med fagbrev, 15 års erfaring" required>
+                    <p class="form-hint">Vises i «om verkstedet»-seksjonen.</p>
+                </div>
+
+                <div class="form-field">
+                    <label for="prosjektbeskrivelser">Beskriv 5 av dine beste prosjekter (én linje per prosjekt)</label>
+                    <textarea id="prosjektbeskrivelser" name="prosjektbeskrivelser" rows="6" placeholder="1. Spesialbygd kjøkken i eik – enebolig, Skien&#10;2. Terrasse 85 m² med innfelt belysning – Porsgrunn&#10;3. Garderobe fra gulv til tak – leilighet&#10;4. ...&#10;5. ..." required></textarea>
+                    <p class="form-hint">Hver linje blir bildeteksten under prosjektbildet: hva du bygget + hvor. Match rekkefølgen med bildene du laster opp under.</p>
+                </div>
+
+                <div class="form-field">
+                    <label for="kundesitat">Et godt kundesitat (valgfritt, men anbefalt)</label>
+                    <textarea id="kundesitat" name="kundesitat" rows="2" placeholder="F.eks: «Lund leverte nøyaktig det vi ble enige om – til avtalt tid og pris.» – Kunde i Skien"></textarea>
+                    <p class="form-hint">Vises som stort sitat midt på siden. Spør gjerne en fornøyd kunde – de sier som regel ja.</p>
+                </div>
+
+                <h2 class="form-del">4. Domene</h2>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="domene">Ønsket domenenavn</label>
+                        <input type="text" id="domene" name="domene" placeholder="dittfirma.no" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="domene2">Alternativ (hvis opptatt)</label>
+                        <input type="text" id="domene2" name="domene2" placeholder="dittfirma-as.no">
+                    </div>
+                </div>
+                <p class="form-hint">Domenet registreres med virksomheten din som eier. Firmanavn, org.nr (hvis du har), adresse og e-post fra dette skjemaet brukes til registreringen. Årlig fornyelse (ca. 150–200 kr) faktureres deg direkte fra domeneleverandøren. Vi sjekker at domenet er ledig og bekrefter med deg før noe registreres. Vil du sjekke selv? <a href="https://www.norid.no/no/domeneoppslag/" target="_blank" rel="noopener">Søk hos Norid</a>.</p>
+
+                <h2 class="form-del">5. Logo og bilder</h2>
+
+                <div class="form-field">
+                    <label for="logo">Logo</label>
+                    <select id="logo" name="logo" required>
+                        <option value="" disabled selected>Velg</option>
+                        <option>Jeg laster opp logoen her</option>
+                        <option>Jeg vil ha firmanavnet i profesjonell tekststil (inkludert)</option>
+                        <option>Jeg har ikke bestemt meg – start med tekststil</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="logofil">Last opp logo (valgfritt – jpg, png, svg eller pdf, maks 8 MB)</label>
+                    <input type="file" id="logofil" name="logofil" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
+                </div>
+
+                <div class="foto-guide">
+                    <h3>📷 Bildene nettsiden din trenger</h3>
+                    <p>Snekkersiden bruker <strong>6 bilder</strong> – galleriet er hjertet av siden:</p>
+                    <ul>
+                        <li><strong>5 prosjektbilder</strong> – ett per prosjekt du beskrev over, i samme rekkefølge</li>
+                        <li><strong>1 bilde av deg</strong> – gjerne i verkstedet eller på byggeplass</li>
+                    </ul>
+                    <p>Tips: velg bilder av <em>ferdige</em> prosjekter i godt lys. Liggende format fungerer best i galleriet. Ett godt bilde per prosjekt slår ti middels.</p>
+                </div>
+
+                <div class="form-field">
+                    <label for="prosjekt1">Prosjektbilde 1</label>
+                    <input type="file" id="prosjekt1" name="prosjekt1" accept=".jpg,.jpeg,.png,.webp">
+                    <p class="form-hint">Matcher linje 1 i beskrivelsene.</p>
+                </div>
+                <div class="form-field">
+                    <label for="prosjekt2">Prosjektbilde 2</label>
+                    <input type="file" id="prosjekt2" name="prosjekt2" accept=".jpg,.jpeg,.png,.webp">
+                    <p class="form-hint">Matcher linje 2.</p>
+                </div>
+                <div class="form-field">
+                    <label for="prosjekt3">Prosjektbilde 3</label>
+                    <input type="file" id="prosjekt3" name="prosjekt3" accept=".jpg,.jpeg,.png,.webp">
+                    <p class="form-hint">Matcher linje 3.</p>
+                </div>
+                <div class="form-field">
+                    <label for="prosjekt4">Prosjektbilde 4</label>
+                    <input type="file" id="prosjekt4" name="prosjekt4" accept=".jpg,.jpeg,.png,.webp">
+                    <p class="form-hint">Matcher linje 4.</p>
+                </div>
+                <div class="form-field">
+                    <label for="prosjekt5">Prosjektbilde 5</label>
+                    <input type="file" id="prosjekt5" name="prosjekt5" accept=".jpg,.jpeg,.png,.webp">
+                    <p class="form-hint">Matcher linje 5.</p>
+                </div>
+                <div class="form-field">
+                    <label for="portrett">Bilde av deg / verkstedet</label>
+                    <input type="file" id="portrett" name="portrett" accept=".jpg,.jpeg,.png,.webp">
+                    <p class="form-hint">Vises i «om verkstedet».</p>
+                </div>
+
+                <p class="form-hint">Last opp bildene du har direkte her. Mangler du noen? Da leveres siden med profesjonelle plassholdere, og bilder kan legges til senere som en oppdatering.</p>
+
+                <h2 class="form-del">6. Annet</h2>
+
+                <div class="form-field">
+                    <label for="kommentar">Noe annet vi bør vite? (valgfritt)</label>
+                    <textarea id="kommentar" name="kommentar" rows="3" placeholder="F.eks: spesialiteter, samarbeid med andre håndverkere"></textarea>
+                </div>
+
+                <div class="form-field form-check">
+                    <label>
+                        <input type="checkbox" name="vilkar" required>
+                        Jeg har lest og godtar <a href="vilkar.html" target="_blank">salgsbetingelsene</a> og <a href="personvern.html" target="_blank">personvernerklæringen</a>. Jeg bekrefter at kjøpet gjelder min næringsvirksomhet eller mitt selvstendige virke, at produktet spesialtilpasses meg, og at arbeidet starter etter avtale – det foreligger derfor ikke angrerett.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Send bestilling og gå til betaling</button>
+                <p class="form-note">Etter innsending kommer du til en bekreftelsesside med sikker betaling via Stripe. Vi starter arbeidet mandag – manglende materiell kan ettersendes innen søndag.</p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <p class="footer-logo">hjemmesiden<span>din</span></p>
+                <p>Ferdige nettsider til fast pris – laget i Norge.</p>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <p><a href="mailto:post@hjemmesidendin.no">post@hjemmesidendin.no</a></p>
+            </div>
+            <div>
+                <h3>Informasjon</h3>
+                <p><a href="personvern.html">Personvernerklæring</a></p>
+                <p><a href="vilkar.html">Salgsbetingelser</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Hjemmesidendin. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

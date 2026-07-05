@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakken Rør AS – Rørlegger med døgnvakt i Grenland</title>
+    <meta name="description" content="Akutt lekkasje? Ring døgnvakten. Godkjent rørlegger i Grenland – bad, varme, service og utrykning hele døgnet.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span class="logo-mark">💧</span>
+                <span class="logo-text">Bakken <strong>Rør</strong> AS</span>
+            </a>
+            <nav class="nav">
+                <a href="#akutt">Akutt hjelp</a>
+                <a href="#tjenester">Tjenester</a>
+                <a href="#tilbud">Tilbud</a>
+                <a href="#kontakt">Kontakt</a>
+            </nav>
+            <a href="tel:+4790123456" class="btn btn-call">
+                <span class="btn-call-label">Døgnvakt</span>
+                <span class="btn-call-number">901 23 456</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ===== NØDHERO – telefonen i sentrum ===== -->
+    <section class="nodhero">
+        <div class="container">
+            <p class="eyebrow eyebrow-light">Rørlegger med døgnvakt – Grenland</p>
+            <h1>Vannlekkasje?<br>Vi svarer. Hele døgnet.</h1>
+            <a href="tel:+4790123456" class="nodtelefon">
+                <span class="nodtelefon-label">Ring nå</span>
+                <span class="nodtelefon-nummer">901 23 456</span>
+            </a>
+            <p class="nodhero-under">Gjennomsnittlig utrykningstid i Grenland: under 60 minutter</p>
+        </div>
+    </section>
+
+    <!-- ===== 3 STEG VED LEKKASJE ===== -->
+    <section class="section" id="akutt">
+        <div class="container">
+            <p class="eyebrow">Har du lekkasje akkurat nå?</p>
+            <h2>Gjør dette – i denne rekkefølgen</h2>
+            <div class="grid grid-3">
+                <div class="akutt-steg">
+                    <span class="akutt-num">1</span>
+                    <h3>Steng hovedkranen</h3>
+                    <p>Hovedkranen sitter oftest der vannrøret kommer inn i boligen – i kjeller, bod eller under kjøkkenbenken. Vri med klokken til den stopper.</p>
+                </div>
+                <div class="akutt-steg">
+                    <span class="akutt-num">2</span>
+                    <h3>Slå av varmtvannsberederen</h3>
+                    <p>Skru av kursen til berederen i sikringsskapet, så unngår du skade på elementet når vannet er stengt.</p>
+                </div>
+                <div class="akutt-steg">
+                    <span class="akutt-num">3</span>
+                    <h3>Ring oss</h3>
+                    <p><a href="tel:+4790123456">901 23 456</a> – vi veileder deg på telefonen og rykker ut. Ta gjerne bilder til forsikringen mens du venter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TJENESTER (kompakt liste) ===== -->
+    <section class="section section-dark" id="tjenester">
+        <div class="container">
+            <p class="eyebrow eyebrow-light">Ikke akutt? Vi gjør også</p>
+            <h2>Planlagte jobber – fast pris</h2>
+            <div class="tjeneste-liste">
+                <div class="tjeneste-rad"><h3>Bad og våtrom</h3><p>Komplett renovering etter våtromsnormen, med dokumentasjon.</p></div>
+                <div class="tjeneste-rad"><h3>Varmeanlegg og bereder</h3><p>Installasjon og service av beredere, gulvvarme og varmepumper.</p></div>
+                <div class="tjeneste-rad"><h3>Kjøkken</h3><p>Tilkobling av oppvaskmaskin, kraner og avløp – uten lekkasjerisiko.</p></div>
+                <div class="tjeneste-rad"><h3>Rørinspeksjon</h3><p>Kamerainspeksjon – finn problemet før det blir en skade.</p></div>
+                <div class="tjeneste-rad"><h3>Service og småjobber</h3><p>Dryppende kraner og rennende toaletter – ingen jobb er for liten.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TILBUDSSKJEMA ===== -->
+    <section class="section section-form" id="tilbud">
+        <div class="container container-narrow">
+            <p class="eyebrow">Gratis og uforpliktende</p>
+            <h2>Be om tilbud på planlagt jobb</h2>
+            <p class="section-lead">Svar innen én virkedag. Haster det? Ring døgnvakten i stedet.</p>
+
+            <form name="tilbud" method="POST" data-netlify="true" class="form">
+                <input type="hidden" name="form-name" value="tilbud">
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="jobbtype">Hva gjelder det?</label>
+                        <select id="jobbtype" name="jobbtype" required>
+                            <option value="" disabled selected>Velg type jobb</option>
+                            <option>Bad / våtrom</option>
+                            <option>Varmeanlegg / bereder</option>
+                            <option>Kjøkken</option>
+                            <option>Rørinspeksjon</option>
+                            <option>Service / småjobb</option>
+                            <option>Annet</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="boligtype">Type bolig</label>
+                        <select id="boligtype" name="boligtype" required>
+                            <option value="" disabled selected>Velg boligtype</option>
+                            <option>Enebolig</option>
+                            <option>Leilighet</option>
+                            <option>Rekkehus</option>
+                            <option>Hytte</option>
+                            <option>Næringsbygg</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="beskrivelse">Beskriv jobben</label>
+                    <textarea id="beskrivelse" name="beskrivelse" rows="4" placeholder="F.eks: Ønsker å pusse opp bad fra 1995, ca. 5 m²." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="navn">Navn</label>
+                        <input type="text" id="navn" name="navn" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="postnummer">Postnummer</label>
+                        <input type="text" id="postnummer" name="postnummer" inputmode="numeric" pattern="[0-9]{4}" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="telefon">Telefon</label>
+                        <input type="tel" id="telefon" name="telefon" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="epost">E-post</label>
+                        <input type="email" id="epost" name="epost" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Send forespørsel</button>
+                <p class="form-note">Vi behandler opplysningene dine kun for å svare på henvendelsen. Se vår <a href="#">personvernerklæring</a>.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== TRYGGHET + OM OSS (kombinert) ===== -->
+    <section class="section" id="om-oss">
+        <div class="container om-inner">
+            <div>
+                <p class="eyebrow">Hvorfor Bakken Rør</p>
+                <h2>Dokumentert. Forsikret. Lokal.</h2>
+                <p>Vi har sentral godkjenning, og alt arbeid leveres med dokumentasjon – viktig for forsikringen din. Planlagte jobber prises alltid skriftlig på forhånd.</p>
+                <p>Vi holder til i Porsgrunn og kjenner både området og de gamle rørene i Grenland. Hos oss snakker du direkte med rørleggeren – ikke et sentralbord.</p>
+                <ul class="hero-trust">
+                    <li>Sentral godkjenning</li>
+                    <li>Utrykning under 60 min</li>
+                    <li>Fast pris på planlagte jobber</li>
+                </ul>
+            </div>
+            <div class="photo-placeholder photo-om">
+                <span>Bilde: teamet / servicebil</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== KONTAKT / FOOTER ===== -->
+    <footer class="footer" id="kontakt">
+        <div class="container grid grid-3">
+            <div>
+                <p class="footer-logo">💧 Bakken <strong>Rør</strong> AS</p>
+                <p>Rørlegger med døgnvakt i Grenland.</p>
+                <p>Org.nr: 999 999 999</p>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <p><a href="tel:+4790123456">901 23 456</a> (døgnvakt)</p>
+                <p><a href="mailto:post@bakkenror.no">post@bakkenror.no</a></p>
+                <p>Verksgata 8, 3936 Porsgrunn</p>
+            </div>
+            <div>
+                <h3>Informasjon</h3>
+                <p><a href="#">Personvernerklæring</a></p>
+                <p><a href="#">Salgsbetingelser</a></p>
+                <p><a href="#tilbud">Be om tilbud</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Bakken Rør AS. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

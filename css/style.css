@@ -644,3 +644,112 @@ summary:focus-visible {
     color: #f0b98d;
     text-decoration: underline;
 }
+
+/* ---------- Velg bransje (bestill.html) ---------- */
+
+.velg-liste { display: grid; gap: .7rem; margin-bottom: 1.6rem; }
+
+.velg-rad {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.4rem;
+    text-decoration: none;
+    color: var(--pine);
+    font-size: 1.05rem;
+    transition: border-color .15s ease, transform .12s ease, box-shadow .15s ease;
+}
+
+.velg-rad:hover {
+    border-color: var(--signal);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(29, 58, 47, .08);
+}
+
+.velg-rad span { font-size: 1.4rem; }
+.velg-rad strong { font-family: var(--font-display); flex: 1; }
+.velg-rad em { color: var(--signal); font-style: normal; font-weight: 700; }
+
+/* ---------- Fargevalg (muestras de color) ---------- */
+
+.fargevalg { display: grid; gap: .55rem; }
+
+.fargevalg-alt {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: .65rem 1rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.fargevalg-alt:has(input:checked) {
+    border-color: var(--signal);
+    background: var(--surface);
+    box-shadow: 0 0 0 1px var(--signal);
+}
+
+.fargevalg-alt input { accent-color: var(--signal); }
+
+.sw {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
+    flex-shrink: 0;
+}
+
+/* ---------- Sjekkliste (checkboxes de servicios) ---------- */
+
+.sjekkliste {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem .9rem;
+}
+
+.sjekkliste label {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    font-weight: 500;
+    font-size: .97rem;
+    color: var(--pine-soft);
+    cursor: pointer;
+}
+
+.sjekkliste input { accent-color: var(--signal); width: 1.05rem; height: 1.05rem; }
+
+/* ---------- Foto-guide ---------- */
+
+.foto-guide {
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--signal);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.5rem;
+    margin-block: .4rem;
+}
+
+.foto-guide h3 { font-size: 1.02rem; margin-bottom: .5rem; }
+
+.foto-guide ul {
+    padding-left: 1.2rem;
+    display: grid;
+    gap: .35rem;
+    margin-block: .5rem .7rem;
+    font-size: .96rem;
+}
+
+.foto-guide p { font-size: .93rem; }
+
+@media (max-width: 600px) {
+    .sjekkliste { grid-template-columns: 1fr; }
+}

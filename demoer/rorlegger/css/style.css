@@ -1,0 +1,413 @@
+/* =========================================================
+   Bakken Rør AS – demo stylesheet (Design: "Fjordkalk")
+   Palette: dyp petrol / sjøgrønn / varm sand / messing
+   Calm premium look – soft shapes, warm brass contrast
+   ========================================================= */
+
+:root {
+    --petrol: #124a52;          /* deep petroleum – headers & dark blocks */
+    --petrol-deep: #0c343a;     /* darkest – footer & hero */
+    --sea: #2e7d78;             /* sea green – primary action */
+    --sea-dark: #1f5f5b;
+    --mist: #9fd0c9;            /* light accent on dark */
+    --messing: #c9924b;         /* brass – warm contrast accent */
+    --sand: #f6f1e8;            /* warm sand background */
+    --surface: #ffffff;
+    --line: #e5ddcf;
+    --ink-soft: #48605e;        /* body text */
+    --radius: 14px;
+    --font-display: "Manrope", sans-serif;
+    --font-body: "Source Sans 3", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.06rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    background: var(--sand);
+}
+
+img { max-width: 100%; display: block; }
+
+.container { width: min(1120px, 92%); margin-inline: auto; }
+.container-narrow { width: min(760px, 92%); }
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--petrol);
+    line-height: 1.15;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.3rem); font-weight: 800; letter-spacing: -.01em; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -.01em; }
+h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: .5rem; }
+
+.accent { color: var(--sea); }
+
+.eyebrow {
+    font-family: var(--font-display);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--sea);
+    margin-bottom: .6rem;
+}
+
+.eyebrow-light { color: var(--messing); }
+
+.section-lead { max-width: 55ch; margin-bottom: 2rem; }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: .9rem 1.7rem;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .12s ease;
+}
+
+.btn-primary { background: var(--sea); color: #fff; }
+.btn-primary:hover { background: var(--sea-dark); }
+
+.btn-ghost { border-color: var(--petrol); color: var(--petrol); background: transparent; }
+.btn-ghost:hover { background: var(--petrol); color: #fff; }
+
+.btn-block { width: 100%; }
+
+/* ---------- Header ---------- */
+
+.header {
+    background: var(--sand);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: .9rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    text-decoration: none;
+    color: var(--petrol);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.15rem;
+}
+
+.logo strong { color: var(--sea); }
+.logo-mark { font-size: 1.25rem; }
+
+.nav { display: flex; gap: 1.5rem; }
+
+.nav a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: .95rem;
+}
+.nav a:hover { color: var(--sea); }
+
+.btn-call {
+    background: var(--petrol);
+    color: #fff;
+    text-align: center;
+    line-height: 1.25;
+    padding: .55rem 1.3rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-family: var(--font-display);
+    transition: background-color .15s ease;
+}
+.btn-call:hover { background: var(--sea); }
+
+.btn-call-label { display: block; font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; opacity: .85; }
+.btn-call-number { display: block; font-size: 1.05rem; font-weight: 800; letter-spacing: .03em; }
+
+/* ---------- Nødhero – rolig og profesjonell ---------- */
+
+.nodhero {
+    background:
+        radial-gradient(ellipse 60% 55% at 10% 110%, rgba(46, 125, 120, .5), transparent 70%),
+        repeating-radial-gradient(ellipse 140% 90% at 50% 130%,
+            transparent 0 24px,
+            rgba(159, 208, 201, .09) 24px 27px),
+        linear-gradient(170deg, var(--petrol) 0%, var(--petrol-deep) 100%);
+    text-align: center;
+    padding-block: 6rem 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.nodhero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 42px;
+    background: var(--sand);
+    clip-path: ellipse(75% 100% at 50% 100%);
+}
+
+.nodhero h1 {
+    color: #fff;
+    margin-block: .4rem 1.8rem;
+}
+
+/* Kompakt, profesjonell ring-knapp */
+ .nodtelefon {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .6rem;
+    text-decoration: none;
+    padding: .65rem 1.6rem;
+    border-radius: 999px;
+    border: 2px solid var(--messing);
+    background: rgba(255, 255, 255, .04);
+    transition: background-color .15s ease, transform .12s ease;
+}
+
+.nodtelefon:hover {
+    background: rgba(201, 146, 75, .15);
+    transform: translateY(-2px);
+}
+
+.nodtelefon-label {
+    font-family: var(--font-display);
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--messing);
+}
+
+.nodtelefon-nummer {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+    color: #fff;
+}
+
+.nodhero-under {
+    margin-top: 1.4rem;
+    color: var(--mist);
+    font-weight: 600;
+    font-size: .95rem;
+}
+
+/* ---------- Akutt-steg ---------- */
+
+.akutt-steg {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.7rem 1.6rem;
+    box-shadow: 0 2px 10px rgba(18, 74, 82, .05);
+}
+
+.akutt-num {
+    display: inline-grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--messing);
+    color: #fff;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin-bottom: .9rem;
+}
+
+.akutt-steg a { color: var(--sea); font-weight: 700; }
+
+/* ---------- Sections ---------- */
+
+.section { padding-block: 4.5rem; }
+
+.grid { display: grid; gap: 1.4rem; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* ---------- Dark section & tjeneste-liste ---------- */
+
+.section-dark { background: var(--petrol); }
+
+.section-dark h2 { color: #fff; }
+
+.tjeneste-liste { display: grid; gap: .8rem; }
+
+.tjeneste-rad {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+    background: rgba(255, 255, 255, .05);
+    border-left: 3px solid var(--messing);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.5rem;
+}
+
+.tjeneste-rad h3 { color: var(--mist); margin: 0; }
+.tjeneste-rad p { color: #cfe3df; margin: 0; }
+
+/* ---------- Photo placeholders ---------- */
+
+.photo-placeholder {
+    background:
+        radial-gradient(ellipse 80% 70% at 30% 20%, rgba(159, 208, 201, .12), transparent),
+        linear-gradient(160deg, #1a5a60, var(--petrol-deep));
+    border-radius: var(--radius);
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    color: #8fb8b2;
+    font-size: .9rem;
+}
+
+.photo-om { aspect-ratio: 1 / 1; }
+
+/* ---------- Form ---------- */
+
+.section-form { background: var(--surface); border-block: 1px solid var(--line); }
+
+.form { display: grid; gap: 1.1rem; margin-top: .5rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+
+.form-field { display: grid; gap: .35rem; }
+
+.form-field label {
+    font-weight: 600;
+    font-size: .92rem;
+    color: var(--petrol);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    font: inherit;
+    padding: .75rem .9rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--sand);
+    color: var(--petrol);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: 2px solid var(--sea);
+    outline-offset: 1px;
+    border-color: var(--sea);
+}
+
+.form-note { font-size: .87rem; color: var(--ink-soft); }
+.form-note a { color: var(--sea); }
+
+/* ---------- Om oss ---------- */
+
+.om-inner {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.om-inner p { margin-bottom: 1rem; }
+
+.hero-trust {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    font-size: .93rem;
+    font-weight: 600;
+    margin-top: 1.2rem;
+}
+
+.hero-trust li::before {
+    content: "✓";
+    color: var(--messing);
+    font-weight: 700;
+    margin-right: .4rem;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: var(--petrol-deep);
+    color: #bcd6d1;
+    padding-top: 3.5rem;
+}
+
+.footer h3 { color: #fff; font-size: 1rem; margin-bottom: .8rem; }
+.footer p { margin-bottom: .45rem; font-size: .95rem; }
+.footer a { color: var(--mist); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+.footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+}
+.footer-logo strong { color: var(--messing); }
+
+.footer-bottom {
+    border-top: 1px solid #164249;
+    margin-top: 2.5rem;
+    padding-block: 1.2rem;
+    text-align: center;
+    font-size: .85rem;
+}
+
+/* ---------- Focus & motion ---------- */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--mist);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; transform: none !important; }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+    .grid-3 { grid-template-columns: 1fr; }
+    .om-inner { grid-template-columns: 1fr; }
+    .nav { display: none; }
+    .nodhero { padding-block: 4rem 3.2rem; }
+}
+
+@media (max-width: 700px) {
+    .tjeneste-rad { grid-template-columns: 1fr; gap: .3rem; }
+    .form-row { grid-template-columns: 1fr; }
+}
