@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestill nettside – Hjemmesidendin</title>
-    <meta name="description" content="Bestill din ferdige nettside. Fyll ut skjemaet – vi bygger og leverer innen 7 virkedager.">
+    <title>Bestill nettside – velg bransje – Hjemmesidendin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,205 +11,37 @@
 </head>
 <body>
 
-    <!-- ===== HEADER ===== -->
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">hjemmesiden<span>din</span></a>
             <nav class="nav">
                 <a href="index.html#slik">Slik fungerer det</a>
-                <a href="index.html#bransjer">Bransjer</a>
                 <a href="index.html#pris">Pris</a>
                 <a href="index.html#faq">Spørsmål</a>
             </nav>
         </div>
     </header>
 
-    <!-- ===== BESTILLING ===== -->
     <section class="section">
         <div class="container container-narrow">
-            <p class="eyebrow">Bestilling</p>
-            <h1 class="bestill-tittel">Bestill nettsiden din</h1>
-            <p class="section-lead">Fyll ut skjemaet under – det tar under ti minutter. Etter innsending kommer du til betalingssiden, og vi setter i gang.</p>
-<p id="kapasitet" class="kapasitet" hidden></p>
-            <div class="trygghet">
-                <p>✓ Fast pris: <strong>8 900 kr</strong> – ingen månedskostnad</p>
-                <p>✓ Én gratis endringsrunde (inntil 10 småjusteringer) innen 14 dager</p>
-                <p>✓ Full refusjon dersom vi ikke kan levere</p>
+            <p class="eyebrow">Bestilling – steg 1 av 2</p>
+            <h1 class="bestill-tittel">Hvilken bransje er du i?</h1>
+            <p class="section-lead">Hvert bestillingsskjema er tilpasset din bransje – med spørsmål og bildeveiledning som passer akkurat din nettside.</p>
+
+            <div class="velg-liste">
+                <a href="bestill-elektriker.html" class="velg-rad"><span>⚡</span><strong>Elektriker</strong><em>→</em></a>
+                <a href="bestill-rorlegger.html" class="velg-rad"><span>🔧</span><strong>Rørlegger</strong><em>→</em></a>
+                <a href="bestill-snekker.html" class="velg-rad"><span>🪚</span><strong>Snekker / tømrer</strong><em>→</em></a>
+                <a href="bestill-maler.html" class="velg-rad"><span>🎨</span><strong>Maler</strong><em>→</em></a>
+                <a href="bestill-renhold.html" class="velg-rad"><span>🧹</span><strong>Renhold</strong><em>→</em></a>
+                <a href="bestill-gartner.html" class="velg-rad"><span>🌿</span><strong>Gartner / hagehjelp</strong><em>→</em></a>
+                <a href="bestill-flyttebyra.html" class="velg-rad"><span>📦</span><strong>Flyttebyrå</strong><em>→</em></a>
             </div>
 
-            <form name="bestilling" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="takk.html" class="form"></form>
-                <input type="hidden" name="form-name" value="bestilling">
-
-                <p class="skjult-felt" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
-
-                <h2 class="form-del">1. Velg design</h2>
-
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="bransje">Bransje</label>
-                        <select id="bransje" name="bransje" required>
-                            <option value="" disabled selected>Velg din bransje</option>
-                            <option>Elektriker</option>
-                            <option>Rørlegger (kommer snart)</option>
-                            <option>Snekker (kommer snart)</option>
-                            <option>Maler (kommer snart)</option>
-                            <option>Renhold (kommer snart)</option>
-                            <option>Gartner (kommer snart)</option>
-                            <option>Flyttebyrå (kommer snart)</option>
-                        </select>
-                    </div>
-                    <div class="form-field">
-                        <label for="design">Design</label>
-                        <select id="design" name="design" required>
-                            <option value="" disabled selected>Velg design</option>
-                            <option>Design 1 (som i demoen)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <h2 class="form-del">2. Om virksomheten din</h2>
-
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="virksomhetsform">Virksomhetsform</label>
-                        <select id="virksomhetsform" name="virksomhetsform" required>
-                            <option value="" disabled selected>Velg</option>
-                            <option>Enkeltpersonforetak (ENK)</option>
-                            <option>Aksjeselskap (AS)</option>
-                            <option>Frilanser uten org.nr</option>
-                            <option>Annet</option>
-                        </select>
-                    </div>
-                    <div class="form-field">
-                        <label for="firmanavn">Firmanavn / ditt navn</label>
-                        <input type="text" id="firmanavn" name="firmanavn" required>
-                    </div>
-                </div>
-
-                <div class="form-field">
-                    <label for="orgnr">Organisasjonsnummer (valgfritt)</label>
-                    <input type="text" id="orgnr" name="orgnr" inputmode="numeric">
-                </div>
-
-                <p class="form-hint">Har du ikke org.nr? Ingen problem – nettside og domene kan registreres på deg som privatperson.</p>
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="kontaktperson">Kontaktperson</label>
-                        <input type="text" id="kontaktperson" name="kontaktperson" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="telefon">Telefon</label>
-                        <input type="tel" id="telefon" name="telefon" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="epost">E-post</label>
-                        <input type="email" id="epost" name="epost" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="adresse">Forretningsadresse</label>
-                        <input type="text" id="adresse" name="adresse" required>
-                    </div>
-                </div>
-
-                <div class="form-field">
-                    <label for="tjenester">Hvilke tjenester tilbyr du? (kort liste)</label>
-                    <textarea id="tjenester" name="tjenester" rows="3" placeholder="F.eks: Sikringsskap, elbillader, belysning, feilsøking" required></textarea>
-                </div>
-
-                <div class="form-field">
-                    <label for="omrade">Hvilket område jobber du i?</label>
-                    <input type="text" id="omrade" name="omrade" placeholder="F.eks: Skien, Porsgrunn og omegn" required>
-                </div>
-
-                <h2 class="form-del">3. Domene</h2>
-
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="domene">Ønsket domenenavn</label>
-                        <input type="text" id="domene" name="domene" placeholder="dittfirma.no" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="domene2">Alternativ (hvis opptatt)</label>
-                        <input type="text" id="domene2" name="domene2" placeholder="dittfirma-as.no">
-                    </div>
-                </div>
-<p class="form-hint">Domenet registreres med bedriften din som eier. Firmanavn, organisasjonsnummer, adresse og e-post fra dette skjemaet brukes til registreringen. Årlig fornyelse (ca. 150–200 kr) faktureres deg direkte fra domeneleverandøren på e-post.</p>
-                <h2 class="form-del">4. Logo, bilder og visuell stil</h2>
-
-                <div class="form-field">
-                    <label for="logo">Logo</label>
-                    <select id="logo" name="logo" required>
-                        <option value="" disabled selected>Velg</option>
-                        <option>Jeg laster opp logoen her</option>
-                        <option>Jeg vil ha firmanavnet i profesjonell tekststil (inkludert)</option>
-                        <option>Jeg har ikke bestemt meg – start med tekststil</option>
-                    </select>
-                </div>
-
-                <div class="form-field">
-                    <label for="logofil">Last opp logo (valgfritt – jpg, png, svg eller pdf, maks 8 MB)</label>
-                    <input type="file" id="logofil" name="logofil" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
-                </div>
-
-                <div class="form-field">
-                    <label for="bilde1">Last opp bilder (valgfritt – inntil 3 bilder)</label>
-                    <input type="file" id="bilde1" name="bilde1" accept=".jpg,.jpeg,.png,.webp">
-                    <input type="file" id="bilde2" name="bilde2" accept=".jpg,.jpeg,.png,.webp">
-                    <input type="file" id="bilde3" name="bilde3" accept=".jpg,.jpeg,.png,.webp">
-                </div>
-
-                <div class="form-field">
-                    <label for="stil">Hvis du ikke har egne bilder – hvordan vil du at siden skal se ut?</label>
-                    <select id="stil" name="stil">
-                        <option value="" disabled selected>Velg (valgfritt)</option>
-                        <option>Fargeprofil – siden tilpasses min merkefarge</option>
-                        <option>Ren ikon-stil – profesjonelle fagikoner</option>
-                        <option>Tall og fakta – erfaring, oppdrag, responstid i fokus</option>
-                        <option>Kundesitater – gode ord fra kunder i fokus</option>
-                        <option>Overlat det til dere – velg det som passer best</option>
-                    </select>
-                </div>
-
-                <div class="form-field">
-                    <label for="merkefarge">Din merkefarge (valgfritt)</label>
-                    <select id="merkefarge" name="merkefarge">
-                        <option value="" disabled selected>Velg (valgfritt)</option>
-                        <option>Elektriker-blå</option>
-                        <option>Skogsgrønn</option>
-                        <option>Signalrød</option>
-                        <option>Jordbrun</option>
-                        <option>Stålgrå</option>
-                        <option>Solgul</option>
-                        <option>Samme som i demoen</option>
-                    </select>
-                </div>
-                <p class="form-hint">Mangler du noe nå? Ingen stress – materiell kan også ettersendes på e-post innen søndag. Etter det leveres siden med valgt stil, og bilder kan legges til senere som en oppdatering.</p>
-                <p class="form-hint">Logo og bilder sendes til oss på e-post etter bestilling – du trenger ikke ha alt klart nå. Har du ikke egne bilder, setter vi opp siden med profesjonelle plassholdere.</p>
-
-                <h2 class="form-del">5. Annet</h2>
-
-                <div class="form-field">
-                    <label for="kommentar">Noe annet vi bør vite? (valgfritt)</label>
-                    <textarea id="kommentar" name="kommentar" rows="3" placeholder="F.eks: åpningstider, sertifiseringer, spesielle ønsker"></textarea>
-                </div>
-
-               <div class="form-field form-check">
-                    <label>
-                        <input type="checkbox" name="vilkar" required>
-                        Jeg har lest og godtar <a href="vilkar.html" target="_blank">salgsbetingelsene</a> og <a href="personvern.html" target="_blank">personvernerklæringen</a>. Jeg bekrefter at kjøpet gjelder min næringsvirksomhet eller mitt selvstendige virke, at produktet spesialtilpasses meg, og at arbeidet starter etter avtale – det foreligger derfor ikke angrerett.
-                    </label>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-block">Send bestilling og gå til betaling</button>
-                <p class="form-note">Etter innsending kommer du til en bekreftelsesside med sikker betaling via Stripe. Arbeidet starter når betaling og materiell er mottatt.</p>
-            </form>
+            <p class="form-note">Er ikke bransjen din her ennå? Send oss en e-post på <a href="mailto:post@hjemmesidendin.no">post@hjemmesidendin.no</a> – vi utvider stadig med nye bransjer.</p>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container footer-inner">
             <div>
@@ -231,34 +62,6 @@
             <p>© 2026 Hjemmesidendin. Alle rettigheter reservert.</p>
         </div>
     </footer>
-    <script>
-        async function visKapasitet() {
-            try {
-                const res = await fetch('/.netlify/functions/status');
-                if (!res.ok) return;
-                const status = await res.json();
-
-                const now = new Date();
-                const nextMonday = new Date(now);
-                nextMonday.setDate(now.getDate() + ((8 - now.getDay()) % 7 || 7));
-                const mondayAfter = new Date(nextMonday);
-                mondayAfter.setDate(nextMonday.getDate() + 7);
-
-                const fmt = d => d.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long' });
-                const el = document.getElementById('kapasitet');
-
-                if (status.available > 0) {
-                    el.textContent = `${status.available} av ${status.capacity} plasser ledige for oppstart mandag ${fmt(nextMonday)}`;
-                    el.classList.remove('kapasitet-fullt');
-                } else {
-                    el.textContent = `Fullt denne uken – neste ledige oppstart: mandag ${fmt(mondayAfter)}`;
-                    el.classList.add('kapasitet-fullt');
-                }
-                el.hidden = false;
-            } catch (e) { /* silently skip if unavailable */ }
-        }
-        visKapasitet();
-    </script>
 
 </body>
 </html>

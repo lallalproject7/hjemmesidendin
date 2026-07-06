@@ -390,3 +390,13 @@ button:focus-visible {
     .grid-3 { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
 }
+
+/* ---------- Demo bestill-banner ---------- */
+.demo-bestill { background: var(--dyp); color: #fff; text-align: center; padding-block: 3.5rem; }
+.demo-bestill h2 { color: #fff; margin-block: .3rem .6rem; }
+.demo-bestill p { color: rgba(255,255,255,.9); }
+.demo-bestill .btn { background: var(--sitrus); color: var(--dyp); margin-top: 1.4rem; }
+.demo-bestill .btn:hover { background: #d99f2e; }
+.demo-bestill-tekst { font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .85rem; color: var(--sitrus); }
+.demo-bestill-retur { margin-top: 1.5rem; font-size: .9rem; }
+.demo-bestill-retur a { color: #fff; text-decoration: underline; }
