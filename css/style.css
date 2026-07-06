@@ -753,3 +753,52 @@ summary:focus-visible {
 @media (max-width: 600px) {
     .sjekkliste { grid-template-columns: 1fr; }
 }
+
+/* ---------- Endringsrunde regler ---------- */
+
+.regler {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-block: 1.5rem;
+}
+
+.regler-kol {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.4rem 1.5rem;
+}
+
+.regler-kol h2 { font-size: 1.1rem; margin-bottom: .9rem; }
+
+.regler-kol ul {
+    list-style: none;
+    display: grid;
+    gap: .5rem;
+    font-size: .96rem;
+}
+
+.regler-ja { background: #f1f7f2; border-color: #cfe4d4; }
+.regler-ja h2 { color: #2f7a45; }
+.regler-ja li::before { content: "✓"; color: #2f7a45; font-weight: 700; margin-right: .5rem; }
+
+.regler-nei { background: #fbf3f2; border-color: #ecd4d0; }
+.regler-nei h2 { color: #b0463a; }
+.regler-nei li::before { content: "✗"; color: #b0463a; font-weight: 700; margin-right: .5rem; }
+
+.regler-note { margin-top: .9rem; font-size: .9rem; color: var(--pine-soft); }
+
+.vilkar-boks {
+    background: var(--sand);
+    border-left: 4px solid var(--signal);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 2rem;
+    font-size: .95rem;
+}
+
+.vilkar-boks p { margin: .2rem 0; }
+
+@media (max-width: 700px) {
+    .regler { grid-template-columns: 1fr; }
+}
