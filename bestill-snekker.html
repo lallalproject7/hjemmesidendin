@@ -38,9 +38,14 @@
             <form name="bestilling-snekker" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="takk.html" class="form">
                 <input type="hidden" name="form-name" value="bestilling-snekker">
                 <p class="skjult-felt" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
-
+                
                 <h2 class="form-del">1. Design og farger</h2>
-                <p class="form-hint">Du har valgt <strong>Snekker-designet</strong> («Eik & Skog» – galleri i fokus). <a href="demoer/snekker/index.html" target="_blank">Se demoen igjen</a> hvis du vil.</p>
+                <p class="form-hint">Vi har to design for snekkere. Velg hvilket du vil ha – <a href="demoer-snekker.html" target="_blank">se begge her</a> hvis du er i tvil.</p>
+
+                <div class="velg-rad" style="margin-bottom:1.2rem">
+                    <label class="velg-alt"><input type="radio" name="design" value="Klassisk (Eik & Skog)" checked> <strong>Klassisk</strong> – «Eik & Skog», varmt og solid</label>
+                    <label class="velg-alt"><input type="radio" name="design" value="Moderne (Verkstedet)"> <strong>Moderne</strong> – «Verkstedet», stilrent galleri</label>
+                </div>
 
                 <div class="form-field">
                     <label>Fargevalg – velg paletten for nettsiden din</label>

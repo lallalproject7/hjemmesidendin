@@ -8,8 +8,8 @@
     --pine-soft: #45594f;     /* softer green-grey for body text */
     --signal: #e8641b;        /* signal orange – primary action */
     --signal-dark: #c24f0e;
-    --sand: #f7f4ee;          /* warm sand background */
-    --surface: #ffffff;
+    --sand: #e2d9c7;          /* warm beige background */
+    --surface: #f2ede2;       /* soft cream (ikke ren hvit) */
     --line: #e3ded3;
     --radius: 12px;
     --font-display: "Space Grotesk", sans-serif;
@@ -83,16 +83,39 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 .btn-ghost:hover { background: var(--pine); color: #fff; }
 
 .btn-small { padding: .55rem 1.2rem; font-size: .92rem; }
+.btn-lg { padding: 1rem 2rem; font-size: 1.05rem; }
+.btn-hero-ghost {
+    background: rgba(255, 255, 255, .08);
+    border-color: rgba(255, 255, 255, .35);
+    color: #fff;
+    backdrop-filter: blur(6px);
+}
+.btn-hero-ghost:hover { background: rgba(255, 255, 255, .18); }
 
 /* ---------- Header ---------- */
 
 .header {
-    background: var(--sand);
-    border-bottom: 1px solid var(--line);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 50;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
 }
+.header.scrolled {
+    background: rgba(247, 244, 238, .92);
+    backdrop-filter: blur(10px);
+    border-bottom-color: var(--line);
+    box-shadow: 0 2px 20px rgba(29, 58, 47, .06);
+}
+/* Logo og nav lyse over hero, mørke når scrolled */
+.header .logo { color: #fff; }
+.header.scrolled .logo { color: var(--pine); }
+.header .nav a { color: rgba(255, 255, 255, .88); }
+.header.scrolled .nav a { color: var(--pine-soft); }
+.header .logo span { color: var(--signal); }
 
 .header-inner {
     display: flex;
@@ -125,46 +148,117 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 /* ---------- Hero ---------- */
 
 .hero {
-    padding-block: 5.5rem 4.5rem;
-    text-align: center;
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    text-align: left;
+}
+.hero-bg {
+    position: absolute;
+    inset: 0;
     background:
-        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(232, 100, 27, .07), transparent),
-        var(--sand);
+        radial-gradient(circle at 80% 20%, rgba(232, 100, 27, .28), transparent 45%),
+        radial-gradient(circle at 15% 90%, rgba(29, 58, 47, .6), transparent 55%),
+        linear-gradient(160deg, #234a3b, var(--pine));
 }
-
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(232, 100, 27, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 100, 27, .05) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(ellipse 80% 80% at 75% 40%, #000, transparent 75%);
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-block: 7rem 3rem;
+    max-width: 780px;
+}
+.hero-badge {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--signal);
+    border: 1px solid rgba(232, 100, 27, .4);
+    background: rgba(232, 100, 27, .08);
+    border-radius: 999px;
+    padding: .35rem 1rem;
+    margin-bottom: 1.5rem;
+}
+.hero h1 { color: #fff; }
+.hero .accent { color: var(--signal); }
 .hero-lead {
-    max-width: 60ch;
-    margin: 1.4rem auto 2rem;
-    font-size: 1.15rem;
+    max-width: 56ch;
+    margin: 1.4rem 0 2rem;
+    font-size: 1.18rem;
+    color: rgba(255, 255, 255, .85);
 }
-
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: .9rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
-
-.hero-trust {
-    list-style: none;
+.hero-stats {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: .5rem 1.8rem;
-    font-size: .93rem;
+    gap: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, .15);
 }
-
-.hero-trust li::before {
-    content: "✓";
-    color: var(--signal);
+.hero-stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.9rem;
     font-weight: 700;
-    margin-right: .4rem;
+    color: var(--signal);
+    line-height: 1;
 }
+.hero-stat span { font-size: .9rem; color: rgba(255, 255, 255, .8); }
 
 /* ---------- Sections ---------- */
 
 .section { padding-block: 4.5rem; }
+
+/* Oppdateringer – grønn blokk for balanse */
+#oppdateringer {
+    position: relative;
+    background:
+        radial-gradient(circle at 85% 15%, rgba(232, 100, 27, .12), transparent 45%),
+        linear-gradient(160deg, #234a3b, var(--pine));
+    overflow: hidden;
+}
+#oppdateringer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(232, 100, 27, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 100, 27, .04) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 70% 70% at 80% 30%, #000, transparent 75%);
+    pointer-events: none;
+}
+#oppdateringer > .container { position: relative; z-index: 1; }
+#oppdateringer .eyebrow { color: var(--signal); }
+#oppdateringer h2 { color: #fff; }
+#oppdateringer .section-lead { color: rgba(255, 255, 255, .85); }
+
+#oppdateringer .oppdatering-rad {
+    background: rgba(255, 255, 255, .08);
+    border-color: rgba(255, 255, 255, .18);
+}
+#oppdateringer .oppdatering-rad span { color: rgba(255, 255, 255, .9); }
+#oppdateringer .oppdatering-rad strong { color: var(--signal); }
+#oppdateringer .form-note { color: rgba(255, 255, 255, .7); }
 
 .section-alt {
     background: var(--surface);
@@ -801,4 +895,153 @@ summary:focus-visible {
 
 @media (max-width: 700px) {
     .regler { grid-template-columns: 1fr; }
+}
+
+/* ---------- Design-valg (selector de estilo) ---------- */
+
+.design-valg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-block: 2rem 2.5rem;
+}
+
+.design-kort {
+    text-decoration: none;
+    color: inherit;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.design-kort:hover {
+    transform: translateY(-4px);
+    border-color: var(--signal);
+    box-shadow: 0 14px 34px rgba(29, 58, 47, .1);
+}
+
+.design-bilde { height: 180px; }
+
+/* Miniaturas con degradado que evoca cada demo */
+.design-snekker-1 { background: linear-gradient(150deg, #3d5c37, #1e3b2f); }
+.design-snekker-2 { background: linear-gradient(150deg, #c17a54, #5f6547); }
+.design-elektriker-1 { background: linear-gradient(150deg, #b4551d, #6e3411); }
+.design-elektriker-2 { background: linear-gradient(150deg, #2563eb, #0d1424); }
+
+.design-info { padding: 1.5rem; }
+.design-info h2 { font-size: 1.3rem; margin-bottom: .5rem; }
+.design-info p { font-size: .96rem; margin-bottom: .9rem; }
+
+.design-lenke {
+    font-weight: 600;
+    color: var(--signal);
+}
+
+.design-cta {
+    text-align: center;
+    background: var(--sand);
+    border-radius: var(--radius);
+    padding: 2rem;
+}
+.design-cta p { margin-bottom: 1rem; }
+
+@media (max-width: 700px) {
+    .design-valg { grid-template-columns: 1fr; }
+}
+
+/* ---------- Pris: mva-tooltip + årsavgift ---------- */
+
+.pris-mva {
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--pine-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: .2rem;
+    vertical-align: middle;
+    margin-left: .3rem;
+}
+
+.mva-info {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: help;
+    color: var(--signal);
+    font-size: .95rem;
+    padding: 0 .1rem;
+    line-height: 1;
+}
+
+.mva-boks {
+    position: absolute;
+    bottom: 140%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    max-width: 78vw;
+    background: var(--pine);
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    padding: .9rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(29, 58, 47, .28);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility .2s ease;
+    z-index: 20;
+}
+.mva-boks::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 7px solid transparent;
+    border-top-color: var(--pine);
+}
+.mva-info:hover .mva-boks,
+.mva-info:focus .mva-boks { opacity: 1; visibility: visible; }
+
+.pris-arsavgift {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--signal);
+    border-radius: var(--radius);
+    padding: 1rem 1.3rem;
+    margin: 1.4rem 0;
+    text-align: left;
+}
+.pris-arsavgift > div {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+.pris-arsavgift strong {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--pine);
+}
+.pris-arsavgift > div span {
+    font-size: .78rem;
+    color: var(--pine-soft);
+    margin-top: .15rem;
+}
+.pris-arsavgift p {
+    font-size: .92rem;
+    margin: 0;
+    color: var(--pine-soft);
+}
+
+@media (max-width: 600px) {
+    .pris-arsavgift { flex-direction: column; align-items: flex-start; gap: .6rem; }
 }
