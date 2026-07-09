@@ -71,3 +71,16 @@ Mapa de pendientes del proyecto. Actualizar a medida que se completen tareas.
 - [ ] Hoja de cálculo de seguimiento de pedidos
 - [ ] Plantillas de emails de estado (confirmación, entrega, etc.)
 - [ ] Probar todo el recorrido de compra de punta a punta
+
+---
+
+## 🎨 SISTEMA DE PERSONALIZACIÓN DE COLOR (funcionalidad premium — diseñar DESPUÉS de todas las demos)
+- Selector de color VISUAL (clic, sin escribir códigos — el cliente no se equivoca)
+- Rangos CURADOS (no libre total) para que siempre se vea profesional
+- Color principal (hero): gama curada de ~12-16 colores que combinan
+- Fondo: 3-4 tonos muy claros (gris, beige, crema, lavanda claro)
+- Color secundario/contraste: generado del principal, o 2-3 opciones que combinen
+- Opciones de hero: foto sí/no, completo/mitad, textura sí/no, typing sí/no, palabras del hero (de opciones que damos)
+- Snippet muy organizado para construir sin trabajo manual
+- Objetivo: que el cliente no tema que su web sea igual a otras
+- Considerar cobrarlo como extra premium (+X kr) vs. diseño estándar

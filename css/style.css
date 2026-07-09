@@ -929,6 +929,8 @@ summary:focus-visible {
 .design-snekker-2 { background: linear-gradient(150deg, #c17a54, #5f6547); }
 .design-elektriker-1 { background: linear-gradient(150deg, #b4551d, #6e3411); }
 .design-elektriker-2 { background: linear-gradient(150deg, #2563eb, #0d1424); }
+.design-maler-1 { background: linear-gradient(150deg, #3d5a99, #222d44); }
+.design-maler-2 { background: linear-gradient(150deg, #e8934f, #1a1a1f); }
 
 .design-info { padding: 1.5rem; }
 .design-info h2 { font-size: 1.3rem; margin-bottom: .5rem; }
@@ -1045,3 +1047,141 @@ summary:focus-visible {
 @media (max-width: 600px) {
     .pris-arsavgift { flex-direction: column; align-items: flex-start; gap: .6rem; }
 }
+
+/* ---------- Bransje-kort med mockups ---------- */
+
+.bransje-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.bransje-kort {
+    text-decoration: none;
+    color: inherit;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.bransje-kort:hover {
+    transform: translateY(-5px);
+    border-color: var(--signal);
+    box-shadow: 0 16px 38px rgba(29, 58, 47, .12);
+}
+
+/* Mockup-vindu */
+.mockup {
+    aspect-ratio: 16 / 10;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    position: relative;
+    overflow: hidden;
+}
+.mockup-bar {
+    display: flex;
+    gap: .25rem;
+    padding: .1rem .2rem;
+}
+.mockup-bar span {
+    width: .45rem;
+    height: .45rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .5);
+}
+.mockup-hero {
+    flex: 1;
+    border-radius: 6px;
+    padding: .7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .35rem;
+}
+.mockup-badge { width: 28%; height: .35rem; border-radius: 999px; background: rgba(255,255,255,.55); }
+.mockup-tittel { width: 75%; height: .6rem; border-radius: 3px; background: rgba(255,255,255,.9); }
+.mockup-tittel.kort { width: 45%; }
+.mockup-knapp { width: 32%; height: .7rem; border-radius: 4px; margin-top: .3rem; }
+.mockup-innhold {
+    display: flex;
+    gap: .35rem;
+    padding: 0 .1rem;
+}
+.mockup-innhold span {
+    flex: 1;
+    height: 1.3rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, .06);
+}
+
+/* Fargetema per bransje (matcher demoene) */
+.mockup-elektriker { background: linear-gradient(160deg, #14203a, #0d1424); }
+.mockup-elektriker .mockup-hero { background: linear-gradient(150deg, #1b2f52, #0d1424); }
+.mockup-elektriker .mockup-knapp { background: #fbbf24; }
+
+.mockup-rorlegger { background: linear-gradient(160deg, #0f2847, #0a1628); }
+.mockup-rorlegger .mockup-hero { background: linear-gradient(150deg, #143a5c, #0a1628); }
+.mockup-rorlegger .mockup-knapp { background: #22d3ee; }
+
+.mockup-snekker { background: linear-gradient(160deg, #2e5140, #1e3b2f); }
+.mockup-snekker .mockup-hero { background: linear-gradient(150deg, #3a5c48, #1e3b2f); }
+.mockup-snekker .mockup-knapp { background: #c17a54; }
+
+.mockup-maler { background: linear-gradient(160deg, #33415f, #222d44); }
+.mockup-maler .mockup-hero { background: linear-gradient(150deg, #3d5a99, #222d44); }
+.mockup-maler .mockup-knapp { background: #e8934f; }
+
+.mockup-renhold { background: linear-gradient(160deg, #0f6b64, #0a4a45); }
+.mockup-renhold .mockup-hero { background: linear-gradient(150deg, #14a098, #0a4a45); }
+.mockup-renhold .mockup-knapp { background: #f4c430; }
+
+.mockup-gartner { background: linear-gradient(160deg, #3a5c30, #263d20); }
+.mockup-gartner .mockup-hero { background: linear-gradient(150deg, #4c7c3f, #263d20); }
+.mockup-gartner .mockup-knapp { background: #d99a2e; }
+
+.mockup-flyttebyra { background: linear-gradient(160deg, #23272e, #16181d); }
+.mockup-flyttebyra .mockup-hero { background: linear-gradient(150deg, #33383f, #16181d); }
+.mockup-flyttebyra .mockup-knapp { background: #e8613c; }
+
+/* Info under mockup */
+.bransje-info { padding: 1.1rem 1.3rem 1.3rem; }
+.bransje-info h3 {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1.15rem;
+    margin-bottom: .25rem;
+}
+.bransje-info .bransje-icon { font-size: 1.2rem; }
+.bransje-tag {
+    color: var(--signal);
+    font-weight: 600;
+    font-size: .92rem;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .bransje-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .bransje-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Hero typing ---------- */
+.typed-ord { color: var(--signal); }
+.typed-cursor {
+    color: var(--signal);
+    font-weight: 400;
+    animation: blink-tienda 1s steps(1) infinite;
+}
+@keyframes blink-tienda { 50% { opacity: 0; } }
+
+.design-renhold-1 { background: linear-gradient(150deg, #14a098, #0a4a45); }
+.design-renhold-2 { background: linear-gradient(150deg, #7c5cbf, #4a9d5f); }
+
+.design-gartner-1 { background: linear-gradient(150deg, #4c7c3f, #263d20); }
+.design-gartner-2 { background: linear-gradient(150deg, #5a7a4a, #14231a); }
