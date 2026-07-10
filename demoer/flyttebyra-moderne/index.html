@@ -19,34 +19,114 @@
                 <a href="#tjenester">Tjenester</a>
                 <a href="#kalkulator">Regn ut volum</a>
                 <a href="#slik">Slik gjør vi det</a>
-                <a href="#om-oss">Om oss</a>
             </nav>
             <a href="#tilbud" class="btn btn-primary btn-small">Be om tilbud</a>
         </div>
     </header>
 
-    <!-- ===== HERO ===== -->
+    <!-- ===== HERO med kart ===== -->
     <section class="hero">
         <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <p class="hero-badge">📦 Flyttebyrå i Grenland</p>
-            <h1>Vi flytter<br><span class="typed-ord" id="typed"></span><span class="typed-cursor">|</span></h1>
-            <p class="hero-lead">Fra pakking til siste eske på plass. Erfarne flyttefolk, fast pris og full forsikring – så du kan konsentrere deg om det nye hjemmet.</p>
-            <div class="hero-actions">
-                <a href="#kalkulator" class="btn btn-primary btn-lg">Regn ut volumet ditt</a>
-                <a href="#tilbud" class="btn btn-glass btn-lg">Be om tilbud</a>
+        <div class="container hero-grid">
+            <div class="hero-tekst">
+                <p class="hero-badge">📦 Flyttebyrå i Grenland</p>
+                <h1>Vi flytter<br><span class="typed-ord" id="typed"></span><span class="typed-cursor">|</span></h1>
+                <p class="hero-lead">Fra pakking til siste eske på plass. Erfarne flyttefolk, fast pris og full forsikring – så du kan konsentrere deg om det nye hjemmet.</p>
+                <div class="hero-actions">
+                    <a href="#kalkulator" class="btn btn-primary btn-lg">Regn ut volumet ditt</a>
+                    <a href="#tilbud" class="btn btn-glass btn-lg">Be om tilbud</a>
+                </div>
+                <div class="hero-tall">
+                    <div class="ht"><strong>1 400+</strong><span>flyttinger utført</span></div>
+                    <div class="ht"><strong>4,9</strong><span>snittvurdering</span></div>
+                    <div class="ht"><strong>100 %</strong><span>forsikret</span></div>
+                </div>
             </div>
 
-            <!-- Rute A → B -->
-            <div class="rute">
-                <div class="rute-punkt">
-                    <span class="rute-prikk"></span>
-                    <div><strong>Fra</strong><span>Din gamle adresse</span></div>
+            <!-- Kart-illustrasjon -->
+            <div class="hero-kart">
+                <div class="kart-topp">
+                    <span class="kart-prikk"></span>
+                    <div>
+                        <strong>Vårt dekningsområde</strong>
+                        <span>Vi flytter i hele Grenland</span>
+                    </div>
                 </div>
-                <div class="rute-linje"><span class="rute-bil">🚚</span></div>
-                <div class="rute-punkt">
-                    <span class="rute-prikk rute-prikk-slutt"></span>
-                    <div><strong>Til</strong><span>Ditt nye hjem</span></div>
+
+                <div class="kart-ramme">
+                    <iframe
+                        title="Kart over Grenland"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=9.30%2C59.00%2C9.85%2C59.30&amp;layer=mapnik&amp;marker=59.2081%2C9.6089"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="kart-soner">
+                    <span class="sone">Skien</span>
+                    <span class="sone">Porsgrunn</span>
+                    <span class="sone">Bamble</span>
+                    <span class="sone">Siljan</span>
+                    <span class="sone">Nome</span>
+                    <span class="sone sone-mer">+ hele Telemark</span>
+                </div>
+
+                <p class="kart-note">Flytter du lenger? Vi tar oppdrag i hele Sør-Norge – <a href="#tilbud">be om tilbud</a>.</p>
+            </div>
+
+                    <!-- "Kvartaler" -->
+                    <rect x="30" y="40" width="70" height="55" rx="6" fill="rgba(255,255,255,.05)"/>
+                    <rect x="120" y="30" width="90" height="70" rx="6" fill="rgba(255,255,255,.04)"/>
+                    <rect x="240" y="55" width="80" height="60" rx="6" fill="rgba(255,255,255,.05)"/>
+                    <rect x="330" y="30" width="60" height="90" rx="6" fill="rgba(255,255,255,.04)"/>
+                    <rect x="40" y="150" width="85" height="80" rx="6" fill="rgba(255,255,255,.04)"/>
+                    <rect x="160" y="170" width="70" height="60" rx="6" fill="rgba(255,255,255,.05)"/>
+                    <rect x="270" y="160" width="100" height="75" rx="6" fill="rgba(255,255,255,.04)"/>
+                    <rect x="30" y="280" width="95" height="70" rx="6" fill="rgba(255,255,255,.05)"/>
+                    <rect x="150" y="290" width="80" height="90" rx="6" fill="rgba(255,255,255,.04)"/>
+                    <rect x="260" y="300" width="110" height="65" rx="6" fill="rgba(255,255,255,.05)"/>
+                    <rect x="60" y="390" width="120" height="45" rx="6" fill="rgba(255,255,255,.04)"/>
+                    <rect x="220" y="400" width="90" height="40" rx="6" fill="rgba(255,255,255,.05)"/>
+
+                    <!-- Ruten -->
+                    <path id="ruteLinje"
+                          d="M 70 405 L 70 320 Q 70 300 95 300 L 200 300 Q 225 300 225 270 L 225 200 Q 225 175 255 175 L 320 175 Q 350 175 350 145 L 350 80"
+                          fill="none"
+                          stroke="url(#ruteFarge)"
+                          stroke-width="4"
+                          stroke-linecap="round"
+                          stroke-dasharray="10 8"/>
+
+                    <!-- Startpunkt -->
+                    <circle cx="70" cy="405" r="14" fill="rgba(232,185,63,.25)"/>
+                    <circle cx="70" cy="405" r="7" fill="#e8b93f"/>
+
+                    <!-- Sluttpunkt -->
+                    <circle cx="350" cy="80" r="16" fill="rgba(255,255,255,.2)"/>
+                    <circle cx="350" cy="80" r="8" fill="#ffffff"/>
+
+                    <!-- Bilen som beveger seg -->
+                    <g>
+                        <circle r="16" fill="#e8b93f">
+                            <animateMotion dur="7s" repeatCount="indefinite" rotate="auto">
+                                <mpath href="#ruteLinje"/>
+                            </animateMotion>
+                        </circle>
+                        <text font-size="15" text-anchor="middle" dy="5">
+                            🚚
+                            <animateMotion dur="7s" repeatCount="indefinite">
+                                <mpath href="#ruteLinje"/>
+                            </animateMotion>
+                        </text>
+                    </g>
+                </svg>
+
+                <div class="kart-merke kart-merke-fra">
+                    <strong>Fra</strong>
+                    <span>Gamle hjem</span>
+                </div>
+                <div class="kart-merke kart-merke-til">
+                    <strong>Til</strong>
+                    <span>Nye hjem</span>
                 </div>
             </div>
         </div>
@@ -89,7 +169,7 @@
         </div>
     </section>
 
-    <!-- ===== KALKULATOR (plus) ===== -->
+    <!-- ===== KALKULATOR ===== -->
     <section class="section-kalkulator" id="kalkulator">
         <div class="container">
             <div class="seksjon-topp">
@@ -332,7 +412,7 @@
             <p class="demo-bestill-topp">Liker du dette designet?</p>
             <h2>Få denne nettsiden til din bedrift</h2>
             <p class="demo-bestill-pris">Fast pris 8 900 kr · levert innen 7 virkedager</p>
-            <a href="../../bestill-flyttebyra.html" class="btn btn-hvit btn-lg">Bestill denne siden →</a>
+            <a href="../../bestill-flyttebyra.html" class="btn btn-gul btn-lg">Bestill denne siden →</a>
             <p class="demo-bestill-retur"><a href="../../index.html">← Tilbake til Hjemmesidendin</a></p>
         </div>
     </section>
@@ -360,7 +440,7 @@
     <script>
         // Typing
         (function () {
-            const ord = ["hjemmet ditt", "kontoret", "hele livet ditt", "trygt og trygt"];
+            const ord = ["hjemmet ditt", "kontoret", "hele livet ditt", "trygt og raskt"];
             const el = document.getElementById("typed");
             if (!el) return;
             const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -401,7 +481,6 @@
                 let total = 0;
                 for (const rom in antall) total += antall[rom] * volumPerRom[rom];
                 totalEl.textContent = total;
-
                 eskeEl.textContent = total > 0 ? Math.round(total * 2.5) : 0;
 
                 if (total === 0) {
