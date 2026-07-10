@@ -2,7 +2,6 @@
    Hjemmesidendin – store stylesheet
    Palette: deep forest / warm sand / signal orange
    ========================================================= */
-
 :root {
     --pine: #1d3a2f;          /* deep forest green – headers & dark blocks */
     --pine-soft: #45594f;     /* softer green-grey for body text */
@@ -155,24 +154,32 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     overflow: hidden;
     text-align: left;
 }
+
 .hero-bg {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 80% 20%, rgba(232, 100, 27, .28), transparent 45%),
-        radial-gradient(circle at 15% 90%, rgba(29, 58, 47, .6), transparent 55%),
+        /* Mykt varmt lys øverst til høyre – veldig subtilt */
+        radial-gradient(ellipse 65% 50% at 82% 18%, rgba(232, 100, 27, .08), transparent 60%),
+        /* Dypere grønt nede til venstre */
+        radial-gradient(ellipse 60% 55% at 12% 90%, rgba(20, 40, 32, .5), transparent 62%),
+        /* Skoggrønn base */
         linear-gradient(160deg, #234a3b, var(--pine));
 }
+/* Fin tekstur – rolig dybde */
 .hero-bg::after {
     content: "";
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(232, 100, 27, .05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232, 100, 27, .05) 1px, transparent 1px);
-    background-size: 46px 46px;
-    mask-image: radial-gradient(ellipse 80% 80% at 75% 40%, #000, transparent 75%);
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 85% 75% at 75% 35%, #000, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 85% 75% at 75% 35%, #000, transparent 78%);
+    pointer-events: none;
 }
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -228,33 +235,35 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 
 .section { padding-block: 4.5rem; }
 
-/* Oppdateringer – grønn blokk for balanse */
+
+/* Oppdateringer */
 #oppdateringer {
     position: relative;
-    background:
-        radial-gradient(circle at 85% 15%, rgba(232, 100, 27, .12), transparent 45%),
-        linear-gradient(160deg, #234a3b, var(--pine));
     overflow: hidden;
+    background:
+        radial-gradient(ellipse 60% 50% at 82% 18%, rgba(232, 100, 27, .1), transparent 60%),
+        radial-gradient(ellipse 55% 50% at 15% 88%, rgba(20, 40, 32, .45), transparent 62%),
+        linear-gradient(160deg, #234a3b, var(--pine));
 }
 #oppdateringer::after {
     content: "";
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(232, 100, 27, .04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232, 100, 27, .04) 1px, transparent 1px);
-    background-size: 44px 44px;
-    mask-image: radial-gradient(ellipse 70% 70% at 80% 30%, #000, transparent 75%);
+        linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(ellipse 80% 75% at 78% 30%, #000, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 75% at 78% 30%, #000, transparent 78%);
     pointer-events: none;
 }
 #oppdateringer > .container { position: relative; z-index: 1; }
 #oppdateringer .eyebrow { color: var(--signal); }
 #oppdateringer h2 { color: #fff; }
 #oppdateringer .section-lead { color: rgba(255, 255, 255, .85); }
-
 #oppdateringer .oppdatering-rad {
-    background: rgba(255, 255, 255, .08);
-    border-color: rgba(255, 255, 255, .18);
+    background: rgba(255, 255, 255, .07);
+    border-color: rgba(255, 255, 255, .16);
 }
 #oppdateringer .oppdatering-rad span { color: rgba(255, 255, 255, .9); }
 #oppdateringer .oppdatering-rad strong { color: var(--signal); }
@@ -331,6 +340,8 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     padding: 2.8rem 2.4rem;
     text-align: center;
 }
+.priskort .pris-mva { color: rgba(255, 255, 255, .7); }
+.priskort .pris-under { color: rgba(255, 255, 255, .78); }
 
 .pris-belop {
     font-family: var(--font-display);
@@ -1014,8 +1025,8 @@ summary:focus-visible {
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    background: var(--sand);
-    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .07);
+    border: 1px solid rgba(255, 255, 255, .14);
     border-left: 4px solid var(--signal);
     border-radius: var(--radius);
     padding: 1rem 1.3rem;
@@ -1031,18 +1042,19 @@ summary:focus-visible {
 .pris-arsavgift strong {
     font-family: var(--font-display);
     font-size: 1.4rem;
-    color: var(--pine);
+    color: var(--signal);
 }
 .pris-arsavgift > div span {
     font-size: .78rem;
-    color: var(--pine-soft);
+    color: rgba(255, 255, 255, .6);
     margin-top: .15rem;
 }
 .pris-arsavgift p {
     font-size: .92rem;
     margin: 0;
-    color: var(--pine-soft);
+    color: rgba(255, 255, 255, .78);
 }
+.pris-arsavgift strong:not(:first-child) { color: #fff; }
 
 @media (max-width: 600px) {
     .pris-arsavgift { flex-direction: column; align-items: flex-start; gap: .6rem; }
@@ -1172,7 +1184,7 @@ summary:focus-visible {
 }
 
 /* ---------- Hero typing ---------- */
-.typed-ord { color: var(--signal); }
+.typed-ord { color: #e2d9c7; }
 .typed-cursor {
     color: var(--signal);
     font-weight: 400;
