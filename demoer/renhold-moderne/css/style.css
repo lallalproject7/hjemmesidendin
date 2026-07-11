@@ -386,3 +386,150 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--lavendel); outl
     .tillit-inner { grid-template-columns: 1fr; }
     .form-rekke { grid-template-columns: 1fr; }
 }
+
+/* ---------- Bestill – interaktiv ---------- */
+.section-bestill { padding-block: 5.5rem; background: var(--dis); }
+.bestill-topp { max-width: 60ch; margin: 0 auto 2.5rem; text-align: center; }
+
+.bestill-grid { display: grid; grid-template-columns: 1.3fr .95fr; gap: 2rem; align-items: start; }
+
+.bestill-valg {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: calc(var(--radius, 12px) * 1.3);
+    padding: 2rem;
+    display: grid;
+    gap: 1.8rem;
+}
+.valg-tittel {
+    display: block;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 700;
+    color: var(--plomme);
+    font-size: 1rem;
+    margin-bottom: .9rem;
+}
+.valg-kort-rad { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
+#storrelseValg { grid-template-columns: repeat(4, 1fr); }
+
+.valg-kort {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .2rem;
+    text-align: left;
+    padding: .9rem;
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    background: var(--dis);
+    cursor: pointer;
+    transition: all .15s ease;
+    font-family: var(--font-body, sans-serif);
+}
+.valg-kort:hover { border-color: var(--lavendel-lys); }
+.valg-kort.aktiv {
+    border-color: var(--lavendel);
+    background: rgba(124, 92, 191, .08);
+    box-shadow: 0 0 0 3px rgba(124, 92, 191, .12);
+}
+.vk-ikon { font-size: 1.4rem; margin-bottom: .1rem; }
+.valg-kort strong { font-family: var(--font-display, sans-serif); color: var(--plomme); font-size: .92rem; line-height: 1.2; }
+.vk-info { font-size: .76rem; color: var(--tekst); opacity: .75; }
+.vk-badge {
+    font-size: .72rem;
+    font-weight: 700;
+    color: var(--salvie-dyp);
+    background: rgba(74, 157, 95, .15);
+    padding: .1rem .45rem;
+    border-radius: 999px;
+}
+.valg-kort.aktiv .vk-badge { background: var(--salvie); color: #fff; }
+
+.dag-rad { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; }
+.dag-boks { position: relative; cursor: pointer; }
+.dag-boks input { position: absolute; opacity: 0; }
+.dag-boks span {
+    display: block;
+    text-align: center;
+    padding: .7rem .3rem;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: .85rem;
+    color: var(--tekst);
+    background: var(--dis);
+    transition: all .15s ease;
+}
+.dag-boks input:checked + span {
+    border-color: var(--salvie);
+    background: rgba(74, 157, 95, .12);
+    color: var(--salvie-dyp);
+}
+.dag-boks input:focus-visible + span { outline: 2px solid var(--lavendel); outline-offset: 2px; }
+
+/* Estimat-panel */
+.bestill-estimat {
+    background: linear-gradient(165deg, var(--plomme-lys), var(--plomme-dyp));
+    border-radius: calc(var(--radius, 12px) * 1.3);
+    padding: 2rem;
+    position: sticky;
+    top: 6rem;
+    box-shadow: 0 20px 50px rgba(43, 39, 51, .3);
+}
+.est-etikett { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--lavendel-lys); margin-bottom: .2rem; }
+.est-pris { font-family: var(--font-display, sans-serif); font-size: 3.2rem; font-weight: 700; color: #fff; line-height: 1; }
+.est-enhet { font-size: 1.4rem; color: var(--lavendel-lys); }
+.est-per { color: var(--tekst-lys); font-size: .9rem; margin-bottom: 1.5rem; }
+
+.est-oppsummering {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.2rem;
+}
+.est-rad {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .4rem 0;
+    font-size: .9rem;
+    color: var(--tekst-lys);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.est-rad:last-child { border-bottom: none; }
+.est-rad strong { color: #fff; font-family: var(--font-display, sans-serif); font-size: .9rem; text-align: right; }
+
+.est-varsel {
+    background: rgba(124, 92, 191, .18);
+    border: 1px solid rgba(185, 165, 230, .3);
+    border-radius: 12px;
+    padding: .9rem 1.1rem;
+    font-size: .82rem;
+    color: var(--tekst-lys);
+    line-height: 1.5;
+    margin-bottom: 1.4rem;
+}
+.est-varsel strong { color: var(--lavendel-lys); }
+
+.est-form { display: grid; gap: 1rem; }
+.est-form .form-field label { color: #fff; font-size: .88rem; }
+.est-form .form-field input {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    color: #fff;
+}
+.est-form .form-field input::placeholder { color: var(--tekst-lys); opacity: .7; }
+.est-form .form-field input:focus { outline: 2px solid var(--lavendel-lys); border-color: var(--lavendel-lys); }
+.est-note { font-size: .8rem; color: var(--tekst-lys); text-align: center; margin: 0; }
+
+@media (max-width: 950px) {
+    .bestill-grid { grid-template-columns: 1fr; }
+    .bestill-estimat { position: static; }
+}
+@media (max-width: 600px) {
+    .valg-kort-rad, #storrelseValg { grid-template-columns: 1fr 1fr; }
+    .dag-rad { grid-template-columns: repeat(5, 1fr); gap: .3rem; }
+    .dag-boks span { padding: .6rem .2rem; font-size: .78rem; }
+}

@@ -152,46 +152,137 @@
     </section>
 
     <!-- ===== BESTILL ===== -->
-    <section class="section-bestill" id="bestill">
-        <div class="container bestill-inner">
-            <div class="bestill-tekst">
+<section class="section-bestill" id="bestill">
+        <div class="container">
+            <div class="bestill-topp">
                 <p class="eyebrow">Kom i gang</p>
-                <h2>Bestill renhold på 1 minutt</h2>
-                <p>Fyll ut skjemaet, så sender vi deg et fast pristilbud samme dag. Enkelt, raskt og uforpliktende.</p>
+                <h2>Sett sammen ditt renhold</h2>
+                <p>Velg tjeneste, størrelse og hvor ofte – så ser du et prisestimat med en gang. Vi bekrefter endelig pris og tidspunkt før første vask.</p>
             </div>
 
-            <form name="bestill-renhold" method="POST" data-netlify="true" class="bestill-form">
-                <input type="hidden" name="form-name" value="bestill-renhold">
-                <div class="form-field">
-                    <label for="tjeneste">Type renhold</label>
-                    <select id="tjeneste" name="tjeneste" required>
-                        <option value="" disabled selected>Velg</option>
-                        <option>Fast rengjøring</option>
-                        <option>Flyttevask</option>
-                        <option>Kontorrenhold</option>
-                        <option>Hovedrengjøring</option>
-                    </select>
-                </div>
-                <div class="form-field">
-                    <label for="storrelse">Størrelse på bolig/lokale</label>
-                    <input type="text" id="storrelse" name="storrelse" placeholder="F.eks: 85 m², 3 soverom" required>
-                </div>
-                <div class="form-rekke">
-                    <div class="form-field">
-                        <label for="navn">Navn</label>
-                        <input type="text" id="navn" name="navn" required>
+            <div class="bestill-grid">
+                <!-- Venstre: valg -->
+                <div class="bestill-valg">
+                    <div class="valg-blokk">
+                        <label class="valg-tittel">1. Type renhold</label>
+                        <div class="valg-kort-rad" id="typeValg">
+                            <button type="button" class="valg-kort aktiv" data-type="fast" data-rabatt="1">
+                                <span class="vk-ikon">🔁</span>
+                                <strong>Fast rengjøring</strong>
+                                <span class="vk-info">Fast intervall</span>
+                            </button>
+                            <button type="button" class="valg-kort" data-type="flytte" data-rabatt="1">
+                                <span class="vk-ikon">📦</span>
+                                <strong>Flyttevask</strong>
+                                <span class="vk-info">Ved inn-/utflytting</span>
+                            </button>
+                            <button type="button" class="valg-kort" data-type="engangs" data-rabatt="1">
+                                <span class="vk-ikon">✨</span>
+                                <strong>Engangsvask</strong>
+                                <span class="vk-info">Grundig, én gang</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="form-field">
-                        <label for="telefon">Telefon</label>
-                        <input type="tel" id="telefon" name="telefon" required>
+
+                    <div class="valg-blokk">
+                        <label class="valg-tittel">2. Størrelse på bolig</label>
+                        <div class="valg-kort-rad" id="storrelseValg">
+                            <button type="button" class="valg-kort aktiv" data-pris="790" data-str="Under 50 m²">
+                                <strong>Under 50 m²</strong>
+                                <span class="vk-info">Hybel / liten leil.</span>
+                            </button>
+                            <button type="button" class="valg-kort" data-pris="1190" data-str="50–90 m²">
+                                <strong>50–90 m²</strong>
+                                <span class="vk-info">Leilighet</span>
+                            </button>
+                            <button type="button" class="valg-kort" data-pris="1590" data-str="90–130 m²">
+                                <strong>90–130 m²</strong>
+                                <span class="vk-info">Enebolig / rekkehus</span>
+                            </button>
+                            <button type="button" class="valg-kort" data-pris="0" data-str="Over 130 m²">
+                                <strong>Over 130 m²</strong>
+                                <span class="vk-info">Be om tilbud</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="valg-blokk" id="frekvensBlokk">
+                        <label class="valg-tittel">3. Hvor ofte?</label>
+                        <div class="valg-kort-rad" id="frekvensValg">
+                            <button type="button" class="valg-kort aktiv" data-rabatt="0.85" data-frekvens="Ukentlig">
+                                <strong>Ukentlig</strong>
+                                <span class="vk-badge">−15 %</span>
+                            </button>
+                            <button type="button" class="valg-kort" data-rabatt="0.90" data-frekvens="Annenhver uke">
+                                <strong>Annenhver uke</strong>
+                                <span class="vk-badge">−10 %</span>
+                            </button>
+                            <button type="button" class="valg-kort" data-rabatt="1" data-frekvens="Månedlig">
+                                <strong>Månedlig</strong>
+                                <span class="vk-info">Standard</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="valg-blokk">
+                        <label class="valg-tittel">4. Ønsket dag</label>
+                        <div class="dag-rad">
+                            <label class="dag-boks"><input type="checkbox" name="dag" value="Mandag"><span>Man</span></label>
+                            <label class="dag-boks"><input type="checkbox" name="dag" value="Tirsdag"><span>Tir</span></label>
+                            <label class="dag-boks"><input type="checkbox" name="dag" value="Onsdag"><span>Ons</span></label>
+                            <label class="dag-boks"><input type="checkbox" name="dag" value="Torsdag"><span>Tor</span></label>
+                            <label class="dag-boks"><input type="checkbox" name="dag" value="Fredag"><span>Fre</span></label>
+                        </div>
                     </div>
                 </div>
-                <div class="form-field">
-                    <label for="epost">E-post</label>
-                    <input type="email" id="epost" name="epost" required>
+
+                <!-- Høyre: estimat + skjema -->
+                <div class="bestill-estimat">
+                    <p class="est-etikett">Estimert pris</p>
+                    <p class="est-pris"><span id="estPris">790</span><span class="est-enhet"> kr</span></p>
+                    <p class="est-per" id="estPer">per vask</p>
+
+                    <div class="est-oppsummering">
+                        <div class="est-rad"><span>Type</span><strong id="oppType">Fast rengjøring</strong></div>
+                        <div class="est-rad"><span>Størrelse</span><strong id="oppStr">Under 50 m²</strong></div>
+                        <div class="est-rad" id="oppFrekvensRad"><span>Frekvens</span><strong id="oppFrekvens">Ukentlig</strong></div>
+                    </div>
+
+                    <div class="est-varsel">
+                        <strong>Prisestimat.</strong> Endelig pris bekreftes etter en kort gjennomgang. Materialer og utstyr er inkludert.
+                    </div>
+
+                    <form name="bestill-renhold" method="POST" data-netlify="true" class="est-form">
+                        <input type="hidden" name="form-name" value="bestill-renhold">
+                        <input type="hidden" name="valgt-type" id="feltType">
+                        <input type="hidden" name="valgt-storrelse" id="feltStr">
+                        <input type="hidden" name="valgt-frekvens" id="feltFrekvens">
+                        <input type="hidden" name="estimert-pris" id="feltPris">
+
+                        <div class="form-rekke">
+                            <div class="form-field">
+                                <label for="navn">Navn</label>
+                                <input type="text" id="navn" name="navn" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="telefon">Telefon</label>
+                                <input type="tel" id="telefon" name="telefon" required>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="epost">E-post</label>
+                            <input type="email" id="epost" name="epost" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="adresse">Adresse</label>
+                            <input type="text" id="adresse" name="adresse" placeholder="Gate, postnr, sted" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Send forespørsel</button>
+                        <p class="est-note">Uforpliktende. Vi tar kontakt for å bekrefte tid og pris.</p>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Send forespørsel</button>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -253,6 +344,103 @@
             }, { threshold: 0.15 });
             document.querySelectorAll(".tj-kort, .steg-kort").forEach(el => { el.classList.add("reveal"); io.observe(el); });
         })();
+
+
+     // Bestill – cálculo de precio //
+        (function () {
+            // Tilstand
+            let pris = 790;
+            let rabatt = 0.85;
+            let type = "Fast rengjøring";
+            let storrelse = "Under 50 m²";
+            let frekvens = "Ukentlig";
+            let erTilbud = false;
+
+            const estPris = document.getElementById("estPris");
+            const estPer = document.getElementById("estPer");
+            const oppType = document.getElementById("oppType");
+            const oppStr = document.getElementById("oppStr");
+            const oppFrekvens = document.getElementById("oppFrekvens");
+            const oppFrekvensRad = document.getElementById("oppFrekvensRad");
+            const frekvensBlokk = document.getElementById("frekvensBlokk");
+
+            const feltType = document.getElementById("feltType");
+            const feltStr = document.getElementById("feltStr");
+            const feltFrekvens = document.getElementById("feltFrekvens");
+            const feltPris = document.getElementById("feltPris");
+
+            if (!estPris) return;
+
+            function tekstFor(t) {
+                if (t === "fast") return "Fast rengjøring";
+                if (t === "flytte") return "Flyttevask";
+                if (t === "engangs") return "Engangsvask";
+                return "Fast rengjøring";
+            }
+
+            function oppdater() {
+                // Frekvens gjelder kun fast rengjøring
+                const visFrekvens = (type === "Fast rengjøring");
+                frekvensBlokk.style.display = visFrekvens ? "" : "none";
+                oppFrekvensRad.style.display = visFrekvens ? "" : "none";
+                estPer.textContent = visFrekvens ? "per vask" : "engangspris";
+
+                if (erTilbud) {
+                    estPris.textContent = "Tilbud";
+                    document.querySelector(".est-enhet").style.display = "none";
+                } else {
+                    document.querySelector(".est-enhet").style.display = "";
+                    const brukRabatt = visFrekvens ? rabatt : 1;
+                    const sum = Math.round((pris * brukRabatt) / 10) * 10;
+                    estPris.textContent = sum.toLocaleString("no-NO");
+                }
+
+                oppType.textContent = type;
+                oppStr.textContent = storrelse;
+                oppFrekvens.textContent = frekvens;
+
+                if (feltType) feltType.value = type;
+                if (feltStr) feltStr.value = storrelse;
+                if (feltFrekvens) feltFrekvens.value = visFrekvens ? frekvens : "–";
+                if (feltPris) feltPris.value = erTilbud ? "Be om tilbud" : estPris.textContent + " kr";
+            }
+
+            // Type-knapper
+            document.querySelectorAll("#typeValg .valg-kort").forEach(k => {
+                k.addEventListener("click", () => {
+                    document.querySelectorAll("#typeValg .valg-kort").forEach(x => x.classList.remove("aktiv"));
+                    k.classList.add("aktiv");
+                    type = tekstFor(k.dataset.type);
+                    oppdater();
+                });
+            });
+
+            // Størrelse-knapper
+            document.querySelectorAll("#storrelseValg .valg-kort").forEach(k => {
+                k.addEventListener("click", () => {
+                    document.querySelectorAll("#storrelseValg .valg-kort").forEach(x => x.classList.remove("aktiv"));
+                    k.classList.add("aktiv");
+                    pris = parseInt(k.dataset.pris, 10);
+                    storrelse = k.dataset.str;
+                    erTilbud = (pris === 0);
+                    oppdater();
+                });
+            });
+
+            // Frekvens-knapper
+            document.querySelectorAll("#frekvensValg .valg-kort").forEach(k => {
+                k.addEventListener("click", () => {
+                    document.querySelectorAll("#frekvensValg .valg-kort").forEach(x => x.classList.remove("aktiv"));
+                    k.classList.add("aktiv");
+                    rabatt = parseFloat(k.dataset.rabatt);
+                    frekvens = k.dataset.frekvens;
+                    oppdater();
+                });
+            });
+
+            oppdater();
+        })();
+
     </script>
 
 </body>
