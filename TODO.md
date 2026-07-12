@@ -135,3 +135,26 @@ Mapa de pendientes del proyecto. Actualizar a medida que se completen tareas.
 
 **3. El formulario DEVUELVE el texto ya organizado y estructurado**
 - En vez de email desordenado → salida lista para copiar:
+
+
+- Coincide con los marcadores del código → copiar-reemplazar directo
+
+**4. Selectores de color VISUALES integrados en el formulario**
+- El cliente elige colores haciendo clic (sin escribir hex)
+- Rangos curados de colores escandinavos (evitar que teman "web igual a otras")
+- Los colores elegidos salen también en el texto organizado, para pegar en el CSS
+- Opciones de hero: foto sí/no, completo/mitad, textura sí/no, typing sí/no
+- Considerar cobrar la personalización de color como premium
+
+**Flujo final al vender:**
+1. Cliente rellena formulario visual (textos por sección + colores por clic)
+2. Formulario devuelve todo organizado con marcadores
+3. Generar plantilla con snippet (`[oficio]-plantilla` + Tab)
+4. Copiar-reemplazar marcadores con la salida del formulario
+5. Añadir fotos reales del cliente (Cloudinary)
+6. Web personalizada lista en minutos
+
+**Notas técnicas:**
+- El "formulario que devuelve texto organizado" se hace con JS (recoge los campos y genera el bloque de texto formateado)
+- Los selectores de color: reutilizar el concepto de la muestra del maler, pero para elegir la paleta de SU web
+- Definir marcadores consistentes por sección de cada demo (requiere sesión concentrada — un error se replica a todas las ventas)
