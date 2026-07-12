@@ -84,3 +84,54 @@ Mapa de pendientes del proyecto. Actualizar a medida que se completen tareas.
 - Snippet muy organizado para construir sin trabajo manual
 - Objetivo: que el cliente no tema que su web sea igual a otras
 - Considerar cobrarlo como extra premium (+X kr) vs. diseño estándar
+
+
+
+---
+
+## 🏭 SISTEMA DE PLANTILLAS CON MARCADORES (hacer ANTES de despegar la tienda — preparar el "stock")
+
+**Objetivo:** tener plantillas listas para rellenar rápido cada vez que se venda una web, sin construir desde cero ni buscar dónde va cada dato.
+
+**Qué construir:**
+1. **Snippets que generen cada demo CON marcadores ya puestos**
+   - Ej: escribir `rorlegger-plantilla` + Tab → aparece todo el HTML del rørlegger con `[FIRMANAVN]`, `[TITTEL]`, `[TELEFON]`, etc. en vez de datos de ejemplo (Nordvik Rør, etc.)
+   - Un snippet por cada demo (14 en total: 7 oficios × 2 diseños)
+   - Al vender: generar plantilla al instante + reemplazar marcadores (Ctrl+H) con la info del cliente
+
+2. **Formularios de pedido detallados por secciones** (bestill-*.html)
+   - Preguntas explicativas, agrupadas por sección de la web, en orden
+   - Cada pregunta con ejemplo y campo del tamaño correcto
+   - El cliente rellena ordenado → la info llega lista para copiar a los marcadores
+
+**Marcadores a definir por demo** (ejemplos): [FIRMANAVN], [HERO_TITTEL], [HERO_FRASE], [TELEFON], [EPOST], [ADRESSE], [ORG_NR], [SERVICE_1..6], [OM_OSS_TEKST], [AAR_ERFARING], [ANTALL_JOBBER], [PRIS_*], etc. — ajustados a cada sección de cada demo.
+
+**Flujo final al vender:**
+1. Cliente rellena formulario bestill → info ordenada por secciones
+2. Generar plantilla con snippet (`[oficio]-plantilla` + Tab)
+3. Buscar-reemplazar cada marcador con la respuesta del cliente
+4. Añadir sus fotos reales (Cloudinary)
+5. Web lista en minutos
+
+**Nota:** los snippets ya creados (14 legales/HTML) son para construir; estos serían para rellenar al vender. Se combinan.
+
+
+---
+
+## 🏭 SISTEMA DE PLANTILLAS + FORMULARIOS INTELIGENTES (hacer ANTES de despegar — preparar el "stock")
+
+**Visión:** el cliente rellena un formulario visual y ordenado → recibe todo estructurado y listo para pegar → rellenar una web toma minutos.
+
+**Las 4 piezas del sistema:**
+
+**1. Snippets que generan cada demo CON marcadores**
+- Ej: `rorlegger-plantilla` + Tab → todo el HTML del rørlegger con `[FIRMANAVN]`, `[TITTEL]`, `[TELEFON]`, `[SERVICE_1]`, etc. en vez de datos de ejemplo
+- Uno por demo (14 total: 7 oficios × 2 diseños)
+
+**2. Formularios de pedido detallados por secciones (bestill-*.html)**
+- Preguntas explicativas ("El título grande que ve la gente al entrar, ej: 'Rørlegger i Bergen'")
+- Agrupadas por sección de la web, EN EL ORDEN de la página
+- Cada pregunta: explicación + ejemplo + campo del tamaño correcto (corto/mediano/párrafo, cantidad exacta de campos)
+
+**3. El formulario DEVUELVE el texto ya organizado y estructurado**
+- En vez de email desordenado → salida lista para copiar:

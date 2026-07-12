@@ -26,7 +26,6 @@
             <a href="#" class="logo">Trygg Flytt</a>
             <nav class="nav">
                 <a href="#tjenester">Tjenester</a>
-                <a href="#kalkulator">Volum</a>
                 <a href="#om-oss">Om oss</a>
                 <a href="#tilbud">Kontakt</a>
             </nav>
@@ -43,7 +42,7 @@
                 <p class="hero-lead">Vi pakker, bærer, kjører og setter alt på plass. Erfarne flyttefolk, full forsikring og en pris du kan stole på.</p>
                 <div class="hero-actions">
                     <a href="#tilbud" class="btn btn-primary btn-lg">Be om gratis befaring</a>
-                    <a href="#kalkulator" class="btn btn-linje btn-lg">Regn ut volum</a>
+                    <a href="#tjenester" class="btn btn-linje btn-lg">Se tjenester</a>
                 </div>
                 <ul class="hero-punkter">
                     <li>Fast pris før flyttedagen</li>
@@ -99,88 +98,6 @@
         </div>
     </section>
 
-    <!-- ===== KALKULATOR ===== -->
-    <section class="section-kalkulator" id="kalkulator">
-        <div class="container">
-            <div class="seksjon-topp seksjon-midt">
-                <p class="eyebrow">Planlegg flyttingen</p>
-                <h2>Regn ut flyttevolumet ditt</h2>
-                <p class="seksjon-lead">Legg inn rommene du skal flytte, så får du et anslag på volum og bilstørrelse. Endelig pris avtaler vi etter befaring.</p>
-            </div>
-
-            <div class="kalk-grid">
-                <div class="kalk-input">
-                    <h3 class="kalk-tittel">Hva skal flyttes?</h3>
-
-                    <div class="rom-rad">
-                        <div class="rom-navn"><strong>Stue</strong><span>ca. 12 m³ per rom</span></div>
-                        <div class="teller">
-                            <button type="button" class="tell-knapp" data-rom="stue" data-endre="-1">−</button>
-                            <span class="tell-verdi" id="stue">0</span>
-                            <button type="button" class="tell-knapp" data-rom="stue" data-endre="1">+</button>
-                        </div>
-                    </div>
-                    <div class="rom-rad">
-                        <div class="rom-navn"><strong>Soverom</strong><span>ca. 8 m³ per rom</span></div>
-                        <div class="teller">
-                            <button type="button" class="tell-knapp" data-rom="soverom" data-endre="-1">−</button>
-                            <span class="tell-verdi" id="soverom">0</span>
-                            <button type="button" class="tell-knapp" data-rom="soverom" data-endre="1">+</button>
-                        </div>
-                    </div>
-                    <div class="rom-rad">
-                        <div class="rom-navn"><strong>Kjøkken</strong><span>ca. 6 m³</span></div>
-                        <div class="teller">
-                            <button type="button" class="tell-knapp" data-rom="kjokken" data-endre="-1">−</button>
-                            <span class="tell-verdi" id="kjokken">0</span>
-                            <button type="button" class="tell-knapp" data-rom="kjokken" data-endre="1">+</button>
-                        </div>
-                    </div>
-                    <div class="rom-rad">
-                        <div class="rom-navn"><strong>Bod / kjeller</strong><span>ca. 5 m³</span></div>
-                        <div class="teller">
-                            <button type="button" class="tell-knapp" data-rom="bod" data-endre="-1">−</button>
-                            <span class="tell-verdi" id="bod">0</span>
-                            <button type="button" class="tell-knapp" data-rom="bod" data-endre="1">+</button>
-                        </div>
-                    </div>
-                    <div class="rom-rad">
-                        <div class="rom-navn"><strong>Kontor</strong><span>ca. 7 m³</span></div>
-                        <div class="teller">
-                            <button type="button" class="tell-knapp" data-rom="kontor" data-endre="-1">−</button>
-                            <span class="tell-verdi" id="kontor">0</span>
-                            <button type="button" class="tell-knapp" data-rom="kontor" data-endre="1">+</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="kalk-resultat">
-                    <p class="res-etikett">Estimert volum</p>
-                    <p class="res-volum"><span id="totalVolum">0</span> m³</p>
-
-                    <div class="res-bil">
-                        <span class="bil-ikon" id="bilIkon">🚚</span>
-                        <div>
-                            <strong id="bilNavn">Legg til rom</strong>
-                            <span id="bilInfo">Velg rommene du skal flytte</span>
-                        </div>
-                    </div>
-
-                    <div class="res-detaljer">
-                        <div class="res-rad"><span>Anslått antall esker</span><strong id="eskeAntall">0</strong></div>
-                        <div class="res-rad"><span>Anslått tid</span><strong id="tidAnslag">–</strong></div>
-                    </div>
-
-                    <div class="res-varsel">
-                        <strong>Dette er kun et estimat.</strong>
-                        <p>Faktisk volum avhenger av møbler og pakking. Vi anbefaler gratis befaring for et bindende tilbud.</p>
-                    </div>
-
-                    <a href="#tilbud" class="btn btn-primary btn-block">Be om gratis befaring</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ===== SLIK GJØR VI DET ===== -->
     <section class="section section-alt" id="slik">
@@ -369,71 +286,6 @@
             <p>© 2026 Trygg Flytt. Alle rettigheter reservert.</p>
         </div>
     </footer>
-
-    <!-- ===== SCRIPT ===== -->
-    <script>
-        (function () {
-            const volumPerRom = { stue: 12, soverom: 8, kjokken: 6, bod: 5, kontor: 7 };
-            const antall = { stue: 0, soverom: 0, kjokken: 0, bod: 0, kontor: 0 };
-
-            const totalEl = document.getElementById("totalVolum");
-            const bilIkon = document.getElementById("bilIkon");
-            const bilNavn = document.getElementById("bilNavn");
-            const bilInfo = document.getElementById("bilInfo");
-            const eskeEl = document.getElementById("eskeAntall");
-            const tidEl = document.getElementById("tidAnslag");
-            const volumFelt = document.getElementById("volum");
-            if (!totalEl) return;
-
-            function oppdater() {
-                let total = 0;
-                for (const rom in antall) total += antall[rom] * volumPerRom[rom];
-                totalEl.textContent = total;
-                eskeEl.textContent = total > 0 ? Math.round(total * 2.5) : 0;
-
-                if (total === 0) {
-                    bilIkon.textContent = "🚚";
-                    bilNavn.textContent = "Legg til rom";
-                    bilInfo.textContent = "Velg rommene du skal flytte";
-                    tidEl.textContent = "–";
-                } else if (total <= 15) {
-                    bilIkon.textContent = "🚐";
-                    bilNavn.textContent = "Liten varebil";
-                    bilInfo.textContent = "Passer for hybel eller liten leilighet";
-                    tidEl.textContent = "3–5 timer";
-                } else if (total <= 35) {
-                    bilIkon.textContent = "🚚";
-                    bilNavn.textContent = "Flyttebil";
-                    bilInfo.textContent = "Passer for leilighet eller mindre bolig";
-                    tidEl.textContent = "5–8 timer";
-                } else if (total <= 60) {
-                    bilIkon.textContent = "🚛";
-                    bilNavn.textContent = "Stor flyttebil";
-                    bilInfo.textContent = "Passer for enebolig";
-                    tidEl.textContent = "1 dag";
-                } else {
-                    bilIkon.textContent = "🚛";
-                    bilNavn.textContent = "Stor bil + ekstra tur";
-                    bilInfo.textContent = "Stort volum – vi planlegger sammen";
-                    tidEl.textContent = "1–2 dager";
-                }
-
-                if (volumFelt) volumFelt.value = total > 0 ? total : "";
-            }
-
-            document.querySelectorAll(".tell-knapp").forEach(k => {
-                k.addEventListener("click", () => {
-                    const rom = k.dataset.rom;
-                    const endre = parseInt(k.dataset.endre, 10);
-                    antall[rom] = Math.max(0, Math.min(9, antall[rom] + endre));
-                    document.getElementById(rom).textContent = antall[rom];
-                    oppdater();
-                });
-            });
-
-            oppdater();
-        })();
-    </script>
 
 </body>
 </html>
