@@ -277,25 +277,7 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
 .reveal.vis { opacity: 1; transform: none; }
 
-/* ---------- Kalkulator ---------- */
-.section-kalkulator { padding-block: 5.5rem; background: var(--graa); }
-.kalk-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: start; }
 
-.kalk-input {
-    background: var(--graa-krem);
-    border: 1px solid var(--linje);
-    border-radius: calc(var(--radius) * 1.2);
-    padding: 2rem;
-}
-.kalk-tittel { font-size: 1.2rem; margin-bottom: 1.3rem; }
-.rom-rad {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--linje);
-}
 .rom-rad:last-child { border-bottom: none; }
 .rom-navn strong { display: block; font-family: var(--font-display); color: var(--purpur); font-size: .98rem; }
 .rom-navn span { font-size: .84rem; color: var(--graa-mork); }

@@ -16,227 +16,94 @@
     <div class="toppstripe">
         <div class="container toppstripe-inner">
             <span>📍 Skien · Porsgrunn · Bamble</span>
-            <a href="tel:+4791234567">📞 912 34 567</a>
         </div>
     </div>
 
     <!-- ===== HEADER ===== -->
     <header class="header">
         <div class="container header-inner">
-            <a href="#" class="logo">Trygg Flytt</a>
+            <a href="#" class="logo"><span class="logo-boks">📦</span>Trygg <strong>Flytt</strong></a>
             <nav class="nav">
+                <a href="#tilbud">Få tilbud</a>
+                <a href="#slik">Slik foregår det</a>
                 <a href="#tjenester">Tjenester</a>
                 <a href="#om-oss">Om oss</a>
-                <a href="#tilbud">Kontakt</a>
             </nav>
-            <a href="#tilbud" class="btn btn-primary btn-small">Be om tilbud</a>
+            <a href="tel:+4795678901" class="btn btn-ghost btn-small">956 78 901</a>
         </div>
     </header>
 
-    <!-- ===== HERO (dempet, klassisk) ===== -->
-    <section class="hero">
-        <div class="container hero-inner">
+    <!-- ===== HERO + SKJEMA (hovedrollen) ===== -->
+    <section class="hero-skjema" id="tilbud">
+        <div class="container hero-skjema-inner">
             <div class="hero-tekst">
-                <p class="hero-over">Flyttebyrå i Grenland siden 2014</p>
-                <h1>Flytting uten stress<br>– til fast pris</h1>
-                <p class="hero-lead">Vi pakker, bærer, kjører og setter alt på plass. Erfarne flyttefolk, full forsikring og en pris du kan stole på.</p>
-                <div class="hero-actions">
-                    <a href="#tilbud" class="btn btn-primary btn-lg">Be om gratis befaring</a>
-                    <a href="#tjenester" class="btn btn-linje btn-lg">Se tjenester</a>
-                </div>
-                <ul class="hero-punkter">
-                    <li>Fast pris før flyttedagen</li>
-                    <li>Fullt forsikret</li>
-                    <li>Egne, faste ansatte</li>
+                <p class="eyebrow eyebrow-light">Flyttebyrå i Grenland</p>
+                <h1>Flytt uten stress.<br><span class="accent">Fast pris. Samme dag.</span></h1>
+                <p class="hero-lead">Fyll ut skjemaet, så får du et konkret pristilbud innen få timer. Forsikret transport, punktlige folk og ingen skjulte kostnader.</p>
+                <ul class="hero-trust">
+                    <li>Fast pris – ikke timepris</li>
+                    <li>Fullt forsikret transport</li>
+                    <li>Svar samme dag</li>
                 </ul>
             </div>
-            <div class="hero-bilde">
-                <div class="hb-ramme"></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ===== TJENESTER ===== -->
-    <section class="section" id="tjenester">
-        <div class="container">
-            <div class="seksjon-topp seksjon-midt">
-                <p class="eyebrow">Våre tjenester</p>
-                <h2>Alt du trenger på flyttedagen</h2>
-            </div>
-            <div class="tjeneste-grid">
-                <article class="tj-kort">
-                    <div class="tj-ikon">🏠</div>
-                    <h3>Privatflytting</h3>
-                    <p>Vi pakker, bærer, kjører og setter alt på plass i det nye hjemmet ditt.</p>
-                </article>
-                <article class="tj-kort">
-                    <div class="tj-ikon">🏢</div>
-                    <h3>Bedriftsflytting</h3>
-                    <p>Kontor og lager, planlagt utenom arbeidstid så driften går videre.</p>
-                </article>
-                <article class="tj-kort">
-                    <div class="tj-ikon">📦</div>
-                    <h3>Pakking</h3>
-                    <p>Vi pakker alt trygt – eller leverer esker og materiell til deg.</p>
-                </article>
-                <article class="tj-kort">
-                    <div class="tj-ikon">🧹</div>
-                    <h3>Flyttevask</h3>
-                    <p>Grundig vask med garanti for godkjenning ved overtakelse.</p>
-                </article>
-                <article class="tj-kort">
-                    <div class="tj-ikon">🗄️</div>
-                    <h3>Lagring</h3>
-                    <p>Trygg oppbevaring i tørt lager mellom to hjem.</p>
-                </article>
-                <article class="tj-kort">
-                    <div class="tj-ikon">🔧</div>
-                    <h3>Montering</h3>
-                    <p>Demontering og montering av møbler, kjøkken og hyller.</p>
-                </article>
-            </div>
-        </div>
-    </section>
+            <form name="tilbud" method="POST" data-netlify="true" class="skjema-kort">
+                <input type="hidden" name="form-name" value="tilbud">
+                <h2>Få pristilbud nå</h2>
 
-
-    <!-- ===== SLIK GJØR VI DET ===== -->
-    <section class="section section-alt" id="slik">
-        <div class="container">
-            <div class="seksjon-topp seksjon-midt">
-                <p class="eyebrow">Fra A til B</p>
-                <h2>Slik gjør vi det</h2>
-            </div>
-            <div class="steg-rekke">
-                <div class="steg">
-                    <span class="steg-nr">1</span>
-                    <h3>Befaring</h3>
-                    <p>Vi kommer hjem til deg, ser omfanget og gir fast pris.</p>
-                </div>
-                <div class="steg">
-                    <span class="steg-nr">2</span>
-                    <h3>Pakking</h3>
-                    <p>Vi pakker trygt, eller du gjør det selv med vårt materiell.</p>
-                </div>
-                <div class="steg">
-                    <span class="steg-nr">3</span>
-                    <h3>Transport</h3>
-                    <p>Erfarne flyttefolk laster, kjører og passer på tingene dine.</p>
-                </div>
-                <div class="steg">
-                    <span class="steg-nr">4</span>
-                    <h3>På plass</h3>
-                    <p>Vi bærer inn, monterer og rydder emballasjen etter oss.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== OM OSS (klassisk) ===== -->
-    <section class="section-om" id="om-oss">
-        <div class="container">
-            <div class="seksjon-topp seksjon-midt">
-                <p class="eyebrow">Om oss</p>
-                <h2>Et lokalt flyttebyrå du kan stole på</h2>
-            </div>
-
-            <div class="om-tekst-midt">
-                <p>Trygg Flytt ble startet i 2014 av folk som selv hadde flyttet nok ganger til å vite hva som er viktig: at tingene kommer trygt fram, at prisen holder, og at de som bærer sofaen din vet hva de driver med.</p>
-                <p>I dag er vi et fast team med egne ansatte – ingen innleide vikarer. Vi bor og jobber i Grenland, og de fleste kundene våre kommer fra anbefalinger. Det er vi ganske stolte av.</p>
-            </div>
-
-            <div class="om-tall">
-                <div class="tall">
-                    <strong>2014</strong>
-                    <span>Året vi startet</span>
-                </div>
-                <div class="tall">
-                    <strong>1 400+</strong>
-                    <span>Flyttinger utført</span>
-                </div>
-                <div class="tall">
-                    <strong>7</strong>
-                    <span>Faste ansatte</span>
-                </div>
-                <div class="tall">
-                    <strong>4,9</strong>
-                    <span>Snittvurdering</span>
-                </div>
-            </div>
-
-            <div class="om-sitat">
-                <blockquote>«De kom presis, jobbet raskt og alt kom fram uten en skramme. Prisen var akkurat som avtalt.»</blockquote>
-                <p class="sitat-hvem">— Familie i Porsgrunn, flyttet mars 2025</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== TILLIT ===== -->
-    <section class="tillit-band">
-        <div class="container tillit-inner">
-            <div class="tillit-punkt"><strong>Fast pris</strong><span>Skriftlig tilbud før flyttedagen</span></div>
-            <div class="tillit-punkt"><strong>Fullt forsikret</strong><span>Tingene dine er dekket</span></div>
-            <div class="tillit-punkt"><strong>Egne ansatte</strong><span>Ikke innleide vikarer</span></div>
-            <div class="tillit-punkt"><strong>Gratis befaring</strong><span>Uforpliktende og raskt</span></div>
-        </div>
-    </section>
-
-    <!-- ===== TILBUD ===== -->
-    <section class="section-tilbud" id="tilbud">
-        <div class="container tilbud-inner">
-            <div class="tilbud-tekst">
-                <p class="eyebrow">Gratis og uforpliktende</p>
-                <h2>Be om tilbud på flyttingen</h2>
-                <p>Fortell oss om flyttingen, så tar vi kontakt for befaring og gir deg en fast pris. Ingen skjulte kostnader på flyttedagen.</p>
-                <div class="tilbud-kontakt">
-                    <p><strong>Telefon:</strong> <a href="tel:+4791234567">912 34 567</a></p>
-                    <p><strong>E-post:</strong> <a href="mailto:post@tryggflytt.no">post@tryggflytt.no</a></p>
-                    <p><strong>Adresse:</strong> Flyttegata 11, 3724 Skien</p>
-                </div>
-            </div>
-
-            <form name="flyttetilbud" method="POST" data-netlify="true" class="tilbud-form">
-                <input type="hidden" name="form-name" value="flyttetilbud">
-
-                <div class="form-rekke">
+                <div class="form-row">
                     <div class="form-field">
-                        <label for="fraAdresse">Fra adresse</label>
-                        <input type="text" id="fraAdresse" name="fraAdresse" placeholder="Gate, postnr, sted" required>
+                        <label for="fra">Flytter fra (postnr/sted)</label>
+                        <input type="text" id="fra" name="fra" placeholder="3724 Skien" required>
                     </div>
                     <div class="form-field">
-                        <label for="tilAdresse">Til adresse</label>
-                        <input type="text" id="tilAdresse" name="tilAdresse" placeholder="Gate, postnr, sted" required>
+                        <label for="til">Flytter til (postnr/sted)</label>
+                        <input type="text" id="til" name="til" placeholder="3915 Porsgrunn" required>
                     </div>
                 </div>
 
-                <div class="form-rekke">
+                <div class="form-row">
                     <div class="form-field">
-                        <label for="flyttedato">Ønsket flyttedato</label>
-                        <input type="date" id="flyttedato" name="flyttedato" required>
+                        <label for="storrelse">Boligstørrelse</label>
+                        <select id="storrelse" name="storrelse" required>
+                            <option value="" disabled selected>Velg</option>
+                            <option>Hybel / 1-roms</option>
+                            <option>2-roms</option>
+                            <option>3-roms</option>
+                            <option>4-roms eller større</option>
+                            <option>Enebolig</option>
+                            <option>Kontor / næring</option>
+                        </select>
                     </div>
                     <div class="form-field">
-                        <label for="volum">Estimert volum (m³)</label>
-                        <input type="text" id="volum" name="volum" placeholder="F.eks: 28">
+                        <label for="etasjer">Etasje / heis?</label>
+                        <select id="etasjer" name="etasjer" required>
+                            <option value="" disabled selected>Velg</option>
+                            <option>1. etasje / med heis</option>
+                            <option>2.–3. etasje uten heis</option>
+                            <option>4. etasje+ uten heis</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="form-field">
-                    <label for="tilleggstjeneste">Tilleggstjenester</label>
-                    <select id="tilleggstjeneste" name="tilleggstjeneste">
-                        <option value="Ingen">Ingen</option>
-                        <option>Pakking</option>
-                        <option>Flyttevask</option>
-                        <option>Lagring</option>
-                        <option>Montering</option>
-                        <option>Flere av disse</option>
-                    </select>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="dato">Ønsket dato</label>
+                        <input type="date" id="dato" name="dato" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="tillegg">Tilleggstjenester?</label>
+                        <select id="tillegg" name="tillegg">
+                            <option value="" disabled selected>Velg (valgfritt)</option>
+                            <option>Pakking</option>
+                            <option>Flyttevask</option>
+                            <option>Pakking + flyttevask</option>
+                            <option>Ingen</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="form-field">
-                    <label for="melding">Noe vi bør vite?</label>
-                    <textarea id="melding" name="melding" rows="3" placeholder="F.eks: 3. etasje uten heis, piano skal flyttes."></textarea>
-                </div>
-
-                <div class="form-rekke">
+                <div class="form-row">
                     <div class="form-field">
                         <label for="navn">Navn</label>
                         <input type="text" id="navn" name="navn" required>
@@ -252,12 +119,89 @@
                     <input type="email" id="epost" name="epost" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Send forespørsel</button>
+                <button type="submit" class="btn btn-primary btn-block">Få tilbud – svar samme dag</button>
+                <p class="form-note">Uforpliktende. Vi behandler opplysningene kun for å gi deg tilbud. <a href="#">Personvern</a>.</p>
             </form>
         </div>
     </section>
 
-    <!-- ===== BESTILL-BANNER ===== -->
+    <!-- ===== SLIK FOREGÅR DET ===== -->
+    <section class="section" id="slik">
+        <div class="container">
+            <p class="eyebrow">Enkelt og forutsigbart</p>
+            <h2>Slik foregår flyttingen</h2>
+            <div class="grid grid-4">
+                <div class="steg"><span class="steg-num">1</span><h3>Send skjemaet</h3><p>Fortell oss hva som skal flyttes, hvor og når.</p></div>
+                <div class="steg"><span class="steg-num">2</span><h3>Fast pris samme dag</h3><p>Du får et konkret tilbud – ingen timepris, ingen overraskelser.</p></div>
+                <div class="steg"><span class="steg-num">3</span><h3>Vi flytter deg</h3><p>Punktlig oppmøte, forsiktig bæring og forsikret transport.</p></div>
+                <div class="steg"><span class="steg-num">4</span><h3>Du sjekker og godkjenner</h3><p>Alt på plass? Først da er jobben ferdig for oss.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TJENESTER ===== -->
+    <section class="section section-alt" id="tjenester">
+        <div class="container">
+            <p class="eyebrow">Alt innen flytting</p>
+            <h2>Tjenester</h2>
+            <div class="grid grid-3">
+                <article class="card"><h3>Privatflytting</h3><p>Fra hybel til enebolig – vi flytter hjemmet ditt trygt og effektivt.</p></article>
+                <article class="card"><h3>Kontorflytting</h3><p>Planlagt flytting utenom arbeidstid, så bedriften mister minst mulig tid.</p></article>
+                <article class="card"><h3>Pakking</h3><p>Vi pakker alt forsvarlig i esker og materiell – du slipper ukene med forberedelser.</p></article>
+                <article class="card"><h3>Flyttevask</h3><p>Godkjent flyttevask med garanti – lever nøklene med god samvittighet.</p></article>
+                <article class="card"><h3>Tunge løft</h3><p>Piano, safe eller amerikansk kjøleskap? Vi har utstyret og erfaringen.</p></article>
+                <article class="card"><h3>Avfall og rydding</h3><p>Vi kjører bort det du ikke skal ha med – sortert og levert godkjent mottak.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OM OSS ===== -->
+    <section class="section" id="om-oss">
+        <div class="container om-inner">
+            <div>
+                <p class="eyebrow">Om oss</p>
+                <h2>Folk som bryr seg om tingene dine</h2>
+                <p>Trygg Flytt drives av et fast team med årevis av flytteerfaring. Vi møter opp når vi sier, bærer som om det var vårt eget, og gir deg alltid fast pris på forhånd.</p>
+                <p>Godsforsikring er alltid inkludert, og vi er registrert i Enhetsregisteret med alle papirer i orden.</p>
+                <ul class="hero-trust">
+                    <li>Fast team – ikke innleid</li>
+                    <li>Godsforsikring inkludert</li>
+                    <li>Punktlighetsgaranti</li>
+                </ul>
+            </div>
+            <div class="photo-placeholder photo-om">
+                <span>Bilde: flyttebilen og teamet</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== KONTAKT / FOOTER ===== -->
+    <footer class="footer" id="kontakt">
+        <div class="container grid grid-3">
+            <div>
+                <p class="footer-logo">📦 Trygg <strong>Flytt</strong></p>
+                <p>Flyttebyrå i Grenland – fast pris, trygg levering.</p>
+                <p>Org.nr: 999 999 999</p>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <p><a href="tel:+4795678901">956 78 901</a></p>
+                <p><a href="mailto:post@tryggflytt.no">post@tryggflytt.no</a></p>
+                <p>Lagerveien 14, 3919 Porsgrunn</p>
+            </div>
+            <div>
+                <h3>Informasjon</h3>
+                <p><a href="#">Personvernerklæring</a></p>
+                <p><a href="#">Salgsbetingelser</a></p>
+                <p><a href="#tilbud">Få tilbud</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Trygg Flytt. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+
+     <!-- ===== BESTILL-BANNER ===== -->
     <section class="demo-bestill">
         <div class="container">
             <p class="demo-bestill-topp">Liker du dette designet?</p>
@@ -267,25 +211,6 @@
             <p class="demo-bestill-retur"><a href="../../index.html">← Tilbake til Hjemmesidendin</a></p>
         </div>
     </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="container footer-topp">
-            <div>
-                <p class="footer-logo">Trygg Flytt</p>
-                <p>Flyttebyrå i Grenland siden 2014.</p>
-            </div>
-            <div class="footer-kontakt">
-                <a href="tel:+4791234567">912 34 567</a>
-                <a href="mailto:post@tryggflytt.no">post@tryggflytt.no</a>
-                <span>Flyttegata 11, 3724 Skien</span>
-            </div>
-        </div>
-        <div class="footer-bunn">
-            <p>Org.nr: 999 999 999</p>
-            <p>© 2026 Trygg Flytt. Alle rettigheter reservert.</p>
-        </div>
-    </footer>
 
 </body>
 </html>
