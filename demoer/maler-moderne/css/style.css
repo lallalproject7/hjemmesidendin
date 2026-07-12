@@ -515,6 +515,64 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
     color: #8b869c;
 }
 
+/* ---------- Om oss ---------- */
+.section-om { padding-block: 5.5rem; background: var(--krem); }
+.om-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 3.5rem; align-items: center; }
+
+.om-bilde { position: relative; }
+.om-foto {
+    aspect-ratio: 4 / 3;
+    border-radius: calc(var(--radius) * 1.2);
+    /* Unsplash – fri kommersiell bruk. Bytt ut med bilde av ditt eget team/Cloudinary */
+    background-image: url("https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1000&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 20px 50px rgba(45, 42, 62, .18);
+    position: relative;
+    z-index: 1;
+}
+.om-fargeklatt {
+    position: absolute;
+    top: -1.5rem;
+    left: -1.5rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sol), var(--terra));
+    opacity: .85;
+    z-index: 0;
+}
+.om-merke {
+    position: absolute;
+    bottom: -1.2rem;
+    right: -1rem;
+    z-index: 2;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: .9rem 1.3rem;
+    box-shadow: 0 12px 32px rgba(45, 42, 62, .2);
+    border-left: 4px solid var(--terra);
+}
+.om-merke strong { display: block; font-family: var(--font-display); color: var(--blekk); font-size: 1rem; }
+.om-merke span { font-size: .82rem; color: var(--tekst); }
+
+.om-tekst p { margin-bottom: 1rem; }
+.om-verdier { display: grid; gap: 1rem; margin-top: 1.8rem; }
+.verdi { display: flex; align-items: center; gap: 1rem; }
+.verdi-dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.verdi strong { display: block; font-family: var(--font-display); color: var(--blekk); font-size: .96rem; }
+.verdi span:not(.verdi-dot) { font-size: .85rem; color: var(--tekst); }
+
+@media (max-width: 900px) {
+    .om-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .om-merke { right: 1rem; }
+}
+
 a:focus-visible, button:focus-visible { outline: 3px solid var(--terra); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -543,3 +601,4 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--terra); outline
     .form-rekke { grid-template-columns: 1fr; }
     .hero-bilder { height: 300px; }
 }
+
