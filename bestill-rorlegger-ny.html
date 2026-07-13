@@ -595,7 +595,7 @@
         bakgrunner.forEach((b, i) => {
             const k = document.createElement("div");
             k.className = "bak-kort" + (i === 0 ? " valgt" : "");
-            k.innerHTML = `<div class="bak-prov" style="background:${b.kode}"></div><span>${b.navn}</span>`;
+            k.innerHTML = `<div class="bak-prov" style="background:${b.kode}"></div><span>${b.navn}</span><span style="display:block; font-family:monospace; font-size:.72rem; color:var(--pine-soft); margin-top:.15rem">${b.kode.toUpperCase()}</span>`;
             k.addEventListener("click", () => {
                 document.querySelectorAll(".bak-kort").forEach(x => x.classList.remove("valgt"));
                 k.classList.add("valgt");
@@ -635,6 +635,29 @@
         const UPLOAD_PRESET = "ml_default";
         const opplastet = { logo: [], team: [], hero: [] };
 
+        function visBilde(type, url) {
+            const thumbs = document.getElementById(`thumbs-${type}`);
+            thumbs.innerHTML = "";
+            const wrap = document.createElement("div");
+            wrap.style.cssText = "position:relative; display:inline-block";
+            const img = document.createElement("img");
+            img.src = url;
+            const slett = document.createElement("button");
+            slett.type = "button";
+            slett.textContent = "✕";
+            slett.title = "Fjern bilde";
+            slett.style.cssText = "position:absolute; top:-6px; right:-6px; width:20px; height:20px; border-radius:50%; border:none; background:#c0392b; color:#fff; font-size:12px; line-height:1; cursor:pointer; padding:0; display:grid; place-items:center";
+            slett.addEventListener("click", () => {
+                opplastet[type] = [];
+                thumbs.innerHTML = "";
+                document.getElementById(`bilde_${type}`).value = "";
+                document.getElementById(`status-${type}`).innerHTML = "";
+            });
+            wrap.appendChild(img);
+            wrap.appendChild(slett);
+            thumbs.appendChild(wrap);
+        }
+
         const widget = cloudinary.createUploadWidget({
             cloudName: CLOUD_NAME,
             uploadPreset: UPLOAD_PRESET,
@@ -646,14 +669,11 @@
             if (!error && result && result.event === "success") {
                 const type = widget._aktivType || "logo";
                 const url = result.info.secure_url;
-                opplastet[type].push(url);
-                const thumbs = document.getElementById(`thumbs-${type}`);
-                const img = document.createElement("img");
-                img.src = url;
-                thumbs.appendChild(img);
+                opplastet[type] = [url];
+                visBilde(type, url);
                 document.getElementById(`status-${type}`).innerHTML =
                     `<span style="color:var(--signal-dark)">✓ Lastet opp</span>`;
-                document.getElementById(`bilde_${type}`).value = opplastet[type].join(", ");
+                document.getElementById(`bilde_${type}`).value = url;
             }
         });
 
@@ -663,6 +683,7 @@
                 widget.open();
             });
         });
+
 
         // ========== GENERADOR DE RESUMEN ==========
         function v(name) {
