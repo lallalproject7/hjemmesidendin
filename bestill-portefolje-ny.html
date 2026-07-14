@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestill porteføljeside – Hjemmesidendin</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <style>
+        .best-wrap { width: min(800px, 92%); margin: 2.5rem auto 4rem; }
+        .best-topp { text-align: center; margin-bottom: 2rem; }
+        .best-topp h1 { margin-bottom: .6rem; }
+        .best-del { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; margin-bottom: 1.5rem; }
+        .best-del-topp { display: flex; align-items: center; gap: .8rem; margin-bottom: .4rem; }
+        .best-nr { width: 2rem; height: 2rem; flex-shrink: 0; display: grid; place-items: center; background: var(--pine); color: #fff; border-radius: 50%; font-family: var(--font-display); font-weight: 700; font-size: .95rem; }
+        .best-del h2 { font-size: 1.25rem; margin: 0; }
+        .best-del-hint { font-size: .9rem; color: var(--pine-soft); margin-bottom: 1.4rem; margin-top: .3rem; }
+        .best-del-hint a { color: var(--signal-dark); }
+
+        .bfelt { margin-bottom: 1.2rem; }
+        .bfelt:last-child { margin-bottom: 0; }
+        .bfelt label { display: block; font-weight: 600; font-size: .93rem; color: var(--pine); margin-bottom: .15rem; }
+        .bfelt .forklaring { display: block; font-size: .83rem; color: var(--pine-soft); margin-bottom: .45rem; }
+        .bfelt input[type=text], .bfelt input[type=tel], .bfelt input[type=email], .bfelt textarea { width: 100%; font: inherit; padding: .65rem .8rem; border: 1px solid var(--line); border-radius: 8px; background: var(--sand); color: var(--pine); }
+        .bfelt input:focus, .bfelt textarea:focus { outline: 2px solid var(--signal); outline-offset: 1px; border-color: var(--signal); }
+        .bfelt .eksempel { display: block; font-size: .8rem; color: var(--signal-dark); margin-top: .3rem; font-style: italic; }
+        .bfelt-rekke { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .bfelt-fire { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .valgfri { font-weight: 400; color: var(--pine-soft); font-size: .82rem; }
+
+        .info-boks { background: var(--sand); border-radius: 8px; padding: 1rem 1.2rem; font-size: .87rem; line-height: 1.55; color: var(--pine); margin-bottom: 1.3rem; }
+
+        .tall-rad { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+        .tall-boks { background: var(--sand); border: 1px solid var(--line); border-radius: 8px; padding: .9rem; }
+        .tall-boks label { font-size: .85rem; }
+
+        .kat-rad { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        /* Acordeón de proyectos */
+        .prosjekt-blokk { border: 1px solid var(--line); border-radius: 10px; margin-bottom: .9rem; background: var(--sand); overflow: hidden; }
+        .prosjekt-blokk summary {
+            padding: 1rem 1.2rem; cursor: pointer; font-family: var(--font-display);
+            font-weight: 600; color: var(--pine); font-size: 1rem;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+            list-style: none; transition: background .15s ease;
+        }
+        .prosjekt-blokk summary::-webkit-details-marker { display: none; }
+        .prosjekt-blokk summary:hover { background: rgba(232,100,27,.06); }
+        .prosjekt-blokk[open] summary { border-bottom: 1px solid var(--line); background: rgba(232,100,27,.06); }
+        .blokk-nr { font-size: .76rem; font-weight: 700; color: var(--signal); text-transform: uppercase; letter-spacing: .06em; }
+        .blokk-pil { color: var(--signal-dark); font-size: .85rem; }
+        .prosjekt-blokk[open] .blokk-pil { transform: rotate(90deg); }
+        .blokk-inn { padding: 1.4rem 1.2rem; background: var(--surface); }
+        .blokk-tittel { font-family: var(--font-display); font-weight: 600; font-size: .9rem; color: var(--signal-dark); text-transform: uppercase; letter-spacing: .05em; margin: 1.5rem 0 .8rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+        .blokk-tittel:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+
+        /* Cloudinary */
+        .opplast-kort { border: 2px dashed var(--line); border-radius: 10px; padding: 1rem; text-align: center; background: var(--sand); }
+        .opplast-kort h4 { color: var(--pine); font-size: .9rem; margin-bottom: .15rem; }
+        .opplast-hint { font-size: .78rem; color: var(--pine-soft); margin-bottom: .7rem; }
+        .opplast-knapp { background: var(--pine); color: #fff; border: none; padding: .5rem 1rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: var(--font-display); font-size: .85rem; }
+        .opplast-knapp:hover { background: var(--signal); }
+        .opplast-status { margin-top: .5rem; font-size: .8rem; }
+        .opplast-thumbs { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; justify-content: center; }
+        .thumb-wrap { position: relative; display: inline-block; }
+        .opplast-thumbs img { width: 54px; height: 54px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
+        .thumb-slett { position: absolute; top: -6px; right: -6px; width: 19px; height: 19px; border-radius: 50%; border: none; background: #c0392b; color: #fff; font-size: 11px; line-height: 1; cursor: pointer; padding: 0; display: grid; place-items: center; }
+        .foto-rad { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+
+        .best-send { background: var(--pine); color: #fff; border: none; width: 100%; padding: 1.1rem; border-radius: var(--radius); font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; cursor: pointer; margin-top: 1rem; }
+        .best-send:hover { background: var(--signal); }
+        .resultat-boks { display: none; background: var(--pine); color: #e8ecec; border-radius: var(--radius); padding: 1.6rem; margin-top: 1.5rem; }
+        .resultat-boks.vis { display: block; }
+        .resultat-boks h3 { color: #fff; margin-bottom: .3rem; }
+        .res-intro { color: #cfd8dd; font-size: .9rem; margin-bottom: 1rem; }
+        .resultat-tekst { width: 100%; min-height: 340px; font-family: monospace; font-size: .8rem; line-height: 1.5; padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.15); background: rgba(0,0,0,.25); color: #d9e3dd; resize: vertical; }
+        .kopier-knapp { margin-top: .8rem; background: var(--signal); color: #fff; border: none; padding: .7rem 1.4rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: var(--font-display); }
+        .kopier-knapp:hover { background: var(--signal-dark); }
+        .kopier-ok { display: inline-block; margin-left: .8rem; color: #8ce5c6; font-size: .88rem; }
+
+        @media (max-width: 600px) {
+            .bfelt-rekke, .tall-rad, .kat-rad, .foto-rad, .bfelt-fire { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">hjemmesiden<span>din</span></a>
+            <nav class="nav">
+                <a href="index.html#oppdateringer">Priser</a>
+                <a href="index.html#faq">Spørsmål</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="best-wrap">
+        <div class="best-topp">
+            <p class="eyebrow">Tilleggsside · Kun for våre kunder</p>
+            <h1>Bestill porteføljeside</h1>
+            <p>Vis fram arbeidene deres med bilder, detaljer og før/etter. <a href="demoer/portefolje/index.html" target="_blank" style="color:var(--signal-dark); font-weight:600">Se demo →</a></p>
+        </div>
+
+        <form name="bestill-portefolje-ny" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="bestillSkjema">
+            <input type="hidden" name="form-name" value="bestill-portefolje-ny">
+            <p style="position:absolute; left:-9999px" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
+
+            <!-- DEL 1 -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">1</span><h2>Din nettside</h2></div>
+                <p class="best-del-hint">Så vi finner riktig side. Bruk samme e-post som da du bestilte.</p>
+                <div class="bfelt-rekke">
+                    <div class="bfelt">
+                        <label for="domene">Domenet ditt</label>
+                        <input type="text" id="domene" name="domene" placeholder="dittfirma.no" required>
+                    </div>
+                    <div class="bfelt">
+                        <label for="epost">E-post (samme som ved bestilling)</label>
+                        <input type="email" id="epost" name="epost" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEL 2 -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">2</span><h2>Toppen av porteføljesiden</h2></div>
+                <p class="best-del-hint">Overskriften og teksten som møter besøkende øverst.</p>
+                <div class="bfelt">
+                    <label for="p_tittel">Overskrift</label>
+                    <input type="text" id="p_tittel" name="p_tittel" placeholder="F.eks: Arbeider vi er stolte av">
+                </div>
+                <div class="bfelt">
+                    <label for="p_intro">Introtekst</label>
+                    <span class="forklaring">1–2 setninger om arbeidene deres.</span>
+                    <textarea id="p_intro" name="p_intro" rows="2" placeholder="Skriv her..."></textarea>
+                    <span class="eksempel">Eks: «Et utvalg prosjekter vi har levert de siste årene. Klikk deg inn for å se hvordan vi løste hvert oppdrag.»</span>
+                </div>
+                <div class="bfelt">
+                    <label>Tre tall som viser erfaringen deres <span class="valgfri">(valgfritt)</span></label>
+                    <span class="forklaring">Vises øverst på siden.</span>
+                    <div class="tall-rad">
+                        <div class="tall-boks">
+                            <label>Tall 1</label>
+                            <input type="text" name="tall1_verdi" placeholder="250+" style="margin-bottom:.4rem">
+                            <input type="text" name="tall1_tekst" placeholder="fullførte prosjekter">
+                        </div>
+                        <div class="tall-boks">
+                            <label>Tall 2</label>
+                            <input type="text" name="tall2_verdi" placeholder="12" style="margin-bottom:.4rem">
+                            <input type="text" name="tall2_tekst" placeholder="år i bransjen">
+                        </div>
+                        <div class="tall-boks">
+                            <label>Tall 3</label>
+                            <input type="text" name="tall3_verdi" placeholder="98 %" style="margin-bottom:.4rem">
+                            <input type="text" name="tall3_tekst" placeholder="fornøyde kunder">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEL 3 -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">3</span><h2>Kategorier</h2></div>
+                <p class="best-del-hint">Besøkende kan filtrere prosjektene. Skriv inntil fire kategorier som passer faget ditt – la stå tomt om du vil vise alle uten filter.</p>
+                <div class="kat-rad">
+                    <div class="bfelt"><label for="kat1">Kategori 1</label><input type="text" id="kat1" name="kat1" placeholder="F.eks: Bolig"></div>
+                    <div class="bfelt"><label for="kat2">Kategori 2</label><input type="text" id="kat2" name="kat2" placeholder="F.eks: Bedrift"></div>
+                    <div class="bfelt"><label for="kat3">Kategori 3</label><input type="text" id="kat3" name="kat3" placeholder="F.eks: Renovering"></div>
+                    <div class="bfelt"><label for="kat4">Kategori 4</label><input type="text" id="kat4" name="kat4" placeholder="F.eks: Utendørs"></div>
+                </div>
+            </div>
+
+            <!-- DEL 4 -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">4</span><h2>Prosjektene</h2></div>
+                <p class="best-del-hint">Inntil 6 prosjekter. Klikk på et prosjekt for å fylle det ut. Har du bare tre gode prosjekter? Da fyller du ut tre – tre grundige prosjekter selger bedre enn seks halvferdige.</p>
+
+                <div class="info-boks">
+                    💡 <strong>Tips:</strong> Det viktigste er hovedbilde, tittel og beskrivelse. Detaljene (varighet, størrelse, før/etter, sitat) gjør prosjektet mer troverdig – men er valgfrie. Fyll ut det du har.
+                </div>
+
+                <!-- PROSJEKT 1 -->
+                <details class="prosjekt-blokk" open>
+                    <summary><span><span class="blokk-nr">Prosjekt 1</span></span><span class="blokk-pil">▸</span></summary>
+                    <div class="blokk-inn">
+                        <p class="blokk-tittel">Grunnleggende</p>
+                        <div class="bfelt">
+                            <label>Hovedbilde</label>
+                            <span class="forklaring">Det ferdige resultatet – vises i galleriet.</span>
+                            <div class="opplast-kort">
+                                <button type="button" class="opplast-knapp" data-type="p1_hoved">Last opp hovedbilde</button>
+                                <div class="opplast-status" id="status-p1_hoved"></div>
+                                <div class="opplast-thumbs" id="thumbs-p1_hoved"></div>
+                            </div>
+                        </div>
+                        <div class="bfelt"><label for="p1_tittel">Tittel</label><input type="text" id="p1_tittel" name="p1_tittel" placeholder="F.eks: Komplett oppussing av bad"></div>
+                        <div class="bfelt">
+                            <label for="p1_kort">Kort beskrivelse</label>
+                            <span class="forklaring">Én setning som vises i galleriet.</span>
+                            <input type="text" id="p1_kort" name="p1_kort" placeholder="F.eks: Full rehabilitering fra gulv til tak, med varige materialer.">
+                        </div>
+                        <div class="bfelt-rekke">
+                            <div class="bfelt"><label for="p1_kategori">Kategori</label><input type="text" id="p1_kategori" name="p1_kategori" placeholder="F.eks: Renovering"></div>
+                            <div class="bfelt"><label for="p1_sted">Sted og år</label><input type="text" id="p1_sted" name="p1_sted" placeholder="F.eks: Skien · 2025"></div>
+                        </div>
+
+                        <p class="blokk-tittel">Detaljer <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt-fire">
+                            <div class="bfelt"><label for="p1_varighet">Varighet</label><input type="text" id="p1_varighet" name="p1_varighet" placeholder="F.eks: 12 virkedager"></div>
+                            <div class="bfelt"><label for="p1_omfang">Omfang</label><input type="text" id="p1_omfang" name="p1_omfang" placeholder="F.eks: Totalrenovering"></div>
+                            <div class="bfelt"><label for="p1_storrelse">Størrelse</label><input type="text" id="p1_storrelse" name="p1_storrelse" placeholder="F.eks: 6 m²"></div>
+                            <div class="bfelt"><label for="p1_materialer">Materialer</label><input type="text" id="p1_materialer" name="p1_materialer" placeholder="F.eks: Flis, membran, eik"></div>
+                        </div>
+
+                        <p class="blokk-tittel">Historien bak prosjektet</p>
+                        <div class="bfelt">
+                            <label for="p1_lang">Utfyllende beskrivelse</label>
+                            <span class="forklaring">Hva var utfordringen, hvordan løste dere den, og hvordan ble resultatet? Dette er det som skiller en portefølje fra et bildealbum.</span>
+                            <textarea id="p1_lang" name="p1_lang" rows="5" placeholder="Skriv her..."></textarea>
+                            <span class="eksempel">Eks: «Badet var fra 1987 og hadde fuktskader bak dusjsonen. Vi rev ned til bindingsverket, rettet opp fallet mot sluket og la ny membran etter våtromsnormen. Alt ble dokumentert underveis, og prosjektet ble levert to dager før frist.»</span>
+                        </div>
+
+                        <p class="blokk-tittel">Før og etter <span class="valgfri">(valgfritt)</span></p>
+                        <div class="foto-rad">
+                            <div class="opplast-kort">
+                                <h4>Før</h4>
+                                <button type="button" class="opplast-knapp" data-type="p1_for">Last opp</button>
+                                <div class="opplast-status" id="status-p1_for"></div>
+                                <div class="opplast-thumbs" id="thumbs-p1_for"></div>
+                            </div>
+                            <div class="opplast-kort">
+                                <h4>Etter</h4>
+                                <button type="button" class="opplast-knapp" data-type="p1_etter">Last opp</button>
+                                <div class="opplast-status" id="status-p1_etter"></div>
+                                <div class="opplast-thumbs" id="thumbs-p1_etter"></div>
+                            </div>
+                        </div>
+
+                        <p class="blokk-tittel">Fra prosjektet <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt">
+                            <span class="forklaring">Inntil tre bilder fra prosessen eller detaljer – det er ofte disse som viser fagkunnskapen.</span>
+                            <div class="opplast-kort">
+                                <button type="button" class="opplast-knapp" data-type="p1_prosess">Last opp bilder</button>
+                                <div class="opplast-status" id="status-p1_prosess"></div>
+                                <div class="opplast-thumbs" id="thumbs-p1_prosess"></div>
+                            </div>
+                        </div>
+
+                        <p class="blokk-tittel">Sitat fra kunden <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt"><label for="p1_sitat">Hva sa kunden?</label><textarea id="p1_sitat" name="p1_sitat" rows="2" placeholder="F.eks: «De holdt tiden og ryddet opp hver dag.»"></textarea></div>
+                        <div class="bfelt"><label for="p1_sitat_navn">Navn og sted</label><input type="text" id="p1_sitat_navn" name="p1_sitat_navn" placeholder="F.eks: Kari N. · Skien"></div>
+                    </div>
+                </details>
+
+                <!-- PROSJEKT 2 -->
+                <details class="prosjekt-blokk">
+                    <summary><span><span class="blokk-nr">Prosjekt 2</span></span><span class="blokk-pil">▸</span></summary>
+                    <div class="blokk-inn">
+                        <p class="blokk-tittel">Grunnleggende</p>
+                        <div class="bfelt">
+                            <label>Hovedbilde</label>
+                            <div class="opplast-kort">
+                                <button type="button" class="opplast-knapp" data-type="p2_hoved">Last opp hovedbilde</button>
+                                <div class="opplast-status" id="status-p2_hoved"></div>
+                                <div class="opplast-thumbs" id="thumbs-p2_hoved"></div>
+                            </div>
+                        </div>
+                        <div class="bfelt"><label for="p2_tittel">Tittel</label><input type="text" id="p2_tittel" name="p2_tittel"></div>
+                        <div class="bfelt"><label for="p2_kort">Kort beskrivelse</label><input type="text" id="p2_kort" name="p2_kort"></div>
+                        <div class="bfelt-rekke">
+                            <div class="bfelt"><label for="p2_kategori">Kategori</label><input type="text" id="p2_kategori" name="p2_kategori"></div>
+                            <div class="bfelt"><label for="p2_sted">Sted og år</label><input type="text" id="p2_sted" name="p2_sted"></div>
+                        </div>
+                        <p class="blokk-tittel">Detaljer <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt-fire">
+                            <div class="bfelt"><label for="p2_varighet">Varighet</label><input type="text" id="p2_varighet" name="p2_varighet"></div>
+                            <div class="bfelt"><label for="p2_omfang">Omfang</label><input type="text" id="p2_omfang" name="p2_omfang"></div>
+                            <div class="bfelt"><label for="p2_storrelse">Størrelse</label><input type="text" id="p2_storrelse" name="p2_storrelse"></div>
+                            <div class="bfelt"><label for="p2_materialer">Materialer</label><input type="text" id="p2_materialer" name="p2_materialer"></div>
+                        </div>
+                        <p class="blokk-tittel">Historien bak prosjektet</p>
+                        <div class="bfelt"><label for="p2_lang">Utfyllende beskrivelse</label><textarea id="p2_lang" name="p2_lang" rows="5"></textarea></div>
+                        <p class="blokk-tittel">Før og etter <span class="valgfri">(valgfritt)</span></p>
+                        <div class="foto-rad">
+                            <div class="opplast-kort">
+                                <h4>Før</h4>
+                                <button type="button" class="opplast-knapp" data-type="p2_for">Last opp</button>
+                                <div class="opplast-status" id="status-p2_for"></div>
+                                <div class="opplast-thumbs" id="thumbs-p2_for"></div>
+                            </div>
+                            <div class="opplast-kort">
+                                <h4>Etter</h4>
+                                <button type="button" class="opplast-knapp" data-type="p2_etter">Last opp</button>
+                                <div class="opplast-status" id="status-p2_etter"></div>
+                                <div class="opplast-thumbs" id="thumbs-p2_etter"></div>
+                            </div>
+                        </div>
+                        <p class="blokk-tittel">Fra prosjektet <span class="valgfri">(valgfritt)</span></p>
+                        <div class="opplast-kort">
+                            <button type="button" class="opplast-knapp" data-type="p2_prosess">Last opp bilder</button>
+                            <div class="opplast-status" id="status-p2_prosess"></div>
+                            <div class="opplast-thumbs" id="thumbs-p2_prosess"></div>
+                        </div>
+                        <p class="blokk-tittel">Sitat fra kunden <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt"><label for="p2_sitat">Hva sa kunden?</label><textarea id="p2_sitat" name="p2_sitat" rows="2"></textarea></div>
+                        <div class="bfelt"><label for="p2_sitat_navn">Navn og sted</label><input type="text" id="p2_sitat_navn" name="p2_sitat_navn"></div>
+                    </div>
+                </details>
+
+                <!-- PROSJEKT 3 -->
+                <details class="prosjekt-blokk">
+                    <summary><span><span class="blokk-nr">Prosjekt 3</span></span><span class="blokk-pil">▸</span></summary>
+                    <div class="blokk-inn">
+                        <p class="blokk-tittel">Grunnleggende</p>
+                        <div class="bfelt">
+                            <label>Hovedbilde</label>
+                            <div class="opplast-kort">
+                                <button type="button" class="opplast-knapp" data-type="p3_hoved">Last opp hovedbilde</button>
+                                <div class="opplast-status" id="status-p3_hoved"></div>
+                                <div class="opplast-thumbs" id="thumbs-p3_hoved"></div>
+                            </div>
+                        </div>
+                        <div class="bfelt"><label for="p3_tittel">Tittel</label><input type="text" id="p3_tittel" name="p3_tittel"></div>
+                        <div class="bfelt"><label for="p3_kort">Kort beskrivelse</label><input type="text" id="p3_kort" name="p3_kort"></div>
+                        <div class="bfelt-rekke">
+                            <div class="bfelt"><label for="p3_kategori">Kategori</label><input type="text" id="p3_kategori" name="p3_kategori"></div>
+                            <div class="bfelt"><label for="p3_sted">Sted og år</label><input type="text" id="p3_sted" name="p3_sted"></div>
+                        </div>
+                        <p class="blokk-tittel">Detaljer <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt-fire">
+                            <div class="bfelt"><label for="p3_varighet">Varighet</label><input type="text" id="p3_varighet" name="p3_varighet"></div>
+                            <div class="bfelt"><label for="p3_omfang">Omfang</label><input type="text" id="p3_omfang" name="p3_omfang"></div>
+                            <div class="bfelt"><label for="p3_storrelse">Størrelse</label><input type="text" id="p3_storrelse" name="p3_storrelse"></div>
+                            <div class="bfelt"><label for="p3_materialer">Materialer</label><input type="text" id="p3_materialer" name="p3_materialer"></div>
+                        </div>
+                        <p class="blokk-tittel">Historien bak prosjektet</p>
+                        <div class="bfelt"><label for="p3_lang">Utfyllende beskrivelse</label><textarea id="p3_lang" name="p3_lang" rows="5"></textarea></div>
+                        <p class="blokk-tittel">Før og etter <span class="valgfri">(valgfritt)</span></p>
+                        <div class="foto-rad">
+                            <div class="opplast-kort">
+                                <h4>Før</h4>
+                                <button type="button" class="opplast-knapp" data-type="p3_for">Last opp</button>
+                                <div class="opplast-status" id="status-p3_for"></div>
+                                <div class="opplast-thumbs" id="thumbs-p3_for"></div>
+                            </div>
+                            <div class="opplast-kort">
+                                <h4>Etter</h4>
+                                <button type="button" class="opplast-knapp" data-type="p3_etter">Last opp</button>
+                                <div class="opplast-status" id="status-p3_etter"></div>
+                                <div class="opplast-thumbs" id="thumbs-p3_etter"></div>
+                            </div>
+                        </div>
+                        <p class="blokk-tittel">Fra prosjektet <span class="valgfri">(valgfritt)</span></p>
+                        <div class="opplast-kort">
+                            <button type="button" class="opplast-knapp" data-type="p3_prosess">Last opp bilder</button>
+                            <div class="opplast-status" id="status-p3_prosess"></div>
+                            <div class="opplast-thumbs" id="thumbs-p3_prosess"></div>
+                        </div>
+                        <p class="blokk-tittel">Sitat fra kunden <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt"><label for="p3_sitat">Hva sa kunden?</label><textarea id="p3_sitat" name="p3_sitat" rows="2"></textarea></div>
+                        <div class="bfelt"><label for="p3_sitat_navn">Navn og sted</label><input type="text" id="p3_sitat_navn" name="p3_sitat_navn"></div>
+                    </div>
+                </details>
+
+                <!-- PROSJEKT 4 -->
+                <details class="prosjekt-blokk">
+                    <summary><span><span class="blokk-nr">Prosjekt 4</span> <span class="valgfri">– valgfritt</span></span><span class="blokk-pil">▸</span></summary>
+                    <div class="blokk-inn">
+                        <p class="blokk-tittel">Grunnleggende</p>
+                        <div class="bfelt">
+                            <label>Hovedbilde</label>
+                            <div class="opplast-kort">
+                                <button type="button" class="opplast-knapp" data-type="p4_hoved">Last opp hovedbilde</button>
+                                <div class="opplast-status" id="status-p4_hoved"></div>
+                                <div class="opplast-thumbs" id="thumbs-p4_hoved"></div>
+                            </div>
+                        </div>
+                        <div class="bfelt"><label for="p4_tittel">Tittel</label><input type="text" id="p4_tittel" name="p4_tittel"></div>
+                        <div class="bfelt"><label for="p4_kort">Kort beskrivelse</label><input type="text" id="p4_kort" name="p4_kort"></div>
+                        <div class="bfelt-rekke">
+                            <div class="bfelt"><label for="p4_kategori">Kategori</label><input type="text" id="p4_kategori" name="p4_kategori"></div>
+                            <div class="bfelt"><label for="p4_sted">Sted og år</label><input type="text" id="p4_sted" name="p4_sted"></div>
+                        </div>
+                        <p class="blokk-tittel">Detaljer <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt-fire">
+                            <div class="bfelt"><label for="p4_varighet">Varighet</label><input type="text" id="p4_varighet" name="p4_varighet"></div>
+                            <div class="bfelt"><label for="p4_omfang">Omfang</label><input type="text" id="p4_omfang" name="p4_omfang"></div>
+                            <div class="bfelt"><label for="p4_storrelse">Størrelse</label><input type="text" id="p4_storrelse" name="p4_storrelse"></div>
+                            <div class="bfelt"><label for="p4_materialer">Materialer</label><input type="text" id="p4_materialer" name="p4_materialer"></div>
+                        </div>
+                        <p class="blokk-tittel">Historien bak prosjektet</p>
+                        <div class="bfelt"><label for="p4_lang">Utfyllende beskrivelse</label><textarea id="p4_lang" name="p4_lang" rows="5"></textarea></div>
+                        <p class="blokk-tittel">Før og etter <span class="valgfri">(valgfritt)</span></p>
+                        <div class="foto-rad">
+                            <div class="opplast-kort">
+                                <h4>Før</h4>
+                                <button type="button" class="opplast-knapp" data-type="p4_for">Last opp</button>
+                                <div class="opplast-status" id="status-p4_for"></div>
+                                <div class="opplast-thumbs" id="thumbs-p4_for"></div>
+                            </div>
+                            <div class="opplast-kort">
+                                <h4>Etter</h4>
+                                <button type="button" class="opplast-knapp" data-type="p4_etter">Last opp</button>
+                                <div class="opplast-status" id="status-p4_etter"></div>
+                                <div class="opplast-thumbs" id="thumbs-p4_etter"></div>
+                            </div>
+                        </div>
+                        <p class="blokk-tittel">Fra prosjektet <span class="valgfri">(valgfritt)</span></p>
+                        <div class="opplast-kort">
+                            <button type="button" class="opplast-knapp" data-type="p4_prosess">Last opp bilder</button>
+                            <div class="opplast-status" id="status-p4_prosess"></div>
+                            <div class="opplast-thumbs" id="thumbs-p4_prosess"></div>
+                        </div>
+                        <p class="blokk-tittel">Sitat fra kunden <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt"><label for="p4_sitat">Hva sa kunden?</label><textarea id="p4_sitat" name="p4_sitat" rows="2"></textarea></div>
+                        <div class="bfelt"><label for="p4_sitat_navn">Navn og sted</label><input type="text" id="p4_sitat_navn" name="p4_sitat_navn"></div>
+                    </div>
+                </details>
+
+                <!-- PROSJEKT 5 -->
+                <details class="prosjekt-blokk">
+                    <summary><span><span class="blokk-nr">Prosjekt 5</span> <span class="valgfri">– valgfritt</span></span><span class="blokk-pil">▸</span></summary>
+                    <div class="blokk-inn">
+                        <p class="blokk-tittel">Grunnleggende</p>
+                        <div class="bfelt">
+                            <label>Hovedbilde</label>
+                            <div class="opplast-kort">
+                                <button type="button" class="opplast-knapp" data-type="p5_hoved">Last opp hovedbilde</button>
+                                <div class="opplast-status" id="status-p5_hoved"></div>
+                                <div class="opplast-thumbs" id="thumbs-p5_hoved"></div>
+                            </div>
+                        </div>
+                        <div class="bfelt"><label for="p5_tittel">Tittel</label><input type="text" id="p5_tittel" name="p5_tittel"></div>
+                        <div class="bfelt"><label for="p5_kort">Kort beskrivelse</label><input type="text" id="p5_kort" name="p5_kort"></div>
+                        <div class="bfelt-rekke">
+                            <div class="bfelt"><label for="p5_kategori">Kategori</label><input type="text" id="p5_kategori" name="p5_kategori"></div>
+                            <div class="bfelt"><label for="p5_sted">Sted og år</label><input type="text" id="p5_sted" name="p5_sted"></div>
+                        </div>
+                        <p class="blokk-tittel">Detaljer <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt-fire">
+                            <div class="bfelt"><label for="p5_varighet">Varighet</label><input type="text" id="p5_varighet" name="p5_varighet"></div>
+                            <div class="bfelt"><label for="p5_omfang">Omfang</label><input type="text" id="p5_omfang" name="p5_omfang"></div>
+                            <div class="bfelt"><label for="p5_storrelse">Størrelse</label><input type="text" id="p5_storrelse" name="p5_storrelse"></div>
+                            <div class="bfelt"><label for="p5_materialer">Materialer</label><input type="text" id="p5_materialer" name="p5_materialer"></div>
+                        </div>
+                        <p class="blokk-tittel">Historien bak prosjektet</p>
+                        <div class="bfelt"><label for="p5_lang">Utfyllende beskrivelse</label><textarea id="p5_lang" name="p5_lang" rows="5"></textarea></div>
+                        <p class="blokk-tittel">Før og etter <span class="valgfri">(valgfritt)</span></p>
+                        <div class="foto-rad">
+                            <div class="opplast-kort">
+                                <h4>Før</h4>
+                                <button type="button" class="opplast-knapp" data-type="p5_for">Last opp</button>
+                                <div class="opplast-status" id="status-p5_for"></div>
+                                <div class="opplast-thumbs" id="thumbs-p5_for"></div>
+                            </div>
+                            <div class="opplast-kort">
+                                <h4>Etter</h4>
+                                <button type="button" class="opplast-knapp" data-type="p5_etter">Last opp</button>
+                                <div class="opplast-status" id="status-p5_etter"></div>
+                                <div class="opplast-thumbs" id="thumbs-p5_etter"></div>
+                            </div>
+                        </div>
+                        <p class="blokk-tittel">Fra prosjektet <span class="valgfri">(valgfritt)</span></p>
+                        <div class="opplast-kort">
+                            <button type="button" class="opplast-knapp" data-type="p5_prosess">Last opp bilder</button>
+                            <div class="opplast-status" id="status-p5_prosess"></div>
+                            <div class="opplast-thumbs" id="thumbs-p5_prosess"></div>
+                        </div>
+                        <p class="blokk-tittel">Sitat fra kunden <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt"><label for="p5_sitat">Hva sa kunden?</label><textarea id="p5_sitat" name="p5_sitat" rows="2"></textarea></div>
+                        <div class="bfelt"><label for="p5_sitat_navn">Navn og sted</label><input type="text" id="p5_sitat_navn" name="p5_sitat_navn"></div>
+                    </div>
+                </details>
+
+                <!-- PROSJEKT 6 -->
+                <details class="prosjekt-blokk">
+                    <summary><span><span class="blokk-nr">Prosjekt 6</span> <span class="valgfri">– valgfritt</span></span><span class="blokk-pil">▸</span></summary>
+                    <div class="blokk-inn">
+                        <p class="blokk-tittel">Grunnleggende</p>
+                        <div class="bfelt">
+                            <label>Hovedbilde</label>
+                            <div class="opplast-kort">
+                                <button type="button" class="opplast-knapp" data-type="p6_hoved">Last opp hovedbilde</button>
+                                <div class="opplast-status" id="status-p6_hoved"></div>
+                                <div class="opplast-thumbs" id="thumbs-p6_hoved"></div>
+                            </div>
+                        </div>
+                        <div class="bfelt"><label for="p6_tittel">Tittel</label><input type="text" id="p6_tittel" name="p6_tittel"></div>
+                        <div class="bfelt"><label for="p6_kort">Kort beskrivelse</label><input type="text" id="p6_kort" name="p6_kort"></div>
+                        <div class="bfelt-rekke">
+                            <div class="bfelt"><label for="p6_kategori">Kategori</label><input type="text" id="p6_kategori" name="p6_kategori"></div>
+                            <div class="bfelt"><label for="p6_sted">Sted og år</label><input type="text" id="p6_sted" name="p6_sted"></div>
+                        </div>
+                        <p class="blokk-tittel">Detaljer <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt-fire">
+                            <div class="bfelt"><label for="p6_varighet">Varighet</label><input type="text" id="p6_varighet" name="p6_varighet"></div>
+                            <div class="bfelt"><label for="p6_omfang">Omfang</label><input type="text" id="p6_omfang" name="p6_omfang"></div>
+                            <div class="bfelt"><label for="p6_storrelse">Størrelse</label><input type="text" id="p6_storrelse" name="p6_storrelse"></div>
+                            <div class="bfelt"><label for="p6_materialer">Materialer</label><input type="text" id="p6_materialer" name="p6_materialer"></div>
+                        </div>
+                        <p class="blokk-tittel">Historien bak prosjektet</p>
+                        <div class="bfelt"><label for="p6_lang">Utfyllende beskrivelse</label><textarea id="p6_lang" name="p6_lang" rows="5"></textarea></div>
+                        <p class="blokk-tittel">Før og etter <span class="valgfri">(valgfritt)</span></p>
+                        <div class="foto-rad">
+                            <div class="opplast-kort">
+                                <h4>Før</h4>
+                                <button type="button" class="opplast-knapp" data-type="p6_for">Last opp</button>
+                                <div class="opplast-status" id="status-p6_for"></div>
+                                <div class="opplast-thumbs" id="thumbs-p6_for"></div>
+                            </div>
+                            <div class="opplast-kort">
+                                <h4>Etter</h4>
+                                <button type="button" class="opplast-knapp" data-type="p6_etter">Last opp</button>
+                                <div class="opplast-status" id="status-p6_etter"></div>
+                                <div class="opplast-thumbs" id="thumbs-p6_etter"></div>
+                            </div>
+                        </div>
+                        <p class="blokk-tittel">Fra prosjektet <span class="valgfri">(valgfritt)</span></p>
+                        <div class="opplast-kort">
+                            <button type="button" class="opplast-knapp" data-type="p6_prosess">Last opp bilder</button>
+                            <div class="opplast-status" id="status-p6_prosess"></div>
+                            <div class="opplast-thumbs" id="thumbs-p6_prosess"></div>
+                        </div>
+                        <p class="blokk-tittel">Sitat fra kunden <span class="valgfri">(valgfritt)</span></p>
+                        <div class="bfelt"><label for="p6_sitat">Hva sa kunden?</label><textarea id="p6_sitat" name="p6_sitat" rows="2"></textarea></div>
+                        <div class="bfelt"><label for="p6_sitat_navn">Navn og sted</label><input type="text" id="p6_sitat_navn" name="p6_sitat_navn"></div>
+                    </div>
+                </details>
+
+                <!-- Skjulte felt for bilder -->
+                <input type="hidden" name="bilde_p1_hoved" id="bilde_p1_hoved"><input type="hidden" name="bilde_p1_for" id="bilde_p1_for"><input type="hidden" name="bilde_p1_etter" id="bilde_p1_etter"><input type="hidden" name="bilde_p1_prosess" id="bilde_p1_prosess">
+                <input type="hidden" name="bilde_p2_hoved" id="bilde_p2_hoved"><input type="hidden" name="bilde_p2_for" id="bilde_p2_for"><input type="hidden" name="bilde_p2_etter" id="bilde_p2_etter"><input type="hidden" name="bilde_p2_prosess" id="bilde_p2_prosess">
+                <input type="hidden" name="bilde_p3_hoved" id="bilde_p3_hoved"><input type="hidden" name="bilde_p3_for" id="bilde_p3_for"><input type="hidden" name="bilde_p3_etter" id="bilde_p3_etter"><input type="hidden" name="bilde_p3_prosess" id="bilde_p3_prosess">
+                <input type="hidden" name="bilde_p4_hoved" id="bilde_p4_hoved"><input type="hidden" name="bilde_p4_for" id="bilde_p4_for"><input type="hidden" name="bilde_p4_etter" id="bilde_p4_etter"><input type="hidden" name="bilde_p4_prosess" id="bilde_p4_prosess">
+                <input type="hidden" name="bilde_p5_hoved" id="bilde_p5_hoved"><input type="hidden" name="bilde_p5_for" id="bilde_p5_for"><input type="hidden" name="bilde_p5_etter" id="bilde_p5_etter"><input type="hidden" name="bilde_p5_prosess" id="bilde_p5_prosess">
+                <input type="hidden" name="bilde_p6_hoved" id="bilde_p6_hoved"><input type="hidden" name="bilde_p6_for" id="bilde_p6_for"><input type="hidden" name="bilde_p6_etter" id="bilde_p6_etter"><input type="hidden" name="bilde_p6_prosess" id="bilde_p6_prosess">
+            </div>
+
+            <!-- DEL 5 -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">5</span><h2>Kommentar</h2></div>
+                <p class="best-del-hint">Noe mer vi bør vite? Spesielle ønsker eller spørsmål?</p>
+                <div class="bfelt"><textarea name="kommentar" rows="3" placeholder="Skriv gjerne her – alt er nyttig. (valgfritt)"></textarea></div>
+            </div>
+
+            <!-- DEL 6 -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">6</span><h2>Din kontaktinfo</h2></div>
+                <p class="best-del-hint">Så vi kan ta kontakt om bestillingen.</p>
+                <div class="bfelt-rekke">
+                    <div class="bfelt"><label for="din_navn">Ditt navn</label><input type="text" id="din_navn" name="din_navn" required></div>
+                    <div class="bfelt"><label for="din_telefon">Din telefon</label><input type="tel" id="din_telefon" name="din_telefon" required></div>
+                </div>
+            </div>
+
+            <button type="button" class="best-send" id="lagResultat">Lag oppsummering →</button>
+
+            <div class="resultat-boks" id="resultatBoks">
+                <h3>✓ Oppsummering av bestillingen din</h3>
+                <p class="res-intro">Sjekk at alt stemmer. Neste steg: velg en ledig uke og betal med Stripe.</p>
+                <textarea class="resultat-tekst" id="resultatTekst" readonly></textarea>
+                <button type="button" class="kopier-knapp" id="kopierKnapp">📋 Kopier teksten</button>
+                <span class="kopier-ok" id="kopierOk" style="display:none">Kopiert!</span>
+                <div class="info-boks" style="margin-top:1.2rem">Porteføljesiden koster <strong>1 890 kr</strong> for oppsett, pluss <strong>690 kr/år</strong> som dekker bildelagring og én oppdatering av galleriet i året.</div>
+                <button type="submit" class="best-send" style="margin-top:.5rem; background:var(--signal)">Send inn og gå til betaling →</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        const CLOUD_NAME = "jsl4llt9";
+        const UPLOAD_PRESET = "ml_default";
+        const opplastet = {};
+
+        function tegnThumbs(type) {
+            const thumbs = document.getElementById(`thumbs-${type}`);
+            if (!thumbs) return;
+            thumbs.innerHTML = "";
+            (opplastet[type] || []).forEach((url, i) => {
+                const wrap = document.createElement("div");
+                wrap.className = "thumb-wrap";
+                const img = document.createElement("img"); img.src = url;
+                const slett = document.createElement("button");
+                slett.type = "button"; slett.className = "thumb-slett"; slett.textContent = "✕"; slett.title = "Fjern";
+                slett.addEventListener("click", e => {
+                    e.preventDefault();
+                    opplastet[type].splice(i, 1);
+                    tegnThumbs(type);
+                    document.getElementById(`bilde_${type}`).value = opplastet[type].join(", ");
+                    document.getElementById(`status-${type}`).innerHTML = opplastet[type].length ? `<span style="color:var(--signal-dark)">✓ ${opplastet[type].length} bilde(r)</span>` : "";
+                });
+                wrap.appendChild(img); wrap.appendChild(slett);
+                thumbs.appendChild(wrap);
+            });
+        }
+
+        const widget = cloudinary.createUploadWidget({
+            cloudName: CLOUD_NAME, uploadPreset: UPLOAD_PRESET,
+            sources: ["local", "url", "camera"], multiple: true,
+            clientAllowedFormats: ["image"], maxImageFileSize: 10000000
+        }, (error, result) => {
+            if (!error && result && result.event === "success") {
+                const type = widget._aktivType;
+                if (!opplastet[type]) opplastet[type] = [];
+                const kunEn = type.endsWith("_hoved") || type.endsWith("_for") || type.endsWith("_etter");
+                if (kunEn) opplastet[type] = [result.info.secure_url];
+                else opplastet[type].push(result.info.secure_url);
+                tegnThumbs(type);
+                document.getElementById(`bilde_${type}`).value = opplastet[type].join(", ");
+                document.getElementById(`status-${type}`).innerHTML = `<span style="color:var(--signal-dark)">✓ ${opplastet[type].length} bilde(r)</span>`;
+            }
+        });
+
+        document.querySelectorAll(".opplast-knapp").forEach(btn => {
+            btn.addEventListener("click", () => { widget._aktivType = btn.dataset.type; widget.open(); });
+        });
+
+        function v(name) { const el = document.querySelector(`[name="${name}"]`); return el ? el.value.trim() : ""; }
+
+        document.getElementById("lagResultat").addEventListener("click", () => {
+            let t = "";
+            t += "═══════════════════════════════════\n";
+            t += "  BESTILLING – PORTEFØLJESIDE\n";
+            t += "═══════════════════════════════════\n\n";
+            t += "── DIN NETTSIDE ──\n";
+            t += "Domene:  " + v("domene") + "\n";
+            t += "E-post:  " + v("epost") + "\n\n";
+            t += "── TOPPEN AV SIDEN ──\n";
+            t += "Overskrift: " + (v("p_tittel") || "(standardtekst)") + "\n";
+            t += "Introtekst: " + (v("p_intro") || "(standardtekst)") + "\n";
+            for (let i = 1; i <= 3; i++) {
+                const val = v("tall" + i + "_verdi"), tek = v("tall" + i + "_tekst");
+                if (val || tek) t += "Tall " + i + ": " + val + " – " + tek + "\n";
+            }
+            t += "\n── KATEGORIER ──\n";
+            const kats = [v("kat1"), v("kat2"), v("kat3"), v("kat4")].filter(Boolean);
+            t += (kats.length ? kats.join(" · ") : "(ingen – vis alle uten filter)") + "\n\n";
+
+            let antall = 0;
+            for (let i = 1; i <= 6; i++) {
+                const tittel = v("p" + i + "_tittel");
+                const hoved = v("bilde_p" + i + "_hoved");
+                if (!tittel && !hoved) continue;
+                antall++;
+                t += "═══ PROSJEKT " + i + " ═══\n";
+                t += "Tittel:      " + (tittel || "(mangler)") + "\n";
+                t += "Kort tekst:  " + (v("p" + i + "_kort") || "(mangler)") + "\n";
+                t += "Kategori:    " + (v("p" + i + "_kategori") || "(ingen)") + "\n";
+                t += "Sted og år:  " + (v("p" + i + "_sted") || "(ingen)") + "\n";
+                t += "DETALJER:\n";
+                t += "  Varighet:   " + (v("p" + i + "_varighet") || "-") + "\n";
+                t += "  Omfang:     " + (v("p" + i + "_omfang") || "-") + "\n";
+                t += "  Størrelse:  " + (v("p" + i + "_storrelse") || "-") + "\n";
+                t += "  Materialer: " + (v("p" + i + "_materialer") || "-") + "\n";
+                t += "BESKRIVELSE:\n" + (v("p" + i + "_lang") || "(mangler)") + "\n";
+                t += "BILDER:\n";
+                t += "  Hovedbilde: " + (hoved || "(mangler)") + "\n";
+                t += "  Før:        " + (v("bilde_p" + i + "_for") || "-") + "\n";
+                t += "  Etter:      " + (v("bilde_p" + i + "_etter") || "-") + "\n";
+                t += "  Prosess:    " + (v("bilde_p" + i + "_prosess") || "-") + "\n";
+                const sit = v("p" + i + "_sitat");
+                if (sit) t += "SITAT: «" + sit + "» – " + (v("p" + i + "_sitat_navn") || "(uten navn)") + "\n";
+                t += "\n";
+            }
+            t += "── ANTALL PROSJEKTER: " + antall + " ──\n\n";
+            t += "── KOMMENTAR ──\n" + (v("kommentar") || "(ingen)") + "\n\n";
+            t += "── KONTAKT ──\n";
+            t += "Navn:    " + v("din_navn") + "\n";
+            t += "Telefon: " + v("din_telefon") + "\n";
+            t += "E-post:  " + v("epost") + "\n";
+
+            document.getElementById("resultatTekst").value = t;
+            let skjult = document.getElementById("oppsummering_skjult");
+            if (!skjult) {
+                skjult = document.createElement("input");
+                skjult.type = "hidden"; skjult.name = "oppsummering"; skjult.id = "oppsummering_skjult";
+                document.getElementById("bestillSkjema").appendChild(skjult);
+            }
+            skjult.value = t;
+            const boks = document.getElementById("resultatBoks");
+            boks.classList.add("vis");
+            boks.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        document.getElementById("kopierKnapp").addEventListener("click", () => {
+            const ta = document.getElementById("resultatTekst");
+            ta.select(); document.execCommand("copy");
+            const ok = document.getElementById("kopierOk");
+            ok.style.display = "inline-block";
+            setTimeout(() => ok.style.display = "none", 2500);
+        });
+    </script>
+
+</body>
+</html>
