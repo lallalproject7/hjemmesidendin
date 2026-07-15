@@ -441,3 +441,13 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--blaa); outline-
     .om-tall { gap: 1.5rem; flex-wrap: wrap; }
     .hero h1 { min-height: 3.2em; }
 }
+/* Juridiske lenker i bunnen */
+.footer-bunn a {
+    color: rgba(255,255,255,.55);
+    text-decoration: none;
+    transition: color .15s ease;
+}
+.footer-bunn a:hover {
+    color: rgba(255,255,255,.9);
+    text-decoration: underline;
+}

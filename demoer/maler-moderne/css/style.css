@@ -602,3 +602,14 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--terra); outline
     .hero-bilder { height: 300px; }
 }
 
+
+/* Juridiske lenker i bunnen */
+.footer-bunn a {
+    color: rgba(255,255,255,.55);
+    text-decoration: none;
+    transition: color .15s ease;
+}
+.footer-bunn a:hover {
+    color: rgba(255,255,255,.9);
+    text-decoration: underline;
+}

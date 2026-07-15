@@ -552,3 +552,13 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sennep); outlin
 }
 .verdi strong { display: block; font-family: var(--font-display); color: var(--purpur); font-size: .96rem; }
 .verdi span:not(.verdi-ikon) { font-size: .85rem; color: var(--graa-mork); }
+/* Juridiske lenker i bunnen */
+.footer-bunn a {
+    color: rgba(255,255,255,.55);
+    text-decoration: none;
+    transition: color .15s ease;
+}
+.footer-bunn a:hover {
+    color: rgba(255,255,255,.9);
+    text-decoration: underline;
+}

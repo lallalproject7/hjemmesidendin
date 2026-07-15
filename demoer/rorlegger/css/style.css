@@ -534,3 +534,13 @@ a:focus-visible, button:focus-visible {
 .demo-bestill-pris { color: var(--tekst-lys); margin-bottom: 1.6rem; }
 .demo-bestill-retur { margin-top: 1.5rem; font-size: .9rem; }
 .demo-bestill-retur a { color: var(--tekst-lys); text-decoration: underline; }
+/* Juridiske lenker i bunnen */
+.footer-bunn a {
+    color: rgba(255,255,255,.55);
+    text-decoration: none;
+    transition: color .15s ease;
+}
+.footer-bunn a:hover {
+    color: rgba(255,255,255,.9);
+    text-decoration: underline;
+}

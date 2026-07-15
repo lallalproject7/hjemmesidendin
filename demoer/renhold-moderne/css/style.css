@@ -533,3 +533,13 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--lavendel); outl
     .dag-rad { grid-template-columns: repeat(5, 1fr); gap: .3rem; }
     .dag-boks span { padding: .6rem .2rem; font-size: .78rem; }
 }
+/* Juridiske lenker i bunnen */
+.footer-bunn a {
+    color: rgba(255,255,255,.55);
+    text-decoration: none;
+    transition: color .15s ease;
+}
+.footer-bunn a:hover {
+    color: rgba(255,255,255,.9);
+    text-decoration: underline;
+}
