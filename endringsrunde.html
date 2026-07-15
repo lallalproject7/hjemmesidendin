@@ -9,6 +9,81 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <style>
+        .best-wrap { width: min(760px, 92%); margin: 2.5rem auto 4rem; }
+        .best-topp { text-align: center; margin-bottom: 2rem; }
+        .best-topp h1 { margin-bottom: .6rem; }
+
+        .best-del { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; margin-bottom: 1.5rem; }
+        .best-del-topp { display: flex; align-items: center; gap: .8rem; margin-bottom: .4rem; }
+        .best-nr { width: 2rem; height: 2rem; flex-shrink: 0; display: grid; place-items: center; background: var(--pine); color: #fff; border-radius: 50%; font-family: var(--font-display); font-weight: 700; font-size: .95rem; }
+        .best-del h2 { font-size: 1.25rem; margin: 0; }
+        .best-del-hint { font-size: .9rem; color: var(--pine-soft); margin-bottom: 1.4rem; margin-top: .3rem; }
+        .best-del-hint a { color: var(--signal-dark); }
+
+        .bfelt { margin-bottom: 1.1rem; }
+        .bfelt:last-child { margin-bottom: 0; }
+        .bfelt label { display: block; font-weight: 600; font-size: .93rem; color: var(--pine); margin-bottom: .15rem; }
+        .bfelt .forklaring { display: block; font-size: .83rem; color: var(--pine-soft); margin-bottom: .45rem; }
+        .bfelt input[type=text], .bfelt input[type=email], .bfelt input[type=tel], .bfelt textarea { width: 100%; font: inherit; padding: .7rem .85rem; border: 1px solid var(--line); border-radius: 8px; background: var(--sand); color: var(--pine); }
+        .bfelt input:focus, .bfelt textarea:focus { outline: 2px solid var(--signal); outline-offset: 1px; border-color: var(--signal); }
+        .bfelt-rekke { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        /* Reglas incluido / no incluido */
+        .regler { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.5rem; }
+        .regler-kol { border-radius: var(--radius); padding: 1.4rem 1.5rem; border: 1px solid var(--line); }
+        .regler-ja { background: var(--sand); }
+        .regler-nei { background: var(--surface); }
+        .regler-kol h2 { font-size: 1.02rem; margin-bottom: .8rem; }
+        .regler-ja h2 { color: var(--pine); }
+        .regler-nei h2 { color: var(--signal-dark); }
+        .regler-kol ul { margin: 0; padding-left: 1.1rem; }
+        .regler-kol li { font-size: .89rem; color: var(--pine-soft); margin-bottom: .35rem; }
+        .regler-note { font-size: .84rem; color: var(--pine-soft); margin-top: .8rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+        .regler-note a { color: var(--signal-dark); font-weight: 600; }
+
+        .frist-boks { background: var(--pine); color: #e8ecec; border-radius: var(--radius); padding: 1.4rem 1.6rem; margin-bottom: 1.5rem; }
+        .frist-boks strong { color: #fff; }
+        .frist-rad { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: .8rem; }
+        .frist-punkt { font-size: .93rem; }
+        .frist-punkt span { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: #fff; line-height: 1.2; }
+
+        .endring-blokk { background: var(--sand); border: 1px solid var(--line); border-radius: 8px; padding: .85rem 1rem; margin-bottom: .6rem; display: grid; grid-template-columns: 2.2rem 1fr; gap: .8rem; align-items: center; }
+        .endring-nr { font-family: var(--font-display); font-weight: 700; font-size: .9rem; color: var(--signal); text-align: center; }
+        .endring-blokk input { width: 100%; font: inherit; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--pine); }
+        .endring-blokk input:focus { outline: 2px solid var(--signal); outline-offset: 1px; border-color: var(--signal); }
+
+        .foto-guide { background: var(--sand); border-radius: 8px; padding: 1rem 1.2rem; font-size: .87rem; line-height: 1.55; color: var(--pine); margin-bottom: 1.2rem; }
+        .foto-guide strong { color: var(--pine); }
+
+        .opplast-kort { border: 2px dashed var(--line); border-radius: 10px; padding: 1.2rem; text-align: center; background: var(--sand); }
+        .opplast-hint { font-size: .8rem; color: var(--pine-soft); margin-bottom: .8rem; }
+        .opplast-knapp { background: var(--pine); color: #fff; border: none; padding: .6rem 1.2rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: var(--font-display); font-size: .9rem; }
+        .opplast-knapp:hover { background: var(--signal); }
+        .opplast-status { margin-top: .7rem; font-size: .82rem; }
+        .opplast-thumbs { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .8rem; justify-content: center; }
+        .thumb-wrap { position: relative; display: inline-block; }
+        .opplast-thumbs img { width: 66px; height: 66px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); display: block; }
+        .thumb-merke { display: block; font-size: .72rem; font-weight: 600; color: var(--pine); margin-top: .2rem; text-align: center; }
+        .thumb-slett { position: absolute; top: -6px; right: -6px; width: 20px; height: 20px; border-radius: 50%; border: none; background: #c0392b; color: #fff; font-size: 12px; line-height: 1; cursor: pointer; padding: 0; display: grid; place-items: center; }
+
+        .best-send { background: var(--pine); color: #fff; border: none; width: 100%; padding: 1.1rem; border-radius: var(--radius); font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; cursor: pointer; margin-top: 1rem; }
+        .best-send:hover { background: var(--signal); }
+        .resultat-boks { display: none; background: var(--pine); color: #e8ecec; border-radius: var(--radius); padding: 1.6rem; margin-top: 1.5rem; }
+        .resultat-boks.vis { display: block; }
+        .resultat-boks h3 { color: #fff; margin-bottom: .3rem; }
+        .res-intro { color: #cfd8dd; font-size: .9rem; margin-bottom: 1rem; }
+        .resultat-tekst { width: 100%; min-height: 260px; font-family: monospace; font-size: .82rem; line-height: 1.5; padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.15); background: rgba(0,0,0,.25); color: #d9e3dd; resize: vertical; }
+        .kopier-knapp { margin-top: .8rem; background: var(--signal); color: #fff; border: none; padding: .7rem 1.4rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: var(--font-display); }
+        .kopier-knapp:hover { background: var(--signal-dark); }
+        .kopier-ok { display: inline-block; margin-left: .8rem; color: #8ce5c6; font-size: .88rem; }
+
+        @media (max-width: 700px) {
+            .regler { grid-template-columns: 1fr; }
+            .bfelt-rekke { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
@@ -22,93 +97,122 @@
         </div>
     </header>
 
-    <section class="section">
-        <div class="container container-narrow">
+    <div class="best-wrap">
+        <div class="best-topp">
             <p class="eyebrow">Gratis – inkludert i kjøpet</p>
-            <h1 class="bestill-tittel">Din endringsrunde</h1>
-            <p class="section-lead">Etter at nettsiden din er levert, har du én gratis endringsrunde. Her sender du inn alle ønskede justeringer samlet i én liste – så ordner vi dem og gir deg beskjed når de er på plass.</p>
+            <h1>Din endringsrunde</h1>
+            <p>Etter at nettsiden din er levert, har du én gratis endringsrunde. Send inn alle justeringene samlet i én liste – så ordner vi dem og gir deg beskjed når alt er på plass.</p>
+        </div>
 
-            <div class="regler">
-                <div class="regler-kol regler-ja">
-                    <h2>✓ Dette er inkludert</h2>
-                    <ul>
-                        <li>Rette eller endre tekster</li>
-                        <li>Oppdatere priser, åpningstider og kontaktinfo</li>
-                        <li>Bytte ut eller legge til bilder du sender oss</li>
-                        <li>Justere farger innenfor designet</li>
-                        <li>Endre rekkefølgen på innhold som allerede finnes</li>
-                        <li>Rette skrivefeil og småfeil</li>
-                    </ul>
-                </div>
-                <div class="regler-kol regler-nei">
-                    <h2>✗ Dette er ikke inkludert</h2>
-                    <ul>
-                        <li>Nye undersider</li>
-                        <li>Helt nytt design eller ny mal</li>
-                        <li>Ny funksjonalitet (booking, nettbutikk o.l.)</li>
-                        <li>Endringer meldt inn etter 14 dager</li>
-                    </ul>
-                    <p class="regler-note">Slikt tilbys som egne <a href="index.html#oppdateringer">oppdateringer</a> til fast pris.</p>
-                </div>
+        <div class="frist-boks">
+            <p><strong>Slik fungerer fristene:</strong></p>
+            <div class="frist-rad">
+                <div class="frist-punkt"><span>7 dager</span>på å sende inn listen din etter levering</div>
+                <div class="frist-punkt"><span>5 virkedager</span>fra vi mottar listen til alt er på plass</div>
+                <div class="frist-punkt"><span>Inntil 10</span>småjusteringer i én samlet liste</div>
             </div>
+        </div>
 
-            <div class="vilkar-boks">
-                <p><strong>Kort oppsummert:</strong></p>
-                <p>📅 Send inn <strong>innen 14 dager</strong> etter levering &nbsp;·&nbsp; 📝 <strong>Én samlet liste</strong>: inntil <strong>8 tekstendringer + 2 bildebytter</strong> &nbsp;·&nbsp; 🔁 Gjelder <strong>eksisterende innhold</strong></p>
+        <div class="regler">
+            <div class="regler-kol regler-ja">
+                <h2>✓ Dette er inkludert</h2>
+                <ul>
+                    <li>Rette eller endre tekster</li>
+                    <li>Oppdatere priser, åpningstider og kontaktinfo</li>
+                    <li>Bytte ut eller legge til bilder du sender oss</li>
+                    <li>Justere farger innenfor designet</li>
+                    <li>Endre rekkefølgen på innhold som allerede finnes</li>
+                    <li>Rette skrivefeil og småfeil</li>
+                </ul>
             </div>
+            <div class="regler-kol regler-nei">
+                <h2>✗ Dette er ikke inkludert</h2>
+                <ul>
+                    <li>Nye undersider</li>
+                    <li>Nye seksjoner</li>
+                    <li>Helt nytt design eller ny mal</li>
+                    <li>Ny funksjonalitet (booking, nettbutikk o.l.)</li>
+                    <li>Endringer meldt inn etter 7 dager</li>
+                </ul>
+                <p class="regler-note">Slikt tilbys som egne <a href="index.html#oppdateringer">oppdateringer</a> til fast pris.</p>
+            </div>
+        </div>
 
-            <form name="endringsrunde" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="takk-endring.html" class="form">
-                <input type="hidden" name="form-name" value="endringsrunde">
-                <p class="skjult-felt" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
+        <form name="endringsrunde" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="takk-endring.html" id="bestillSkjema">
+            <input type="hidden" name="form-name" value="endringsrunde">
+            <p style="position:absolute; left:-9999px" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
 
-                <h2 class="form-del">1. Din nettside</h2>
-
-                <div class="form-row">
-                    <div class="form-field">
+            <!-- DEL 1 -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">1</span><h2>Din nettside</h2></div>
+                <p class="best-del-hint">Så vi finner riktig side. Bruk samme e-post som da du bestilte.</p>
+                <div class="bfelt-rekke">
+                    <div class="bfelt">
                         <label for="domene">Domenet ditt</label>
                         <input type="text" id="domene" name="domene" placeholder="dittfirma.no" required>
                     </div>
-                    <div class="form-field">
+                    <div class="bfelt">
                         <label for="epost">E-post (samme som ved bestilling)</label>
                         <input type="email" id="epost" name="epost" required>
                     </div>
                 </div>
+            </div>
 
-                <h2 class="form-del">2. Endringene dine</h2>
-                <p class="form-hint">Skriv én endring per felt, og vær så konkret som mulig. Da unngår vi misforståelser og får alt riktig på første forsøk. Du trenger ikke fylle ut alle feltene.</p>
+            <!-- DEL 2 -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">2</span><h2>Endringene dine</h2></div>
+                <p class="best-del-hint">Skriv én endring per felt, og vær så konkret som mulig – da får vi alt riktig på første forsøk. Du trenger ikke fylle ut alle feltene.</p>
 
-                <div class="form-field"><label for="e1">Endring 1</label><input type="text" id="e1" name="endring1" placeholder="F.eks: Endre prisen på service fra 1 200 til 1 400 kr" required></div>
-                <div class="form-field"><label for="e2">Endring 2</label><input type="text" id="e2" name="endring2" placeholder="F.eks: Bytt bildet øverst på forsiden (se vedlegg)"></div>
-                <div class="form-field"><label for="e3">Endring 3</label><input type="text" id="e3" name="endring3"></div>
-                <div class="form-field"><label for="e4">Endring 4</label><input type="text" id="e4" name="endring4"></div>
-                <div class="form-field"><label for="e5">Endring 5</label><input type="text" id="e5" name="endring5"></div>
-                <div class="form-field"><label for="e6">Endring 6</label><input type="text" id="e6" name="endring6"></div>
-                <div class="form-field"><label for="e7">Endring 7</label><input type="text" id="e7" name="endring7"></div>
-                <div class="form-field"><label for="e8">Endring 8</label><input type="text" id="e8" name="endring8"></div>
+                <div class="endring-blokk"><span class="endring-nr">1</span><input type="text" name="endring1" placeholder="F.eks: Endre prisen på service fra 1 200 til 1 400 kr" required></div>
+                <div class="endring-blokk"><span class="endring-nr">2</span><input type="text" name="endring2" placeholder="F.eks: Bytt bildet øverst på forsiden til Bilde 1"></div>
+                <div class="endring-blokk"><span class="endring-nr">3</span><input type="text" name="endring3" placeholder="F.eks: Rett skrivefeil i «om oss»: «kvallitet» → «kvalitet»"></div>
+                <div class="endring-blokk"><span class="endring-nr">4</span><input type="text" name="endring4"></div>
+                <div class="endring-blokk"><span class="endring-nr">5</span><input type="text" name="endring5"></div>
+                <div class="endring-blokk"><span class="endring-nr">6</span><input type="text" name="endring6"></div>
+                <div class="endring-blokk"><span class="endring-nr">7</span><input type="text" name="endring7"></div>
+                <div class="endring-blokk"><span class="endring-nr">8</span><input type="text" name="endring8"></div>
+                <div class="endring-blokk"><span class="endring-nr">9</span><input type="text" name="endring9"></div>
+                <div class="endring-blokk"><span class="endring-nr">10</span><input type="text" name="endring10"></div>
+            </div>
 
-                <h2 class="form-del">3. Nye bilder eller filer (valgfritt)</h2>
+            <!-- DEL 3 -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">3</span><h2>Nye bilder <span style="font-weight:400; color:var(--pine-soft); font-size:.9rem">(valgfritt)</span></h2></div>
                 <div class="foto-guide">
-                    <h3>📷 Slik bytter du bilder</h3>
-                    <p>Last opp bildene her – de nummereres automatisk (Bilde 1, Bilde 2, Bilde 3). I endringslisten over skriver du <strong>hvor hvert bilde skal inn</strong>.</p>
-                    <p style="margin-top:.6rem"><strong>Eksempel:</strong> Last opp det nye teambildet som Bilde 1, og skriv i en endring: «Bytt bildet i <em>om oss</em>-seksjonen til Bilde 1».</p>
+                    📷 <strong>Slik bytter du bilder:</strong> last opp bildene her – de nummereres automatisk (Bilde 1, Bilde 2 …). I endringslisten over skriver du <strong>hvor hvert bilde skal inn</strong>.<br><br>
+                    <strong>Eksempel:</strong> last opp det nye teambildet som Bilde 1, og skriv i en endring: «Bytt bildet i om oss-seksjonen til Bilde 1».
                 </div>
+                <div class="opplast-kort">
+                    <p class="opplast-hint">JPG, PNG, SVG eller WEBP. Maks 10 MB per bilde.</p>
+                    <button type="button" class="opplast-knapp" data-type="bilder">Last opp bilder</button>
+                    <div class="opplast-status" id="status-bilder"></div>
+                    <div class="opplast-thumbs" id="thumbs-bilder"></div>
+                </div>
+                <input type="hidden" name="bilde_bilder" id="bilde_bilder">
+            </div>
 
-                <div class="form-field">
-                    <label for="fil1">Bilde 1</label>
-                    <input type="file" id="fil1" name="fil1" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
-                    <p class="form-hint">Henvis til dette som «Bilde 1» i endringene dine.</p>
+            <!-- DEL 4 -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">4</span><h2>Kommentar</h2></div>
+                <p class="best-del-hint">Noe mer vi bør vite?</p>
+                <div class="bfelt">
+                    <textarea name="kommentar" rows="3" placeholder="Skriv gjerne her. (valgfritt)"></textarea>
                 </div>
-                <div class="form-field">
-                    <label for="fil2">Bilde 2</label>
-                    <input type="file" id="fil2" name="fil2" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
-                    <p class="form-hint">Henvis til dette som «Bilde 2».</p>
-                </div>
+            </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Send endringslisten</button>
-                <p class="form-note">Vi går gjennom listen og gir deg beskjed på e-post når endringene er på plass – normalt innen 3 virkedager.</p>
-            </form>
-        </div>
-    </section>
+            <button type="button" class="best-send" id="lagResultat">Lag oppsummering →</button>
+
+            <div class="resultat-boks" id="resultatBoks">
+                <h3>✓ Oppsummering av endringslisten din</h3>
+                <p class="res-intro">Sjekk at alt stemmer før du sender. Vi utfører endringene innen 5 virkedager etter at vi har mottatt listen.</p>
+                <textarea class="resultat-tekst" id="resultatTekst" readonly></textarea>
+                <button type="button" class="kopier-knapp" id="kopierKnapp">📋 Kopier teksten</button>
+                <span class="kopier-ok" id="kopierOk" style="display:none">Kopiert!</span>
+                <button type="submit" class="best-send" style="margin-top:1.2rem; background:var(--signal)">Send endringslisten →</button>
+            </div>
+
+        </form>
+    </div>
 
     <footer class="footer">
         <div class="container footer-inner">
@@ -130,6 +234,101 @@
             <p>© 2026 Hjemmesidendin. Alle rettigheter reservert.</p>
         </div>
     </footer>
+
+    <script>
+        const CLOUD_NAME = "jsl4llt9";
+        const UPLOAD_PRESET = "ml_default";
+        let opplastedeBilder = [];
+
+        function tegnThumbs() {
+            const thumbs = document.getElementById("thumbs-bilder");
+            thumbs.innerHTML = "";
+            opplastedeBilder.forEach((url, i) => {
+                const wrap = document.createElement("div");
+                wrap.className = "thumb-wrap";
+                const img = document.createElement("img"); img.src = url;
+                const merke = document.createElement("span");
+                merke.className = "thumb-merke"; merke.textContent = "Bilde " + (i + 1);
+                const slett = document.createElement("button");
+                slett.type = "button"; slett.className = "thumb-slett"; slett.textContent = "✕"; slett.title = "Fjern";
+                slett.addEventListener("click", e => {
+                    e.preventDefault();
+                    opplastedeBilder.splice(i, 1);
+                    tegnThumbs();
+                    oppdaterSkjultFelt();
+                });
+                wrap.appendChild(img); wrap.appendChild(merke); wrap.appendChild(slett);
+                thumbs.appendChild(wrap);
+            });
+        }
+        function oppdaterSkjultFelt() {
+            document.getElementById("bilde_bilder").value =
+                opplastedeBilder.map((u, i) => "Bilde " + (i + 1) + ": " + u).join("\n");
+            document.getElementById("status-bilder").innerHTML =
+                opplastedeBilder.length ? `<span style="color:var(--signal-dark)">✓ ${opplastedeBilder.length} bilde(r) lastet opp</span>` : "";
+        }
+
+        const widget = cloudinary.createUploadWidget({
+            cloudName: CLOUD_NAME, uploadPreset: UPLOAD_PRESET,
+            sources: ["local", "url", "camera"], multiple: true,
+            clientAllowedFormats: ["image"], maxImageFileSize: 10000000
+        }, (error, result) => {
+            if (!error && result && result.event === "success") {
+                opplastedeBilder.push(result.info.secure_url);
+                tegnThumbs();
+                oppdaterSkjultFelt();
+            }
+        });
+        document.querySelectorAll(".opplast-knapp").forEach(btn => {
+            btn.addEventListener("click", () => widget.open());
+        });
+
+        function v(name) { const el = document.querySelector(`[name="${name}"]`); return el ? el.value.trim() : ""; }
+
+        document.getElementById("lagResultat").addEventListener("click", () => {
+            let t = "";
+            t += "═══════════════════════════════════\n";
+            t += "  ENDRINGSRUNDE – GRATIS\n";
+            t += "═══════════════════════════════════\n\n";
+            t += "── DIN NETTSIDE ──\n";
+            t += "Domene:  " + v("domene") + "\n";
+            t += "E-post:  " + v("epost") + "\n\n";
+            t += "── ENDRINGER ──\n";
+            let antall = 0;
+            for (let i = 1; i <= 10; i++) {
+                const e = v("endring" + i);
+                if (e) { antall++; t += antall + ". " + e + "\n"; }
+            }
+            if (antall === 0) t += "(ingen endringer utfylt)\n";
+            t += "\nAntall endringer: " + antall + " av 10\n\n";
+            t += "── NYE BILDER ──\n";
+            t += (opplastedeBilder.length
+                ? opplastedeBilder.map((u, i) => "Bilde " + (i + 1) + ": " + u).join("\n")
+                : "(ingen bilder lastet opp)") + "\n\n";
+            t += "── KOMMENTAR ──\n";
+            t += (v("kommentar") || "(ingen)") + "\n";
+
+            document.getElementById("resultatTekst").value = t;
+            let skjult = document.getElementById("oppsummering_skjult");
+            if (!skjult) {
+                skjult = document.createElement("input");
+                skjult.type = "hidden"; skjult.name = "oppsummering"; skjult.id = "oppsummering_skjult";
+                document.getElementById("bestillSkjema").appendChild(skjult);
+            }
+            skjult.value = t;
+            const boks = document.getElementById("resultatBoks");
+            boks.classList.add("vis");
+            boks.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        document.getElementById("kopierKnapp").addEventListener("click", () => {
+            const ta = document.getElementById("resultatTekst");
+            ta.select(); document.execCommand("copy");
+            const ok = document.getElementById("kopierOk");
+            ok.style.display = "inline-block";
+            setTimeout(() => ok.style.display = "none", 2500);
+        });
+    </script>
 
 </body>
 </html>
