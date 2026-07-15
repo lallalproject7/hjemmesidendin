@@ -1,0 +1,378 @@
+/* =========================================================
+   Trygg Flytt – demo stylesheet (Design: "Rute")
+   Palette: grafitt / korall / lys grå
+   Energetic form-first look – quote card as the hero
+   ========================================================= */
+
+:root {
+    --grafitt: #23272e;         /* graphite – headers & dark blocks */
+    --grafitt-deep: #16191e;    /* darkest – footer */
+    --korall: #e8613c;          /* coral – primary action */
+    --korall-dark: #c74b2a;
+    --gul: #f4b942;             /* tape yellow accent */
+    --lys: #f2f3f5;             /* light grey background */
+    --surface: #ffffff;
+    --line: #dfe2e7;
+    --ink-soft: #4c545f;        /* body text */
+    --radius: 10px;
+    --font-display: "Albert Sans", sans-serif;
+    --font-body: "Figtree", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    background: var(--lys);
+}
+
+img { max-width: 100%; display: block; }
+
+.container { width: min(1140px, 92%); margin-inline: auto; }
+
+/* ---------- Typography ---------- */
+
+h1, h3 {
+    font-family: var(--font-display);
+    color: var(--grafitt);
+    line-height: 1.12;
+    font-weight: 800;
+}
+
+h2 {font-family: var(--font-display);
+    color: var(--gul);
+    line-height: 1.12;
+    font-weight: 800;
+}
+
+h1 { font-size: clamp(2.1rem, 4.8vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 1.5rem; }
+h3 { font-size: 1.1rem; margin-bottom: .45rem; font-weight: 700; }
+
+.accent { color: var(--korall); }
+
+.eyebrow {
+    font-family: var(--font-display);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--korall);
+    margin-bottom: .6rem;
+}
+
+.eyebrow-light { color: var(--gul); }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: .85rem 1.6rem;
+    border-radius: var(--radius);
+    border: 2px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .12s ease;
+}
+
+.btn-primary { background: var(--korall); color: #fff; }
+.btn-primary:hover { background: var(--korall-dark); transform: translateY(-1px); }
+
+.btn-ghost { border-color: var(--grafitt); color: var(--grafitt); background: transparent; }
+.btn-ghost:hover { background: var(--grafitt); color: #fff; }
+
+.btn-small { padding: .5rem 1.1rem; font-size: .92rem; }
+.btn-block { width: 100%; text-align: center; }
+.btn-hvit { background: var(--gul); color: var(--grafitt); } 
+.btn-lg { padding: 1rem 2rem; font-size: 1.05rem; }
+
+
+/* ---------- Toppstripe ---------- */
+.toppstripe { background: var(--marine-dyp); color: var(--tekst-lys); font-size: .85rem; }
+.toppstripe-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: .5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.toppstripe a { color: var(--tekst-lys); text-decoration: none; }
+.toppstripe a:hover { color: #fff; }
+
+
+/* ---------- Header ---------- */
+
+.header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: .9rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    text-decoration: none;
+    color: var(--grafitt);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.15rem;
+}
+
+.logo strong { color: var(--korall); }
+.logo-boks { font-size: 1.25rem; }
+
+.nav { display: flex; gap: 1.5rem; }
+
+.nav a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: .95rem;
+}
+.nav a:hover { color: var(--korall); }
+
+/* ---------- Hero + skjema (hovedrollen) ---------- */
+
+.hero-skjema {
+    background:
+        radial-gradient(ellipse 50% 60% at 90% 10%, rgba(232, 97, 60, .18), transparent 60%),
+        radial-gradient(ellipse 45% 50% at 5% 95%, rgba(244, 185, 66, .1), transparent 60%),
+        linear-gradient(165deg, #2b3038, var(--grafitt-deep));
+    padding-block: 4rem;
+}
+
+.hero-skjema-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.hero-tekst h1 { color: #fff; margin-bottom: 1rem; }
+
+.hero-lead {
+    color: #c3c9d2;
+    font-size: 1.1rem;
+    margin-bottom: 1.6rem;
+    max-width: 45ch;
+}
+
+.hero-trust {
+    list-style: none;
+    display: grid;
+    gap: .55rem;
+    font-weight: 600;
+    color: #e7eaee;
+}
+
+.hero-trust li::before {
+    content: "✓";
+    color: var(--gul);
+    font-weight: 800;
+    margin-right: .5rem;
+}
+
+/* Quote card */
+.skjema-kort {
+    background: var(--surface);
+    border-radius: calc(var(--radius) * 1.6);
+    padding: 2rem 1.8rem;
+    display: grid;
+    gap: 1rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .3);
+    border-top: 6px solid var(--korall);
+}
+
+.skjema-kort h2 { margin-bottom: .2rem; font-size: 1.4rem; }
+
+/* ---------- Steg ---------- */
+
+.grid { display: grid; gap: 1.4rem; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.steg {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.steg-num {
+    display: inline-grid;
+    place-items: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: var(--radius);
+    background: var(--gul);
+    color: var(--grafitt);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    margin-bottom: .8rem;
+    transform: rotate(-4deg);
+}
+
+/* ---------- Sections & cards ---------- */
+
+.section { padding-block: 4.5rem; }
+
+.section-alt { background: var(--grafitt); border-block: 1px solid var(--line); }
+
+.card {
+    background: var(--lys);
+    border: 1px solid var(--gul);
+    border-radius: var(--radius);
+    padding: 1.6rem;
+}
+
+.section-alt .card { background: var(--lys); }
+
+/* ---------- Photo placeholders ---------- */
+
+.photo-placeholder {
+    background:
+        repeating-linear-gradient(45deg, transparent 0 30px, rgba(244, 185, 66, .07) 30px 33px),
+        linear-gradient(155deg, #333a45, var(--grafitt-deep));
+    border-radius: var(--radius);
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    color: #8b95a3;
+    font-size: .9rem;
+}
+
+.photo-om { aspect-ratio: 1 / 1; }
+
+/* ---------- Form fields ---------- */
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.form-field { display: grid; gap: .3rem; }
+
+.form-field label {
+    font-weight: 600;
+    font-size: .88rem;
+    color: var(--grafitt);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    font: inherit;
+    padding: .7rem .85rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--lys);
+    color: var(--grafitt);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: 2px solid var(--korall);
+    outline-offset: 1px;
+    border-color: var(--korall);
+}
+
+.form-note { font-size: .84rem; color: var(--ink-soft); }
+.form-note a { color: var(--korall); }
+
+/* ---------- Om oss ---------- */
+
+.om-inner {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.om-inner p { margin-bottom: 1rem; }
+
+.om-inner .hero-trust { color: var(--ink-soft); margin-top: 1.2rem; }
+.om-inner .hero-trust li::before { color: var(--korall); }
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: var(--grafitt-deep);
+    color: #a9b1bc;
+    padding-top: 3.5rem;
+}
+
+.footer h3 { color: #fff; font-size: 1rem; margin-bottom: .8rem; }
+.footer p { margin-bottom: .45rem; font-size: .95rem; }
+.footer a { color: var(--gul); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+.footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+}
+.footer-logo strong { color: var(--korall); }
+
+.footer-bottom {
+    border-top: 1px solid #262b33;
+    margin-top: 2.5rem;
+    padding-block: 1.2rem;
+    text-align: center;
+    font-size: .85rem;
+}
+
+/* ---------- Bestill-banner ---------- */
+.demo-bestill { background: var(--line); text-align: center; padding-block: 4rem; }
+.demo-bestill-topp { font-weight: 600; text-transform: uppercase; letter-spacing: .12em; font-size: .82rem; color: var(--oransje-lys); margin-bottom: .5rem; }
+.demo-bestill h2 { color: var(--korall-dark); margin-bottom: .6rem; }
+.demo-bestill-pris { color: var(--tekst-lys); margin-bottom: 1.6rem; }
+.demo-bestill-retur { margin-top: 1.5rem; font-size: .9rem; }
+.demo-bestill-retur a { color: var(--tekst-lys); text-decoration: underline;} 
+
+/* ---------- Focus & motion ---------- */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--gul);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; transform: none !important; }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 950px) {
+    .hero-skjema-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+    .om-inner { grid-template-columns: 1fr; }
+    .nav { display: none; }
+}
+
+@media (max-width: 600px) {
+    .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+}

@@ -158,3 +158,70 @@ Mapa de pendientes del proyecto. Actualizar a medida que se completen tareas.
 - El "formulario que devuelve texto organizado" se hace con JS (recoge los campos y genera el bloque de texto formateado)
 - Los selectores de color: reutilizar el concepto de la muestra del maler, pero para elegir la paleta de SU web
 - Definir marcadores consistentes por sección de cada demo (requiere sesión concentrada — un error se replica a todas las ventas)
+
+
+ok entonces terminemos de hacer los Template + placeholder substitution" o scaffolding faltantes. luego me ensenas como utilizarlo simulando que ya tengo un cliente. luego hacemos una pagina de om oss bien chevera para mi tienda. luego hacemos el enkel y creamos dominio y email profesional. y publico en netlify ponemos clave. probramos todo el flujo y como me llega el email y si todo funciona. luego hacemos stripe con mi cuenta bancaria personal, activamos vipps y dejamos todo listo. cuando tengo mas 40.000 kr vendido abro cuenta bancaria para la tienda y cambio a AS y luego conecto con fiver con venda los 50.000 kr para llevar contabilidad y pagar taxes. no se nada deso, asi que me recomiendas para llevar el control de todo para tener todo listo para empezar las contabilidad cuando toque? ademas que herramientas me recomiendas para llevar el control de los pedidos de mi clientes por orden y fecha y clasificacion, asi como los trabajos entregados etc, y llevar registro de todos mi clientes, paginas creadas, actualizacions, pagos anuales, etc, no se como llevar el control de todo. y no quiero depender de ti para hacer todos mis trabajos cuando mi tienda despegue.
+
+
+En Noruega tienes bokføringsplikt desde la primera venta. Desde la factura número 1 debes guardar comprobantes, numerar facturas correlativamente y llevar registro — durante 5 años
+
+ENK tiene regnskapsplikt (årsregnskap) solo si factura más de 50.000 kr. Skattemelding for enkeltpersonforetak.
+
+Næringsoppgave — con una analogía
+Si trabajas para una empresa: tu jefe le manda a Skatteetaten un informe: "a Lallal le pagué 500.000 kr este año". Skatteetaten ya lo sabe todo. Tú solo confirmas tu skattemelding.
+Si trabajas para ti: nadie informa por ti. Skatteetaten no tiene ni idea de si vendiste 0 kr o 500.000 kr. Ni de qué gastaste.
+La næringsoppgave es tú haciendo ese informe. Es el papel donde le dices a Skatteetaten:
+
+"Mi negocio este año: ingresé 89.000 kr, gasté 12.000 kr, gané 77.000 kr."
+
+Por qué es obligatorio: porque sin ese papel, Skatteetaten no sabe sobre qué cobrarte impuestos. Tú pagas impuestos sobre el beneficio (77.000), no sobre lo que facturaste (89.000). Si no declaras los gastos, pagarías de más. Si no declaras los ingresos, es fraude.
+Y el detalle clave: tu ENK no es una empresa aparte de ti. Legalmente sois la misma persona. Por eso el negocio no hace su propia declaración — se cuelga de la tuya, como un anexo
+
+Qué es SAF-T
+Es un formato estándar (XML) para exportar toda tu contabilidad, desarrollado para simplificar el intercambio de datos contables entre las empresas y Skatteetaten.
+Piénsalo así: si mañana Skatteetaten te hace una inspección (bokettersyn), no quieren que les mandes 200 PDFs sueltos. Quieren un archivo con todo, en un formato que su sistema pueda leer automáticamente. Ese archivo es el SAF-T.
+
+
+
+Tu flujo de venta — y dónde duele
+Lo que va a pasar:
+1. Cliente rellena formulario  → Netlify te manda email (el CONTENIDO)
+2. Va a la página takk
+3. Reserva semana + paga        → Cal.com te manda email (la FECHA)
+                                → Stripe te manda email (el DINERO)
+4. Tú haces la factura          → Conta/Fiken
+5. Construyes la web            → ny-kunde.py
+6. Entregas                     → email al cliente
+El problema honesto: tres emails de tres sistemas que no se hablan. Netlify no sabe que pagó. Cal.com no sabe qué contenido mandó. Stripe no sabe qué compró exactamente.
+Lo que los une: el email del cliente. Aparece en los tres. Es tu clave
+
+
+
+Cómo optimizarlo (sin backend)
+1. Filtros de Gmail — que se ordenen solos
+Crea 3 etiquetas y 3 filtros:
+
+Remitente Netlify → etiqueta 📋 Bestillinger
+Remitente Cal.com → etiqueta 📅 Bookinger
+Remitente Stripe → etiqueta 💰 Betalinger
+
+Así abres una carpeta y ves solo pedidos, otra y ves solo pagos. Cinco minutos de configurar, orden para siempre.
+2. La hoja de cálculo = tu única verdad
+Los tres emails llegan, tú apuntas una fila:
+FechaClienteEmailServicioPrecioUkeBetaltFakturaLevert15.07Nordvik Rørpost@...Nettside890030✅#12⏳
+Esa fila es tu control. Los emails son solo la materia prima.
+3. La factura en 3 clics
+En Conta/Fiken creas una vez tus productos: "Nettside 8.900 kr", "Årsavgift 777 kr", "Ny seksjon 790 kr"… Luego cada factura es: elegir cliente → elegir producto → marcar "pagada con Stripe" → enviar. Treinta segundos.
+4. Una rutina escrita (RUTINER.md en tu repo)
+CUANDO LLEGA UN PEDIDO:
+1. Apuntar fila en Sheets
+2. Verificar que llegaron los 3 emails (contenido + reserva + pago)
+3. Crear factura en Fiken → enviar al cliente
+4. Copiar datos del resumen a kunde-data.txt
+5. python3 ny-kunde.py <oficio> <cliente> kunde-data.txt
+6. Descargar fotos de Cloudinary → optimizar → bilder/
+7. Revisar con Live Server
+8. Deploy
+9. Email de entrega + marcar ✅ en Sheets
+Eso es lo que de verdad te hace independiente. No mi ayuda — tu checklist.
+
