@@ -1,16 +1,16 @@
 /* =========================================================
-   Lund Snekkerverksted – demo stylesheet (Design: "Eik & Skog")
+   [FIRMANAVN] – stylesheet (Design: "Eik & Skog")
    Palette: dyp skogsgrønn / terrakotta / kritt
    Rich craft look – ordered gallery, strong contrast
    ========================================================= */
 
 :root {
-    --skog: #1e3b2f;            /* deep forest – headers & dark blocks */
-    --skog-deep: #142921;       /* darkest – footer */
-    --eik: #c17a54;             /* terrakotta – primary action */
-    --eik-dark: #a15f3d;
-    --eik-lys: #d99873;         /* light terracotta accent on dark */
-    --kritt: #f7f5f0;           /* chalk background */
+    --skog: [FARGE_MORK];            /* deep forest – headers & dark blocks */
+    --skog-deep: [FARGE_MORK_DYP];       /* darkest – footer */
+    --eik: [FARGE_HOVED];             /* terrakotta – primary action */
+    --eik-dark: [FARGE_HOVED_MORK];
+    --eik-lys: [FARGE_HOVED_LYS];         /* light terracotta accent on dark */
+    --kritt: [FARGE_BAKGRUNN];           /* chalk background */
     --surface: #ffffff;
     --line: #e2ded4;
     --ink-soft: #4a5a50;        /* body text */

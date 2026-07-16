@@ -1,15 +1,15 @@
 /* =========================================================
-   Fossum Elektro AS – demo stylesheet
+   [FIRMANAVN] – stylesheet
    Palette: slate navy / copper / signal amber on cool white
    ========================================================= */
 
 :root {
-    --ink: #16232e;          /* deep slate navy – text & dark sections */
+    --ink: [FARGE_MORK];          /* deep slate navy – text & dark sections */
     --ink-soft: #3d4f5e;     /* softer slate for body text */
-    --copper: #b4551d;       /* copper wire – primary action color */
-    --copper-dark: #93430f;
-    --amber: #ffb84d;        /* signal amber – small accents only */
-    --bg: #f5f7f9;           /* cool off-white */
+    --copper: [FARGE_HOVED];       /* copper wire – primary action color */
+    --copper-dark: [FARGE_HOVED_MORK];
+    --amber: [FARGE_SEKUNDAER];        /* signal amber – small accents only */
+    --bg: [FARGE_BAKGRUNN];           /* cool off-white */
     --surface: #ffffff;
     --line: #dde4ea;
     --radius: 10px;

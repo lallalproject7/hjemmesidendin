@@ -1,16 +1,16 @@
 /* =========================================================
-   Trygg Flytt – demo stylesheet (Design: "Rute")
+   [FIRMANAVN] – stylesheet (Design: "Rute")
    Palette: grafitt / korall / lys grå
    Energetic form-first look – quote card as the hero
    ========================================================= */
 
 :root {
-    --grafitt: #23272e;         /* graphite – headers & dark blocks */
-    --grafitt-deep: #16191e;    /* darkest – footer */
-    --korall: #e8613c;          /* coral – primary action */
-    --korall-dark: #c74b2a;
-    --gul: #f4b942;             /* tape yellow accent */
-    --lys: #f2f3f5;             /* light grey background */
+    --grafitt: [FARGE_MORK];         /* graphite – headers & dark blocks */
+    --grafitt-deep: [FARGE_MORK_DYP];    /* darkest – footer */
+    --korall: [FARGE_HOVED];          /* coral – primary action */
+    --korall-dark: [FARGE_HOVED_MORK];
+    --gul: [FARGE_SEKUNDAER];             /* tape yellow accent */
+    --lys: [FARGE_BAKGRUNN];             /* light grey background */
     --surface: #ffffff;
     --line: #dfe2e7;
     --ink-soft: #4c545f;        /* body text */

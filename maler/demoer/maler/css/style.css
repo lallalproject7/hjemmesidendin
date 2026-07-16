@@ -1,15 +1,15 @@
 /* =========================================================
-   Berg Malerfirma – demo stylesheet (Design: "Palett")
+   [FIRMANAVN] – stylesheet (Design: "Palett")
    Palette: kritthvit / blekkblå / malingsprikker
    Light airy look – paint swatches as design element
    ========================================================= */
 
 :root {
-    --blekk: #2b3a55;           /* ink blue – headers */
-    --blekk-deep: #1d2940;      /* darkest – footer */
-    --primary: #3d5a99;         /* painter blue – primary action */
-    --primary-dark: #2e4577;
-    --kritt: #fdfcfa;           /* chalk white background */
+    --blekk: [FARGE_MORK];           /* ink blue – headers */
+    --blekk-deep: [FARGE_MORK_DYP];      /* darkest – footer */
+    --primary: [FARGE_HOVED];         /* painter blue – primary action */
+    --primary-dark: [FARGE_HOVED_MORK];
+    --kritt: [FARGE_BAKGRUNN];           /* chalk white background */
     --surface: #ffffff;
     --line: #e6e3dd;
     --ink-soft: #55617a;        /* body text */

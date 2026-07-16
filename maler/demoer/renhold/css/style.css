@@ -1,16 +1,16 @@
 /* =========================================================
-   Klar Renhold – demo stylesheet (Design: "Frisk")
+   [FIRMANAVN] – stylesheet (Design: "Frisk")
    Palette: sjøglass / hvit / sitrus
    Fresh clean look – packages-first, rounded and airy
    ========================================================= */
 
 :root {
-    --dyp: #0e5b63;             /* deep sea glass – headers */
-    --dyp-deep: #093f45;        /* darkest – footer */
-    --frisk: #14a098;           /* fresh teal – primary action */
-    --frisk-dark: #0e7d77;
-    --sitrus: #f2b63c;          /* citrus accent */
-    --skum: #f4fafa;            /* foam white background */
+    --dyp: [FARGE_MORK];             /* deep sea glass – headers */
+    --dyp-deep: [FARGE_MORK_DYP];        /* darkest – footer */
+    --frisk: [FARGE_HOVED];           /* fresh teal – primary action */
+    --frisk-dark: [FARGE_HOVED_MORK];
+    --sitrus: [FARGE_SEKUNDAER];          /* citrus accent */
+    --skum: [FARGE_BAKGRUNN];            /* foam white background */
     --surface: #ffffff;
     --line: #dcebea;
     --ink-soft: #45646a;        /* body text */

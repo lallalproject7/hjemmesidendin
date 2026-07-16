@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie-erklæring – [FIRMANAVN]</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --jur-mork: #2d2a3e;
+            --jur-aksent: #e8734f;
+            --jur-bak: #e3e0e6;
+            --jur-flate: #eeebf0;
+            --jur-linje: #cdc9d4;
+            --jur-tekst: #4c545f;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", sans-serif; font-size: 16px; line-height: 1.7; color: var(--jur-tekst); background: var(--jur-bak); }
+        .jur-ramme { width: min(760px, 90%); margin-inline: auto; }
+
+        .jur-topp { background: var(--jur-mork); padding-block: 1.1rem; }
+        .jur-topp-inn { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .jur-merke { font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; }
+        .jur-tilbake { color: rgba(255,255,255,.7); text-decoration: none; font-size: .9rem; }
+        .jur-tilbake:hover { color: #fff; }
+
+        .jur-innhold { padding-block: 3rem 4rem; }
+        .jur-innhold h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; color: var(--jur-mork); margin-bottom: .4rem; }
+        .jur-dato { font-size: .88rem; color: var(--jur-tekst); margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--jur-linje); }
+        .jur-innhold h2 { font-size: 1.2rem; font-weight: 600; color: var(--jur-mork); margin: 2.2rem 0 .7rem; }
+        .jur-innhold p { margin-bottom: .9rem; }
+        .jur-innhold ul { margin: 0 0 1rem 1.3rem; }
+        .jur-innhold li { margin-bottom: .4rem; }
+        .jur-innhold a { color: var(--jur-aksent); }
+        .jur-innhold strong { color: var(--jur-mork); }
+
+        .jur-kort { background: var(--jur-flate); border: 1px solid var(--jur-linje); border-radius: 10px; padding: 1.4rem 1.6rem; margin: 1.2rem 0; }
+        .jur-kort p:last-child { margin-bottom: 0; }
+        .jur-kort-mork { background: var(--jur-mork); border: none; color: #d9dce0; }
+        .jur-kort-mork strong { color: #fff; }
+        .jur-kort-mork a { color: #fff; }
+
+        .jur-tabell { width: 100%; border-collapse: collapse; margin: 1.2rem 0; background: var(--jur-flate); border-radius: 10px; overflow: hidden; }
+        .jur-tabell th { background: var(--jur-mork); color: #fff; font-size: .82rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: .8rem 1rem; text-align: left; }
+        .jur-tabell td { padding: .8rem 1rem; border-top: 1px solid var(--jur-linje); font-size: .9rem; vertical-align: top; }
+        .jur-tabell td:first-child { font-weight: 600; color: var(--jur-mork); }
+
+        .jur-bunn { background: var(--jur-mork); padding-block: 1.6rem; text-align: center; }
+        .jur-bunn p { color: rgba(255,255,255,.6); font-size: .84rem; }
+        .jur-bunn a { color: rgba(255,255,255,.8); }
+
+        @media (max-width: 600px) {
+            .jur-tabell th:nth-child(3), .jur-tabell td:nth-child(3) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="jur-topp">
+        <div class="jur-ramme jur-topp-inn">
+            <a href="index.html" class="jur-merke">[FIRMANAVN]</a>
+            <a href="index.html" class="jur-tilbake">← Tilbake til forsiden</a>
+        </div>
+    </header>
+
+    <main class="jur-innhold">
+        <div class="jur-ramme">
+            <h1>Cookie-erklæring</h1>
+            <p class="jur-dato">Sist oppdatert: [DATO]</p>
+
+            <h2>Hva er informasjonskapsler?</h2>
+            <p>Informasjonskapsler – ofte kalt cookies – er små tekstfiler som lagres på enheten din når du besøker en nettside. De brukes blant annet til å få nettsiden til å fungere som den skal.</p>
+
+            <h2>Hvilke informasjonskapsler bruker vi?</h2>
+            <p>Vi bruker kun <strong>nødvendige informasjonskapsler</strong>. Disse er påkrevd for at nettsiden skal fungere, og kan derfor ikke slås av. De brukes ikke til å spore deg eller til markedsføring.</p>
+
+            <table class="jur-tabell">
+                <thead>
+                    <tr><th>Navn</th><th>Formål</th><th>Varighet</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sikkerhet</td>
+                        <td>Beskytter kontaktskjemaet mot misbruk og automatiske utsendelser</td>
+                        <td>Økten</td>
+                    </tr>
+                    <tr>
+                        <td>Drift</td>
+                        <td>Sørger for at siden lastes riktig og raskt</td>
+                        <td>Økten</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="jur-kort">
+                <p><strong>Vi bruker ikke:</strong> analyseverktøy som Google Analytics, sporingspiksler, reklamekapsler eller kapsler fra sosiale medier.</p>
+            </div>
+
+            <h2>Trenger vi samtykke?</h2>
+            <p>Etter ekomloven § 2-7 b kreves det ikke samtykke for informasjonskapsler som er strengt nødvendige for å levere tjenesten du har bedt om. Siden vi kun bruker slike kapsler, viser vi ingen samtykkebanner.</p>
+            <p>Skulle vi senere ta i bruk analyse- eller markedsføringskapsler, vil vi be om samtykket ditt først, og oppdatere denne erklæringen.</p>
+
+            <h2>Hvordan slår du av informasjonskapsler?</h2>
+            <p>Du kan selv styre og slette informasjonskapsler i nettleseren din. Merk at nettsiden kan slutte å fungere som den skal dersom du blokkerer de nødvendige kapslene.</p>
+            <ul>
+                <li><strong>Chrome:</strong> Innstillinger → Personvern og sikkerhet → Informasjonskapsler</li>
+                <li><strong>Safari:</strong> Innstillinger → Personvern</li>
+                <li><strong>Firefox:</strong> Innstillinger → Personvern og sikkerhet</li>
+                <li><strong>Edge:</strong> Innstillinger → Cookies og nettstedstillatelser</li>
+            </ul>
+
+            <h2>Personopplysninger</h2>
+            <p>Hvordan vi behandler personopplysninger, finner du i vår <a href="personvern.html">personvernerklæring</a>.</p>
+
+            <div class="jur-kort jur-kort-mork">
+                <p><strong>Spørsmål om informasjonskapsler?</strong><br>
+                Ta kontakt på <a href="mailto:[EPOST]">[EPOST]</a> eller [TELEFON].</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="jur-bunn">
+        <div class="jur-ramme">
+            <p>© 2026 [FIRMANAVN] · Org.nr [ORGNR] · <a href="personvern.html">Personvernerklæring</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

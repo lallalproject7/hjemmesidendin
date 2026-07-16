@@ -1,16 +1,16 @@
 /* =========================================================
-   Grønn Hage – demo stylesheet (Design: "Årstid")
+   [FIRMANAVN] – stylesheet (Design: "Årstid")
    Palette: mose / jord / sesongfarger
    Organic seasonal look – serif warmth, four-season cards
    ========================================================= */
 
 :root {
-    --mose: #2f4a2c;            /* moss green – headers */
-    --mose-deep: #1f3320;       /* darkest – footer & dark section */
-    --gress: #4c7c3f;           /* grass – primary action */
-    --gress-dark: #3a6130;
-    --sol: #e0a83c;             /* sun accent */
-    --floete: #f8f6ef;          /* cream background */
+    --mose: [FARGE_MORK];            /* moss green – headers */
+    --mose-deep: [FARGE_MORK_DYP];       /* darkest – footer & dark section */
+    --gress: [FARGE_HOVED];           /* grass – primary action */
+    --gress-dark: [FARGE_HOVED_MORK];
+    --sol: [FARGE_SEKUNDAER];             /* sun accent */
+    --floete: [FARGE_BAKGRUNN];          /* cream background */
     --surface: #ffffff;
     --line: #e3e0d2;
     --ink-soft: #52604c;        /* body text */
@@ -205,7 +205,7 @@ h3 { font-size: 1.15rem; margin-bottom: .5rem; }
 .arstid-host ul li::before { color: var(--s-host); }
 .arstid-vinter ul li::before { color: var(--s-vinter); }
 
-/* ---------- Hagepakken ---------- */
+/* ---------- [FIRMANAVN]pakken ---------- */
 
 .section-dark { background: var(--mose-deep); }
 
