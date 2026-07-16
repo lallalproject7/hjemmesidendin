@@ -242,6 +242,14 @@
                     <input type="text" id="orgnr" name="orgnr" placeholder="F.eks: 999 999 999">
                 </div>
                 <div class="bfelt">
+                    <label>Domene – nettadressen din</label>
+                    <span class="forklaring">Foreslå tre alternativer i prioritert rekkefølge. Vi sjekker hva som er ledig og bekrefter med deg før vi registrerer noe. Domenet registreres med din bedrift som eier.</span>
+                    <input type="text" name="domene_1" placeholder="1. valg – f.eks: dittfirma.no" style="margin-bottom:.5rem">
+                    <input type="text" name="domene_2" placeholder="2. valg – f.eks: ditt-firma.no" style="margin-bottom:.5rem">
+                    <input type="text" name="domene_3" placeholder="3. valg – f.eks: dittfirmaskien.no">
+                    <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine); margin-top:.7rem; font-size:.9rem"><input type="checkbox" name="har_domene" value="Ja" style="position:static"> Jeg eier allerede 1. valg</label>
+                </div>
+                <div class="bfelt">
                     <label for="adresse">Adresse</label>
                     <input type="text" id="adresse" name="adresse" placeholder="F.eks: Renveien 5, 3722 Skien">
                 </div>
@@ -720,7 +728,18 @@
             t += "Firmanavn:  " + v("firmanavn") + "\n";
             t += "Telefon:    " + v("telefon") + "\n";
             t += "E-post:     " + v("epost") + "\n";
-            t += "Org.nr:     " + v("orgnr") + "\n";
+            t += "Org.nr:     " + v("orgnr") + "
+";
+            t += "── DOMENE ──
+";
+            t += "1. valg: " + (v("domene_1") || "(ikke oppgitt)") + "
+";
+            t += "2. valg: " + (v("domene_2") || "-") + "
+";
+            t += "3. valg: " + (v("domene_3") || "-") + "
+";
+            t += "Eier allerede 1. valg: " + (document.querySelector('[name="har_domene"]:checked') ? "JA" : "Nei") + "
+";
             t += "Adresse:    " + v("adresse") + "\n";
             t += "Område:     " + v("omrade") + "\n";
             t += "Startet:    " + v("startaar") + "\n\n";

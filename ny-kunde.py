@@ -12,7 +12,7 @@ if len(sys.argv) != 4:
 
 mal, kunde, datafil = sys.argv[1], sys.argv[2], sys.argv[3]
 kilde = f"maler/demoer/{mal}"
-mal_dir = f"kunder/{kunde}"
+mal_dir = os.path.expanduser(f"~/kunder/{kunde}")
 
 if not os.path.isdir(kilde):
     print(f"✗ Fant ikke malen: {kilde}")
@@ -35,7 +35,7 @@ for linje in open(datafil, encoding="utf-8"):
         tomme.append(n.strip())
 
 # Kopier og erstatt
-os.makedirs("kunder", exist_ok=True)
+os.makedirs(os.path.expanduser("~/kunder"), exist_ok=True)
 shutil.copytree(kilde, mal_dir)
 
 endret = 0
@@ -58,6 +58,8 @@ for rot, _, filer in os.walk(mal_dir):
     for fil in filer:
         if fil.endswith((".html", ".css")):
             rest |= set(re.findall(r"\[[A-Z_0-9]+\]", open(os.path.join(rot, fil), encoding="utf-8").read()))
+
+shutil.copy(datafil, os.path.join(mal_dir, "kunde-data.txt"))
 
 print(f"\n✓ Laget: {mal_dir}")
 print(f"  {endret} filer oppdatert, {len(data)} verdier satt")

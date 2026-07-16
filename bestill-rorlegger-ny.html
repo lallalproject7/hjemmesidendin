@@ -310,6 +310,14 @@
                         <label for="orgnr">Org.nr</label>
                         <input type="text" id="orgnr" name="orgnr" placeholder="F.eks: 999 999 999">
                     </div>
+                <div class="bfelt">
+                    <label>Domene – nettadressen din</label>
+                    <span class="forklaring">Foreslå tre alternativer i prioritert rekkefølge. Vi sjekker hva som er ledig og bekrefter med deg før vi registrerer noe. Domenet registreres med din bedrift som eier.</span>
+                    <input type="text" name="domene_1" placeholder="1. valg – f.eks: dittfirma.no" style="margin-bottom:.5rem">
+                    <input type="text" name="domene_2" placeholder="2. valg – f.eks: ditt-firma.no" style="margin-bottom:.5rem">
+                    <input type="text" name="domene_3" placeholder="3. valg – f.eks: dittfirmaskien.no">
+                    <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine); margin-top:.7rem; font-size:.9rem"><input type="checkbox" name="har_domene" value="Ja" style="position:static"> Jeg eier allerede 1. valg</label>
+                </div>
                 </div>
                 <div class="bfelt">
                     <label for="adresse">Adresse</label>
@@ -848,6 +856,11 @@
             t += "Akutt-telefon: " + v("akutt_telefon") + "\n";
             t += "E-post:        " + v("epost") + "\n";
             t += "Org.nr:        " + v("orgnr") + "\n";
+            t += "── DOMENE ──\n";
+            t += "1. valg: " + (v("domene_1") || "(ikke oppgitt)") + "\n";
+            t += "2. valg: " + (v("domene_2") || "-") + "\n";
+            t += "3. valg: " + (v("domene_3") || "-") + "\n";
+            t += "Eier allerede 1. valg: " + (document.querySelector('[name="har_domene"]:checked') ? "JA" : "Nei") + "\n";
             t += "Adresse:       " + v("adresse") + "\n";
             t += "Område:        " + v("omrade") + "\n";
             t += "Startet:       " + v("startaar") + "\n\n";
