@@ -18,7 +18,7 @@
             <nav class="nav">
                 <a href="#tjenester">Tjenester</a>
                 <a href="#prosjekter">Prosjekter</a>
-                <a href="#farger">Farger</a>
+                <a href="#prosjekter">Farger</a>
                 <a href="#om-oss">Om oss</a>
             </nav>
             <a href="#kontakt" class="btn btn-primary btn-small">Be om befaring</a>
@@ -43,6 +43,7 @@
                     <span class="pk pk4"></span>
                     <span class="pk pk5"></span>
                     <span class="pk pk6"></span>
+                    <span class="pk pk7"></span>
                     <span class="palett-tekst">Hundrevis av farger å velge mellom</span>
                 </div>
             </div>
@@ -55,7 +56,7 @@
     </section>
 
     <div class="fargeband">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
 
     <!-- ===== TJENESTER ===== -->
@@ -101,98 +102,51 @@
     </section>
 
     <!-- ===== PROSJEKTER ===== -->
-    <section class="section-galleri" id="prosjekter">
+
+    <!-- ===== FARGER (interaktiv) ===== -->
+    <section class="section-farger" id="prosjekter">
         <div class="container">
             <div class="seksjon-topp">
                 <p class="eyebrow">Utvalgte arbeider</p>
-                <h2>Rom vi har gitt nytt liv</h2>
-            </div>
-            <div class="galleri">
-                <figure class="verk verk-stor">
-                    <div class="verk-bilde vb1"></div>
-                    <figcaption><span class="verk-kat">Innvendig</span><h3>Stue i varm terrakotta</h3></figcaption>
-                </figure>
-                <figure class="verk">
-                    <div class="verk-bilde vb2"></div>
-                    <figcaption><span class="verk-kat">Soverom</span><h3>Rolige, dype toner</h3></figcaption>
-                </figure>
-                <figure class="verk">
-                    <div class="verk-bilde vb3"></div>
-                    <figcaption><span class="verk-kat">Kjøkken</span><h3>Frisk og lys forvandling</h3></figcaption>
-                </figure>
-                <figure class="verk">
-                    <div class="verk-bilde vb4"></div>
-                    <figcaption><span class="verk-kat">Fasade</span><h3>Enebolig i klassisk hvitt</h3></figcaption>
-                </figure>
-                <figure class="verk">
-                    <div class="verk-bilde vb5"></div>
-                    <figcaption><span class="verk-kat">Detalj</span><h3>Presise kanter og lister</h3></figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FARGER (interaktiv) ===== -->
-    <section class="section-farger" id="farger">
-        <div class="container">
-
-
-
-
-
-
-
-
-
-<div class="seksjon-topp">
-                <p class="eyebrow">Fargeveiledning</p>
-                <h2>Se fargen i ekte hjem</h2>
-                <p class="seksjon-lead">Klikk på en farge for å se den i et virkelig rom. Skandinaviske toner som passer norske hjem – vi tar gjerne med fargeprøver på befaringen.</p>
+                <h2>Se fargene i ekte rom</h2>
+                <p class="seksjon-lead">Klikk på en farge for å se rommet vi brukte den i. Alle bildene er fra egne prosjekter – ingen stockbilder.</p>
             </div>
 
             <div class="farge-verktoy">
                 <div class="vegg">
-                    <div class="vegg-foto vf-kalkhvit" id="veggFoto"></div>
+                    <div class="vegg-foto vf-arbeid1" id="veggFoto"></div>
                     <div class="vegg-navn">
-                        <strong id="valgtNavn">Kalkhvit</strong>
-                        <span id="valgtBeskrivelse">Tidløs og lys</span>
+                        <span class="vegg-tittel" id="valgtTittel">Stue i Skien</span>
+                        <strong id="valgtNavn">Dyp grønn</strong>
+                        <span id="valgtBeskrivelse">Mørk og lun – kunden ville ha et rom som roer ned etter jobb.</span>
                     </div>
                 </div>
 
                 <div class="farge-panel">
-                    <p class="farge-panel-tittel">Velg en farge</p>
-                    <p class="farge-panel-under">Skandinaviske farger som passer norske hjem.</p>
+                    <p class="farge-panel-tittel">Velg et arbeid</p>
+                    <p class="farge-panel-under">Farger vi har brukt i norske hjem.</p>
                     <div class="fargekart">
-                        <button class="fargekort aktiv" data-klasse="vf-kalkhvit" data-navn="Kalkhvit" data-besk="Tidløs og lys">
-                            <span style="background:#ece9e2"></span><strong>Kalkhvit</strong>
-                        </button>
-                        <button class="fargekort" data-klasse="vf-lysgra" data-navn="Lys grå" data-besk="Rolig og nøytral">
-                            <span style="background:#ccc9c4"></span><strong>Lys grå</strong>
-                        </button>
-                        <button class="fargekort" data-klasse="vf-sandbeige" data-navn="Sandbeige" data-besk="Varm og naturlig">
-                            <span style="background:#d6ccc2"></span><strong>Sandbeige</strong>
-                        </button>
-                        <button class="fargekort" data-klasse="vf-salvie" data-navn="Salviegrønn" data-besk="Myk og harmonisk">
-                            <span style="background:#adb09d"></span><strong>Salviegrønn</strong>
-                        </button>
-                        <button class="fargekort" data-klasse="vf-oliven" data-navn="Olivengrønn" data-besk="Jordnær og lun">
-                            <span style="background:#778262"></span><strong>Olivengrønn</strong>
-                        </button>
-                        <button class="fargekort" data-klasse="vf-dypgronn" data-navn="Dyp grønn" data-besk="Dyp og rolig">
+                        <button class="fargekort aktiv" data-klasse="vf-arbeid1" data-navn="Dyp grønn" data-tittel="Stue i Skien" data-besk="Mørk og lun – kunden ville ha et rom som roer ned etter jobb.">
                             <span style="background:#5a5b4b"></span><strong>Dyp grønn</strong>
                         </button>
-                        <button class="fargekort" data-klasse="vf-stovbla" data-navn="Støvblå" data-besk="Kjølig og elegant">
+                        <button class="fargekort" data-klasse="vf-arbeid2" data-navn="Salviegrønn" data-tittel="Kjøkken, Porsgrunn" data-besk="Rolig grønntone mot lyse fronter. Varm uten å ta over rommet.">
+                            <span style="background:#adb09d"></span><strong>Salviegrønn</strong>
+                        </button>
+                        <button class="fargekort" data-klasse="vf-arbeid3" data-navn="Sandbeige" data-tittel="Soverom, Bamble" data-besk="Varm nøytral som gir ro. Passer like godt i nytt som gammelt hus.">
+                            <span style="background:#d2c6b8"></span><strong>Sandbeige</strong>
+                        </button>
+                        <button class="fargekort" data-klasse="vf-arbeid4" data-navn="Støvblå" data-tittel="Gang og entré" data-besk="Kjølig blåtone som tåler mye bruk. Frisk uten å bli kald.">
                             <span style="background:#36566f"></span><strong>Støvblå</strong>
                         </button>
-                        <button class="fargekort" data-klasse="vf-terrakotta" data-navn="Terrakotta" data-besk="Varm og innbydende">
-                            <span style="background:#997253"></span><strong>Terrakotta</strong>
-                        </button>
-                        <button class="fargekort" data-klasse="vf-grafitt" data-navn="Mørk grafitt" data-besk="Moderne og markant">
+                        <button class="fargekort" data-klasse="vf-arbeid5" data-navn="Mørk grafitt" data-tittel="Interiør, enebolig" data-besk="Markant og moderne. Krever presist arbeid på kantene.">
                             <span style="background:#565656"></span><strong>Mørk grafitt</strong>
+                        </button>
+                        <button class="fargekort" data-klasse="vf-arbeid6" data-navn="Terrakotta og beige" data-tittel="Detaljer og listverk" data-besk="To toner i samspill. Små flater, men det er her håndverket synes.">
+                            <span style="background:linear-gradient(135deg, #562610 0 50%, #8b7a68 50% 100%)"></span><strong>Terrakotta og beige</strong>
                         </button>
                     </div>
                     <a href="#kontakt" class="btn btn-primary btn-block farge-cta">Be om befaring med denne fargen</a>
-                    <p class="farge-note">Vi har hundrevis av farger – dette er noen av de mest populære i norske hjem.</p>
+                    <p class="farge-note">Vi har hundrevis av farger – dette er noen vi har jobbet med.</p>
                 </div>
             </div>
         </div>
@@ -335,10 +289,11 @@
             const foto = document.getElementById("veggFoto");
             const navn = document.getElementById("valgtNavn");
             const besk = document.getElementById("valgtBeskrivelse");
+            const tittel = document.getElementById("valgtTittel");
             const fargefelt = document.getElementById("onsketFarge");
             if (!foto) return;
 
-            const alleKlasser = ["vf-kalkhvit","vf-lysgra","vf-sandbeige","vf-salvie","vf-oliven","vf-dypgronn","vf-stovbla","vf-terrakotta","vf-grafitt"];
+            const alleKlasser = ["vf-arbeid1","vf-arbeid2","vf-arbeid3","vf-arbeid4","vf-arbeid5","vf-arbeid6"];
 
             knapper.forEach(k => {
                 k.addEventListener("click", () => {
@@ -346,6 +301,7 @@
                     k.classList.add("aktiv");
                     foto.classList.remove(...alleKlasser);
                     foto.classList.add(k.dataset.klasse);
+                    if (tittel) tittel.textContent = k.dataset.tittel;
                     navn.textContent = k.dataset.navn;
                     besk.textContent = k.dataset.besk;
                     if (fargefelt) fargefelt.value = k.dataset.navn;

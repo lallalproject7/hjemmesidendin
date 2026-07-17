@@ -382,13 +382,6 @@ h4 { font-size: 1rem; }
 }
 
 /* Bestill-banner: blå gradient */
-.demo-bestill { background: linear-gradient(160deg, var(--blaa-dyp), var(--natt-dyp)); text-align: center; padding-block: 4rem; }
-.demo-bestill-topp { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; color: var(--blaa-lys); margin-bottom: .5rem; }
-.demo-bestill h2 { color: #fff; margin-bottom: .6rem; }
-.demo-bestill-pris { color: var(--tekst); margin-bottom: 1.6rem; }
-.demo-bestill-retur { margin-top: 1.5rem; font-size: .9rem; }
-.demo-bestill-retur a { color: var(--tekst); text-decoration: underline; }
-
 /* Footer */
 .footer { background: var(--natt-dyp); color: var(--tekst); padding-top: 3.5rem; }
 .footer-topp {
@@ -451,3 +444,46 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--blaa); outline-
     color: rgba(255,255,255,.9);
     text-decoration: underline;
 }
+
+
+/* ---------- Hjemmesidendin-banner (ikke del av kundens design) ---------- */
+.demo-bestill {
+    background: #1d3a2f;
+    border-top: 4px solid #e8641b;
+    text-align: center;
+    padding-block: 4rem;
+    font-family: "Inter", system-ui, sans-serif;
+}
+.demo-bestill-topp,
+.demo-bestill-tekst,
+.demo-eyebrow {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .8rem;
+    color: #e8641b;
+    margin-bottom: .5rem;
+}
+.demo-bestill h2 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    color: #fff;
+    margin-bottom: .6rem;
+}
+.demo-bestill-pris,
+.demo-bestill > .container > p,
+.demo-bestill > .ramme > p {
+    color: #b8c4bd;
+    margin-bottom: 1.6rem;
+}
+.demo-bestill .btn,
+.demo-bestill .knapp {
+    background: #e8641b;
+    color: #fff;
+    border: none;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+}
+.demo-bestill .btn:hover,
+.demo-bestill .knapp:hover { background: #c24f0e; }
+.demo-bestill-retur { margin-top: 1.5rem; font-size: .9rem; }
+.demo-bestill-retur a { color: #b8c4bd; text-decoration: underline; }

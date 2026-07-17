@@ -776,18 +776,12 @@
             t += "Firmanavn:  " + v("firmanavn") + "\n";
             t += "Telefon:    " + v("telefon") + "\n";
             t += "E-post:     " + v("epost") + "\n";
-            t += "Org.nr:     " + v("orgnr") + "
-";
-            t += "── DOMENE ──
-";
-            t += "1. valg: " + (v("domene_1") || "(ikke oppgitt)") + "
-";
-            t += "2. valg: " + (v("domene_2") || "-") + "
-";
-            t += "3. valg: " + (v("domene_3") || "-") + "
-";
-            t += "Eier allerede 1. valg: " + (document.querySelector('[name="har_domene"]:checked') ? "JA" : "Nei") + "
-";
+            t += "Org.nr:     " + v("orgnr") + "\n";
+            t += "── DOMENE ──\n";
+            t += "1. valg: " + (v("domene_1") || "(ikke oppgitt)") + "\n";
+            t += "2. valg: " + (v("domene_2") || "-") + "\n";
+            t += "3. valg: " + (v("domene_3") || "-") + "\n";
+            t += "Eier allerede 1. valg: " + (document.querySelector('[name="har_domene"]:checked') ? "JA" : "Nei") + "\n";
             t += "Adresse:    " + v("adresse") + "\n";
             t += "Område:     " + v("omrade") + "\n";
             t += "Startet:    " + v("startaar") + "\n\n";

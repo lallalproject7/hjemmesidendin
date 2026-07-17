@@ -137,7 +137,7 @@ rest = set()
 for rot, _, filer in os.walk(mal_dir):
     for fil in filer:
         if fil.endswith((".html", ".css")):
-            rest |= set(re.findall(r"\[[A-Z_0-9]+\]", open(os.path.join(rot, fil), encoding="utf-8").read()))
+            rest |= set(re.findall(r"\[[A-Z][A-Z_0-9]*\]", open(os.path.join(rot, fil), encoding="utf-8").read()))
 
 bilder = legg_til_bilder(mal_dir)
 shutil.copy(datafil, os.path.join(mal_dir, "kunde-data.txt"))

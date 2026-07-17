@@ -33,7 +33,7 @@ for navn, inn in [("index.html", html), ("css/style.css", css),
 for navn, inn in [("index.html", html), ("css/style.css", css),
                   ("personvern.html", pv), ("cookies.html", ck)]:
     if not inn: continue
-    m = sorted(set(re.findall(r'\[[A-Z_0-9]+\]', inn)))
+    m = sorted(set(re.findall(r'\[[A-Z][A-Z_0-9]*\]', inn)))
     if m: feil.append(f"{navn}: ufylte markører → {', '.join(m)}")
 if not any("markører" in f for f in feil):
     ok.append("Ingen ufylte markører")

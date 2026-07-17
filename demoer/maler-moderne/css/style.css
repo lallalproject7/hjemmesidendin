@@ -5,20 +5,20 @@
    ========================================================= */
 
 :root {
-    --blekk: #2d2a3e;
-    --blekk-lys: #4a4660;
-    --terra: #e8734f;
-    --hav: #5b8c9e;
-    --salvie: #7a9e5b;
-    --sol: #e0c04f;
-    --vin: #b0556e;
-    --skifer: #6b6f8c;
-    --kritt: #f7f5fa;          /* lys lilla, nesten hvit */
-    --krem: #efebf5;           /* litt dypere lilla-hvit */
+    --blekk: #33292b;          /* mørk – varm undertone */
+    --blekk-lys: #574548;      /* mørk lys */
+    --terra: #b8613f;          /* terrakotta – dempet */
+    --hav: #36566f;            /* støvblå */
+    --salvie: #adb09d;         /* salviegrønn */
+    --sol: #d2c6b8;            /* sandbeige */
+    --vin: #5a5b4b;            /* dyp grønn */
+    --skifer: #565656;         /* mørk grafitt */
+    --kritt: #ece4dd;          /* terrakotta vasket – bakgrunn */
+    --krem: #ddd2c8;           /* dypere – vekslende felt */
     --surface: #ffffff;
-    --line: #e2dced;
-    --tekst: #5a5668;
-    --tekst-lys: #d6d2e0;
+    --line: #cbbcaf;           /* linje */
+    --tekst: #635550;          /* brødtekst */
+    --tekst-lys: #ddd2c8;      /* tekst på mørk */
     --radius: 16px;
     --font-display: "Outfit", sans-serif;
     --font-body: "Inter", sans-serif;
@@ -178,19 +178,41 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
     border-top: 1px solid var(--line);
 }
 .pk {
-    width: 2.3rem;
-    height: 2.3rem;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(45, 42, 62, .12);
+    width: 3.1rem;
+    height: 1.5rem;
+    border-radius: 42% 58% 47% 53% / 55% 45% 60% 40%;
+    transform: rotate(-3deg);
+    box-shadow: 0 1px 4px rgba(51, 41, 43, .1);
     transition: transform .2s ease;
+    position: relative;
 }
-.pk:hover { transform: scale(1.15) translateY(-3px); }
+.pk::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        repeating-linear-gradient(92deg,
+            rgba(255,255,255,.16) 0 1px,
+            transparent 1px 4px),
+        linear-gradient(100deg,
+            rgba(0,0,0,.1) 0%,
+            transparent 22%,
+            transparent 78%,
+            rgba(255,255,255,.14) 100%);
+    mix-blend-mode: soft-light;
+}
+.pk:nth-child(2) { transform: rotate(2deg); }
+.pk:nth-child(4) { transform: rotate(-1.5deg); }
+.pk:nth-child(6) { transform: rotate(2.5deg); }
+.pk:hover { transform: rotate(0deg) scale(1.12); z-index: 2; }
 .pk1 { background: var(--terra); }
 .pk2 { background: var(--sol); }
 .pk3 { background: var(--salvie); }
 .pk4 { background: var(--hav); }
 .pk5 { background: var(--vin); }
 .pk6 { background: var(--skifer); }
+.pk7 { background: var(--falurod); }
 .palett-tekst { font-size: .9rem; color: var(--tekst); margin-left: .6rem; }
 
 .hero-bilder {
@@ -208,16 +230,9 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
     transition: transform .3s ease;
 }
 .hb:hover { transform: translateY(-5px); }
-/* Unsplash – fri kommersiell bruk. Bytt ut med egne bilder/Cloudinary senere */
-.hb1 {
-    grid-row: span 2;
-    background-image: url("https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80");
-}
-.hb2 { background-image: url("https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=600&q=80"); }
-.hb3 { background-image: url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80"); }
 
 /* ---------- Fargebånd ---------- */
-.fargeband { display: flex; height: .55rem; }
+.fargeband { display: flex; height: .4rem; opacity: .85; }
 .fargeband span { flex: 1; }
 .fargeband span:nth-child(1) { background: var(--terra); }
 .fargeband span:nth-child(2) { background: var(--sol); }
@@ -225,6 +240,7 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
 .fargeband span:nth-child(4) { background: var(--hav); }
 .fargeband span:nth-child(5) { background: var(--vin); }
 .fargeband span:nth-child(6) { background: var(--skifer); }
+.fargeband span:nth-child(7) { background: var(--falurod); }
 
 /* ---------- Sections ---------- */
 .section { padding-block: 5.5rem; }
@@ -262,53 +278,7 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
 .reveal.vis { opacity: 1; transform: none; }
 
 /* ---------- Galleri ---------- */
-.section-galleri { padding-block: 5.5rem; background: var(--krem); }
-.galleri { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 240px; gap: 1.3rem; }
-.verk {
-    margin: 0;
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius);
-    display: flex;
-    align-items: flex-end;
-}
-.verk-stor { grid-column: span 2; grid-row: span 2; }
-.verk-bilde {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: transform .55s ease;
-}
-.verk:hover .verk-bilde { transform: scale(1.07); }
-/* Unsplash – fri kommersiell bruk */
-.vb1 { background-image: url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80"); }
-.vb2 { background-image: url("https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80"); }
-.vb3 { background-image: url("https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80"); }
-.vb4 { background-image: url("https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80"); }
-.vb5 { background-image: url("https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80"); }
 
-.verk figcaption {
-    position: relative;
-    z-index: 2;
-    padding: 1.4rem;
-    width: 100%;
-    background: linear-gradient(0deg, rgba(45, 42, 62, .9), transparent);
-}
-.verk-kat {
-    display: inline-block;
-    font-family: var(--font-body);
-    font-size: .72rem;
-    font-weight: 600;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--blekk);
-    background: var(--sol);
-    padding: .2rem .7rem;
-    border-radius: 999px;
-    margin-bottom: .5rem;
-}
-.verk figcaption h3 { color: #fff; font-size: 1.1rem; margin: 0; }
 
 /* ---------- Interaktiv fargevelger ---------- */
 .section-farger { padding-block: 5.5rem; }
@@ -336,16 +306,6 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
     transition: opacity .35s ease;
 }
 
-/* Unsplash – fri kommersiell bruk. Bytt ut med egne bilder/Cloudinary senere */
-.vf-kalkhvit { background-image: url("https://images.unsplash.com/photo-1616810559347-257669714c79?q=80&w=1200&auto=format&fit=crop"); }
-.vf-lysgra { background-image: url("https://images.unsplash.com/photo-1722650363326-9dcd45f43742?q=80&w=1200&auto=format&fit=crop"); }
-.vf-sandbeige { background-image: url("https://plus.unsplash.com/premium_photo-1682259448848-90967eec2edb?q=80&w=1200&auto=format&fit=crop"); }
-.vf-salvie { background-image: url("https://images.unsplash.com/photo-1722604676336-079e4f533b9b?q=80&w=1200&auto=format&fit=crop"); }
-.vf-oliven { background-image: url("https://images.unsplash.com/photo-1618219944342-824e40a13285?q=80&w=1200&auto=format&fit=crop"); }
-.vf-dypgronn { background-image: url("https://images.unsplash.com/photo-1686604523080-b6fad5fe591d?q=80&w=1200&auto=format&fit=crop"); }
-.vf-stovbla { background-image: url("https://images.unsplash.com/photo-1721739494036-b63ddedf9d80?q=80&w=1200&auto=format&fit=crop"); }
-.vf-terrakotta { background-image: url("https://plus.unsplash.com/premium_photo-1683133752824-b9fd877805f3?q=80&w=1200&auto=format&fit=crop"); }
-.vf-grafitt { background-image: url("https://images.unsplash.com/photo-1721743137841-971baaccf20e?q=80&w=1200&auto=format&fit=crop"); }
 
 .vegg-navn {
     position: absolute;
@@ -470,17 +430,6 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
 .om-merker { display: flex; flex-wrap: wrap; gap: .7rem 1.5rem; margin-top: 1.4rem; font-weight: 600; color: var(--salvie); }
 
 /* ---------- Bestill-banner ---------- */
-.demo-bestill {
-    background: linear-gradient(120deg, var(--terra), var(--vin));
-    text-align: center;
-    padding-block: 4rem;
-}
-.demo-bestill-topp { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; color: rgba(255,255,255,.85); margin-bottom: .5rem; }
-.demo-bestill h2 { color: #fff; margin-bottom: .6rem; }
-.demo-bestill-pris { color: rgba(255,255,255,.9); margin-bottom: 1.6rem; }
-.demo-bestill-retur { margin-top: 1.5rem; font-size: .9rem; }
-.demo-bestill-retur a { color: rgba(255,255,255,.9); text-decoration: underline; }
-
 /* ---------- Footer ---------- */
 .footer { background: var(--blekk); color: var(--tekst-lys); padding-top: 3.5rem; }
 .footer-topp {
@@ -524,7 +473,7 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
     aspect-ratio: 4 / 3;
     border-radius: calc(var(--radius) * 1.2);
     /* Unsplash – fri kommersiell bruk. Bytt ut med bilde av ditt eget team/Cloudinary */
-    background-image: url("https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1000&auto=format&fit=crop");
+    background-image: url("https://images.unsplash.com/photo-1652829069834-2c05031199c5?q=80&w=1000&auto=format&fit=crop");
     background-size: cover;
     background-position: center;
     box-shadow: 0 20px 50px rgba(45, 42, 62, .18);
@@ -613,3 +562,80 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--terra); outline
     color: rgba(255,255,255,.9);
     text-decoration: underline;
 }
+
+
+/* ---------- Arbeid-visning ---------- */
+.vegg-tittel {
+    display: block;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: .2rem;
+}
+
+/* Demobilder – kundens egne bilder erstatter disse */
+.vf-arbeid1 { background-image: url("https://images.unsplash.com/photo-1686604523080-b6fad5fe591d?q=80&w=1200&auto=format&fit=crop"); }
+.vf-arbeid2 { background-image: url("https://images.unsplash.com/photo-1722942430337-c195f49747fa?q=80&w=1200&auto=format&fit=crop"); }
+.vf-arbeid3 { background-image: url("https://images.unsplash.com/photo-1723258341178-8462de68b8a0?q=80&w=1200&auto=format&fit=crop"); }
+.vf-arbeid4 { background-image: url("https://images.unsplash.com/photo-1721739494036-b63ddedf9d80?q=80&w=1200&auto=format&fit=crop"); }
+.vf-arbeid5 { background-image: url("https://images.unsplash.com/photo-1721743137841-971baaccf20e?q=80&w=1200&auto=format&fit=crop"); }
+.vf-arbeid6 { background-image: url("https://images.unsplash.com/photo-1750325276350-a8e23c1fc32c?q=80&w=1200&auto=format&fit=crop"); }
+
+
+/* ---------- Hero: én foto delt i tre ---------- */
+.hb1, .hb2, .hb3 {
+    background-image: url("https://images.unsplash.com/photo-1756728891481-891d0372408f?q=80&w=1932&auto=format&fit=crop");
+    background-size: 200% 200%;
+}
+.hb1 {
+    grid-row: span 2;
+    background-position: left center;
+    background-size: 130% auto;
+}
+.hb2 { background-position: right top; background-size: 220% auto; }
+.hb3 { background-position: right bottom; background-size: 220% auto; }
+
+
+/* ---------- Hjemmesidendin-banner (ikke del av kundens design) ---------- */
+.demo-bestill {
+    background: #1d3a2f;
+    border-top: 4px solid #e8641b;
+    text-align: center;
+    padding-block: 4rem;
+    font-family: "Inter", system-ui, sans-serif;
+}
+.demo-bestill-topp,
+.demo-bestill-tekst,
+.demo-eyebrow {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .8rem;
+    color: #e8641b;
+    margin-bottom: .5rem;
+}
+.demo-bestill h2 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    color: #fff;
+    margin-bottom: .6rem;
+}
+.demo-bestill-pris,
+.demo-bestill > .container > p,
+.demo-bestill > .ramme > p {
+    color: #b8c4bd;
+    margin-bottom: 1.6rem;
+}
+.demo-bestill .btn,
+.demo-bestill .knapp {
+    background: #e8641b;
+    color: #fff;
+    border: none;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+}
+.demo-bestill .btn:hover,
+.demo-bestill .knapp:hover { background: #c24f0e; }
+.demo-bestill-retur { margin-top: 1.5rem; font-size: .9rem; }
+.demo-bestill-retur a { color: #b8c4bd; text-decoration: underline; }

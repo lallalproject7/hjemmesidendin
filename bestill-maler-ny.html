@@ -87,6 +87,8 @@
         .opplast-thumbs { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; justify-content: center; }
         .opplast-thumbs img { width: 48px; height: 48px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
         .kun-palett, .kun-kulor { display: none; }
+        .arb-blokk { background: var(--sand); border: 1px solid var(--line); border-radius: 8px; padding: 1rem; margin-bottom: .8rem; }
+        .arb-nr { display: block; font-size: .78rem; font-weight: 700; color: var(--signal); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .6rem; }
         .kun-palett.vis, .kun-kulor.vis { display: block; }
         .galleri-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: .5rem; }
         .foretter-par { border: 1px solid var(--line); border-radius: 10px; padding: 1rem; margin-bottom: 1rem; background: var(--sand); }
@@ -363,117 +365,170 @@
                     </div>
                 </div>
 
-                <!-- Solo Palett: Antes/Después -->
+                <!-- Klassisk (Palett): 6 prosjekter -->
                 <div class="kun-palett vis" id="palettBilder" style="margin-top:1.4rem">
-                    <label style="display:block; font-weight:600; color:var(--pine); margin-bottom:.3rem">Før / etter-bilder <span style="font-weight:400; color:var(--pine-soft); font-size:.85rem">(valgfritt)</span></label>
-                    <p class="best-del-hint" style="margin-bottom:.8rem">Klassisk-designet viser før/etter av prosjekter. Last opp par med bilder – la stå tom for de dere ikke har.</p>
-
-                    <div class="foretter-par">
-                        <div class="par-tittel">Prosjekt 1 – Stue</div>
-                        <div class="foretter-inner">
-                            <div class="opplast-kort">
-                                <h4>Før</h4>
-                                <button type="button" class="opplast-knapp" data-type="for1">Last opp</button>
-                                <div class="opplast-status" id="status-for1"></div>
-                                <div class="opplast-thumbs" id="thumbs-for1"></div>
-                            </div>
-                            <div class="opplast-kort">
-                                <h4>Etter</h4>
-                                <button type="button" class="opplast-knapp" data-type="etter1">Last opp</button>
-                                <div class="opplast-status" id="status-etter1"></div>
-                                <div class="opplast-thumbs" id="thumbs-etter1"></div>
-                            </div>
+                    <label style="display:block; font-weight:600; color:var(--pine); margin-bottom:.3rem">Prosjekter</label>
+                    <p class="best-del-hint" style="margin-bottom:.8rem">Siden viser inntil 6 ferdige arbeider. Ta med bilder av resultatet – rom, fasade, detaljer, hva som helst dere er stolte av. Har du bare fire gode? Da fyller du ut fire.</p>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Prosjekt 1</span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="prosjekt1">Last opp bilde</button>
+                            <div class="opplast-status" id="status-prosjekt1"></div>
+                            <div class="opplast-thumbs" id="thumbs-prosjekt1"></div>
                         </div>
+                        <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="prosjekt1_tittel" placeholder="Tittel – f.eks: Stue og gang, enebolig i Skien"></div>
+                        <div class="bfelt" style="margin:0"><textarea name="prosjekt1_tekst" rows="2" placeholder="Beskrivelse – hva gjorde dere, og hvordan ble det?"></textarea></div>
                     </div>
-
-                    <div class="foretter-par">
-                        <div class="par-tittel">Prosjekt 2 – Fasade</div>
-                        <div class="foretter-inner">
-                            <div class="opplast-kort">
-                                <h4>Før</h4>
-                                <button type="button" class="opplast-knapp" data-type="for2">Last opp</button>
-                                <div class="opplast-status" id="status-for2"></div>
-                                <div class="opplast-thumbs" id="thumbs-for2"></div>
-                            </div>
-                            <div class="opplast-kort">
-                                <h4>Etter</h4>
-                                <button type="button" class="opplast-knapp" data-type="etter2">Last opp</button>
-                                <div class="opplast-status" id="status-etter2"></div>
-                                <div class="opplast-thumbs" id="thumbs-etter2"></div>
-                            </div>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Prosjekt 2</span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="prosjekt2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-prosjekt2"></div>
+                            <div class="opplast-thumbs" id="thumbs-prosjekt2"></div>
                         </div>
+                        <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="prosjekt2_tittel" placeholder="Tittel – f.eks: Stue og gang, enebolig i Skien"></div>
+                        <div class="bfelt" style="margin:0"><textarea name="prosjekt2_tekst" rows="2" placeholder="Beskrivelse – hva gjorde dere, og hvordan ble det?"></textarea></div>
                     </div>
-
-                    <div class="foretter-par">
-                        <div class="par-tittel">Prosjekt 3 – Kjøkken</div>
-                        <div class="foretter-inner">
-                            <div class="opplast-kort">
-                                <h4>Før</h4>
-                                <button type="button" class="opplast-knapp" data-type="for3">Last opp</button>
-                                <div class="opplast-status" id="status-for3"></div>
-                                <div class="opplast-thumbs" id="thumbs-for3"></div>
-                            </div>
-                            <div class="opplast-kort">
-                                <h4>Etter</h4>
-                                <button type="button" class="opplast-knapp" data-type="etter3">Last opp</button>
-                                <div class="opplast-status" id="status-etter3"></div>
-                                <div class="opplast-thumbs" id="thumbs-etter3"></div>
-                            </div>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Prosjekt 3</span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="prosjekt3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-prosjekt3"></div>
+                            <div class="opplast-thumbs" id="thumbs-prosjekt3"></div>
                         </div>
+                        <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="prosjekt3_tittel" placeholder="Tittel – f.eks: Stue og gang, enebolig i Skien"></div>
+                        <div class="bfelt" style="margin:0"><textarea name="prosjekt3_tekst" rows="2" placeholder="Beskrivelse – hva gjorde dere, og hvordan ble det?"></textarea></div>
+                    </div>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Prosjekt 4 <span style="font-weight:400; color:var(--pine-soft); font-size:.8rem">(valgfritt)</span></span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="prosjekt4">Last opp bilde</button>
+                            <div class="opplast-status" id="status-prosjekt4"></div>
+                            <div class="opplast-thumbs" id="thumbs-prosjekt4"></div>
+                        </div>
+                        <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="prosjekt4_tittel" placeholder="Tittel – f.eks: Stue og gang, enebolig i Skien"></div>
+                        <div class="bfelt" style="margin:0"><textarea name="prosjekt4_tekst" rows="2" placeholder="Beskrivelse – hva gjorde dere, og hvordan ble det?"></textarea></div>
+                    </div>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Prosjekt 5 <span style="font-weight:400; color:var(--pine-soft); font-size:.8rem">(valgfritt)</span></span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="prosjekt5">Last opp bilde</button>
+                            <div class="opplast-status" id="status-prosjekt5"></div>
+                            <div class="opplast-thumbs" id="thumbs-prosjekt5"></div>
+                        </div>
+                        <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="prosjekt5_tittel" placeholder="Tittel – f.eks: Stue og gang, enebolig i Skien"></div>
+                        <div class="bfelt" style="margin:0"><textarea name="prosjekt5_tekst" rows="2" placeholder="Beskrivelse – hva gjorde dere, og hvordan ble det?"></textarea></div>
+                    </div>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Prosjekt 6 <span style="font-weight:400; color:var(--pine-soft); font-size:.8rem">(valgfritt)</span></span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="prosjekt6">Last opp bilde</button>
+                            <div class="opplast-status" id="status-prosjekt6"></div>
+                            <div class="opplast-thumbs" id="thumbs-prosjekt6"></div>
+                        </div>
+                        <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="prosjekt6_tittel" placeholder="Tittel – f.eks: Stue og gang, enebolig i Skien"></div>
+                        <div class="bfelt" style="margin:0"><textarea name="prosjekt6_tekst" rows="2" placeholder="Beskrivelse – hva gjorde dere, og hvordan ble det?"></textarea></div>
                     </div>
                 </div>
 
-                <!-- Solo Kulør: Galería 5 -->
+                <!-- Moderne (Kulør): 6 arbeider med farge -->
                 <div class="kun-kulor" id="kulorBilder" style="margin-top:1.4rem">
-                    <label style="display:block; font-weight:600; color:var(--pine); margin-bottom:.3rem">Galleri – prosjekter <span style="font-weight:400; color:var(--pine-soft); font-size:.85rem">(valgfritt)</span></label>
-                    <p class="best-del-hint" style="margin-bottom:.8rem">Moderne-designet viser et galleri med prosjekter. Last opp ett bilde per type.</p>
-                    <div class="galleri-grid">
-                        <div class="opplast-kort">
-                            <h4>Innvendig / stue</h4>
-                            <button type="button" class="opplast-knapp" data-type="galleri1">Last opp</button>
-                            <div class="opplast-status" id="status-galleri1"></div>
-                            <div class="opplast-thumbs" id="thumbs-galleri1"></div>
+                    <label style="display:block; font-weight:600; color:var(--pine); margin-bottom:.3rem">Arbeider og farger</label>
+                    <p class="best-del-hint" style="margin-bottom:.8rem">Moderne-designet lar besøkende klikke seg gjennom fargene deres og se rommet dere brukte dem i. Last opp inntil 6 arbeider med tydelig farge – vi henter fargekoden fra bildet.</p>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Arbeid 1</span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="arbeid1">Last opp bilde</button>
+                            <div class="opplast-status" id="status-arbeid1"></div>
+                            <div class="opplast-thumbs" id="thumbs-arbeid1"></div>
                         </div>
-                        <div class="opplast-kort">
-                            <h4>Soverom</h4>
-                            <button type="button" class="opplast-knapp" data-type="galleri2">Last opp</button>
-                            <div class="opplast-status" id="status-galleri2"></div>
-                            <div class="opplast-thumbs" id="thumbs-galleri2"></div>
+                        <div class="bfelt-rekke" style="margin-bottom:.5rem">
+                            <input type="text" name="arbeid1_tittel" placeholder="Hvor? – f.eks: Stue i Skien">
+                            <input type="text" name="arbeid1_fargenavn" placeholder="Fargenavn – f.eks: Salviegrønn">
                         </div>
-                        <div class="opplast-kort">
-                            <h4>Kjøkken</h4>
-                            <button type="button" class="opplast-knapp" data-type="galleri3">Last opp</button>
-                            <div class="opplast-status" id="status-galleri3"></div>
-                            <div class="opplast-thumbs" id="thumbs-galleri3"></div>
+                        <div class="bfelt" style="margin:0"><textarea name="arbeid1_beskrivelse" rows="2" placeholder="Kort om fargen – f.eks: Rolig grønntone som gir varme uten å ta over rommet."></textarea></div>
+                    </div>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Arbeid 2</span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="arbeid2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-arbeid2"></div>
+                            <div class="opplast-thumbs" id="thumbs-arbeid2"></div>
                         </div>
-                        <div class="opplast-kort">
-                            <h4>Fasade</h4>
-                            <button type="button" class="opplast-knapp" data-type="galleri4">Last opp</button>
-                            <div class="opplast-status" id="status-galleri4"></div>
-                            <div class="opplast-thumbs" id="thumbs-galleri4"></div>
+                        <div class="bfelt-rekke" style="margin-bottom:.5rem">
+                            <input type="text" name="arbeid2_tittel" placeholder="Hvor? – f.eks: Stue i Skien">
+                            <input type="text" name="arbeid2_fargenavn" placeholder="Fargenavn – f.eks: Salviegrønn">
                         </div>
-                        <div class="opplast-kort">
-                            <h4>Detalj (kanter/lister)</h4>
-                            <button type="button" class="opplast-knapp" data-type="galleri5">Last opp</button>
-                            <div class="opplast-status" id="status-galleri5"></div>
-                            <div class="opplast-thumbs" id="thumbs-galleri5"></div>
+                        <div class="bfelt" style="margin:0"><textarea name="arbeid2_beskrivelse" rows="2" placeholder="Kort om fargen – f.eks: Rolig grønntone som gir varme uten å ta over rommet."></textarea></div>
+                    </div>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Arbeid 3</span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="arbeid3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-arbeid3"></div>
+                            <div class="opplast-thumbs" id="thumbs-arbeid3"></div>
                         </div>
+                        <div class="bfelt-rekke" style="margin-bottom:.5rem">
+                            <input type="text" name="arbeid3_tittel" placeholder="Hvor? – f.eks: Stue i Skien">
+                            <input type="text" name="arbeid3_fargenavn" placeholder="Fargenavn – f.eks: Salviegrønn">
+                        </div>
+                        <div class="bfelt" style="margin:0"><textarea name="arbeid3_beskrivelse" rows="2" placeholder="Kort om fargen – f.eks: Rolig grønntone som gir varme uten å ta over rommet."></textarea></div>
+                    </div>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Arbeid 4 <span style="font-weight:400; color:var(--pine-soft); font-size:.8rem">(valgfritt)</span></span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="arbeid4">Last opp bilde</button>
+                            <div class="opplast-status" id="status-arbeid4"></div>
+                            <div class="opplast-thumbs" id="thumbs-arbeid4"></div>
+                        </div>
+                        <div class="bfelt-rekke" style="margin-bottom:.5rem">
+                            <input type="text" name="arbeid4_tittel" placeholder="Hvor? – f.eks: Stue i Skien">
+                            <input type="text" name="arbeid4_fargenavn" placeholder="Fargenavn – f.eks: Salviegrønn">
+                        </div>
+                        <div class="bfelt" style="margin:0"><textarea name="arbeid4_beskrivelse" rows="2" placeholder="Kort om fargen – f.eks: Rolig grønntone som gir varme uten å ta over rommet."></textarea></div>
+                    </div>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Arbeid 5 <span style="font-weight:400; color:var(--pine-soft); font-size:.8rem">(valgfritt)</span></span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="arbeid5">Last opp bilde</button>
+                            <div class="opplast-status" id="status-arbeid5"></div>
+                            <div class="opplast-thumbs" id="thumbs-arbeid5"></div>
+                        </div>
+                        <div class="bfelt-rekke" style="margin-bottom:.5rem">
+                            <input type="text" name="arbeid5_tittel" placeholder="Hvor? – f.eks: Stue i Skien">
+                            <input type="text" name="arbeid5_fargenavn" placeholder="Fargenavn – f.eks: Salviegrønn">
+                        </div>
+                        <div class="bfelt" style="margin:0"><textarea name="arbeid5_beskrivelse" rows="2" placeholder="Kort om fargen – f.eks: Rolig grønntone som gir varme uten å ta over rommet."></textarea></div>
+                    </div>
+                    <div class="arb-blokk">
+                        <span class="arb-nr">Arbeid 6 <span style="font-weight:400; color:var(--pine-soft); font-size:.8rem">(valgfritt)</span></span>
+                        <div class="opplast-kort" style="margin-bottom:.7rem">
+                            <button type="button" class="opplast-knapp" data-type="arbeid6">Last opp bilde</button>
+                            <div class="opplast-status" id="status-arbeid6"></div>
+                            <div class="opplast-thumbs" id="thumbs-arbeid6"></div>
+                        </div>
+                        <div class="bfelt-rekke" style="margin-bottom:.5rem">
+                            <input type="text" name="arbeid6_tittel" placeholder="Hvor? – f.eks: Stue i Skien">
+                            <input type="text" name="arbeid6_fargenavn" placeholder="Fargenavn – f.eks: Salviegrønn">
+                        </div>
+                        <div class="bfelt" style="margin:0"><textarea name="arbeid6_beskrivelse" rows="2" placeholder="Kort om fargen – f.eks: Rolig grønntone som gir varme uten å ta over rommet."></textarea></div>
                     </div>
                 </div>
 
                 <input type="hidden" name="bilde_logo" id="bilde_logo">
                 <input type="hidden" name="bilde_team" id="bilde_team">
-                <input type="hidden" name="bilde_for1" id="bilde_for1">
-                <input type="hidden" name="bilde_etter1" id="bilde_etter1">
-                <input type="hidden" name="bilde_for2" id="bilde_for2">
-                <input type="hidden" name="bilde_etter2" id="bilde_etter2">
-                <input type="hidden" name="bilde_for3" id="bilde_for3">
-                <input type="hidden" name="bilde_etter3" id="bilde_etter3">
-                <input type="hidden" name="bilde_galleri1" id="bilde_galleri1">
-                <input type="hidden" name="bilde_galleri2" id="bilde_galleri2">
-                <input type="hidden" name="bilde_galleri3" id="bilde_galleri3">
-                <input type="hidden" name="bilde_galleri4" id="bilde_galleri4">
-                <input type="hidden" name="bilde_galleri5" id="bilde_galleri5">
+                <input type="hidden" name="bilde_prosjekt1" id="bilde_prosjekt1">
+                <input type="hidden" name="bilde_prosjekt2" id="bilde_prosjekt2">
+                <input type="hidden" name="bilde_prosjekt3" id="bilde_prosjekt3">
+                <input type="hidden" name="bilde_prosjekt4" id="bilde_prosjekt4">
+                <input type="hidden" name="bilde_prosjekt5" id="bilde_prosjekt5">
+                <input type="hidden" name="bilde_prosjekt6" id="bilde_prosjekt6">
+                <input type="hidden" name="bilde_arbeid1" id="bilde_arbeid1">
+                <input type="hidden" name="bilde_arbeid2" id="bilde_arbeid2">
+                <input type="hidden" name="bilde_arbeid3" id="bilde_arbeid3">
+                <input type="hidden" name="bilde_arbeid4" id="bilde_arbeid4">
+                <input type="hidden" name="bilde_arbeid5" id="bilde_arbeid5">
+                <input type="hidden" name="bilde_arbeid6" id="bilde_arbeid6">
             </div>
 
             <!-- DEL 8: JURIDISKE SIDER -->
@@ -732,7 +787,10 @@
         // Cloudinary
         const CLOUD_NAME = "jsl4llt9";
         const UPLOAD_PRESET = "ml_default";
-        const bildeTyper = ["logo","team","for1","etter1","for2","etter2","for3","etter3","galleri1","galleri2","galleri3","galleri4","galleri5"];
+        const bildeTyper = ["logo","team"].concat(
+            Array.from({length:6}, (_,i) => "prosjekt"+(i+1)),
+            Array.from({length:6}, (_,i) => "arbeid"+(i+1))
+        );
         const opplastet = {};
         bildeTyper.forEach(t => opplastet[t] = []);
 
@@ -806,18 +864,12 @@
             t += "Firmanavn:  " + v("firmanavn") + "\n";
             t += "Telefon:    " + v("telefon") + "\n";
             t += "E-post:     " + v("epost") + "\n";
-            t += "Org.nr:     " + v("orgnr") + "
-";
-            t += "── DOMENE ──
-";
-            t += "1. valg: " + (v("domene_1") || "(ikke oppgitt)") + "
-";
-            t += "2. valg: " + (v("domene_2") || "-") + "
-";
-            t += "3. valg: " + (v("domene_3") || "-") + "
-";
-            t += "Eier allerede 1. valg: " + (document.querySelector('[name="har_domene"]:checked') ? "JA" : "Nei") + "
-";
+            t += "Org.nr:     " + v("orgnr") + "\n";
+            t += "── DOMENE ──\n";
+            t += "1. valg: " + (v("domene_1") || "(ikke oppgitt)") + "\n";
+            t += "2. valg: " + (v("domene_2") || "-") + "\n";
+            t += "3. valg: " + (v("domene_3") || "-") + "\n";
+            t += "Eier allerede 1. valg: " + (document.querySelector('[name="har_domene"]:checked') ? "JA" : "Nei") + "\n";
             t += "Adresse:    " + v("adresse") + "\n";
             t += "Område:     " + v("omrade") + "\n";
             t += "Startet:    " + v("startaar") + "\n\n";
@@ -841,20 +893,29 @@
             t += "Logo:  " + (v("bilde_logo") || "(ikke lastet opp)") + "\n";
             t += "Om oss (maler/team): " + (v("bilde_team") || "(ikke lastet opp)") + "\n";
             if (erPalett) {
-                t += "FØR/ETTER:\n";
-                t += "  Stue før:    " + (v("bilde_for1") || "(ikke lastet opp)") + "\n";
-                t += "  Stue etter:  " + (v("bilde_etter1") || "(ikke lastet opp)") + "\n";
-                t += "  Fasade før:  " + (v("bilde_for2") || "(ikke lastet opp)") + "\n";
-                t += "  Fasade etter:" + (v("bilde_etter2") || "(ikke lastet opp)") + "\n";
-                t += "  Kjøkken før: " + (v("bilde_for3") || "(ikke lastet opp)") + "\n";
-                t += "  Kjøkken etter:" + (v("bilde_etter3") || "(ikke lastet opp)") + "\n";
+                t += "PROSJEKTER:\n";
+                for (let i = 1; i <= 6; i++) {
+                    const tit = v("prosjekt" + i + "_tittel");
+                    const bil = v("bilde_prosjekt" + i);
+                    if (!tit && !bil) continue;
+                    t += "  " + i + ". " + (tit || "(uten tittel)") + "\n";
+                    const tek = v("prosjekt" + i + "_tekst");
+                    if (tek) t += "     " + tek + "\n";
+                    t += "     Bilde: " + (bil || "(mangler)") + "\n";
+                }
             } else {
-                t += "GALLERI:\n";
-                t += "  Innvendig/stue: " + (v("bilde_galleri1") || "(ikke lastet opp)") + "\n";
-                t += "  Soverom:        " + (v("bilde_galleri2") || "(ikke lastet opp)") + "\n";
-                t += "  Kjøkken:        " + (v("bilde_galleri3") || "(ikke lastet opp)") + "\n";
-                t += "  Fasade:         " + (v("bilde_galleri4") || "(ikke lastet opp)") + "\n";
-                t += "  Detalj:         " + (v("bilde_galleri5") || "(ikke lastet opp)") + "\n";
+                t += "ARBEIDER OG FARGER:\n";
+                for (let i = 1; i <= 6; i++) {
+                    const tit = v("arbeid" + i + "_tittel");
+                    const bil = v("bilde_arbeid" + i);
+                    if (!tit && !bil) continue;
+                    t += "  " + i + ". " + (tit || "(uten tittel)") + "\n";
+                    const fnavn = v("arbeid" + i + "_fargenavn");
+                    if (fnavn) t += "     Farge: " + fnavn + "\n";
+                    const besk = v("arbeid" + i + "_beskrivelse");
+                    if (besk) t += "     " + besk + "\n";
+                    t += "     Bilde: " + (bil || "(mangler)") + "\n";
+                }
             }
             t += "\n";
             t += "── JURIDISKE SIDER ──\n";
