@@ -17,6 +17,14 @@
     --radius: 16px;
     --font-display: "Nunito", sans-serif;
     --font-body: "Mulish", sans-serif;
+    /* Alias – brukes av tilleggsseksjoner */
+    --hsd-hoved: var(--frisk);
+    --hsd-mork: var(--dyp);
+    --hsd-bak: var(--skum);
+    --hsd-flate: var(--surface);
+    --hsd-linje: var(--line);
+    --hsd-tekst: var(--ink-soft);
+
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

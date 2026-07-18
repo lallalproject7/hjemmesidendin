@@ -21,6 +21,14 @@
     --radius: 4px;
     --font-display: "Fraunces", serif;
     --font-body: "Inter", sans-serif;
+    /* Alias – brukes av tilleggsseksjoner */
+    --hsd-hoved: var(--oliven);
+    --hsd-mork: var(--oliven-mork);
+    --hsd-bak: var(--kritt);
+    --hsd-flate: var(--surface);
+    --hsd-linje: var(--line);
+    --hsd-tekst: var(--tekst);
+
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

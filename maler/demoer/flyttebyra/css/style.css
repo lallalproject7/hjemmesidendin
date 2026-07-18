@@ -17,6 +17,14 @@
     --radius: 10px;
     --font-display: "Albert Sans", sans-serif;
     --font-body: "Figtree", sans-serif;
+    /* Alias – brukes av tilleggsseksjoner */
+    --hsd-hoved: var(--korall);
+    --hsd-mork: var(--grafitt);
+    --hsd-bak: var(--lys);
+    --hsd-flate: var(--surface);
+    --hsd-linje: var(--line);
+    --hsd-tekst: var(--ink-soft);
+
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

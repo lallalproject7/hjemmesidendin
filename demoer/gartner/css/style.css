@@ -22,6 +22,14 @@
     --radius: 12px;
     --font-display: "Lora", serif;
     --font-body: "Assistant", sans-serif;
+    /* Alias – brukes av tilleggsseksjoner */
+    --hsd-hoved: var(--gress);
+    --hsd-mork: var(--mose);
+    --hsd-bak: var(--floete);
+    --hsd-flate: var(--surface);
+    --hsd-linje: var(--line);
+    --hsd-tekst: var(--ink-soft);
+
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

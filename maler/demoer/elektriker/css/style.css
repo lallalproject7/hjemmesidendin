@@ -15,6 +15,14 @@
     --radius: 10px;
     --font-display: "Sora", sans-serif;
     --font-body: "Source Sans 3", sans-serif;
+    /* Alias – brukes av tilleggsseksjoner */
+    --hsd-hoved: var(--copper);
+    --hsd-mork: var(--ink);
+    --hsd-bak: var(--bg);
+    --hsd-flate: var(--surface);
+    --hsd-linje: var(--line);
+    --hsd-tekst: var(--ink-soft);
+
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

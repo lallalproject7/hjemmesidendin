@@ -23,6 +23,14 @@
     --radius: 14px;
     --font-display: "Space Grotesk", sans-serif;
     --font-body: "Inter", sans-serif;
+    /* Alias – brukes av tilleggsseksjoner */
+    --hsd-hoved: var(--sennep);
+    --hsd-mork: var(--purpur);
+    --hsd-bak: var(--graa-krem);
+    --hsd-flate: var(--surface);
+    --hsd-linje: var(--linje);
+    --hsd-tekst: var(--tekst);
+
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

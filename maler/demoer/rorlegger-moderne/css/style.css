@@ -23,6 +23,14 @@
     --radius: 12px;
     --font-display: "Plus Jakarta Sans", sans-serif;
     --font-body: "Inter", sans-serif;
+    /* Alias – brukes av tilleggsseksjoner */
+    --hsd-hoved: var(--gronn);
+    --hsd-mork: var(--natt);
+    --hsd-bak: var(--kort);
+    --hsd-flate: var(--kort);
+    --hsd-linje: var(--linje);
+    --hsd-tekst: var(--tekst);
+
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
