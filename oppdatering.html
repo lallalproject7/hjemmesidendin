@@ -9,6 +9,101 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <style>
+        .best-wrap { width: min(760px, 92%); margin: 2.5rem auto 4rem; }
+        .best-topp { text-align: center; margin-bottom: 2rem; }
+        .best-topp h1 { margin-bottom: .6rem; }
+
+        .best-del { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; margin-bottom: 1.5rem; }
+        .best-del-topp { display: flex; align-items: center; gap: .8rem; margin-bottom: .4rem; }
+        .best-nr { width: 2rem; height: 2rem; flex-shrink: 0; display: grid; place-items: center; background: var(--pine); color: #fff; border-radius: 50%; font-family: var(--font-display); font-weight: 700; font-size: .95rem; }
+        .best-del h2 { font-size: 1.25rem; margin: 0; }
+        .best-del-hint { font-size: .9rem; color: var(--pine-soft); margin-bottom: 1.4rem; margin-top: .3rem; }
+
+        .bfelt { margin-bottom: 1.3rem; }
+        .bfelt:last-child { margin-bottom: 0; }
+        .bfelt label { display: block; font-weight: 600; font-size: .95rem; color: var(--pine); margin-bottom: .15rem; }
+        .bfelt .forklaring { display: block; font-size: .84rem; color: var(--pine-soft); margin-bottom: .45rem; }
+        .bfelt input[type=text], .bfelt input[type=tel], .bfelt input[type=email], .bfelt textarea, .bfelt select { width: 100%; font: inherit; padding: .7rem .85rem; border: 1px solid var(--line); border-radius: 8px; background: var(--sand); color: var(--pine); }
+        .bfelt input:focus, .bfelt textarea:focus, .bfelt select:focus { outline: 2px solid var(--signal); outline-offset: 1px; border-color: var(--signal); }
+        .bfelt .eksempel { display:block; font-size: .82rem; color: var(--signal-dark); margin-top: .3rem; font-style: italic; }
+        .bfelt-rekke { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        /* Selector de servicios */
+        .tjeneste-velg { display: grid; gap: .7rem; }
+        .tj-kort { position: relative; border: 2px solid var(--line); border-radius: 10px; padding: 1rem 1.1rem; cursor: pointer; transition: all .15s ease; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .tj-kort:hover { border-color: var(--signal); }
+        .tj-kort.valgt { border-color: var(--signal); background: rgba(232,100,27,.05); }
+        .tj-kort input { position: absolute; opacity: 0; pointer-events: none; }
+        .tj-info strong { display: block; color: var(--pine); font-size: .97rem; margin-bottom: .15rem; }
+        .tj-info span { font-size: .84rem; color: var(--pine-soft); }
+        .tj-pris { font-family: var(--font-display); font-weight: 700; color: var(--signal-dark); font-size: 1rem; white-space: nowrap; text-align: right; }
+        .tj-pris small { display: block; font-size: .72rem; color: var(--pine-soft); font-weight: 500; }
+
+        /* Cajas dinámicas */
+.dyn { display: none; margin-top: 1.5rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+        .dyn.vis { display: block; }
+        .sub-dyn { display: none; margin-top: 1.4rem; padding: 1.3rem; background: var(--sand); border-radius: 10px; border: 1px solid var(--line); }
+        .sub-dyn.vis { display: block; }
+        .sub-tittel { font-family: var(--font-display); font-weight: 600; font-size: .95rem; color: var(--signal-dark); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 1rem; }
+        .par-blokk { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: .9rem; margin-bottom: .7rem; }
+        .par-nr { font-size: .74rem; font-weight: 700; color: var(--signal); text-transform: uppercase; letter-spacing: .05em; display: block; margin-bottom: .5rem; }
+        .dag-rad { display: grid; grid-template-columns: 110px 1fr; gap: .7rem; align-items: center; margin-bottom: .5rem; }
+        .dag-rad label { margin: 0; font-size: .9rem; }
+        .pris-rad { display: grid; grid-template-columns: 2fr 1fr; gap: .7rem; margin-bottom: .5rem; }
+
+        /* Selector de colores */
+        .farge-gruppe { margin-bottom: 1.4rem; }
+        .farge-gruppe > label.gruppe-tittel { display: block; font-weight: 600; color: var(--pine); margin-bottom: .15rem; font-size: .94rem; }
+        .farge-gruppe .gruppe-hint { display:block; font-size: .83rem; color: var(--pine-soft); margin-bottom: .6rem; }
+        .swatch-rad { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .7rem; }
+        .swatch { width: 2.3rem; height: 2.3rem; border-radius: 8px; cursor: pointer; border: 3px solid transparent; transition: transform .12s ease, border-color .12s ease; }
+        .swatch:hover { transform: scale(1.08); }
+        .swatch.valgt { border-color: var(--pine); box-shadow: 0 0 0 2px #fff inset; }
+        .farge-egen { display: flex; align-items: center; gap: .8rem; background: var(--sand); border-radius: 8px; padding: .6rem .9rem; flex-wrap: wrap; }
+        .farge-egen label { font-size: .84rem; color: var(--pine-soft); font-weight: 500; }
+        .farge-egen input[type=color] { width: 2.8rem; height: 2.2rem; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; padding: 2px; background: #fff; }
+        .farge-kode { font-family: monospace; font-size: .92rem; font-weight: 600; color: var(--pine); background: #fff; padding: .3rem .6rem; border-radius: 6px; border: 1px solid var(--line); text-transform: uppercase; min-width: 5rem; text-align: center; }
+
+        /* Menú de secciones */
+        .seksjon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+        .seksjon-kort { border: 2px solid var(--line); border-radius: 8px; padding: .7rem .85rem; cursor: pointer; transition: all .15s ease; font-size: .9rem; color: var(--pine); display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+        .seksjon-pris { font-family: var(--font-display); font-weight: 700; font-size: .85rem; color: var(--signal-dark); white-space: nowrap; }
+        .seksjon-kort:hover { border-color: var(--signal); }
+        .seksjon-kort.valgt { border-color: var(--signal); background: rgba(232,100,27,.05); }
+        .seksjon-kort input { position: absolute; opacity: 0; }
+
+        /* Cloudinary */
+        .opplast-kort { border: 2px dashed var(--line); border-radius: 10px; padding: 1.2rem; text-align: center; background: var(--sand); }
+        .opplast-kort h4 { color: var(--pine); font-size: .95rem; margin-bottom: .2rem; }
+        .opplast-kort .valgfri { font-weight: 400; color: var(--pine-soft); font-size: .8rem; }
+        .opplast-kort .opplast-hint { font-size: .8rem; color: var(--pine-soft); margin-bottom: .8rem; }
+        .opplast-knapp { background: var(--pine); color: #fff; border: none; padding: .6rem 1.2rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: var(--font-display); font-size: .9rem; }
+        .opplast-knapp:hover { background: var(--signal); }
+        .opplast-status { margin-top: .7rem; font-size: .82rem; }
+        .opplast-thumbs { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .7rem; justify-content: center; }
+        .opplast-thumbs .thumb-wrap { position: relative; display: inline-block; }
+        .opplast-thumbs img { width: 60px; height: 60px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
+        .thumb-slett { position: absolute; top: -6px; right: -6px; width: 20px; height: 20px; border-radius: 50%; border: none; background: #c0392b; color: #fff; font-size: 12px; line-height: 1; cursor: pointer; padding: 0; display: grid; place-items: center; }
+
+        .best-send { background: var(--pine); color: #fff; border: none; width: 100%; padding: 1.1rem; border-radius: var(--radius); font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; cursor: pointer; margin-top: 1rem; }
+        .best-send:hover { background: var(--signal); }
+        .best-send:disabled { opacity: .5; cursor: not-allowed; }
+        .resultat-boks { display: none; background: var(--pine); color: #e8ecec; border-radius: var(--radius); padding: 1.6rem; margin-top: 1.5rem; }
+        .resultat-boks.vis { display: block; }
+        .resultat-boks h3 { color: #fff; margin-bottom: .3rem; }
+        .resultat-boks p.res-intro { color: #cfd8dd; font-size: .9rem; margin-bottom: 1rem; }
+        .resultat-tekst { width: 100%; min-height: 240px; font-family: monospace; font-size: .82rem; line-height: 1.5; padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.15); background: rgba(0,0,0,.25); color: #d9e3dd; resize: vertical; }
+        .kopier-knapp { margin-top: .8rem; background: var(--signal); color: #fff; border: none; padding: .7rem 1.4rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: var(--font-display); }
+        .kopier-knapp:hover { background: var(--signal-dark); }
+        .kopier-ok { display: inline-block; margin-left: .8rem; color: #8ce5c6; font-size: .88rem; }
+        .neste-info { background: var(--sand); border-radius: 8px; padding: 1rem 1.2rem; font-size: .88rem; line-height: 1.55; color: var(--pine); margin: 1rem 0; }
+
+        @media (max-width: 600px) {
+            .bfelt-rekke, .seksjon-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
@@ -22,83 +117,801 @@
         </div>
     </header>
 
-    <section class="section">
-        <div class="container container-narrow">
+    <div class="best-wrap">
+        <div class="best-topp">
             <p class="eyebrow">Kun for våre kunder</p>
-            <h1 class="bestill-tittel">Bestill oppdatering</h1>
-            <p class="section-lead">Fyll ut skjemaet, så bekrefter vi bestillingen og sender deg en sikker betalingslenke på e-post. Arbeidet starter når betalingen er mottatt.</p>
+            <h1>Bestill oppdatering</h1>
+            <p>Velg tjenesten du trenger, fyll ut detaljene, og velg en ledig uke. Du betaler trygt med Stripe når du bestiller.</p>
+        </div>
 
-            <form name="oppdatering" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="takk-oppdatering.html" class="form">
-                <input type="hidden" name="form-name" value="oppdatering">
-                <p class="skjult-felt" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
+        <form name="oppdatering-ny" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="bestillSkjema">
+            <input type="hidden" name="form-name" value="oppdatering-ny">
+            <p style="position:absolute; left:-9999px" aria-hidden="true"><label>Ikke fyll ut dette feltet: <input name="bot-field"></label></p>
 
-                <h2 class="form-del">1. Din nettside</h2>
-
-                <div class="form-row">
-                    <div class="form-field">
+            <!-- DEL 1: DIN NETTSIDE -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">1</span><h2>Din nettside</h2></div>
+                <p class="best-del-hint">Så vi finner riktig side. Bruk samme e-post som da du bestilte.</p>
+                <div class="bfelt-rekke">
+                    <div class="bfelt">
                         <label for="domene">Domenet ditt</label>
                         <input type="text" id="domene" name="domene" placeholder="dittfirma.no" required>
                     </div>
-                    <div class="form-field">
+                    <div class="bfelt">
                         <label for="epost">E-post (samme som ved bestilling)</label>
                         <input type="email" id="epost" name="epost" required>
                     </div>
                 </div>
+            </div>
 
-                <h2 class="form-del">2. Hva trenger du?</h2>
-
-                <div class="form-field">
-                    <label for="tjeneste">Velg tjeneste</label>
-                    <select id="tjeneste" name="tjeneste" required>
-                        <option value="" disabled selected>Velg</option>
-                        <option>Endring av tekster/priser/åpningstider – 490 kr</option>
-                        <option>Bytte eller innsetting av bilder/logo – 490 kr</option>
-                        <option>Ny seksjon på eksisterende side – 790 kr</option>
-                        <option>Helt ny underside – 1 490 kr</option>
-                        <option>Endring av farger og visuell stil – 690 kr</option>
-                        <option>Årspakke: 4 endringsrunder – 1 690 kr</option>
-                        <option>Annet – send beskrivelse, så gir vi fast pris</option>
-                    </select>
+            <!-- DEL 2: VELG TJENESTE -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">2</span><h2>Hva trenger du?</h2></div>
+                <p class="best-del-hint">Velg tjenesten som passer. Prisene er faste og eks. mva.</p>
+                <div class="tjeneste-velg">
+                    <label class="tj-kort">
+                        <input type="radio" name="tjeneste" value="Endring av tekster/priser/åpningstider" data-felt="tekst" data-pris="490">
+                        <span class="tj-info"><strong>Endring av tekster, priser eller åpningstider</strong><span>Inntil 5 endringer</span></span>
+                        <span class="tj-pris">490 kr</span>
+                    </label>
+                    <label class="tj-kort">
+                        <input type="radio" name="tjeneste" value="Bytte eller innsetting av bilder/logo" data-felt="bilder" data-pris="490">
+                        <span class="tj-info"><strong>Bytte eller innsetting av bilder/logo</strong><span>Inntil 5 bilder</span></span>
+                        <span class="tj-pris">490 kr</span>
+                    </label>
+                    <label class="tj-kort">
+                        <input type="radio" name="tjeneste" value="Endring av farger og visuell stil" data-felt="farger" data-pris="690">
+                        <span class="tj-info"><strong>Endring av farger og visuell stil</strong><span>Ny fargepalett på siden</span></span>
+                        <span class="tj-pris">690 kr</span>
+                    </label>
+                    <label class="tj-kort">
+                        <input type="radio" name="tjeneste" value="Ny seksjon" data-felt="seksjon" data-pris="790">
+                        <span class="tj-info"><strong>Ny seksjon på eksisterende side</strong><span>F.eks. FAQ, anmeldelser, dekningskart</span></span>
+                        <span class="tj-pris">fra 390 kr<small>avhenger av seksjon</small></span>
+                    </label>
+                    <label class="tj-kort">
+                        <input type="radio" name="tjeneste" value="Sesongoppdatering" data-felt="sesong" data-pris="490">
+                        <span class="tj-info"><strong>Sesongoppdatering</strong><span>Banner, tilbud og åpningstider til jul, sommer m.m.</span></span>
+                        <span class="tj-pris">490 kr</span>
+                    </label>
+                    <label class="tj-kort">
+                        <input type="radio" name="tjeneste" value="Ny underside – Om oss" data-felt="omoss" data-pris="1290">
+                        <span class="tj-info"><strong>Ny underside – «Om oss»</strong><span>Historie, verdier, team</span></span>
+                        <span class="tj-pris">1 290 kr</span>
+                    </label>
+                    <label class="tj-kort">
+                        <input type="radio" name="tjeneste" value="Årlig innholdsfornyelse" data-felt="fornyelse" data-pris="1890">
+                        <span class="tj-info"><strong>Årlig innholdsfornyelse</strong><span>Nye bilder, oppdaterte tekster og gjennomgang</span></span>
+                        <span class="tj-pris">1 890 kr</span>
+                    </label>
+                    <label class="tj-kort">
+                        <input type="radio" name="tjeneste" value="Legg til nytt prosjekt i porteføljen" data-felt="nyttprosjekt" data-pris="690">
+                        <span class="tj-info"><strong>Legg til nytt prosjekt i porteføljen</strong><span>Utenom den årlige oppdateringen</span></span>
+                        <span class="tj-pris">690 kr</span>
+                    </label>
                 </div>
 
-                <div class="form-field">
-                    <label for="beskrivelse">Beskriv endringene du ønsker</label>
-                    <textarea id="beskrivelse" name="beskrivelse" rows="5" placeholder="F.eks: Endre åpningstider i footer, bytte prisen på service fra 1 200 til 1 400 kr, og legge til setning om elbillader på forsiden." required></textarea>
+                <!-- CAMPO DINÁMICO: tekster -->
+                <div class="dyn" id="dyn-tekst">
+                    <div class="bfelt">
+                        <label for="tekst_endringer">Hvilke tekster/priser/åpningstider vil du endre?</label>
+                        <span class="forklaring">Skriv én endring per linje, og vær så konkret som mulig.</span>
+                        <textarea id="tekst_endringer" name="tekst_endringer" rows="5" placeholder="F.eks:&#10;- Endre prisen på service fra 1 200 til 1 400 kr&#10;- Oppdater åpningstider i footer til 08–16&#10;- Endre telefonnummer til 912 34 567"></textarea>
+                    </div>
                 </div>
 
-                <div class="form-field">
-                    <label for="fil1">Nye bilder eller logo (valgfritt – maks 8 MB per fil)</label>
-                    <input type="file" id="fil1" name="fil1" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
-                    <input type="file" id="fil2" name="fil2" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
-                    <input type="file" id="fil3" name="fil3" accept=".jpg,.jpeg,.png,.svg,.webp,.pdf">
+                <!-- CAMPO DINÁMICO: bilder -->
+                <div class="dyn" id="dyn-bilder">
+                    <div class="bfelt">
+                        <label>Last opp de nye bildene/logoen</label>
+                        <span class="forklaring">Inntil 5 bilder. Beskriv under hvor de skal.</span>
+                        <div class="opplast-kort" style="margin-top:.5rem">
+                            <button type="button" class="opplast-knapp" data-type="bilder">Last opp bilder</button>
+                            <div class="opplast-status" id="status-bilder"></div>
+                            <div class="opplast-thumbs" id="thumbs-bilder"></div>
+                        </div>
+                    </div>
+                    <div class="bfelt">
+                        <label for="bilder_hvor">Hvor skal bildene?</label>
+                        <textarea id="bilder_hvor" name="bilder_hvor" rows="3" placeholder="F.eks: Bytt bildet øverst på forsiden, og legg logoen i footer."></textarea>
+                    </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Send forespørsel</button>
-                <p class="form-note">Vi svarer innen én virkedag med bekreftelse og betalingslenke. Gjelder kun nettsider levert av Hjemmesidendin.</p>
-            </form>
-        </div>
-    </section>
+                <!-- CAMPO DINÁMICO: farger -->
+                <div class="dyn" id="dyn-farger">
+                    <div class="farge-gruppe">
+                        <label class="gruppe-tittel">Ny hovedfarge</label>
+                        <span class="gruppe-hint">Fargen på knapper, lenker og detaljer. Velg fra paletten eller bruk pipetten.</span>
+                        <div class="swatch-rad" data-mal="hoved"></div>
+                        <div class="farge-egen"><label>Egen farge (pipette):</label><input type="color" id="hoved-picker" value="#1d3a2f"><span class="farge-kode" id="hoved-kode">#1D3A2F</span></div>
+                    </div>
+                    <div class="farge-gruppe">
+                        <label class="gruppe-tittel">Ny mørk farge / bunnfarge</label>
+                        <span class="gruppe-hint">Toppfelt, mørke seksjoner og bunn.</span>
+                        <div class="swatch-rad" data-mal="mork"></div>
+                        <div class="farge-egen"><label>Egen farge (pipette):</label><input type="color" id="mork-picker" value="#16232e"><span class="farge-kode" id="mork-kode">#16232E</span></div>
+                    </div>
+                    <div class="bfelt">
+                        <label for="farger_onske">Ønsker eller kommentar om stilen</label>
+                        <textarea id="farger_onske" name="farger_onske" rows="2" placeholder="F.eks: Jeg vil ha en roligere, mer profesjonell stil. Fargene er fra den nye logoen."></textarea>
+                    </div>
+                    <input type="hidden" name="farge_hoved" id="farge_hoved" value="#1d3a2f">
+                    <input type="hidden" name="farge_mork" id="farge_mork" value="#16232e">
+                </div>
 
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div>
-                <p class="footer-logo">hjemmesiden<span>din</span></p>
-                <p>Ferdige nettsider til fast pris – laget i Norge.</p>
+                <!-- CAMPO DINÁMICO: seksjon -->
+                <div class="dyn" id="dyn-seksjon">
+                    <div class="bfelt">
+                        <label>Hvilken seksjon vil du legge til?</label>
+                        <span class="forklaring">Velg én. Prisen avhenger av hvor omfattende seksjonen er.</span>
+                        <div class="seksjon-grid" style="margin-top:.5rem">
+                            <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Google-anmeldelser" data-sub="google" data-pris="990"> ⭐ Google-anmeldelser</span><span class="seksjon-pris">990 kr</span></label>
+                            <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Dekningskart" data-sub="kart" data-pris="990"> 🗺️ Dekningskart</span><span class="seksjon-pris">990 kr</span></label>
+                            <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Kundeomtaler" data-sub="omtaler" data-pris="790"> 💬 Kundeomtaler</span><span class="seksjon-pris">790 kr</span></label>
+                            <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="FAQ" data-sub="faq" data-pris="790"> ❓ FAQ</span><span class="seksjon-pris">790 kr</span></label>
+                            <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Priser/pakker" data-sub="priser" data-pris="790"> 💰 Priser/pakker</span><span class="seksjon-pris">790 kr</span></label>
+                            <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Sertifiseringer og garantier" data-sub="sertifisering" data-pris="790"> 🏅 Sertifiseringer</span><span class="seksjon-pris">790 kr</span></label>
+                            <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Slik jobber vi" data-sub="prosess" data-pris="790"> 🔧 Slik jobber vi</span><span class="seksjon-pris">790 kr</span></label>
+                            <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Åpningstider" data-sub="apningstider" data-pris="390"> 🕐 Åpningstider</span><span class="seksjon-pris">390 kr</span></label>
+                            <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Sosiale medier" data-sub="sosiale" data-pris="390"> 📱 Sosiale medier</span><span class="seksjon-pris">390 kr</span></label>
+                        </div>
+                    </div>
+
+                    <!-- SUB: Google-anmeldelser -->
+                    <div class="sub-dyn" id="sub-google">
+                        <p class="sub-tittel">⭐ Google-anmeldelser</p>
+                        <div class="neste-info" style="margin-bottom:1.2rem">Vi henter stjernene og anmeldelsene fra Google-profilen din og viser dem på siden. Har du ikke Google-profil ennå? Da anbefaler vi å opprette en – det er gratis og viktig for lokale søk.</div>
+                        <div class="bfelt">
+                            <label for="g_lenke">Lenke til Google-profilen din</label>
+                            <span class="forklaring">Søk opp bedriften din på Google Maps og kopier lenken.</span>
+                            <input type="text" id="g_lenke" name="g_lenke" placeholder="https://maps.google.com/...">
+                        </div>
+                        <div class="bfelt">
+                            <label>Hva skal vises?</label>
+                            <div style="display:grid; gap:.5rem; margin-top:.4rem">
+                                <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="radio" name="g_visning" value="Stjerner og snittkarakter" checked> Bare stjerner og snittkarakter</label>
+                                <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="radio" name="g_visning" value="Stjerner og de siste anmeldelsene"> Stjerner og de siste anmeldelsene</label>
+                            </div>
+                        </div>
+                        <div class="bfelt">
+                            <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="checkbox" name="g_be_om" value="Ja"> Legg til en knapp der kunder kan gi deg en anmeldelse</label>
+                        </div>
+                        <div class="bfelt">
+                            <label for="g_trustpilot">Trustpilot <span class="valgfri" style="font-weight:400; color:var(--pine-soft)">(valgfritt – kun hvis du allerede har profil med anmeldelser)</span></label>
+                            <span class="forklaring">Har du en aktiv Trustpilot-profil, kan vi legge inn en lenke til den.</span>
+                            <input type="text" id="g_trustpilot" name="g_trustpilot" placeholder="https://no.trustpilot.com/review/...">
+                        </div>
+                    </div>
+
+                    <!-- SUB: Kundeomtaler -->
+                    <div class="sub-dyn" id="sub-omtaler">
+                        <p class="sub-tittel">💬 Kundeomtaler</p>
+                        <p class="best-del-hint" style="margin-bottom:1rem">Skriv inn omtaler du har fått fra kunder. La stå tomt om du har færre enn tre.</p>
+                        <div class="par-blokk">
+                            <span class="par-nr">Omtale 1</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><textarea name="omtale1_tekst" rows="2" placeholder="F.eks: «De holdt tiden og ryddet opp hver dag.»"></textarea></div>
+                            <div class="bfelt" style="margin:0"><input type="text" name="omtale1_navn" placeholder="Navn og sted – f.eks: Kari N. · Skien"></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Omtale 2</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><textarea name="omtale2_tekst" rows="2"></textarea></div>
+                            <div class="bfelt" style="margin:0"><input type="text" name="omtale2_navn" placeholder="Navn og sted"></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Omtale 3</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><textarea name="omtale3_tekst" rows="2"></textarea></div>
+                            <div class="bfelt" style="margin:0"><input type="text" name="omtale3_navn" placeholder="Navn og sted"></div>
+                        </div>
+                    </div>
+
+                    <!-- SUB: Sertifiseringer -->
+                    <div class="sub-dyn" id="sub-sertifisering">
+                        <p class="sub-tittel">🏅 Sertifiseringer og garantier</p>
+                        <div class="par-blokk">
+                            <span class="par-nr">Sertifisering 1</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="sert1_navn" placeholder="Navn – f.eks: Sentral godkjenning"></div>
+                            <div class="bfelt" style="margin:0"><input type="text" name="sert1_tekst" placeholder="Kort forklaring – f.eks: Godkjent av Direktoratet for byggkvalitet"></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Sertifisering 2</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="sert2_navn" placeholder="Navn – f.eks: Mesterbrev"></div>
+                            <div class="bfelt" style="margin:0"><input type="text" name="sert2_tekst" placeholder="Kort forklaring"></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Sertifisering 3</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="sert3_navn" placeholder="Navn"></div>
+                            <div class="bfelt" style="margin:0"><input type="text" name="sert3_tekst" placeholder="Kort forklaring"></div>
+                        </div>
+                        <div class="bfelt">
+                            <label for="sert_garanti">Garanti dere gir <span class="valgfri" style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                            <textarea id="sert_garanti" name="sert_garanti" rows="2" placeholder="F.eks: Vi gir 5 års garanti på alt arbeid vi utfører."></textarea>
+                        </div>
+                        <div class="bfelt">
+                            <label>Logoer <span class="valgfri" style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                            <span class="forklaring">Last opp logoene til sertifiseringene, hvis du har dem.</span>
+                            <div class="opplast-kort" style="margin-top:.5rem">
+                                <button type="button" class="opplast-knapp" data-type="sert_logo">Last opp logoer</button>
+                                <div class="opplast-status" id="status-sert_logo"></div>
+                                <div class="opplast-thumbs" id="thumbs-sert_logo"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUB: FAQ -->
+                    <div class="sub-dyn" id="sub-faq">
+                        <p class="sub-tittel">❓ Ofte stilte spørsmål</p>
+                        <p class="best-del-hint" style="margin-bottom:1rem">Skriv spørsmålene kundene faktisk stiller deg – og svarene dine. La stå tomt om du har færre enn fem.</p>
+                        <div class="par-blokk">
+                            <span class="par-nr">Spørsmål 1</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="faq1_sp" placeholder="F.eks: Gir dere gratis befaring?"></div>
+                            <div class="bfelt" style="margin:0"><textarea name="faq1_svar" rows="2" placeholder="Svaret ditt..."></textarea></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Spørsmål 2</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="faq2_sp" placeholder="F.eks: Hvilke områder dekker dere?"></div>
+                            <div class="bfelt" style="margin:0"><textarea name="faq2_svar" rows="2"></textarea></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Spørsmål 3</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="faq3_sp" placeholder="F.eks: Hvor raskt kan dere komme?"></div>
+                            <div class="bfelt" style="margin:0"><textarea name="faq3_svar" rows="2"></textarea></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Spørsmål 4</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="faq4_sp"></div>
+                            <div class="bfelt" style="margin:0"><textarea name="faq4_svar" rows="2"></textarea></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Spørsmål 5</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="faq5_sp"></div>
+                            <div class="bfelt" style="margin:0"><textarea name="faq5_svar" rows="2"></textarea></div>
+                        </div>
+                    </div>
+
+                    <!-- SUB: Priser -->
+                    <div class="sub-dyn" id="sub-priser">
+                        <p class="sub-tittel">💰 Priser og pakker</p>
+                        <p class="best-del-hint" style="margin-bottom:1rem">Skriv tjenesten og prisen. La stå tomt der du heller vil gi tilbud.</p>
+                        <div class="pris-rad"><input type="text" name="pris1_tjeneste" placeholder="Tjeneste – f.eks: Timepris"><input type="text" name="pris1_pris" placeholder="F.eks: 890 kr"></div>
+                        <div class="pris-rad"><input type="text" name="pris2_tjeneste" placeholder="Tjeneste"><input type="text" name="pris2_pris" placeholder="Pris"></div>
+                        <div class="pris-rad"><input type="text" name="pris3_tjeneste" placeholder="Tjeneste"><input type="text" name="pris3_pris" placeholder="Pris"></div>
+                        <div class="pris-rad"><input type="text" name="pris4_tjeneste" placeholder="Tjeneste"><input type="text" name="pris4_pris" placeholder="Pris"></div>
+                        <div class="pris-rad"><input type="text" name="pris5_tjeneste" placeholder="Tjeneste"><input type="text" name="pris5_pris" placeholder="Pris"></div>
+                        <div class="pris-rad"><input type="text" name="pris6_tjeneste" placeholder="Tjeneste"><input type="text" name="pris6_pris" placeholder="Pris"></div>
+                        <div class="bfelt" style="margin-top:1rem">
+                            <label for="pris_note">Notat under prisene <span class="valgfri" style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                            <input type="text" id="pris_note" name="pris_note" placeholder="F.eks: Alle priser er eks. mva. Befaring er gratis.">
+                        </div>
+                    </div>
+
+                    <!-- SUB: Dekningskart -->
+                    <div class="sub-dyn" id="sub-kart">
+                        <p class="sub-tittel">🗺️ Dekningskart</p>
+                        <div class="bfelt">
+                            <label for="kart_base">Hvor holder dere til?</label>
+                            <span class="forklaring">Utgangspunktet for kartet.</span>
+                            <input type="text" id="kart_base" name="kart_base" placeholder="F.eks: Skien">
+                        </div>
+                        <div class="bfelt">
+                            <label for="kart_omrader">Hvilke områder dekker dere?</label>
+                            <span class="forklaring">Skriv ett sted per linje.</span>
+                            <textarea id="kart_omrader" name="kart_omrader" rows="5" placeholder="F.eks:&#10;Skien&#10;Porsgrunn&#10;Bamble&#10;Siljan"></textarea>
+                        </div>
+                        <div class="bfelt">
+                            <label for="kart_note">Notat <span class="valgfri" style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                            <input type="text" id="kart_note" name="kart_note" placeholder="F.eks: Vi tar også oppdrag utenfor området – ta kontakt.">
+                        </div>
+                    </div>
+
+                    <!-- SUB: Åpningstider -->
+                    <div class="sub-dyn" id="sub-apningstider">
+                        <p class="sub-tittel">🕐 Åpningstider</p>
+                        <p class="best-del-hint" style="margin-bottom:1rem">Skriv tidene, eller «Stengt» der dere ikke jobber.</p>
+                        <div class="dag-rad"><label>Mandag</label><input type="text" name="tid_man" placeholder="F.eks: 08:00–16:00"></div>
+                        <div class="dag-rad"><label>Tirsdag</label><input type="text" name="tid_tir" placeholder="08:00–16:00"></div>
+                        <div class="dag-rad"><label>Onsdag</label><input type="text" name="tid_ons" placeholder="08:00–16:00"></div>
+                        <div class="dag-rad"><label>Torsdag</label><input type="text" name="tid_tor" placeholder="08:00–16:00"></div>
+                        <div class="dag-rad"><label>Fredag</label><input type="text" name="tid_fre" placeholder="08:00–16:00"></div>
+                        <div class="dag-rad"><label>Lørdag</label><input type="text" name="tid_lor" placeholder="Stengt"></div>
+                        <div class="dag-rad"><label>Søndag</label><input type="text" name="tid_son" placeholder="Stengt"></div>
+                        <div class="bfelt" style="margin-top:1rem">
+                            <label for="tid_note">Notat <span class="valgfri" style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                            <input type="text" id="tid_note" name="tid_note" placeholder="F.eks: Akutt hjelp: døgnåpent på telefon.">
+                        </div>
+                    </div>
+
+                    <!-- SUB: Slik jobber vi -->
+                    <div class="sub-dyn" id="sub-prosess">
+                        <p class="sub-tittel">🔧 Slik jobber vi</p>
+                        <p class="best-del-hint" style="margin-bottom:1rem">Forklar hvordan et oppdrag foregår, steg for steg. La stå tomt om du har færre steg.</p>
+                        <div class="par-blokk">
+                            <span class="par-nr">Steg 1</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="steg1_tittel" placeholder="Tittel – f.eks: Gratis befaring"></div>
+                            <div class="bfelt" style="margin:0"><input type="text" name="steg1_tekst" placeholder="Beskrivelse – f.eks: Vi kommer hjem til deg og ser på jobben."></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Steg 2</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="steg2_tittel" placeholder="Tittel – f.eks: Fast tilbud"></div>
+                            <div class="bfelt" style="margin:0"><input type="text" name="steg2_tekst" placeholder="Beskrivelse"></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Steg 3</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="steg3_tittel" placeholder="Tittel"></div>
+                            <div class="bfelt" style="margin:0"><input type="text" name="steg3_tekst" placeholder="Beskrivelse"></div>
+                        </div>
+                        <div class="par-blokk">
+                            <span class="par-nr">Steg 4</span>
+                            <div class="bfelt" style="margin-bottom:.5rem"><input type="text" name="steg4_tittel" placeholder="Tittel"></div>
+                            <div class="bfelt" style="margin:0"><input type="text" name="steg4_tekst" placeholder="Beskrivelse"></div>
+                        </div>
+                    </div>
+
+                    <!-- SUB: Sosiale medier -->
+                    <div class="sub-dyn" id="sub-sosiale">
+                        <p class="sub-tittel">📱 Sosiale medier</p>
+                        <p class="best-del-hint" style="margin-bottom:1rem">Lim inn lenkene til profilene deres. La stå tomt der dere ikke er.</p>
+                        <div class="bfelt"><label for="sos_fb">Facebook</label><input type="text" id="sos_fb" name="sos_fb" placeholder="https://facebook.com/dittfirma"></div>
+                        <div class="bfelt"><label for="sos_ig">Instagram</label><input type="text" id="sos_ig" name="sos_ig" placeholder="https://instagram.com/dittfirma"></div>
+                        <div class="bfelt"><label for="sos_li">LinkedIn</label><input type="text" id="sos_li" name="sos_li" placeholder="https://linkedin.com/company/dittfirma"></div>
+                        <div class="bfelt"><label for="sos_yt">YouTube</label><input type="text" id="sos_yt" name="sos_yt" placeholder="https://youtube.com/@dittfirma"></div>
+                        <div class="bfelt" style="margin:0"><label for="sos_tt">TikTok</label><input type="text" id="sos_tt" name="sos_tt" placeholder="https://tiktok.com/@dittfirma"></div>
+                    </div>
+
+                    <div class="bfelt" style="margin-top:1.4rem">
+                        <label for="seksjon_innhold">Noe mer vi bør vite om seksjonen? <span class="valgfri" style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                        <textarea id="seksjon_innhold" name="seksjon_innhold" rows="3" placeholder="Spesielle ønsker om innhold, rekkefølge eller utseende."></textarea>
+                    </div>
+                    <div class="bfelt">
+                        <label>Bilder til seksjonen <span class="valgfri" style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                        <div class="opplast-kort" style="margin-top:.5rem">
+                            <button type="button" class="opplast-knapp" data-type="seksjon">Last opp bilder</button>
+                            <div class="opplast-status" id="status-seksjon"></div>
+                            <div class="opplast-thumbs" id="thumbs-seksjon"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- CAMPO DINÁMICO: sesong -->
+                <div class="dyn" id="dyn-sesong">
+                    <div class="bfelt">
+                        <label for="sesong_hvilken">Hvilken sesong/anledning?</label>
+                        <input type="text" id="sesong_hvilken" name="sesong_hvilken" placeholder="F.eks: Jul, sommer, Black Friday, påske">
+                    </div>
+                    <div class="bfelt">
+                        <label for="sesong_innhold">Hva skal endres?</label>
+                        <textarea id="sesong_innhold" name="sesong_innhold" rows="4" placeholder="F.eks:&#10;- Legg til «God jul»-banner øverst&#10;- Vis spesielle åpningstider i romjulen&#10;- Legg til tilbud: 20% på service i desember"></textarea>
+                    </div>
+                    <div class="bfelt">
+                        <label>Bilder til sesongen <span style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                        <div class="opplast-kort" style="margin-top:.5rem">
+                            <button type="button" class="opplast-knapp" data-type="sesong">Last opp bilder</button>
+                            <div class="opplast-status" id="status-sesong"></div>
+                            <div class="opplast-thumbs" id="thumbs-sesong"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAMPO DINÁMICO: om oss -->
+                <div class="dyn" id="dyn-omoss">
+                    <div class="bfelt">
+                        <label for="omoss_tekst">Fortell om bedriften (til «Om oss»-siden)</label>
+                        <span class="forklaring">Historie, verdier, hvem dere er. Jo mer, jo bedre.</span>
+                        <textarea id="omoss_tekst" name="omoss_tekst" rows="5" placeholder="F.eks: Vi startet i 2014 som et lite familiefirma. I dag er vi 4 erfarne fagfolk som brenner for kvalitet og ærlig håndverk..."></textarea>
+                    </div>
+                    <div class="bfelt">
+                        <label>Bilder til siden (team, bedrift) <span style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                        <div class="opplast-kort" style="margin-top:.5rem">
+                            <button type="button" class="opplast-knapp" data-type="omoss">Last opp bilder</button>
+                            <div class="opplast-status" id="status-omoss"></div>
+                            <div class="opplast-thumbs" id="thumbs-omoss"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- CAMPO DINÁMICO: fornyelse -->
+                <div class="dyn" id="dyn-fornyelse">
+                    <div class="neste-info">✨ Årlig innholdsfornyelse dekker: nye bilder, oppdaterte tekster, oppdaterte tall/årstall, gjennomgang av at alt fungerer, og mindre forbedringer.</div>
+                    <div class="bfelt">
+                        <label for="fornyelse_onske">Hva vil du oppdatere?</label>
+                        <textarea id="fornyelse_onske" name="fornyelse_onske" rows="5" placeholder="F.eks:&#10;- Bytt ut bildene med nye fra i år&#10;- Oppdater «10 års erfaring» til «11 års erfaring»&#10;- Legg til den nye tjenesten vår&#10;- Sjekk at alt fungerer"></textarea>
+                    </div>
+                    <div class="bfelt">
+                        <label>Nye bilder <span style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                        <div class="opplast-kort" style="margin-top:.5rem">
+                            <button type="button" class="opplast-knapp" data-type="fornyelse">Last opp bilder</button>
+                            <div class="opplast-status" id="status-fornyelse"></div>
+                            <div class="opplast-thumbs" id="thumbs-fornyelse"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAMPO DINÁMICO: nytt prosjekt -->
+                <div class="dyn" id="dyn-nyttprosjekt">
+                    <div class="neste-info">📌 Gjelder deg som allerede har porteføljeside. Den årlige avgiften dekker én oppdatering i året – dette er for prosjekter du vil legge til utenom den.</div>
+
+                    <div class="bfelt">
+                        <label>Hovedbilde</label>
+                        <span class="forklaring">Det ferdige resultatet – vises i galleriet.</span>
+                        <div class="opplast-kort" style="margin-top:.5rem">
+                            <button type="button" class="opplast-knapp" data-type="np_hoved">Last opp hovedbilde</button>
+                            <div class="opplast-status" id="status-np_hoved"></div>
+                            <div class="opplast-thumbs" id="thumbs-np_hoved"></div>
+                        </div>
+                    </div>
+                    <div class="bfelt"><label for="np_tittel">Tittel</label><input type="text" id="np_tittel" name="np_tittel" placeholder="F.eks: Komplett oppussing av bad"></div>
+                    <div class="bfelt">
+                        <label for="np_kort">Kort beskrivelse</label>
+                        <span class="forklaring">Én setning som vises i galleriet.</span>
+                        <input type="text" id="np_kort" name="np_kort" placeholder="F.eks: Full rehabilitering fra gulv til tak.">
+                    </div>
+                    <div class="bfelt-rekke">
+                        <div class="bfelt"><label for="np_kategori">Kategori</label><input type="text" id="np_kategori" name="np_kategori" placeholder="F.eks: Renovering"></div>
+                        <div class="bfelt"><label for="np_sted">Sted og år</label><input type="text" id="np_sted" name="np_sted" placeholder="F.eks: Skien · 2026"></div>
+                    </div>
+
+                    <div class="bfelt">
+                        <label>Detaljer <span style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                        <div class="bfelt-rekke" style="margin-top:.4rem">
+                            <input type="text" name="np_varighet" placeholder="Varighet – f.eks: 12 virkedager">
+                            <input type="text" name="np_omfang" placeholder="Omfang – f.eks: Totalrenovering">
+                        </div>
+                        <div class="bfelt-rekke" style="margin-top:.6rem">
+                            <input type="text" name="np_storrelse" placeholder="Størrelse – f.eks: 6 m²">
+                            <input type="text" name="np_materialer" placeholder="Materialer – f.eks: Flis, eik">
+                        </div>
+                    </div>
+
+                    <div class="bfelt">
+                        <label for="np_lang">Historien bak prosjektet</label>
+                        <span class="forklaring">Hva var utfordringen, hvordan løste dere den, hvordan ble resultatet?</span>
+                        <textarea id="np_lang" name="np_lang" rows="5" placeholder="Skriv her..."></textarea>
+                    </div>
+
+                    <div class="bfelt">
+                        <label>Før og etter <span style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-top:.5rem">
+                            <div class="opplast-kort">
+                                <h4>Før</h4>
+                                <button type="button" class="opplast-knapp" data-type="np_for">Last opp</button>
+                                <div class="opplast-status" id="status-np_for"></div>
+                                <div class="opplast-thumbs" id="thumbs-np_for"></div>
+                            </div>
+                            <div class="opplast-kort">
+                                <h4>Etter</h4>
+                                <button type="button" class="opplast-knapp" data-type="np_etter">Last opp</button>
+                                <div class="opplast-status" id="status-np_etter"></div>
+                                <div class="opplast-thumbs" id="thumbs-np_etter"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bfelt">
+                        <label>Fra prosjektet <span style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label>
+                        <span class="forklaring">Inntil tre bilder fra prosessen eller detaljer.</span>
+                        <div class="opplast-kort" style="margin-top:.5rem">
+                            <button type="button" class="opplast-knapp" data-type="np_prosess">Last opp bilder</button>
+                            <div class="opplast-status" id="status-np_prosess"></div>
+                            <div class="opplast-thumbs" id="thumbs-np_prosess"></div>
+                        </div>
+                    </div>
+
+                    <div class="bfelt"><label for="np_sitat">Sitat fra kunden <span style="font-weight:400; color:var(--pine-soft)">(valgfritt)</span></label><textarea id="np_sitat" name="np_sitat" rows="2" placeholder="F.eks: «De holdt tiden og ryddet opp hver dag.»"></textarea></div>
+                    <div class="bfelt"><label for="np_sitat_navn">Navn og sted</label><input type="text" id="np_sitat_navn" name="np_sitat_navn" placeholder="F.eks: Kari N. · Skien"></div>
+                </div>
+
+                <input type="hidden" name="bilde_bilder" id="bilde_bilder">
+                <input type="hidden" name="bilde_seksjon" id="bilde_seksjon">
+                <input type="hidden" name="bilde_sert_logo" id="bilde_sert_logo">
+                <input type="hidden" name="bilde_sesong" id="bilde_sesong">
+                <input type="hidden" name="bilde_omoss" id="bilde_omoss">
+                <input type="hidden" name="bilde_fornyelse" id="bilde_fornyelse">
+                <input type="hidden" name="bilde_np_hoved" id="bilde_np_hoved">
+                <input type="hidden" name="bilde_np_for" id="bilde_np_for">
+                <input type="hidden" name="bilde_np_etter" id="bilde_np_etter">
+                <input type="hidden" name="bilde_np_prosess" id="bilde_np_prosess">
             </div>
-            <div>
-                <h3>Kontakt</h3>
-                <p><a href="mailto:post@hjemmesidendin.no">post@hjemmesidendin.no</a></p>
+
+
+            <!-- DEL 3: KOMMENTAR -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">3</span><h2>Kommentar</h2></div>
+                <p class="best-del-hint">Noe mer vi bør vite? Spesielle ønsker eller spørsmål?</p>
+                <div class="bfelt">
+                    <textarea name="kommentar" rows="3" placeholder="Skriv gjerne her – alt er nyttig. (valgfritt)"></textarea>
+                </div>
             </div>
-            <div>
-                <h3>Informasjon</h3>
-                <p><a href="personvern.html">Personvernerklæring</a></p>
-                <p><a href="vilkar.html">Salgsbetingelser</a></p>
+
+            <!-- DEL 4: KONTAKTINFO -->
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">4</span><h2>Din kontaktinfo</h2></div>
+                <p class="best-del-hint">Så vi kan ta kontakt om bestillingen.</p>
+                <div class="bfelt-rekke">
+                    <div class="bfelt">
+                        <label for="din_navn">Ditt navn</label>
+                        <input type="text" id="din_navn" name="din_navn" required>
+                    </div>
+                    <div class="bfelt">
+                        <label for="din_telefon">Din telefon</label>
+                        <input type="tel" id="din_telefon" name="din_telefon" required>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Hjemmesidendin. Alle rettigheter reservert.</p>
-        </div>
-    </footer>
+
+            <button type="button" class="best-send" id="lagResultat">Lag oppsummering →</button>
+
+            <div class="resultat-boks" id="resultatBoks">
+                <h3>✓ Oppsummering av bestillingen din</h3>
+                <p class="res-intro">Sjekk at alt stemmer. Neste steg: velg en ledig uke og betal med Stripe.</p>
+                <textarea class="resultat-tekst" id="resultatTekst" readonly></textarea>
+                <button type="button" class="kopier-knapp" id="kopierKnapp">📋 Kopier teksten</button>
+                <span class="kopier-ok" id="kopierOk" style="display:none">Kopiert!</span>
+                <div class="neste-info" style="margin-top:1.2rem">Når du sender inn, tar vi vare på bestillingen. Deretter velger du en ledig uke og betaler trygt med Stripe.</div>
+                <button type="submit" class="best-send" style="margin-top:.5rem; background:var(--signal)">Send inn og gå til betaling →</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        // Selección de servicio → mostrar campo dinámico
+const dynMap = {
+            tekst: "dyn-tekst", bilder: "dyn-bilder", farger: "dyn-farger",
+            seksjon: "dyn-seksjon", sesong: "dyn-sesong", omoss: "dyn-omoss",
+            fornyelse: "dyn-fornyelse", nyttprosjekt: "dyn-nyttprosjekt"
+        };
+
+        const storreArbeid = ["omoss", "fornyelse"];
+        document.querySelectorAll('[name="tjeneste"]').forEach(radio => {
+            radio.addEventListener("change", () => {
+                document.querySelectorAll(".tj-kort").forEach(k => k.classList.remove("valgt"));
+                radio.closest(".tj-kort").classList.add("valgt");
+                Object.values(dynMap).forEach(id => document.getElementById(id).classList.remove("vis"));
+                const felt = radio.dataset.felt;
+                if (dynMap[felt]) document.getElementById(dynMap[felt]).classList.add("vis");
+                document.getElementById("bestillSkjema").action =
+                    storreArbeid.includes(felt) ? "takk-optimalisering.html" : "takk-oppdatering.html";
+            });
+        });
+
+
+        // Selección de sección (menú) → muestra sus campos
+        const subMap = {
+            google: "sub-google", omtaler: "sub-omtaler", sertifisering: "sub-sertifisering",
+            faq: "sub-faq", priser: "sub-priser", kart: "sub-kart",
+            apningstider: "sub-apningstider", prosess: "sub-prosess", sosiale: "sub-sosiale"
+        };
+        document.querySelectorAll('[name="seksjon_type"]').forEach(radio => {
+            radio.addEventListener("change", () => {
+                document.querySelectorAll(".seksjon-kort").forEach(k => k.classList.remove("valgt"));
+                radio.closest(".seksjon-kort").classList.add("valgt");
+                Object.values(subMap).forEach(id => document.getElementById(id).classList.remove("vis"));
+                const sub = radio.dataset.sub;
+                if (subMap[sub]) document.getElementById(subMap[sub]).classList.add("vis");
+            });
+        });
+
+
+        // Selector de colores
+        const swatchFarger = {
+            hoved: ["#1d3a2f","#2f6247","#4d9670","#e8641b","#d98324","#3d6b8c","#4189b8","#c4703f","#a3562c","#7c5cbf","#2563eb","#14a098"],
+            mork: ["#16232e","#0f2847","#1d2940","#1e3b2f","#232b36","#23272e","#2b2733","#2d2440","#3e2f26","#463f38"]
+        };
+        function settFarge(mal, kode) {
+            document.getElementById(`farge_${mal}`).value = kode;
+            document.getElementById(`${mal}-kode`).textContent = kode.toUpperCase();
+            document.getElementById(`${mal}-picker`).value = kode;
+            document.querySelectorAll(`.swatch-rad[data-mal="${mal}"] .swatch`).forEach(s => {
+                s.classList.toggle("valgt", s.dataset.kode.toLowerCase() === kode.toLowerCase());
+            });
+        }
+        ["hoved","mork"].forEach(mal => {
+            const rad = document.querySelector(`.swatch-rad[data-mal="${mal}"]`);
+            swatchFarger[mal].forEach(kode => {
+                const s = document.createElement("div");
+                s.className = "swatch"; s.style.background = kode; s.dataset.kode = kode; s.title = kode;
+                s.addEventListener("click", () => settFarge(mal, kode));
+                rad.appendChild(s);
+            });
+            document.getElementById(`${mal}-picker`).addEventListener("input", e => settFarge(mal, e.target.value));
+        });
+
+        // Cloudinary
+        const CLOUD_NAME = "jsl4llt9";
+        const UPLOAD_PRESET = "ml_default";
+        const bildeTyper = ["bilder","seksjon","sesong","omoss","fornyelse","np_hoved","np_for","np_etter","np_prosess","sert_logo"];
+        const opplastet = {};
+        bildeTyper.forEach(t => opplastet[t] = []);
+
+        function tegnThumbs(type) {
+            const thumbs = document.getElementById(`thumbs-${type}`);
+            thumbs.innerHTML = "";
+            opplastet[type].forEach((url, i) => {
+                const wrap = document.createElement("div");
+                wrap.className = "thumb-wrap";
+                const img = document.createElement("img"); img.src = url;
+                const slett = document.createElement("button");
+                slett.type = "button"; slett.className = "thumb-slett"; slett.textContent = "✕"; slett.title = "Fjern";
+                slett.addEventListener("click", () => {
+                    opplastet[type].splice(i, 1);
+                    tegnThumbs(type);
+                    document.getElementById(`bilde_${type}`).value = opplastet[type].join(", ");
+                    document.getElementById(`status-${type}`).innerHTML = opplastet[type].length ? `<span style="color:var(--signal-dark)">✓ ${opplastet[type].length} bilde(r)</span>` : "";
+                });
+                wrap.appendChild(img); wrap.appendChild(slett);
+                thumbs.appendChild(wrap);
+            });
+        }
+
+        const widget = cloudinary.createUploadWidget({
+            cloudName: CLOUD_NAME, uploadPreset: UPLOAD_PRESET,
+            sources: ["local","url","camera"], multiple: true,
+            clientAllowedFormats: ["image"], maxImageFileSize: 10000000
+        }, (error, result) => {
+            if (!error && result && result.event === "success") {
+                const type = widget._aktivType || "bilder";
+                const kunEn = ["np_hoved","np_for","np_etter"].includes(type);
+                if (kunEn) opplastet[type] = [result.info.secure_url];
+                else opplastet[type].push(result.info.secure_url);
+                tegnThumbs(type);
+                document.getElementById(`bilde_${type}`).value = opplastet[type].join(", ");
+                document.getElementById(`status-${type}`).innerHTML = `<span style="color:var(--signal-dark)">✓ ${opplastet[type].length} bilde(r)</span>`;
+            }
+        });
+        document.querySelectorAll(".opplast-knapp").forEach(btn => {
+            btn.addEventListener("click", () => { widget._aktivType = btn.dataset.type; widget.open(); });
+        });
+
+        function v(name) { const el = document.querySelector(`[name="${name}"]`); return el ? el.value.trim() : ""; }
+        function valgtRadio(name) { const el = document.querySelector(`[name="${name}"]:checked`); return el ? el.value : ""; }
+
+        document.getElementById("lagResultat").addEventListener("click", () => {
+            const tjeneste = valgtRadio("tjeneste");
+            if (!tjeneste) { alert("Velg en tjeneste først."); return; }
+            if (document.querySelector('[name="tjeneste"]:checked').dataset.felt === "seksjon"
+                && !document.querySelector('[name="seksjon_type"]:checked')) {
+                alert("Velg hvilken seksjon du vil legge til."); return;
+            }
+            const felt = document.querySelector('[name="tjeneste"]:checked').dataset.felt;
+            let pris = document.querySelector('[name="tjeneste"]:checked').dataset.pris;
+            if (felt === "seksjon") {
+                const sVal = document.querySelector('[name="seksjon_type"]:checked');
+                pris = sVal ? sVal.dataset.pris : "390";
+            }
+
+            let t = "";
+            t += "═══════════════════════════════════\n";
+            t += "  BESTILLING – OPPDATERING\n";
+            t += "═══════════════════════════════════\n\n";
+            t += "── DIN NETTSIDE ──\n";
+            t += "Domene:  " + v("domene") + "\n";
+            t += "E-post:  " + v("epost") + "\n\n";
+            t += "── VALGT TJENESTE ──\n";
+            t += tjeneste + " – " + pris + " kr";
+            t += "\n\n";
+
+            t += "── DETALJER ──\n";
+            if (felt === "tekst") {
+                t += "Endringer:\n" + (v("tekst_endringer") || "(ikke utfylt)") + "\n";
+            } else if (felt === "bilder") {
+                t += "Hvor bildene skal:\n" + (v("bilder_hvor") || "(ikke utfylt)") + "\n";
+                t += "Opplastede bilder: " + (v("bilde_bilder") || "(ingen)") + "\n";
+            } else if (felt === "farger") {
+                t += "Ny hovedfarge: " + v("farge_hoved").toUpperCase() + "\n";
+                t += "Ny mørk farge: " + v("farge_mork").toUpperCase() + "\n";
+                t += "Ønsker: " + (v("farger_onske") || "(ingen)") + "\n";
+            } else if (felt === "seksjon") {
+                const sType = valgtRadio("seksjon_type");
+                t += "Seksjonstype: " + (sType || "(ikke valgt)") + "\n\n";
+                const sub = document.querySelector('[name="seksjon_type"]:checked')?.dataset.sub;
+                if (sub === "google") {
+                    t += "Google-lenke:  " + (v("g_lenke") || "(mangler)") + "\n";
+                    t += "Visning:       " + valgtRadio("g_visning") + "\n";
+                    t += "Be om-knapp:   " + (document.querySelector('[name="g_be_om"]:checked') ? "Ja" : "Nei") + "\n";
+                    t += "Trustpilot:    " + (v("g_trustpilot") || "(ikke aktuelt)") + "\n";
+                } else if (sub === "omtaler") {
+                    for (let i = 1; i <= 3; i++) {
+                        const tk = v("omtale" + i + "_tekst");
+                        if (tk) t += "Omtale " + i + ": «" + tk + "» – " + (v("omtale" + i + "_navn") || "(uten navn)") + "\n";
+                    }
+                } else if (sub === "sertifisering") {
+                    for (let i = 1; i <= 3; i++) {
+                        const nv = v("sert" + i + "_navn");
+                        if (nv) t += "Sertifisering " + i + ": " + nv + " – " + (v("sert" + i + "_tekst") || "-") + "\n";
+                    }
+                    t += "Garanti: " + (v("sert_garanti") || "(ingen)") + "\n";
+                    t += "Logoer:  " + (v("bilde_sert_logo") || "(ingen)") + "\n";
+                } else if (sub === "faq") {
+                    for (let i = 1; i <= 5; i++) {
+                        const sp = v("faq" + i + "_sp");
+                        if (sp) t += "Sp " + i + ": " + sp + "\n   Svar: " + (v("faq" + i + "_svar") || "(mangler)") + "\n";
+                    }
+                } else if (sub === "priser") {
+                    for (let i = 1; i <= 6; i++) {
+                        const tj = v("pris" + i + "_tjeneste");
+                        if (tj) t += "  " + tj + " – " + (v("pris" + i + "_pris") || "(tilbud)") + "\n";
+                    }
+                    if (v("pris_note")) t += "Notat: " + v("pris_note") + "\n";
+                } else if (sub === "kart") {
+                    t += "Base:     " + (v("kart_base") || "(mangler)") + "\n";
+                    t += "Områder:\n" + (v("kart_omrader") || "(mangler)") + "\n";
+                    if (v("kart_note")) t += "Notat: " + v("kart_note") + "\n";
+                } else if (sub === "apningstider") {
+                    const dager = { tid_man: "Mandag", tid_tir: "Tirsdag", tid_ons: "Onsdag", tid_tor: "Torsdag", tid_fre: "Fredag", tid_lor: "Lørdag", tid_son: "Søndag" };
+                    Object.keys(dager).forEach(k => { t += "  " + dager[k].padEnd(9) + (v(k) || "-") + "\n"; });
+                    if (v("tid_note")) t += "Notat: " + v("tid_note") + "\n";
+                } else if (sub === "prosess") {
+                    for (let i = 1; i <= 4; i++) {
+                        const tt = v("steg" + i + "_tittel");
+                        if (tt) t += "Steg " + i + ": " + tt + "\n   " + (v("steg" + i + "_tekst") || "-") + "\n";
+                    }
+                } else if (sub === "sosiale") {
+                    const sos = { sos_fb: "Facebook", sos_ig: "Instagram", sos_li: "LinkedIn", sos_yt: "YouTube", sos_tt: "TikTok" };
+                    Object.keys(sos).forEach(k => { if (v(k)) t += "  " + sos[k] + ": " + v(k) + "\n"; });
+                }
+                if (v("seksjon_innhold")) t += "\nMer info:\n" + v("seksjon_innhold") + "\n";
+                t += "Bilder: " + (v("bilde_seksjon") || "(ingen)") + "\n";
+            
+            } else if (felt === "sesong") {
+                t += "Sesong/anledning: " + (v("sesong_hvilken") || "(ikke utfylt)") + "\n";
+                t += "Endringer:\n" + (v("sesong_innhold") || "(ikke utfylt)") + "\n";
+                t += "Bilder: " + (v("bilde_sesong") || "(ingen)") + "\n";
+            } else if (felt === "omoss") {
+                t += "Om bedriften:\n" + (v("omoss_tekst") || "(ikke utfylt)") + "\n";
+                t += "Bilder: " + (v("bilde_omoss") || "(ingen)") + "\n";
+            } else if (felt === "fornyelse") {
+                t += "Ønsket oppdatering:\n" + (v("fornyelse_onske") || "(ikke utfylt)") + "\n";
+                t += "Nye bilder: " + (v("bilde_fornyelse") || "(ingen)") + "\n";
+            } else if (felt === "nyttprosjekt") {
+                t += "Tittel:      " + (v("np_tittel") || "(mangler)") + "\n";
+                t += "Kort tekst:  " + (v("np_kort") || "(mangler)") + "\n";
+                t += "Kategori:    " + (v("np_kategori") || "(ingen)") + "\n";
+                t += "Sted og år:  " + (v("np_sted") || "(ingen)") + "\n";
+                t += "DETALJER:\n";
+                t += "  Varighet:   " + (v("np_varighet") || "-") + "\n";
+                t += "  Omfang:     " + (v("np_omfang") || "-") + "\n";
+                t += "  Størrelse:  " + (v("np_storrelse") || "-") + "\n";
+                t += "  Materialer: " + (v("np_materialer") || "-") + "\n";
+                t += "BESKRIVELSE:\n" + (v("np_lang") || "(mangler)") + "\n";
+                t += "BILDER:\n";
+                t += "  Hovedbilde: " + (v("bilde_np_hoved") || "(mangler)") + "\n";
+                t += "  Før:        " + (v("bilde_np_for") || "-") + "\n";
+                t += "  Etter:      " + (v("bilde_np_etter") || "-") + "\n";
+                t += "  Prosess:    " + (v("bilde_np_prosess") || "-") + "\n";
+                const npSit = v("np_sitat");
+                if (npSit) t += "SITAT: «" + npSit + "» – " + (v("np_sitat_navn") || "(uten navn)") + "\n";
+            }
+
+            t += "\n";
+            t += "── KOMMENTAR ──\n";
+            t += (v("kommentar") || "(ingen)") + "\n\n";
+            t += "── KONTAKT ──\n";
+            t += "Navn:    " + v("din_navn") + "\n";
+            t += "Telefon: " + v("din_telefon") + "\n";
+            t += "E-post:  " + v("epost") + "\n";
+
+            document.getElementById("resultatTekst").value = t;
+            let skjult = document.getElementById("oppsummering_skjult");
+            if (!skjult) {
+                skjult = document.createElement("input");
+                skjult.type = "hidden"; skjult.name = "oppsummering"; skjult.id = "oppsummering_skjult";
+                document.getElementById("bestillSkjema").appendChild(skjult);
+            }
+            skjult.value = t;
+            const boks = document.getElementById("resultatBoks");
+            boks.classList.add("vis");
+            boks.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        document.getElementById("kopierKnapp").addEventListener("click", () => {
+            const ta = document.getElementById("resultatTekst");
+            ta.select(); document.execCommand("copy");
+            const ok = document.getElementById("kopierOk");
+            ok.style.display = "inline-block";
+            setTimeout(() => ok.style.display = "none", 2500);
+        });
+    </script>
 
 </body>
 </html>
