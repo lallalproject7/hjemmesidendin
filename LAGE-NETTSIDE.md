@@ -94,6 +94,79 @@ rm -rf ~/kunder/<cliente>
 
 ---
 
+## PASO 3.5 — AÑADIR IMÁGENES Y LOGO (si el cliente las envió)
+
+Si el cliente mandó fotos o logo, este es el momento. Si no mandó
+ninguna, salta al PASO 4 (la web funciona igual, con placeholders de
+color y el logo de texto).
+
+### 3.5.1 Abrir la carpeta bilder/ del cliente en VS Code
+
+```bash
+code ~/kunder/<cliente>
+```
+
+En el panel izquierdo (Explorer) verás la carpeta bilder/. Está vacía
+al principio — es normal.
+
+### 3.5.2 Meter las imágenes (arrastrar desde Windows)
+
+1. Abre el Explorador de Windows con las fotos del cliente (ej: Downloads)
+2. Pon las dos ventanas lado a lado (VS Code y el explorador de Windows)
+3. Arrastra cada imagen y suéltala sobre la carpeta bilder/ en el panel
+   izquierdo de VS Code
+4. Cuando VS Code pregunte, elige "Copy"
+
+### 3.5.3 Nombrar las imágenes CORRECTAMENTE (clic derecho → Rename)
+
+El nombre decide dónde va en la web. Renombra cada una así:
+
+    logo.png       → el logo (arriba). Reemplaza el logo de texto.
+    hero.jpg       → la imagen grande principal
+    team.jpg       → foto del equipo / sobre nosotros
+    galleri1.jpg   → primera foto de la galería
+    galleri2.jpg   → segunda foto de la galería
+    ... hasta galleri6.jpg
+
+Formatos aceptados: .jpg .jpeg .png .webp .svg
+
+SOBRE EL LOGO:
+- Si el cliente NO manda logo → la web usa el nombre escrito como logo
+  (se ve bien igual). No haces nada.
+- Si el cliente SÍ manda logo → guárdalo como logo.png. El script lo
+  pone automáticamente y esconde el texto.
+
+### 3.5.4 Verificar que las imágenes llegaron
+
+```bash
+ls -la ~/kunder/<cliente>/bilder/
+```
+
+Debes ver tus imágenes con los nombres correctos.
+
+### 3.5.5 Conectar las imágenes a la web
+
+```bash
+cd ~/hjemmesidendin && python3 koble-bilder.py <cliente>
+```
+
+Qué hace: mira la carpeta bilder/, y según el nombre de cada imagen la
+conecta al lugar correcto de la web (hero, galería, equipo, logo).
+
+Si nombraste mal un archivo, el script te avisa:
+    ? Ukjente filnavn: mifoto.jpg
+      Gyldige navn: logo · hero · team · galleri1–6
+En ese caso, renombra el archivo y corre el comando otra vez.
+
+Puedes correr koble-bilder.py las veces que quieras.
+
+NOTA SOBRE EL PESO: las fotos de cámara/móvil suelen ser pesadas (2–5 MB).
+Para producción conviene optimizarlas (Cloudinary, pendiente en el TODO).
+Para pruebas no importa.
+
+
+---
+
 ## PASO 4 — VERIFICAR QUE TODO ESTÁ BIEN (automático)
 
 Corre el inspector de calidad:
@@ -142,6 +215,9 @@ cd ~/hjemmesidendin && cp maler/kunde-data-mal.txt /tmp/kunde-data.txt && code /
 
 # 3. Generar la web
 cd ~/hjemmesidendin && python3 ny-kunde.py <molde> <cliente> /tmp/kunde-data.txt
+
+# 3.5. Imágenes (si las hay): meterlas en bilder/ y conectarlas
+python3 koble-bilder.py <cliente>
 
 # 4. Verificar automático
 cd ~/hjemmesidendin && python3 sjekk.py <cliente>
