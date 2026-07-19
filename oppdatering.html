@@ -132,6 +132,10 @@
             <div class="best-del">
                 <div class="best-del-topp"><span class="best-nr">1</span><h2>Din nettside</h2></div>
                 <p class="best-del-hint">Så vi finner riktig side. Bruk samme e-post som da du bestilte.</p>
+                <div class="bfelt">
+                    <label for="firmanavn">Bedriftsnavn</label>
+                    <input type="text" id="firmanavn" name="firmanavn" placeholder="F.eks: Skien Elektro AS" required>
+                </div>
                 <div class="bfelt-rekke">
                     <div class="bfelt">
                         <label for="domene">Domenet ditt</label>
@@ -785,6 +789,7 @@ const dynMap = {
             t += "  BESTILLING – OPPDATERING\n";
             t += "═══════════════════════════════════\n\n";
             t += "── DIN NETTSIDE ──\n";
+            t += "Bedrift: " + v("firmanavn") + "\n";
             t += "Domene:  " + v("domene") + "\n";
             t += "E-post:  " + v("epost") + "\n\n";
             t += "── VALGT TJENESTE ──\n";
