@@ -205,6 +205,106 @@ Revisa con los ojos:
 
 ---
 
+## PASO 6 — PUBLICAR LA WEB (DEPLOY A NETLIFY)
+
+Hasta ahora la web solo existe en tu PC. Este paso la sube a internet.
+
+REQUISITO: cuenta de Netlify (idealmente la cuenta de EMPRESA).
+Arquitectura: 1 repositorio GitHub + 1 site Netlify por cliente.
+
+### 6.1 Crear un repositorio para el cliente en GitHub
+
+Bajo tu cuenta de empresa, crea un repo nuevo con el nombre del cliente
+(ej: skien-elektro). Vacío, sin README.
+
+### 6.2 Subir la web del cliente a ese repositorio
+
+    cd ~/kunder/<cliente>
+    git init
+    git add -A
+    git commit -m "Initial website for <cliente>"
+    git branch -M main
+    git remote add origin https://github.com/<cuenta-empresa>/<cliente>.git
+    git push -u origin main
+
+### 6.3 Conectar el repo a Netlify
+
+1. Entra a Netlify → "Add new site" → "Import an existing project"
+2. Elige GitHub → selecciona el repo del cliente
+3. Configuración de build:
+   - Build command: (dejar vacío)
+   - Publish directory: .  (un punto)
+4. "Deploy site"
+
+En segundos la web queda en vivo en una dirección tipo:
+   <algo-aleatorio>.netlify.app
+
+### 6.4 Cambiar el nombre del site (opcional pero recomendado)
+
+En Netlify: Site settings → Change site name → pon el nombre del cliente:
+   <cliente>.netlify.app
+
+Ya puedes enseñarle esta URL al cliente mientras se conecta el dominio.
+
+---
+
+## PASO 7 — CONECTAR EL DOMINIO .no
+
+Este paso le da al cliente su dirección propia (ej: skienelektro.no)
+en vez de la de netlify.app.
+
+REQUISITO: ENK registrada (necesitas el organisasjonsnummer para
+comprar dominios .no como empresa — hasta 100 dominios).
+
+### 7.1 Comprar el dominio en domene.no
+
+1. Entra a domene.no y busca el dominio (ej: skienelektro.no)
+2. Si está libre, añádelo al carrito
+3. Paga con tarjeta o Vipps → se registra en minutos
+NOTA: el dominio .no se ALQUILA (pago anual), no se compra para siempre.
+
+### 7.2 Añadir el dominio al site en Netlify
+
+1. En el site del cliente en Netlify:
+   Domain settings → Add a domain → escribe el dominio (skienelektro.no)
+2. Netlify te mostrará unos DNS records (direcciones técnicas).
+   Anótalos — los necesitas en el paso siguiente.
+
+### 7.3 Apuntar el dominio hacia Netlify (en domene.no)
+
+1. En domene.no, entra a la configuración DNS del dominio
+2. Pega los DNS records que te dio Netlify
+   (esto conecta "el dominio" → "la web en Netlify")
+3. Guarda
+
+### 7.4 Esperar la propagación
+
+El cambio tarda de minutos a 24 horas en activarse en todo el mundo.
+Cuando termine, el dominio del cliente muestra su web.
+
+### 7.5 SSL (candado de seguridad https)
+
+Netlify activa el certificado SSL automático y gratis una vez el
+dominio está conectado. No tienes que hacer nada — solo esperar a que
+aparezca "https" con el candado.
+
+---
+
+## TIEMPOS (para tu plazo de ~7 días)
+
+- Construir la web (datos + imágenes):  1–4 días
+- Deploy a Netlify:                      minutos
+- Comprar dominio .no:                   minutos
+- Propagación DNS del dominio:           de minutos a 24 horas
+- SSL automático:                        automático tras la propagación
+
+El dominio es el paso más rápido. Lo que toma tiempo es construir bien
+la web. Puedes entregar en cliente.netlify.app y conectar el dominio
+después, sin que el cliente espere.
+
+
+---
+
 ## RESUMEN RÁPIDO (los 4 comandos en orden)
 
 \`\`\`bash
