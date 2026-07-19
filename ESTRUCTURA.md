@@ -179,3 +179,12 @@ El proyecto tiene dos generadores distintos. No confundirlos:
 - **~/kunder/<cliente>/** = las webs terminadas (FUERA del proyecto,
   no se suben a git)
 - **/tmp/** = archivos temporales (se borran al reiniciar)
+
+### finn-kunde.py — encuentra la carpeta de un cliente
+Busca en ~/kunder/ por nombre de empresa, email o dominio. Util cuando
+llega una actualizacion y necesitas saber que carpeta es. Sin mayusculas.
+
+```
+python3 finn-kunde.py <texto>
+python3 finn-kunde.py skien
+```
