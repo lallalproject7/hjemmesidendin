@@ -251,7 +251,6 @@
                         <div class="seksjon-grid" style="margin-top:.5rem">
                             <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Google-anmeldelser" data-sub="google" data-pris="990"> ⭐ Google-anmeldelser</span><span class="seksjon-pris">990 kr</span></label>
                             <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Dekningskart" data-sub="kart" data-pris="990"> 🗺️ Dekningskart</span><span class="seksjon-pris">990 kr</span></label>
-                            <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Kundeomtaler" data-sub="omtaler" data-pris="790"> 💬 Kundeomtaler</span><span class="seksjon-pris">790 kr</span></label>
                             <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="FAQ" data-sub="faq" data-pris="790"> ❓ FAQ</span><span class="seksjon-pris">790 kr</span></label>
                             <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Priser/pakker" data-sub="priser" data-pris="790"> 💰 Priser/pakker</span><span class="seksjon-pris">790 kr</span></label>
                             <label class="seksjon-kort"><span><input type="radio" name="seksjon_type" value="Sertifiseringer og garantier" data-sub="sertifisering" data-pris="790"> 🏅 Sertifiseringer</span><span class="seksjon-pris">790 kr</span></label>
@@ -284,27 +283,6 @@
                             <label for="g_trustpilot">Trustpilot <span class="valgfri" style="font-weight:400; color:var(--pine-soft)">(valgfritt – kun hvis du allerede har profil med anmeldelser)</span></label>
                             <span class="forklaring">Har du en aktiv Trustpilot-profil, kan vi legge inn en lenke til den.</span>
                             <input type="text" id="g_trustpilot" name="g_trustpilot" placeholder="https://no.trustpilot.com/review/...">
-                        </div>
-                    </div>
-
-                    <!-- SUB: Kundeomtaler -->
-                    <div class="sub-dyn" id="sub-omtaler">
-                        <p class="sub-tittel">💬 Kundeomtaler</p>
-                        <p class="best-del-hint" style="margin-bottom:1rem">Skriv inn omtaler du har fått fra kunder. La stå tomt om du har færre enn tre.</p>
-                        <div class="par-blokk">
-                            <span class="par-nr">Omtale 1</span>
-                            <div class="bfelt" style="margin-bottom:.5rem"><textarea name="omtale1_tekst" rows="2" placeholder="F.eks: «De holdt tiden og ryddet opp hver dag.»"></textarea></div>
-                            <div class="bfelt" style="margin:0"><input type="text" name="omtale1_navn" placeholder="Navn og sted – f.eks: Kari N. · Skien"></div>
-                        </div>
-                        <div class="par-blokk">
-                            <span class="par-nr">Omtale 2</span>
-                            <div class="bfelt" style="margin-bottom:.5rem"><textarea name="omtale2_tekst" rows="2"></textarea></div>
-                            <div class="bfelt" style="margin:0"><input type="text" name="omtale2_navn" placeholder="Navn og sted"></div>
-                        </div>
-                        <div class="par-blokk">
-                            <span class="par-nr">Omtale 3</span>
-                            <div class="bfelt" style="margin-bottom:.5rem"><textarea name="omtale3_tekst" rows="2"></textarea></div>
-                            <div class="bfelt" style="margin:0"><input type="text" name="omtale3_navn" placeholder="Navn og sted"></div>
                         </div>
                     </div>
 
@@ -682,7 +660,7 @@ const dynMap = {
 
         // Selección de sección (menú) → muestra sus campos
         const subMap = {
-            google: "sub-google", omtaler: "sub-omtaler", sertifisering: "sub-sertifisering",
+            google: "sub-google", sertifisering: "sub-sertifisering",
             faq: "sub-faq", priser: "sub-priser", kart: "sub-kart",
             apningstider: "sub-apningstider", prosess: "sub-prosess", sosiale: "sub-sosiale"
         };
@@ -815,11 +793,6 @@ const dynMap = {
                     t += "Visning:       " + valgtRadio("g_visning") + "\n";
                     t += "Be om-knapp:   " + (document.querySelector('[name="g_be_om"]:checked') ? "Ja" : "Nei") + "\n";
                     t += "Trustpilot:    " + (v("g_trustpilot") || "(ikke aktuelt)") + "\n";
-                } else if (sub === "omtaler") {
-                    for (let i = 1; i <= 3; i++) {
-                        const tk = v("omtale" + i + "_tekst");
-                        if (tk) t += "Omtale " + i + ": «" + tk + "» – " + (v("omtale" + i + "_navn") || "(uten navn)") + "\n";
-                    }
                 } else if (sub === "sertifisering") {
                     for (let i = 1; i <= 3; i++) {
                         const nv = v("sert" + i + "_navn");
