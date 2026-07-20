@@ -271,7 +271,6 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 
 .section-alt {
     background: var(--surface);
-    border-block: 1px solid var(--line);
 }
 
 .grid { display: grid; gap: 1.4rem; }
@@ -401,7 +400,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     background: var(--pine);
     color: #c9d6cf;
     padding-top: 3.5rem;
-    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, .08);
 }
 
 .footer-inner {
@@ -1319,4 +1318,26 @@ summary:focus-visible {
     mask-image: radial-gradient(ellipse 80% 75% at 78% 30%, #000, transparent 78%);
     -webkit-mask-image: radial-gradient(ellipse 80% 75% at 78% 30%, #000, transparent 78%);
     pointer-events: none;
+}
+
+/* ===== Cristal mejorado (más visible) ===== */
+#slik .step,
+#hvorfor .grunn,
+#faq .faq-item,
+#bransjer .bransje-kort,
+#prosessen .tid-steg,
+#pris .priskort {
+    background: rgba(255, 255, 255, .035);
+    border: 1px solid rgba(255, 255, 255, .09);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .06),
+        0 4px 16px rgba(0, 0, 0, .12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* ===== Línea divisoria nítida entre TODAS las secciones ===== */
+.section {
+    border-top: 1px solid rgba(255, 255, 255, .08);
 }
