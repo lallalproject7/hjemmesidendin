@@ -1203,3 +1203,68 @@ summary:focus-visible {
 
 .design-flyttebyra-1 { background: linear-gradient(150deg, #23272e, #e8613c); }
 .design-flyttebyra-2 { background: linear-gradient(150deg, #2d2440, #e8b93f); }
+/* ===== PILOTO: seksjon "Slik fungerer det" mørk ===== */
+#slik {
+    background: var(--pine);
+}
+#slik .eyebrow {
+    color: var(--signal);
+}
+#slik h2 {
+    color: #f2ede2;
+}
+#slik .step {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+#slik .step h3 {
+    color: #f2ede2;
+}
+#slik .step p {
+    color: rgba(242, 237, 226, .78);
+}
+#slik .step-num {
+    background: var(--signal);
+    color: var(--pine);
+}
+
+/* ===== BLOQUE 1: seksjoner mørke med glass ===== */
+#bransjer, #hvorfor, #faq {
+    background: var(--pine);
+}
+#bransjer .eyebrow, #hvorfor .eyebrow, #faq .eyebrow {
+    color: var(--signal);
+}
+#bransjer h2, #hvorfor h2, #faq h2,
+#bransjer .section-lead, #hvorfor .section-lead {
+    color: #f2ede2;
+}
+/* Kort: grunn */
+#hvorfor .grunn {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+#hvorfor .grunn h3 { color: #f2ede2; }
+#hvorfor .grunn p { color: rgba(242, 237, 226, .78); }
+/* Kort: faq */
+#faq .faq-item {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+#faq .faq-item summary { color: #f2ede2; }
+#faq .faq-item p { color: rgba(242, 237, 226, .78); }
+/* Kort: bransje */
+#bransjer .bransje-kort {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+#bransjer .bransje-kort h3 { color: #f2ede2; }
+#bransjer .bransje-kort p { color: rgba(242, 237, 226, .78); }
