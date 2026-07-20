@@ -159,12 +159,14 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     position: absolute;
     inset: 0;
     background:
-        /* Mykt varmt lys øverst til høyre – veldig subtilt */
-        radial-gradient(ellipse 65% 50% at 82% 18%, rgba(232, 100, 27, .08), transparent 60%),
-        /* Dypere grønt nede til venstre */
-        radial-gradient(ellipse 60% 55% at 12% 90%, rgba(20, 40, 32, .5), transparent 62%),
-        /* Skoggrønn base */
-        linear-gradient(160deg, #234a3b, var(--pine));
+        /* Kobber-lys øverst til høyre – mindre */
+        radial-gradient(circle at 88% 12%, rgba(217, 139, 92, .34), transparent 44%),
+        /* Frisk skoggrønn nede til venstre – mindre */
+        radial-gradient(circle at 5% 92%, rgba(46, 110, 78, .48), transparent 44%),
+        /* Myk midtglød – veldig subtil */
+        radial-gradient(circle at 55% 45%, rgba(74, 140, 100, .10), transparent 55%),
+        /* Mørk skoggrønn base – mer dominerende */
+        linear-gradient(150deg, #17352a, #081711);
 }
 /* Fin tekstur – rolig dybde */
 .hero-bg::after {
