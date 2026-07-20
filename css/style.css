@@ -3,10 +3,10 @@
    Palette: deep forest / warm sand / signal orange
    ========================================================= */
 :root {
-    --pine: #1d3a2f;          /* deep forest green – headers & dark blocks */
-    --pine-soft: #45594f;     /* softer green-grey for body text */
-    --signal: #e8641b;        /* signal orange – primary action */
-    --signal-dark: #c24f0e;
+    --pine: #10231b;          /* deep forest green – headers & dark blocks */
+    --pine-soft: #3a4a40;     /* softer green-grey for body text */
+    --signal: #9e4a26;        /* signal orange – primary action */
+    --signal-dark: #823c1f;
     --sand: #e2d9c7;          /* warm beige background */
     --surface: #f2ede2;       /* soft cream (ikke ren hvit) */
     --line: #e3ded3;
