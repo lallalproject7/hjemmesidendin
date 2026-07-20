@@ -1268,3 +1268,55 @@ summary:focus-visible {
 }
 #bransjer .bransje-kort h3 { color: #f2ede2; }
 #bransjer .bransje-kort p { color: rgba(242, 237, 226, .78); }
+
+/* ===== BLOQUE 2: pris + prosessen mørke ===== */
+#prosessen {
+    background: var(--pine);
+}
+#pris {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 60% 50% at 82% 18%, rgba(232, 100, 27, .1), transparent 60%),
+        radial-gradient(ellipse 55% 50% at 15% 88%, rgba(20, 40, 32, .45), transparent 62%),
+        linear-gradient(160deg, #234a3b, var(--pine));
+}
+#pris > .container { position: relative; z-index: 1; }
+#pris .eyebrow, #prosessen .eyebrow {
+    color: var(--signal);
+}
+#pris h2, #prosessen h2,
+#pris .section-lead, #prosessen .section-lead {
+    color: #f2ede2;
+}
+#pris .pris-note { color: rgba(242, 237, 226, .70); }
+/* Priskort som glass slik at det skiller seg fra bakgrunnen */
+#pris .priskort {
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+/* Timeline-steg */
+#prosessen .tid-steg {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+#prosessen .tid-steg h3 { color: #f2ede2; }
+#prosessen .tid-steg p { color: rgba(242, 237, 226, .78); }
+
+/* Textura de cuadrícula para la sección de precio (como oppdateringer) */
+#pris::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(ellipse 80% 75% at 78% 30%, #000, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 75% at 78% 30%, #000, transparent 78%);
+    pointer-events: none;
+}
