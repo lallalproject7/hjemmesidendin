@@ -1716,9 +1716,9 @@ strong, b { color: #f2ede2; }
 #faq h2 { color: #f2ede2; }
 #faq .section-lead { color: rgba(242, 237, 226, .8); }
 #faq .faq-item {
-    background: #e9e2d2;
-    border: 1px solid #ddd5c4;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, .2);
+    background: #b3afa3;
+    border: 1px solid #a29e91;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }
@@ -1784,4 +1784,185 @@ strong, b { color: #f2ede2; }
 }
 @media (prefers-reduced-motion: reduce) {
     #pris .priskort::before, #pris .priskort .btn-primary { animation: none; }
+}
+
+/* ===== HERO LIMPIO: sobriedad noruega ===== */
+.hero-bg {
+    background:
+        radial-gradient(ellipse 75% 60% at 70% 8%, rgba(230, 163, 115, .10), transparent 55%),
+        radial-gradient(ellipse 130% 90% at 50% 115%, rgba(0, 0, 0, .55), transparent 60%),
+        linear-gradient(160deg, #163327, #081711) !important;
+}
+.hero-bg::before,
+.hero-bg::after {
+    display: none !important;
+}
+
+/* ===== Slik: gris-beige piedra (claro refinado) ===== */
+#slik {
+    background: linear-gradient(165deg, #d4d1c9, #c6c2b8);
+}
+#slik .eyebrow { color: #b06a3e; }
+#slik h2 { color: #1f2a24; }
+#slik .section-lead { color: #5a5750; }
+#slik .step {
+    background: #b3afa3;
+    border: 1px solid #a29e91;
+    box-shadow: 0 6px 20px rgba(50, 45, 38, .16);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+#slik .step h3 { color: #1f2a24; }
+#slik .step p { color: #5a5750; }
+#slik .step-num { background: #c2744a; color: #fff; }
+
+/* ===== PALETA C: crema CTA + azul hielo (sin naranja) ===== */
+:root {
+    --signal: #5aa4d4;
+    --signal-dark: #4189b8;
+}
+/* CTA crema */
+.btn-primary {
+    background: linear-gradient(180deg, #f5f2ec, #ddd7c8) !important;
+    color: #12241b !important;
+    border: 1.5px solid #0d1a14 !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 8px 20px rgba(0,0,0,.3) !important;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 12px 26px rgba(0,0,0,.42) !important;
+}
+/* Footer y links */
+.footer a { color: #a8d4ec; }
+/* Hero: luz azul tenue */
+.hero-bg {
+    background:
+        radial-gradient(ellipse 75% 60% at 70% 8%, rgba(90, 164, 212, .09), transparent 55%),
+        radial-gradient(ellipse 130% 90% at 50% 115%, rgba(0, 0, 0, .55), transparent 60%),
+        linear-gradient(160deg, #163327, #081711) !important;
+}
+/* Fire grunner: azul noche (rørlegger) en vez de naranja */
+#hvorfor {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(168, 212, 236, .07), transparent 50%),
+        linear-gradient(150deg, #232b36, #1a212a);
+}
+#hvorfor .eyebrow { color: #a8d4ec; }
+#hvorfor .grunn {
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .13);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .25);
+}
+/* Slik: acentos azules */
+#slik .eyebrow { color: #4189b8; }
+#slik .step-num { background: #5aa4d4; color: #0d1f2a; }
+/* Precio: órbita y holograma azul-verde */
+#pris .priskort::before {
+    background: conic-gradient(from 0deg,
+        transparent 40%, #4d9670 47%, #a8d4ec 50%, #5aa4d4 53%, transparent 60%);
+}
+#pris .pris-belop {
+    background: linear-gradient(120deg, #f2ede2 20%, #a8d4ec 45%, #8fc9a8 70%, #f2ede2 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    filter: drop-shadow(0 0 22px rgba(168, 212, 236, .3));
+}
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(168, 212, 236, .3), inset 0 1px 0 rgba(255,255,255,.5); }
+    50%      { box-shadow: 0 0 34px rgba(168, 212, 236, .55), inset 0 1px 0 rgba(255,255,255,.6); }
+}
+/* Carrusel: tarjetas sin naranja */
+.ben-oransje { background: linear-gradient(140deg, #5aa4d4, #37678a); }
+.ben-kobber  { background: linear-gradient(140deg, #8fc9a8, #4d7a62); }
+/* Sección pris: radiales sin cobre */
+#pris {
+    background:
+        radial-gradient(ellipse 60% 50% at 82% 18%, rgba(90, 164, 212, .09), transparent 60%),
+        radial-gradient(ellipse 55% 50% at 15% 88%, rgba(30, 92, 58, .5), transparent 62%),
+        linear-gradient(160deg, #234a3b, var(--pine)) !important;
+}
+
+/* Slik = estilo Fire grunner (azul noche) + resto paleta C */
+#slik {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(168, 212, 236, .07), transparent 50%),
+        linear-gradient(150deg, #232b36, #1a212a);
+}
+#slik .eyebrow { color: #a8d4ec; }
+#slik h2 { color: #f2ede2; }
+#slik .section-lead { color: rgba(242, 237, 226, .8); }
+#slik .step {
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .13);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+#slik .step h3 { color: #f2ede2; }
+#slik .step p { color: rgba(242, 237, 226, .78); }
+#slik .step-num { background: #5aa4d4; color: #0d1f2a; }
+#hvorfor .grunn h3 { color: #fff; }
+#hvorfor .grunn p { color: rgba(242, 237, 226, .8); }
+#pris .priskort::before {
+    background: conic-gradient(from 0deg, transparent 40%, #4d9670 47%, #a8d4ec 50%, #5aa4d4 53%, transparent 60%);
+}
+#pris .pris-belop {
+    background: linear-gradient(120deg, #f2ede2 20%, #a8d4ec 45%, #8fc9a8 70%, #f2ede2 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    filter: drop-shadow(0 0 22px rgba(168, 212, 236, .3));
+}
+.ben-oransje { background: linear-gradient(140deg, #5aa4d4, #37678a); }
+.ben-kobber  { background: linear-gradient(140deg, #8fc9a8, #4d7a62); }
+
+/* ===== Hero estilo fotograf-moderne: dramático ===== */
+.hero-bg {
+    background:
+        radial-gradient(circle at 78% 18%, rgba(90, 164, 212, .12), transparent 45%),
+        radial-gradient(ellipse 130% 90% at 50% 115%, rgba(0, 0, 0, .7), transparent 60%),
+        linear-gradient(165deg, #12100e, #070606) !important;
+}
+.hero h1 {
+    font-size: clamp(2.8rem, 6.5vw, 4.6rem);
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.02;
+}
+.hero h1 .typed-farge,
+.hero h1 span {
+    color: #a8d4ec;
+}
+.hero .eyebrow, .hero-badge {
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-size: .78rem;
+    color: #a8d4ec;
+    border-color: rgba(168, 212, 236, .35);
+}
+.hero-stat strong { color: #f5f2ec; }
+.hero-stat span { color: rgba(245, 242, 236, .55); }
+
+/* Hero: proporción contenida, acento crema */
+.hero h1 {
+    font-size: clamp(2.3rem, 4.5vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.08;
+}
+.hero h1 .typed-farge,
+.hero h1 span {
+    color: #f5f2ec;
+    opacity: .85;
+}
+.hero .eyebrow, .hero-badge {
+    color: rgba(245, 242, 236, .6);
+    border-color: rgba(245, 242, 236, .25);
+}
+.hero-bg {
+    background:
+        radial-gradient(ellipse 80% 55% at 72% 5%, rgba(245, 242, 236, .05), transparent 55%),
+        radial-gradient(ellipse 130% 90% at 50% 115%, rgba(0, 0, 0, .6), transparent 60%),
+        linear-gradient(165deg, #14231c, #070d0a) !important;
 }
