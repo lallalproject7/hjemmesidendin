@@ -1436,43 +1436,117 @@ summary:focus-visible {
 /* ===== Capturas de demos: armonizadas ===== */
 .bransje-kort .mockup {
     position: relative;
-    filter: saturate(.5);
-    transition: filter .3s ease;
+    transition: transform .3s ease;
 }
 /* Overlay verde sutil encima de la captura */
-.bransje-kort .mockup::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(16, 35, 27, .4);
-    transition: opacity .3s ease;
-}
+
 /* Al pasar el cursor: recupera color y quita el velo */
 .bransje-kort:hover .mockup {
-    filter: saturate(1);
-}
-.bransje-kort:hover .mockup::after {
-    opacity: 0;
+    transform: scale(1.04);
 }
 
 /* ===== Capturas de demos: armonizadas ===== */
 .bransje-kort .mockup {
     position: relative;
-    filter: saturate(.5);
-    transition: filter .3s ease;
+    transition: transform .3s ease;
 }
 /* Overlay verde sutil encima de la captura */
-.bransje-kort .mockup::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(16, 35, 27, .4);
-    transition: opacity .3s ease;
-}
+
 /* Al pasar el cursor: recupera color y quita el velo */
 .bransje-kort:hover .mockup {
-    filter: saturate(1);
+    transform: scale(1.04);
 }
-.bransje-kort:hover .mockup::after {
-    opacity: 0;
+
+/* ===== REDISEÑO PRECIO: editorial con glow (concepto 3) ===== */
+#pris .priskort {
+    background:
+        radial-gradient(circle at 72% 28%, rgba(217, 139, 92, .22), transparent 50%),
+        radial-gradient(circle at 20% 82%, rgba(46, 110, 78, .38), transparent 52%),
+        #0a1811 !important;
+    border: 1px solid rgba(255, 255, 255, .08) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    text-align: center;
+    padding: 3rem 2.4rem !important;
+}
+#pris .pris-belop {
+    font-size: 4.5rem !important;
+    text-shadow: 0 0 40px rgba(217, 139, 92, .4);
+    margin-bottom: .3rem;
+}
+#pris .pris-under {
+    font-size: 1.05rem;
+    margin-bottom: 2rem !important;
+}
+/* Beneficios en 2 columnas, centrados */
+#pris .pris-liste {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .7rem 2rem;
+    text-align: left;
+    max-width: 620px;
+    margin: 0 auto 2rem;
+}
+/* El botón centrado y más grande */
+#pris .priskort .btn-primary {
+    box-shadow: 0 0 30px rgba(217, 139, 92, .4), inset 0 1px 0 rgba(255,255,255,.25);
+    margin-top: .5rem;
+}
+/* Bloque anual centrado */
+#pris .pris-arsavgift {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width: 640px) {
+    #pris .pris-liste { grid-template-columns: 1fr; }
+    #pris .pris-belop { font-size: 3.2rem !important; }
+}
+
+/* ===== Carrusel de beneficios (colores fuertes) ===== */
+.pris-lenker {
+    margin-top: 1rem;
+    font-size: .9rem;
+    color: rgba(242, 237, 226, .6);
+}
+.pris-lenker a { color: rgba(242, 237, 226, .75); text-decoration: underline; }
+.pris-lenker span { margin: 0 .5rem; }
+
+.ben-carrusel-wrap {
+    margin: 2.5rem 0 2rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ben-carrusel-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: ben-slide 30s linear infinite;
+}
+.ben-carrusel-wrap:hover .ben-carrusel-track {
+    animation-play-state: paused;
+}
+@keyframes ben-slide {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.ben-kort {
+    width: 210px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    padding: 1.3rem 1.2rem;
+    color: #fff;
+    font-size: .92rem;
+    font-weight: 600;
+    line-height: 1.35;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+}
+.ben-ikon { display: block; font-size: 1.6rem; margin-bottom: .6rem; }
+.ben-oransje { background: linear-gradient(140deg, #e8641b, #b8481a); }
+.ben-gronn   { background: linear-gradient(140deg, #3d8a5a, #1e4433); }
+.ben-kobber  { background: linear-gradient(140deg, #d98b5c, #a85528); }
+.ben-gronn2  { background: linear-gradient(140deg, #4a9d5f, #26603a); }
+@media (prefers-reduced-motion: reduce) {
+    .ben-carrusel-track { animation: none; flex-wrap: wrap; justify-content: center; }
 }
