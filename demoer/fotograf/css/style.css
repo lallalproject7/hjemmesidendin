@@ -1,0 +1,385 @@
+/* ============================================
+   Nordlys Foto – klassisk elegant
+   Palette: krem / kull / gyllen bronse
+   ============================================ */
+
+:root {
+    --krem: #faf7f2;
+    --krem-dyp: #f1ece3;
+    --kull: #1f1c18;
+    --kull-myk: #55504a;
+    --bronse: #a8814f;
+    --bronse-dyp: #8a6437;
+    --linje: #e4ddd0;
+    --radius: 4px;
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: "Inter", -apple-system, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--krem);
+    color: var(--kull-myk);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--kull);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 2.2rem; }
+h3 { font-size: 1.25rem; }
+
+.eyebrow {
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--bronse);
+    margin-bottom: .8rem;
+}
+
+.section { padding-block: 5.5rem; }
+.section-alt { background: var(--krem-dyp); }
+
+/* ---------- Header ---------- */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 247, 242, .94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--linje);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.1rem;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--kull);
+    text-decoration: none;
+}
+.logo span { color: var(--bronse); font-style: italic; }
+
+.nav { display: flex; gap: 1.8rem; align-items: center; }
+.nav a {
+    color: var(--kull-myk);
+    text-decoration: none;
+    font-size: .95rem;
+    font-weight: 500;
+}
+.nav a:hover { color: var(--bronse-dyp); }
+
+.nav-cta {
+    border: 1px solid var(--bronse);
+    color: var(--bronse-dyp) !important;
+    padding: .5rem 1.2rem;
+    border-radius: 999px;
+    transition: all .2s ease;
+}
+.nav-cta:hover { background: var(--bronse); color: #fff !important; }
+
+/* ---------- Knapper ---------- */
+
+.btn {
+    display: inline-block;
+    font-weight: 600;
+    font-size: .95rem;
+    padding: .8rem 1.9rem;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all .22s ease;
+}
+
+.btn-primary {
+    background: var(--kull);
+    color: var(--krem);
+}
+.btn-primary:hover { background: var(--bronse-dyp); transform: translateY(-1px); }
+
+.btn-ghost {
+    border-color: var(--kull);
+    color: var(--kull);
+}
+.btn-ghost:hover { background: var(--kull); color: var(--krem); }
+
+/* ---------- Hero ---------- */
+
+.hero { padding-block: 4.5rem 5.5rem; }
+
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-lead {
+    font-size: 1.12rem;
+    max-width: 46ch;
+    margin-block: 1.4rem 2.2rem;
+}
+
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.hero-bilde img {
+    border-radius: var(--radius);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    box-shadow: 24px 24px 0 var(--krem-dyp);
+}
+
+/* ---------- Tjenester ---------- */
+
+.tjeneste-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.2rem;
+}
+
+.tjeneste img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 1.1rem;
+    filter: saturate(.92);
+    transition: filter .3s ease;
+}
+.tjeneste:hover img { filter: saturate(1.05); }
+
+.tjeneste h3 { margin-bottom: .4rem; }
+.tjeneste p { font-size: .95rem; margin-bottom: .7rem; }
+
+.tjeneste-pris {
+    font-size: .88rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    color: var(--bronse-dyp);
+    text-transform: uppercase;
+}
+
+/* ---------- Galleri ---------- */
+
+.galleri-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.galleri-grid img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+.galleri-grid img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 28px rgba(31, 28, 24, .18);
+}
+
+/* ---------- Om ---------- */
+
+.om-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.om-bilde img {
+    border-radius: var(--radius);
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    box-shadow: -20px 20px 0 var(--krem-dyp);
+}
+
+.om-tekst p { margin-bottom: 1rem; max-width: 52ch; }
+
+/* ---------- Priser ---------- */
+
+.pris-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+    align-items: start;
+}
+
+.priskort {
+    background: var(--krem);
+    border: 1px solid var(--linje);
+    border-radius: var(--radius);
+    padding: 2.2rem 1.9rem;
+    text-align: center;
+}
+
+.priskort.utvalgt {
+    border-color: var(--bronse);
+    box-shadow: 0 16px 36px rgba(138, 100, 55, .14);
+}
+
+.priskort h3 { margin-bottom: .3rem; }
+
+.pris {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--bronse-dyp);
+    margin-bottom: 1.2rem;
+}
+
+.priskort ul {
+    list-style: none;
+    text-align: left;
+    font-size: .93rem;
+}
+.priskort li {
+    padding: .45rem 0 .45rem 1.4rem;
+    position: relative;
+    border-top: 1px solid var(--linje);
+}
+.priskort li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--bronse);
+}
+
+/* ---------- Kontakt ---------- */
+
+.kontakt-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.kontakt-info { margin-top: 1.6rem; line-height: 1.9; }
+
+.kontakt-skjema {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    background: var(--krem-dyp);
+    padding: 2rem;
+    border-radius: var(--radius);
+}
+
+.kontakt-skjema label {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--kull);
+}
+
+.kontakt-skjema input,
+.kontakt-skjema select,
+.kontakt-skjema textarea {
+    font-family: inherit;
+    font-size: .96rem;
+    padding: .7rem .85rem;
+    border: 1px solid var(--linje);
+    border-radius: var(--radius);
+    background: var(--krem);
+    color: var(--kull);
+}
+
+.kontakt-skjema input:focus,
+.kontakt-skjema select:focus,
+.kontakt-skjema textarea:focus {
+    outline: 2px solid var(--bronse);
+    outline-offset: 1px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: var(--kull);
+    color: #c9c2b8;
+    padding-top: 3.5rem;
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer h3 {
+    color: var(--krem);
+    font-size: 1rem;
+    margin-bottom: .7rem;
+}
+
+.footer p { font-size: .93rem; margin-bottom: .35rem; }
+.footer a { color: #d9b98c; text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+.footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--krem);
+}
+.footer-logo span { color: var(--bronse); font-style: italic; }
+
+.footer-bottom {
+    margin-top: 2.5rem;
+    padding-block: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    font-size: .85rem;
+}
+
+/* ---------- Demo-band ---------- */
+
+.demo-band {
+    background: var(--bronse);
+    color: #fff;
+    padding-block: 1.6rem;
+}
+
+.demo-band .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.demo-band .btn-primary { background: var(--kull); }
+
+/* ---------- Responsivt ---------- */
+
+@media (max-width: 900px) {
+    .hero-inner, .om-inner, .kontakt-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .tjeneste-grid, .pris-grid { grid-template-columns: 1fr; }
+    .galleri-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav { display: none; }
+}

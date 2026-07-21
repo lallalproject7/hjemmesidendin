@@ -1636,3 +1636,11 @@ strong, b { color: #f2ede2; }
 #hvorfor .grunn h3 { color: #fff; }
 #hvorfor .grunn p { color: rgba(255, 245, 235, .88); }
 #hvorfor .eyebrow { color: #5a2c12; }
+
+/* Fotograf-kort */
+.mockup-fotograf {
+    background: linear-gradient(160deg, #3a2f4a, #1e1830);
+    background-image: url("../img/demoer/fotograf.jpg") !important;
+    background-size: cover !important;
+    background-position: top center !important;
+}
