@@ -83,7 +83,18 @@
             .regler { grid-template-columns: 1fr; }
             .bfelt-rekke { grid-template-columns: 1fr; }
         }
-    </style>
+    
+/* === Override: mørk bakgrunn + lyse bokser === */
+:root { --sand: #e9e2d2; --surface: #f2ede2; --line: #ddd5c4; }
+body { background: linear-gradient(150deg, #122c22, #0a1811); color: #d9e3dd; }
+.best-topp h1, h1 { color: #f2ede2; }
+.best-topp p { color: rgba(242, 237, 226, .8); }
+.best-del { background: var(--surface); }
+.best-del h2, .best-del h3, .best-del h4, .best-del label { color: var(--pine); }
+.best-del p, .best-del li, .best-del span { color: var(--pine-soft); }
+input, select, textarea { background: #faf7f0; color: #1d3a2f; border-color: #d5ccba; }
+
+</style>
 </head>
 <body>
 
