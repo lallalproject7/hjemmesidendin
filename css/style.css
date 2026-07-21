@@ -257,7 +257,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     overflow: hidden;
     background:
         radial-gradient(ellipse 60% 50% at 82% 18%, rgba(232, 100, 27, .1), transparent 60%),
-        radial-gradient(ellipse 55% 50% at 15% 88%, rgba(20, 40, 32, .45), transparent 62%),
+        radial-gradient(ellipse 55% 50% at 15% 88%, rgba(30, 92, 58, .5), transparent 62%),
         linear-gradient(160deg, #234a3b, var(--pine));
 }
 #oppdateringer::after {
@@ -1212,8 +1212,8 @@ summary:focus-visible {
 .design-renhold-1 { background: linear-gradient(150deg, #14a098, #0a4a45); }
 .design-renhold-2 { background: linear-gradient(150deg, #7c5cbf, #4a9d5f); }
 
-.design-gartner-1 { background: linear-gradient(150deg, #4c7c3f, #263d20); }
-.design-gartner-2 { background: linear-gradient(150deg, #5a7a4a, #14231a); }
+.design-gartner-1 { background: linear-gradient(135deg, #a8d56a 5%, #6aa845 45%, #2e5c22); }
+.design-gartner-2 { background: linear-gradient(135deg, #0f2418 40%, #1e5c3a 75%, #7ee0a3); }
 
 .design-rorlegger-1 { background: linear-gradient(150deg, #0f2847, #22d3ee); }
 .design-rorlegger-2 { background: linear-gradient(150deg, #f6f4f1, #3f7d5c); }
@@ -1295,7 +1295,7 @@ summary:focus-visible {
     overflow: hidden;
     background:
         radial-gradient(ellipse 60% 50% at 82% 18%, rgba(232, 100, 27, .1), transparent 60%),
-        radial-gradient(ellipse 55% 50% at 15% 88%, rgba(20, 40, 32, .45), transparent 62%),
+        radial-gradient(ellipse 55% 50% at 15% 88%, rgba(30, 92, 58, .5), transparent 62%),
         linear-gradient(160deg, #234a3b, var(--pine));
 }
 #pris > .container { position: relative; z-index: 1; }
@@ -1643,4 +1643,145 @@ strong, b { color: #f2ede2; }
     background-image: url("../img/demoer/fotograf.jpg") !important;
     background-size: cover !important;
     background-position: top center !important;
+}
+
+/* Vistas previas demos fotograf */
+.design-fotograf-1 { background: linear-gradient(135deg, #faf7f2 30%, #d9c49a 65%, #a8814f) !important; }
+.design-fotograf-2 { background: linear-gradient(135deg, #0c0b09 55%, #3a2415 80%, #ff5c1f) !important; }
+
+/* ===== Hero: aurora boreal ===== */
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    pointer-events: none;
+    background: linear-gradient(115deg,
+        transparent 30%,
+        rgba(52, 168, 110, .30) 45%,
+        rgba(126, 224, 163, .20) 52%,
+        rgba(217, 139, 92, .12) 60%,
+        transparent 72%);
+    background-size: auto;
+    background-position: 0 0;
+    filter: blur(24px);
+    animation: aurora-flow 12s ease-in-out infinite;
+}
+@keyframes aurora-flow {
+    0%, 100% { transform: translateX(-6%) skewX(-8deg); }
+    50%      { transform: translateX(6%) skewX(-8deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg::before { animation: none; }
+}
+
+/* ===== Ritmo de color: secciones carbón cálido ===== */
+#slik, #prosessen {
+    background:
+        radial-gradient(circle at 85% 15%, rgba(217, 139, 92, .08), transparent 45%),
+        linear-gradient(160deg, #1a1714, #0e0c0a);
+}
+#slik .step, #prosessen .tid-steg {
+    border-color: rgba(255, 255, 255, .1);
+}
+
+/* ===== Footer: carbón cálido (cierre) ===== */
+.footer {
+    background: linear-gradient(180deg, #12100d, #0a0908);
+    border-top: 1px solid rgba(255, 255, 255, .07);
+}
+
+/* ===== Slik fungerer det: sección clara (respiro) ===== */
+#slik {
+    background: linear-gradient(160deg, #f2ede2, #e9e2d2);
+}
+#slik .eyebrow { color: #c2744a; }
+#slik h2 { color: #1d3a2f; }
+#slik .section-lead { color: #55504a; }
+#slik .step {
+    background: rgba(29, 58, 47, .16);
+    border: 1px solid rgba(29, 58, 47, .22);
+    box-shadow: 0 8px 22px rgba(60, 45, 25, .12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+#slik .step h3 { color: #1d3a2f; }
+#slik .step p { color: #4a463f; }
+#slik .step-num { background: #c2744a; color: #fff; }
+
+/* ===== FAQ: claro con velo translúcido (como slik) ===== */
+#faq {
+    background: linear-gradient(160deg, #122c22, #0a1811);
+}
+#faq .eyebrow { color: var(--signal); }
+#faq h2 { color: #f2ede2; }
+#faq .section-lead { color: rgba(242, 237, 226, .8); }
+#faq .faq-item {
+    background: #e9e2d2;
+    border: 1px solid #ddd5c4;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .2);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+#faq .faq-item summary { color: #1d3a2f; }
+#faq .faq-item p { color: #4a463f; }
+
+/* ===== PRECIO FUTURISTA: borde orbital + holograma ===== */
+#pris .priskort {
+    position: relative;
+    overflow: hidden;
+    border: none !important;
+    background: none !important;
+    padding: 3rem 2.4rem !important;
+}
+#pris .priskort::before {
+    content: "";
+    position: absolute;
+    inset: -60%;
+    background: conic-gradient(from 0deg,
+        transparent 40%, #34a86e 47%, #7ee0a3 50%, #e6a373 53%, transparent 60%);
+    animation: orbit-border 6s linear infinite;
+}
+#pris .priskort::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: calc(var(--radius) * 1.5);
+    background:
+        linear-gradient(rgba(126, 224, 163, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(126, 224, 163, .045) 1px, transparent 1px),
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(52, 168, 110, .2), transparent 55%),
+        linear-gradient(170deg, #0c1a13, #060d09);
+    background-size: 38px 38px, 38px 38px, auto, auto;
+}
+#pris .priskort > * { position: relative; z-index: 2; }
+@keyframes orbit-border {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Precio holográfico */
+#pris .pris-belop {
+    background: linear-gradient(120deg, #f2ede2 20%, #7ee0a3 45%, #e6a373 70%, #f2ede2 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    filter: drop-shadow(0 0 24px rgba(126, 224, 163, .3));
+    text-shadow: none !important;
+}
+/* Botón con glow pulsante */
+#pris .priskort .btn-primary {
+    animation: glow-pulse 3.5s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 22px rgba(230, 163, 115, .35), inset 0 1px 0 rgba(255,255,255,.25); }
+    50%      { box-shadow: 0 0 38px rgba(230, 163, 115, .6), inset 0 1px 0 rgba(255,255,255,.35); }
+}
+/* Carrusel de extremo a extremo (full-bleed) */
+.ben-carrusel-wrap {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+    #pris .priskort::before, #pris .priskort .btn-primary { animation: none; }
 }
