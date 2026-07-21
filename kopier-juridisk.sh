@@ -44,3 +44,5 @@ kopier "portefolje"         "DittFirma"              "post@dittfirma.no"        
 
 echo ""
 echo "Ferdig – 15 mapper × 2 filer"
+kopier "fotograf"           "Nordlys Foto"           "hei@nordlysfoto.no"       "950 00 000"   "Strandgaten 12, 5013 Bergen"    "#1f1c18" "#a8814f" "#faf7f2" "#f1ece3" "#e4ddd0" "#55504a"
+kopier "fotograf-moderne"   "Blende Studio"          "hei@blendestudio.no"      "950 00 000"   "Torggata 15, 0181 Oslo"         "#0c0b09" "#ff5c1f" "#f5f2ec" "#eae6de" "#a09a90" "#55504a"
