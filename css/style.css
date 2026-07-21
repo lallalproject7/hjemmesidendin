@@ -1550,3 +1550,89 @@ summary:focus-visible {
 @media (prefers-reduced-motion: reduce) {
     .ben-carrusel-track { animation: none; flex-wrap: wrap; justify-content: center; }
 }
+
+/* ===== MODO OSCURO GLOBAL (todas las páginas) ===== */
+body {
+    background: linear-gradient(150deg, #122c22, #0a1811);
+    color: #d9e3dd;
+}
+h1, h2, h3, h4 { color: #f2ede2; }
+p, li { color: rgba(242, 237, 226, .78); }
+.section-lead { color: rgba(242, 237, 226, .8); }
+.section-alt { background: rgba(255, 255, 255, .03); }
+/* Inputs legibles: claros con texto oscuro */
+input, select, textarea {
+    background: #f2ede2;
+    color: #1d3a2f;
+}
+label { color: rgba(242, 237, 226, .85); }
+/* Header sobre fondo oscuro */
+.header.scrolled { background: rgba(10, 24, 17, .92); }
+.header.scrolled .logo, .header.scrolled .nav a { color: #f2ede2; }
+
+/* ===== Arreglos de legibilidad modo oscuro ===== */
+/* Textos que quedaron en verde oscuro sobre oscuro */
+.eyebrow { color: var(--signal); }
+a { color: #e6a373; }
+.nav a { color: rgba(242, 237, 226, .85); }
+strong, b { color: #f2ede2; }
+/* Cajas/tarjetas claras que queden en páginas internas: texto oscuro dentro */
+.skjema-boks, .form-kort, .kort, .info-boks {
+    color: #2a3a32;
+}
+.skjema-boks h1, .skjema-boks h2, .skjema-boks h3,
+.form-kort h1, .form-kort h2, .form-kort h3 {
+    color: #1d3a2f;
+}
+/* Footer */
+.footer h3 { color: #f2ede2; }
+
+/* ===== Variables oscuras: convierte todas las cajas claras ===== */
+:root {
+    --surface: rgba(255, 255, 255, .045);
+    --sand: #0d2019;
+    --line: rgba(255, 255, 255, .12);
+}
+
+/* ===== Fire grunner: fondo naranja para romper el verde ===== */
+#hvorfor {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, .18), transparent 50%),
+        linear-gradient(150deg, #e6a373, #c66c40);
+}
+#hvorfor .eyebrow { color: #6b3a1f; }
+#hvorfor h2 { color: #2e1a0e; }
+#hvorfor .grunn { border-top-color: rgba(46, 26, 14, .25); }
+#hvorfor .grunn h3 { color: #2e1a0e; }
+#hvorfor .grunn p { color: rgba(46, 26, 14, .75); }
+
+/* ===== Fire grunner: profundidad + tarjetas cristal oscuro ===== */
+#hvorfor {
+    position: relative;
+    overflow: hidden;
+}
+#hvorfor::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(ellipse 80% 75% at 70% 30%, #000, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 75% at 70% 30%, #000, transparent 78%);
+    pointer-events: none;
+}
+#hvorfor .container { position: relative; z-index: 1; }
+#hvorfor .grunn {
+    background: rgba(20, 30, 24, .55);
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.6rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(90, 40, 10, .25);
+}
+#hvorfor .grunn h3 { color: #fff; }
+#hvorfor .grunn p { color: rgba(255, 245, 235, .88); }
+#hvorfor .eyebrow { color: #5a2c12; }
