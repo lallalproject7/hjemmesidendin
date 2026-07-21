@@ -67,7 +67,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     font-family: var(--font-display);
     font-weight: 600;
     font-size: 1rem;
-    padding: .9rem 1.7rem;
+    padding: .55rem 1.7rem;
     border-radius: 999px;
     border: 2px solid transparent;
     text-decoration: none;
@@ -78,9 +78,10 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 .btn-primary {
     background: linear-gradient(180deg, #e6a373, #c66c40);
     color: #fff;
+    border: 1.5px solid #1a1a1a;
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, .35),
-        0 8px 20px rgba(194, 116, 74, .45);
+        inset 0 1px 0 rgba(255, 255, 255, .25),
+        0 8px 20px rgba(0, 0, 0, .35);
     transition: transform .25s ease, box-shadow .25s ease;
 }
 .btn-primary:hover {
@@ -94,7 +95,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 .btn-ghost:hover { background: var(--pine); color: #fff; }
 
 .btn-small { padding: .55rem 1.2rem; font-size: .92rem; }
-.btn-lg { padding: 1rem 2rem; font-size: 1.05rem; }
+.btn-lg { padding: .7rem 2rem; font-size: 1.05rem; }
 .btn-hero-ghost {
     background: rgba(255, 255, 255, .08);
     border-color: rgba(255, 255, 255, .35);
@@ -171,14 +172,14 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     position: absolute;
     inset: 0;
     background:
-        /* Kobber-lys øverst til høyre – mindre */
-        radial-gradient(circle at 88% 12%, rgba(217, 139, 92, .34), transparent 44%),
-        /* Frisk skoggrønn nede til venstre – mindre */
-        radial-gradient(circle at 5% 92%, rgba(46, 110, 78, .48), transparent 44%),
-        /* Myk midtglød – veldig subtil */
-        radial-gradient(circle at 55% 45%, rgba(74, 140, 100, .10), transparent 55%),
-        /* Mørk skoggrønn base – mer dominerende */
-        linear-gradient(150deg, #17352a, #081711);
+        /* Kobber-lys øverst til høyre – dempet */
+        radial-gradient(circle at 90% 10%, rgba(217, 139, 92, .22), transparent 38%),
+        /* Frisk skoggrønn nede til venstre */
+        radial-gradient(circle at 5% 92%, rgba(46, 110, 78, .38), transparent 44%),
+        /* Mørk kjerne i midten – dyp skog */
+        radial-gradient(circle at 50% 50%, #071510 20%, transparent 60%),
+        /* Base */
+        linear-gradient(150deg, #122c22, #05100c);
 }
 /* Fin tekstur – rolig dybde */
 .hero-bg::after {
@@ -1077,9 +1078,12 @@ summary:focus-visible {
 
 .bransje-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
     margin-top: 2rem;
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .bransje-kort {
@@ -1099,7 +1103,7 @@ summary:focus-visible {
 
 /* Mockup-vindu */
 .mockup {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     padding: .5rem;
     display: flex;
     flex-direction: column;
@@ -1377,4 +1381,98 @@ summary:focus-visible {
     -webkit-backdrop-filter: none;
     padding-left: 0;
     padding-right: 0;
+}
+
+/* ===== Hero: líneas de luz que derivan (movimiento sutil) ===== */
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, transparent, rgba(217, 139, 92, .06), transparent),
+        linear-gradient(90deg, transparent, rgba(60, 135, 95, .07), transparent);
+    background-size: 45% 100%, 35% 100%;
+    background-repeat: no-repeat;
+    background-position: -50% 0, 150% 0;
+    animation: hero-drift 16s linear infinite;
+}
+@keyframes hero-drift {
+    0%   { background-position: -50% 0, 150% 0; }
+    100% { background-position: 150% 0, -50% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg::before { animation: none; }
+}
+
+/* ===== Mockups reemplazados por capturas reales ===== */
+.mockup-elektriker,
+.mockup-rorlegger,
+.mockup-snekker,
+.mockup-maler,
+.mockup-renhold,
+.mockup-gartner,
+.mockup-flyttebyra {
+    background-size: cover !important;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+}
+.mockup-elektriker { background-image: url("../img/demoer/elektriker.jpg") !important; }
+.mockup-rorlegger  { background-image: url("../img/demoer/rorlegger.jpg") !important; }
+.mockup-snekker    { background-image: url("../img/demoer/snekker.jpg") !important; }
+.mockup-maler      { background-image: url("../img/demoer/maler.jpg") !important; }
+.mockup-renhold    { background-image: url("../img/demoer/renhold.jpg") !important; }
+.mockup-gartner    { background-image: url("../img/demoer/gartner.jpg") !important; }
+.mockup-flyttebyra { background-image: url("../img/demoer/flyttebyra.jpg") !important; }
+
+/* Ocultar las barras internas del mockup viejo */
+.bransje-kort .mockup-bar,
+.bransje-kort .mockup-hero,
+.bransje-kort .mockup-innhold {
+    display: none !important;
+}
+
+/* ===== Capturas de demos: armonizadas ===== */
+.bransje-kort .mockup {
+    position: relative;
+    filter: saturate(.5);
+    transition: filter .3s ease;
+}
+/* Overlay verde sutil encima de la captura */
+.bransje-kort .mockup::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(16, 35, 27, .4);
+    transition: opacity .3s ease;
+}
+/* Al pasar el cursor: recupera color y quita el velo */
+.bransje-kort:hover .mockup {
+    filter: saturate(1);
+}
+.bransje-kort:hover .mockup::after {
+    opacity: 0;
+}
+
+/* ===== Capturas de demos: armonizadas ===== */
+.bransje-kort .mockup {
+    position: relative;
+    filter: saturate(.5);
+    transition: filter .3s ease;
+}
+/* Overlay verde sutil encima de la captura */
+.bransje-kort .mockup::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(16, 35, 27, .4);
+    transition: opacity .3s ease;
+}
+/* Al pasar el cursor: recupera color y quita el velo */
+.bransje-kort:hover .mockup {
+    filter: saturate(1);
+}
+.bransje-kort:hover .mockup::after {
+    opacity: 0;
 }
