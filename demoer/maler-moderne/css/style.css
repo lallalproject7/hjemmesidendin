@@ -507,3 +507,9 @@ button.fargekort { color: inherit; }
     color: #fff !important;
     transform: translateY(-1px);
 }
+
+/* --- Fix: texto del botón befaring siempre claro --- */
+.section-farger a.farge-cta,
+a.farge-cta { color: var(--papir) !important; }
+.section-farger a.farge-cta:hover,
+a.farge-cta:hover { color: #fff !important; }
