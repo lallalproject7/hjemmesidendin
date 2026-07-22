@@ -1,0 +1,37 @@
+<script>
+// Fargevelger med ekte bilder
+        (function () {
+            const knapper = document.querySelectorAll(".fargekort");
+            const foto = document.getElementById("veggFoto");
+            const navn = document.getElementById("valgtNavn");
+            const besk = document.getElementById("valgtBeskrivelse");
+            const tittel = document.getElementById("valgtTittel");
+            const fargefelt = document.getElementById("onsketFarge");
+            if (!foto) return;
+
+            const alleKlasser = ["vf-arbeid1","vf-arbeid2","vf-arbeid3","vf-arbeid4","vf-arbeid5","vf-arbeid6"];
+
+            knapper.forEach(k => {
+                k.addEventListener("click", () => {
+                    knapper.forEach(x => x.classList.remove("aktiv"));
+                    k.classList.add("aktiv");
+                    foto.classList.remove(...alleKlasser);
+                    foto.classList.add(k.dataset.klasse);
+                    if (tittel) tittel.textContent = k.dataset.tittel;
+                    navn.textContent = k.dataset.navn;
+                    besk.textContent = k.dataset.besk;
+                    if (fargefelt) fargefelt.value = k.dataset.navn;
+                });
+            });
+        })();
+
+        // Scroll reveal
+        (function () {
+            const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (reduce || !("IntersectionObserver" in window)) return;
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("vis"); io.unobserve(e.target); } });
+            }, { threshold: 0.12 });
+            document.querySelectorAll(".tj-kort, .verk").forEach(el => { el.classList.add("reveal"); io.observe(el); });
+        })();
+    </script>
