@@ -383,3 +383,28 @@ h1 em, h2 em { font-style: normal; color: var(--oransje); }
     .nav a:not(.nav-cta) { display: none; }
     .footer-inner, .footer-meta { text-align: left; }
 }
+/* --- Filtros de galería --- */
+.arbeid-filter {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+.filter-btn {
+    font-family: var(--font-display);
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .5rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--linje);
+    background: none;
+    color: var(--grå);
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.filter-btn:hover { color: var(--hvit); border-color: rgba(255, 255, 255, .3); }
+.filter-btn.aktiv {
+    background: var(--oransje);
+    border-color: var(--oransje);
+    color: var(--svart);
+}

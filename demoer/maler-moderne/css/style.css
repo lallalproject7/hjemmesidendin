@@ -1,19 +1,19 @@
 /* ============================================
-   Fargerom – malermester, galleri-estetikk
-   Palette: varm hvit / blekk / fire malingsfarger
+   Sjatteret – malermester
+   Hero oscuro con foto · secciones claro/oscuro
    ============================================ */
 
 :root {
-    --papir: #faf8f4;
-    --papir-dyp: #f1ede5;
-    --blekk: #1a1816;
-    --blekk-myk: #55514b;
-    --blaa: #2f5d8a;
-    --gull: #c9a227;
-    --terra: #b4553a;
-    --gronn: #5a7d5a;
-    --linje: #e5dfd3;
-    --radius: 10px;
+    --papir: #f6f3ee;
+    --papir-dyp: #ece7df;
+    --svart: #1a1815;
+    --svart-myk: #232019;
+    --hvit: #f4f1ec;
+    --blekk-myk: #57534c;
+    --graa: #a29a8f;
+    --terra: #c15f38;
+    --kant: #e2dbcf;
+    --kant-mork: rgba(255, 255, 255, .1);
     --font-display: "Space Grotesk", sans-serif;
     --font-body: "Inter", -apple-system, sans-serif;
 }
@@ -25,22 +25,22 @@ body {
     font-family: var(--font-body);
     background: var(--papir);
     color: var(--blekk-myk);
-    line-height: 1.7;
+    line-height: 1.68;
 }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
 img { max-width: 100%; display: block; }
 
 h1, h2, h3 {
     font-family: var(--font-display);
-    color: var(--blekk);
+    color: var(--svart);
+    line-height: 1.06;
     font-weight: 700;
-    line-height: 1.08;
     letter-spacing: -.02em;
 }
-h1 { font-size: clamp(2.6rem, 5.5vw, 4rem); }
-h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 2rem; }
-h3 { font-size: 1.15rem; }
+h1 { font-size: clamp(2.8rem, 6.5vw, 4.6rem); letter-spacing: -.03em; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); margin-bottom: 2rem; }
+h3 { font-size: 1.2rem; }
 h1 em { font-style: normal; color: var(--terra); }
 
 .eyebrow {
@@ -48,52 +48,55 @@ h1 em { font-style: normal; color: var(--terra); }
     font-weight: 600;
     letter-spacing: .18em;
     text-transform: uppercase;
-    color: var(--blaa);
+    color: var(--terra);
     margin-bottom: .9rem;
 }
 
 .seksjon { padding-block: 5.5rem; }
-.seksjon-morkere { background: var(--papir-dyp); }
+
+/* Secciones oscuras intercaladas */
+.seksjon-mork { background: var(--svart); }
+.seksjon-mork h2 { color: var(--hvit); }
+.seksjon-mork .eyebrow { color: #e39468; }
 
 /* ---------- Header ---------- */
 .header {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 0; left: 0; right: 0;
     z-index: 50;
-    background: rgba(250, 248, 244, .93);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--linje);
+    background: linear-gradient(rgba(26, 24, 21, .8), transparent);
+    backdrop-filter: blur(6px);
 }
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 1.1rem;
+    padding-block: 1.3rem;
 }
 .logo {
     font-family: var(--font-display);
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    color: var(--blekk);
+    color: var(--hvit);
     text-decoration: none;
+    letter-spacing: -.01em;
 }
-.logo span { color: var(--terra); }
-.nav { display: flex; gap: 1.7rem; align-items: center; }
+.nav { display: flex; gap: 2rem; align-items: center; }
 .nav a {
-    color: var(--blekk-myk);
+    color: var(--hvit);
     text-decoration: none;
-    font-size: .93rem;
+    font-size: .92rem;
     font-weight: 500;
+    opacity: .85;
 }
-.nav a:hover { color: var(--blekk); }
+.nav a:hover { opacity: 1; color: #e39468; }
 .nav-cta {
-    background: var(--blekk);
-    color: var(--papir) !important;
-    padding: .55rem 1.3rem;
+    border: 1px solid rgba(255, 255, 255, .5);
+    padding: .5rem 1.3rem;
     border-radius: 999px;
-    transition: background .2s ease;
+    opacity: 1 !important;
 }
-.nav-cta:hover { background: var(--terra); }
+.nav-cta:hover { background: var(--terra); border-color: var(--terra); color: #fff !important; }
 
 /* ---------- Knapper ---------- */
 .btn {
@@ -108,175 +111,183 @@ h1 em { font-style: normal; color: var(--terra); }
     border: 1px solid transparent;
     transition: all .22s ease;
 }
-.btn-mork { background: var(--blekk); color: var(--papir); }
-.btn-mork:hover { background: var(--terra); transform: translateY(-1px); }
-.btn-ghost { border-color: var(--blekk); color: var(--blekk); }
-.btn-ghost:hover { background: var(--blekk); color: var(--papir); }
+.btn-fyll { background: var(--terra); color: #fff; }
+.btn-fyll:hover { background: #a54c2a; transform: translateY(-2px); }
+.btn-linje { border-color: rgba(255, 255, 255, .5); color: var(--hvit); }
+.btn-linje:hover { background: rgba(255, 255, 255, .1); }
 
-/* ---------- Hero ---------- */
-.hero { padding-block: 5rem 5.5rem; }
-.hero-swatches { display: flex; gap: .6rem; margin-bottom: 1.8rem; }
-.hero-swatches span {
-    width: 44px;
-    height: 58px;
-    border-radius: 8px 8px 22px 22px;
-    background: var(--c);
-    box-shadow: inset 0 -14px 0 rgba(0, 0, 0, .12), 0 6px 14px rgba(26, 24, 22, .18);
-    transition: transform .25s ease;
+/* ---------- Hero: oscuro con foto grande ---------- */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background: var(--svart);
 }
-.hero-swatches span:hover { transform: translateY(-6px) rotate(-3deg); }
-.hero-lead { font-size: 1.12rem; max-width: 52ch; margin-block: 1.4rem 2.2rem; }
+.hero-blokk {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(26, 24, 21, .35), rgba(26, 24, 21, .9) 88%),
+        url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1600&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+}
+.ral-kode {
+    position: absolute;
+    right: 2.2rem;
+    top: 6rem;
+    z-index: 3;
+    color: rgba(244, 241, 236, .5);
+    font-family: "Courier New", monospace;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    writing-mode: vertical-rl;
+}
+.hero-innhold { position: relative; z-index: 2; width: 100%; padding-bottom: 5rem; }
+.hero-innhold h1 { color: var(--hvit); }
+.hero-lead {
+    font-size: 1.15rem;
+    color: rgba(244, 241, 236, .85);
+    max-width: 42ch;
+    margin-block: 1.4rem 2.2rem;
+}
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-/* ---------- Tjenester ---------- */
+/* ---------- Tjenester (claro) ---------- */
 .tjeneste-liste { display: flex; flex-direction: column; }
 .tjeneste-rad {
     display: grid;
     grid-template-columns: auto 1fr auto;
-    gap: 1.6rem;
+    gap: 1.8rem;
     align-items: center;
-    padding-block: 1.6rem;
-    border-top: 1px solid var(--linje);
-    transition: padding-left .22s ease;
+    padding-block: 1.7rem;
+    border-top: 1px solid var(--kant);
+    transition: padding-left .25s ease;
 }
-.tjeneste-rad:last-child { border-bottom: 1px solid var(--linje); }
+.tjeneste-rad:last-child { border-bottom: 1px solid var(--kant); }
 .tjeneste-rad:hover { padding-left: .8rem; }
-.tj-farge {
-    width: 34px;
-    height: 34px;
+.tj-prikk {
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    background: var(--c);
-    box-shadow: inset 0 -6px 0 rgba(0, 0, 0, .14);
+    background: var(--akse);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--akse) 20%, transparent);
 }
+.tjeneste-rad h3 { color: var(--svart); }
 .tjeneste-rad p { font-size: .95rem; margin-top: .2rem; }
-.tj-pil {
-    font-size: 1.3rem;
-    color: var(--linje);
-    transition: color .2s ease, transform .2s ease;
+.tj-ral {
+    font-family: "Courier New", monospace;
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--graa);
+    letter-spacing: .05em;
+    white-space: nowrap;
 }
-.tjeneste-rad:hover .tj-pil { color: var(--terra); transform: translateX(4px); }
 
-/* ---------- Prosjekter ---------- */
-.prosjekt-grid {
+/* ---------- Arbeid (oscuro, fotos grandes) ---------- */
+.arbeid-rad {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.4rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
 }
-.prosjekt { position: relative; overflow: hidden; border-radius: var(--radius); }
-.prosjekt img {
-    aspect-ratio: 4 / 3;
+.arbeid-kort { position: relative; border-radius: 10px; overflow: hidden; }
+.arbeid-kort img {
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     width: 100%;
     transition: transform .45s ease;
 }
-.prosjekt:hover img { transform: scale(1.04); }
-.prosjekt figcaption {
+.arbeid-kort:hover img { transform: scale(1.05); }
+.arbeid-kort figcaption {
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    padding: 2rem 1.2rem .9rem;
-    background: linear-gradient(180deg, transparent, rgba(26, 24, 22, .82));
+    padding: 2.2rem 1.1rem .9rem;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .82));
     color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
 }
-.prosjekt figcaption strong { font-family: var(--font-display); font-size: .98rem; }
-.prosjekt figcaption span { font-size: .82rem; opacity: .85; }
+.arbeid-kort figcaption strong { display: block; font-family: var(--font-display); font-size: 1rem; }
+.arbeid-kort figcaption span { font-size: .82rem; opacity: .82; }
 
-/* ---------- Om ---------- */
+/* ---------- Om (claro): mosaico de swatches ---------- */
 .om-inner {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: 1.1fr 1fr;
     gap: 3.5rem;
     align-items: center;
 }
 .om-tekst p { margin-bottom: 1rem; max-width: 52ch; }
-.om-bilde {
-    border-radius: var(--radius);
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
+.om-tall { display: flex; gap: 2.2rem; margin-top: 1.8rem; flex-wrap: wrap; }
+.om-tall strong { display: block; font-family: var(--font-display); font-size: 1.5rem; color: var(--svart); }
+.om-tall span { font-size: .85rem; }
+.om-farge-kart {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .5rem;
+    aspect-ratio: 1;
 }
-.om-fakta {
-    display: flex;
-    gap: 2.2rem;
-    margin-top: 1.8rem;
-    flex-wrap: wrap;
+.om-farge-kart span {
+    background: var(--c);
+    border-radius: 8px;
+    transition: transform .25s ease;
 }
-.om-fakta strong {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    color: var(--blekk);
-}
-.om-fakta span { font-size: .85rem; }
+.om-farge-kart span:hover { transform: scale(1.08); z-index: 1; }
 
-/* ---------- Kontakt ---------- */
-.seksjon-cta { background: var(--papir-dyp); }
+/* ---------- Kontakt (oscuro) ---------- */
+.seksjon-cta { background: var(--svart-myk); }
+.seksjon-cta h2 { color: var(--hvit); }
 .kontakt-inner {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
     gap: 3.5rem;
     align-items: start;
 }
-.kontakt-info { margin-top: 1.5rem; line-height: 1.9; }
-.kontakt-skjema {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background: var(--papir);
-    border: 1px solid var(--linje);
-    padding: 1.8rem;
-    border-radius: var(--radius);
-}
+.kontakt-tekst { margin-top: .8rem; color: rgba(244, 241, 236, .8); }
+.kontakt-info { margin-top: 1.4rem; line-height: 1.9; color: var(--hvit); }
+.kontakt-skjema { display: flex; flex-direction: column; gap: 1rem; }
 .kontakt-skjema label {
     display: flex;
     flex-direction: column;
     gap: .35rem;
-    font-size: .88rem;
+    font-family: var(--font-display);
+    font-size: .85rem;
     font-weight: 600;
-    color: var(--blekk);
+    color: var(--hvit);
+    letter-spacing: .04em;
 }
 .kontakt-skjema input,
 .kontakt-skjema select,
 .kontakt-skjema textarea {
-    font-family: inherit;
+    font-family: var(--font-body);
     font-size: .95rem;
-    padding: .7rem .85rem;
-    border: 1px solid var(--linje);
-    border-radius: 7px;
-    background: #fff;
-    color: var(--blekk);
+    padding: .8rem .9rem;
+    border: 1px solid var(--kant-mork);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .05);
+    color: var(--hvit);
 }
 .kontakt-skjema input:focus,
 .kontakt-skjema select:focus,
 .kontakt-skjema textarea:focus {
-    outline: 2px solid var(--blaa);
+    outline: 2px solid var(--terra);
     outline-offset: 1px;
 }
+.kontakt-skjema select option { background: var(--svart-myk); }
 
 /* ---------- Footer ---------- */
-.footer { background: var(--blekk); color: #b5afa6; padding-top: 3.2rem; }
-.footer-inner {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
-    gap: 2rem;
-}
-.footer h3 { color: var(--papir); font-size: 1rem; margin-bottom: .6rem; }
+.footer { background: var(--svart); color: #a29a8f; padding-top: 3.2rem; }
+.footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
+.footer h3 { color: var(--hvit); font-size: 1rem; margin-bottom: .6rem; }
 .footer p { font-size: .92rem; margin-bottom: .3rem; }
-.footer a { color: #d9b48a; text-decoration: none; }
+.footer a { color: #e39468; text-decoration: none; }
 .footer a:hover { text-decoration: underline; }
-.footer-logo {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--papir);
-}
-.footer-logo span { color: var(--terra); }
-.footer-bottom {
+.footer-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--hvit); }
+.footer-bunn {
     margin-top: 2.4rem;
     padding-block: 1.1rem;
-    border-top: 1px solid rgba(255, 255, 255, .12);
+    border-top: 1px solid var(--kant-mork);
     font-size: .84rem;
 }
 
@@ -289,227 +300,14 @@ h1 em { font-style: normal; color: var(--terra); }
     gap: 1.5rem;
     flex-wrap: wrap;
 }
-.demo-band .btn-mork:hover { background: var(--papir); color: var(--blekk); }
+.demo-band strong { font-family: var(--font-display); }
+.demo-band .btn-fyll { background: var(--svart); color: #fff; }
+.demo-band .btn-fyll:hover { background: #000; }
 
 /* ---------- Responsivt ---------- */
 @media (max-width: 900px) {
     .om-inner, .kontakt-inner { grid-template-columns: 1fr; gap: 2.4rem; }
-    .prosjekt-grid { grid-template-columns: 1fr; }
+    .arbeid-rad { grid-template-columns: 1fr; }
+    .ral-kode { display: none; }
     .nav a:not(.nav-cta) { display: none; }
 }
-/* =========================================================
-   Berg Malerfirma – demo stylesheet (Design: "Kulør")
-   Palette: varm beige med grønt snev, levende malingsfarger
-   Ekte bilder fra Unsplash (fri kommersiell bruk)
-   ========================================================= */
-
-:root {
-    --blekk: #33292b;          /* mørk – varm undertone */
-    --blekk-lys: #574548;      /* mørk lys */
-    --terra: #b8613f;          /* terrakotta – dempet */
-    --hav: #36566f;            /* støvblå */
-    --salvie: #adb09d;         /* salviegrønn */
-    --sol: #d2c6b8;            /* sandbeige */
-    --vin: #5a5b4b;            /* dyp grønn */
-    --skifer: #565656;         /* mørk grafitt */
-    --kritt: #ece4dd;          /* terrakotta vasket – bakgrunn */
-    --krem: #ddd2c8;           /* dypere – vekslende felt */
-    --surface: #ffffff;
-    --line: #cbbcaf;           /* linje */
-    --tekst: #635550;          /* brødtekst */
-    --tekst-lys: #ddd2c8;      /* tekst på mørk */
-    --radius: 16px;
-    --font-display: "Outfit", sans-serif;
-    --font-body: "Inter", sans-serif;
-    /* Alias – brukes av tilleggsseksjoner */
-    --hsd-hoved: var(--terra);
-    --hsd-mork: var(--blekk);
-    --hsd-bak: var(--kritt);
-    --hsd-flate: var(--surface);
-    --hsd-linje: var(--line);
-    --hsd-tekst: var(--tekst);
-
-}
-
-/* ===== SECCIÓN INTERACTIVA DE COLORES (rescatada de 548f699) ===== */
-/* ---------- Interaktiv fargevelger ---------- */
-.section-farger { padding-block: 5.5rem; }
-.farge-verktoy {
-    display: grid;
-    grid-template-columns: 1.15fr .85fr;
-    gap: 2.5rem;
-    align-items: stretch;
-}
-
-/* Fargevisning med ekte bilder */
-.vegg {
-    position: relative;
-    border-radius: var(--radius);
-    overflow: hidden;
-    min-height: 480px;
-    box-shadow: 0 18px 50px rgba(45, 42, 62, .14);
-    background: #e8e4dd;
-}
-.vegg-foto {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: opacity .35s ease;
-}
-
-
-.vegg-navn {
-    position: absolute;
-    top: 1.3rem;
-    left: 1.3rem;
-    z-index: 3;
-    background: rgba(255,255,255,.94);
-    backdrop-filter: blur(6px);
-    padding: .7rem 1.1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.1);
-}
-.vegg-navn strong {
-    display: block;
-    font-family: var(--font-display);
-    color: var(--blekk);
-    font-size: 1.05rem;
-}
-.vegg-navn span { font-size: .85rem; color: var(--tekst); }
-
-.vegg-navn strong {
-    display: block;
-    font-family: var(--font-display);
-    color: var(--blekk);
-    font-size: 1.05rem;
-}
-.vegg-navn span { font-size: .85rem; color: var(--tekst); }
-
-
-/* Panel med fargevalg */
-.farge-panel {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 1.8rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.farge-panel-tittel {
-    font-family: var(--font-display);
-    font-weight: 600;
-    color: var(--blekk);
-    margin-bottom: .2rem;
-}
-.farge-panel-under {
-    font-size: .88rem;
-    color: var(--tekst);
-    margin-bottom: 1.2rem;
-}
-
-.fargekart {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: .8rem;
-    margin-bottom: 1.5rem;
-}
-
-.fargekort {
-    background: none;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    padding: .4rem;
-    cursor: pointer;
-    text-align: center;
-    transition: transform .15s ease, border-color .15s ease;
-    font: inherit;
-}
-.fargekort:hover { transform: translateY(-3px); }
-.fargekort.aktiv { border-color: var(--blekk); }
-.fargekort span {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 8px;
-    margin-bottom: .4rem;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
-}
-.fargekort strong {
-    display: block;
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: .72rem;
-    color: var(--tekst);
-}
-.farge-cta { margin-top: auto; }
-.farge-note { font-size: .82rem; color: var(--tekst); text-align: center; margin-top: .8rem; }
-
-
-/* --- Fotos de pared del color picker --- */
-/* ---------- Arbeid-visning ---------- */
-.vegg-tittel {
-    display: block;
-    font-size: .78rem;
-    font-weight: 600;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--terra);
-    margin-bottom: .2rem;
-}
-
-/* Demobilder – kundens egne bilder erstatter disse */
-.vf-arbeid1 { background-image: url("https://images.unsplash.com/photo-1686604523080-b6fad5fe591d?q=80&w=1200&auto=format&fit=crop"); }
-.vf-arbeid2 { background-image: url("https://images.unsplash.com/photo-1722942430337-c195f49747fa?q=80&w=1200&auto=format&fit=crop"); }
-.vf-arbeid3 { background-image: url("https://images.unsplash.com/photo-1723258341178-8462de68b8a0?q=80&w=1200&auto=format&fit=crop"); }
-.vf-arbeid4 { background-image: url("https://images.unsplash.com/photo-1721739494036-b63ddedf9d80?q=80&w=1200&auto=format&fit=crop"); }
-.vf-arbeid5 { background-image: url("https://images.unsplash.com/photo-1721743137841-971baaccf20e?q=80&w=1200&auto=format&fit=crop"); }
-.vf-arbeid6 { background-image: url("https://images.unsplash.com/photo-1750325276350-a8e23c1fc32c?q=80&w=1200&auto=format&fit=crop"); }
-
-
-
-/* --- Fix lila: outline de foco + enlace CTA --- */
-.fargekort:focus,
-.fargekort:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--terra);
-    border-radius: 12px;
-}
-.farge-cta,
-.section-farger a {
-    color: var(--blaa) !important;
-}
-.farge-cta:hover { color: var(--terra) !important; }
-/* Botones sin fondo azul por defecto */
-.fargekort { -webkit-tap-highlight-color: transparent; }
-button.fargekort { color: inherit; }
-
-/* --- Botón "Be om befaring" (color picker CTA) --- */
-.farge-cta {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: var(--blekk) !important;
-    color: var(--papir) !important;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: .95rem;
-    padding: .95rem 1.5rem;
-    border-radius: 999px;
-    text-decoration: none;
-    border: 1px solid transparent;
-    transition: all .22s ease;
-    margin-top: 1.4rem;
-}
-.farge-cta:hover {
-    background: var(--terra) !important;
-    color: #fff !important;
-    transform: translateY(-1px);
-}
-
-/* --- Fix: texto del botón befaring siempre claro --- */
-.section-farger a.farge-cta,
-a.farge-cta { color: var(--papir) !important; }
-.section-farger a.farge-cta:hover,
-a.farge-cta:hover { color: #fff !important; }
