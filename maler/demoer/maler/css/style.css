@@ -1,439 +1,515 @@
-/* =========================================================
-   [FIRMANAVN] – stylesheet (Design: "Palett")
-   Palette: kritthvit / blekkblå / malingsprikker
-   Light airy look – paint swatches as design element
-   ========================================================= */
+/* ============================================
+   Fargerom – malermester, galleri-estetikk
+   Palette: varm hvit / blekk / fire malingsfarger
+   ============================================ */
 
 :root {
-    --blekk: [FARGE_MORK];           /* ink blue – headers */
-    --blekk-deep: [FARGE_MORK_DYP];      /* darkest – footer */
-    --primary: [FARGE_HOVED];         /* painter blue – primary action */
-    --primary-dark: [FARGE_HOVED_MORK];
-    --kritt: [FARGE_BAKGRUNN];           /* chalk white background */
-    --surface: #ffffff;
-    --line: #e6e3dd;
-    --ink-soft: #55617a;        /* body text */
-    /* paint swatch colors */
-    --sw1: #e5a33d;             /* oker */
-    --sw2: #c96f52;             /* terrakotta */
-    --sw3: #7ba374;             /* salvie */
-    --sw4: #5a8fc4;             /* himmelblå */
-    --sw5: #b48ec6;             /* lavendel */
-    --radius: 12px;
-    --font-display: "Outfit", sans-serif;
-    --font-body: "Karla", sans-serif;
-    /* Alias – brukes av tilleggsseksjoner */
-    --hsd-hoved: var(--primary);
-    --hsd-mork: var(--blekk);
-    --hsd-bak: var(--kritt);
-    --hsd-flate: var(--surface);
-    --hsd-linje: var(--line);
-    --hsd-tekst: var(--ink-soft);
-
+    --papir: [FARGE_BAKGRUNN];
+    --papir-dyp: [FARGE_SEKUNDAER];
+    --blekk: [FARGE_MORK];
+    --blekk-myk: #55514b;
+    --blaa: [FARGE_HOVED_LYS];
+    --gull: #c9a227;
+    --terra: [FARGE_HOVED];
+    --gronn: #5a7d5a;
+    --linje: #e5dfd3;
+    --radius: 10px;
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "Inter", -apple-system, sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
     font-family: var(--font-body);
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: var(--ink-soft);
-    background: var(--kritt);
+    background: var(--papir);
+    color: var(--blekk-myk);
+    line-height: 1.7;
 }
 
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 img { max-width: 100%; display: block; }
-
-.container { width: min(1120px, 92%); margin-inline: auto; }
-.container-narrow { width: min(760px, 92%); }
-
-/* ---------- Typography ---------- */
 
 h1, h2, h3 {
     font-family: var(--font-display);
     color: var(--blekk);
-    line-height: 1.12;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -.02em;
 }
-
-h1 { font-size: clamp(2.3rem, 5.5vw, 3.5rem); font-weight: 700; }
-h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 600; margin-bottom: 1.5rem; }
-h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .5rem; }
-
-.accent {
-    background: linear-gradient(120deg, var(--sw1), var(--sw2) 30%, var(--sw3) 60%, var(--sw4));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
+h1 { font-size: clamp(2.6rem, 5.5vw, 4rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 2rem; }
+h3 { font-size: 1.15rem; }
+h1 em { font-style: normal; color: var(--terra); }
 
 .eyebrow {
-    font-family: var(--font-display);
-    font-size: .8rem;
+    font-size: .78rem;
     font-weight: 600;
-    letter-spacing: .15em;
+    letter-spacing: .18em;
     text-transform: uppercase;
-    color: var(--primary);
-    margin-bottom: .6rem;
+    color: var(--blaa);
+    margin-bottom: .9rem;
 }
 
-.section-lead { max-width: 55ch; margin-bottom: 2rem; }
-
-/* ---------- Buttons ---------- */
-
-.btn {
-    display: inline-block;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 1rem;
-    padding: .85rem 1.7rem;
-    border-radius: 999px;
-    border: 2px solid transparent;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
-}
-
-.btn-primary { background: var(--primary); color: #fff; }
-.btn-primary:hover { background: var(--primary-dark); }
-
-.btn-small { padding: .5rem 1.2rem; font-size: .92rem; }
-.btn-block { width: 100%; }
+.seksjon { padding-block: 5.5rem; }
+.seksjon-morkere { background: var(--papir-dyp); }
 
 /* ---------- Header ---------- */
-
 .header {
-    background: var(--kritt);
-    border-bottom: 1px solid var(--line);
     position: sticky;
     top: 0;
     z-index: 50;
+    background: rgba(250, 248, 244, .93);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--linje);
 }
-
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
-    padding-block: .95rem;
+    padding-block: 1.1rem;
 }
-
 .logo {
-    display: flex;
-    align-items: center;
-    gap: .55rem;
-    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
     color: var(--blekk);
+    text-decoration: none;
+}
+.logo span { color: var(--terra); }
+.nav { display: flex; gap: 1.7rem; align-items: center; }
+.nav a {
+    color: var(--blekk-myk);
+    text-decoration: none;
+    font-size: .93rem;
+    font-weight: 500;
+}
+.nav a:hover { color: var(--blekk); }
+.nav-cta {
+    background: var(--blekk);
+    color: var(--papir) !important;
+    padding: .55rem 1.3rem;
+    border-radius: 999px;
+    transition: background .2s ease;
+}
+.nav-cta:hover { background: var(--terra); }
+
+/* ---------- Knapper ---------- */
+.btn {
+    display: inline-block;
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 1.2rem;
-}
-
-.logo strong { color: var(--primary); font-weight: 700; }
-
-.logo-dot {
-    width: .95rem;
-    height: .95rem;
-    border-radius: 50%;
-    background: conic-gradient(var(--sw1), var(--sw2), var(--sw3), var(--sw4), var(--sw5), var(--sw1));
-}
-
-.nav { display: flex; gap: 1.5rem; }
-
-.nav a {
-    text-decoration: none;
-    color: var(--ink-soft);
-    font-weight: 500;
     font-size: .95rem;
+    padding: .85rem 2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all .22s ease;
 }
-.nav a:hover { color: var(--primary); }
+.btn-mork { background: var(--blekk); color: var(--papir); }
+.btn-mork:hover { background: var(--terra); transform: translateY(-1px); }
+.btn-ghost { border-color: var(--blekk); color: var(--blekk); }
+.btn-ghost:hover { background: var(--blekk); color: var(--papir); }
 
 /* ---------- Hero ---------- */
-
-.hero {
-    text-align: center;
-    padding-block: 4.5rem 3rem;
+.hero { padding-block: 5rem 5.5rem; }
+.hero-swatches { display: flex; gap: .6rem; margin-bottom: 1.8rem; }
+.hero-swatches span {
+    width: 44px;
+    height: 58px;
+    border-radius: 8px 8px 22px 22px;
+    background: var(--c);
+    box-shadow: inset 0 -14px 0 rgba(0, 0, 0, .12), 0 6px 14px rgba(26, 24, 22, .18);
+    transition: transform .25s ease;
 }
+.hero-swatches span:hover { transform: translateY(-6px) rotate(-3deg); }
+.hero-lead { font-size: 1.12rem; max-width: 52ch; margin-block: 1.4rem 2.2rem; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-.hero-lead {
-    max-width: 52ch;
-    margin: 1.2rem auto 0;
-    font-size: 1.12rem;
-}
-
-/* Fargekart – swatch strip */
-.fargekart {
-    display: flex;
-    justify-content: center;
-    gap: .6rem;
-    margin-top: 2rem;
-}
-
-.farge {
-    width: 3.4rem;
-    height: 2.2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(43, 58, 85, .15);
-}
-
-.f1 { background: var(--sw1); transform: rotate(-2deg); }
-.f2 { background: var(--sw2); transform: rotate(1.5deg); }
-.f3 { background: var(--sw3); transform: rotate(-1deg); }
-.f4 { background: var(--sw4); transform: rotate(2deg); }
-.f5 { background: var(--sw5); transform: rotate(-1.5deg); }
-
-
-
-
-
-
-
-
-
-/* ---------- Photo placeholders ---------- */
-
-.photo-placeholder {
-    background: linear-gradient(150deg, #3a4c6e, var(--blekk-deep));
-    border-radius: var(--radius);
-    aspect-ratio: 16 / 10;
+/* ---------- Tjenester ---------- */
+.tjeneste-liste { display: flex; flex-direction: column; }
+.tjeneste-rad {
     display: grid;
-    place-items: center;
-    color: #9aa7bf;
-    font-size: .9rem;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.6rem;
+    align-items: center;
+    padding-block: 1.6rem;
+    border-top: 1px solid var(--linje);
+    transition: padding-left .22s ease;
 }
-
-.photo-etter {
-    background:
-        radial-gradient(ellipse 80% 80% at 25% 15%, rgba(229, 163, 61, .2), transparent 60%),
-        linear-gradient(150deg, #4b6390, var(--blekk));
-}
-
-.photo-om { aspect-ratio: 1 / 1; }
-
-/* ---------- Sections & cards ---------- */
-
-.section { padding-block: 4.5rem; }
-
-.section-alt { background: var(--surface); border-block: 1px solid var(--line); }
-
-.grid { display: grid; gap: 1.4rem; }
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
-
-.card {
-    background: var(--kritt);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 1.6rem;
-    position: relative;
-}
-
-.card-dot {
-    display: block;
-    width: 1.1rem;
-    height: 1.1rem;
+.tjeneste-rad:last-child { border-bottom: 1px solid var(--linje); }
+.tjeneste-rad:hover { padding-left: .8rem; }
+.tj-farge {
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    margin-bottom: .8rem;
+    background: var(--c);
+    box-shadow: inset 0 -6px 0 rgba(0, 0, 0, .14);
 }
-
-.d1 { background: var(--sw1); }
-.d2 { background: var(--sw2); }
-.d3 { background: var(--sw3); }
-.d4 { background: var(--sw4); }
-.d5 { background: var(--sw5); }
-
-/* ---------- Form ---------- */
-
-.section-form { background: var(--surface); border-block: 1px solid var(--line); }
-
-.form { display: grid; gap: 1.1rem; margin-top: .5rem; }
-
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
-
-.form-field { display: grid; gap: .35rem; }
-
-.form-field label {
-    font-weight: 600;
-    font-size: .92rem;
-    color: var(--blekk);
+.tjeneste-rad p { font-size: .95rem; margin-top: .2rem; }
+.tj-pil {
+    font-size: 1.3rem;
+    color: var(--linje);
+    transition: color .2s ease, transform .2s ease;
 }
+.tjeneste-rad:hover .tj-pil { color: var(--terra); transform: translateX(4px); }
 
-.form-field input,
-.form-field select,
-.form-field textarea {
-    font: inherit;
-    padding: .75rem .9rem;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    background: var(--kritt);
-    color: var(--blekk);
+/* ---------- Prosjekter ---------- */
+.prosjekt-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
 }
-
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus {
-    outline: 2px solid var(--primary);
-    outline-offset: 1px;
-    border-color: var(--primary);
+.prosjekt { position: relative; overflow: hidden; border-radius: var(--radius); }
+.prosjekt img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+    transition: transform .45s ease;
 }
+.prosjekt:hover img { transform: scale(1.04); }
+.prosjekt figcaption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 2rem 1.2rem .9rem;
+    background: linear-gradient(180deg, transparent, rgba(26, 24, 22, .82));
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+.prosjekt figcaption strong { font-family: var(--font-display); font-size: .98rem; }
+.prosjekt figcaption span { font-size: .82rem; opacity: .85; }
 
-.form-note { font-size: .87rem; color: var(--ink-soft); }
-.form-note a { color: var(--primary); }
-
-/* ---------- Om oss ---------- */
-
+/* ---------- Om ---------- */
 .om-inner {
     display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap: 3rem;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 3.5rem;
     align-items: center;
 }
-
-.om-inner p { margin-bottom: 1rem; }
-
-.hero-trust {
-    list-style: none;
+.om-tekst p { margin-bottom: 1rem; max-width: 52ch; }
+.om-bilde {
+    border-radius: var(--radius);
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+.om-fakta {
     display: flex;
+    gap: 2.2rem;
+    margin-top: 1.8rem;
     flex-wrap: wrap;
-    gap: .5rem 1.5rem;
-    font-size: .93rem;
+}
+.om-fakta strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--blekk);
+}
+.om-fakta span { font-size: .85rem; }
+
+/* ---------- Kontakt ---------- */
+.seksjon-cta { background: var(--papir-dyp); }
+.kontakt-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 3.5rem;
+    align-items: start;
+}
+.kontakt-info { margin-top: 1.5rem; line-height: 1.9; }
+.kontakt-skjema {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--papir);
+    border: 1px solid var(--linje);
+    padding: 1.8rem;
+    border-radius: var(--radius);
+}
+.kontakt-skjema label {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    font-size: .88rem;
     font-weight: 600;
-    margin-top: 1.2rem;
+    color: var(--blekk);
 }
-
-.hero-trust li::before {
-    content: "●";
-    color: var(--sw3);
-    margin-right: .4rem;
+.kontakt-skjema input,
+.kontakt-skjema select,
+.kontakt-skjema textarea {
+    font-family: inherit;
+    font-size: .95rem;
+    padding: .7rem .85rem;
+    border: 1px solid var(--linje);
+    border-radius: 7px;
+    background: #fff;
+    color: var(--blekk);
 }
-
-.hero-trust li:nth-child(2)::before { color: var(--sw1); }
-.hero-trust li:nth-child(3)::before { color: var(--sw4); }
+.kontakt-skjema input:focus,
+.kontakt-skjema select:focus,
+.kontakt-skjema textarea:focus {
+    outline: 2px solid var(--blaa);
+    outline-offset: 1px;
+}
 
 /* ---------- Footer ---------- */
-
-.footer {
-    background: var(--blekk-deep);
-    color: #b8c2d6;
-    padding-top: 3.5rem;
+.footer { background: var(--blekk); color: #b5afa6; padding-top: 3.2rem; }
+.footer-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2rem;
+}
+.footer h3 { color: var(--papir); font-size: 1rem; margin-bottom: .6rem; }
+.footer p { font-size: .92rem; margin-bottom: .3rem; }
+.footer a { color: #d9b48a; text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+.footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--papir);
+}
+.footer-logo span { color: var(--terra); }
+.footer-bottom {
+    margin-top: 2.4rem;
+    padding-block: 1.1rem;
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    font-size: .84rem;
 }
 
-.footer h3 { color: #fff; font-size: 1rem; margin-bottom: .8rem; }
-.footer p { margin-bottom: .45rem; font-size: .95rem; }
-.footer a { color: #9db7e0; text-decoration: none; }
-.footer a:hover { text-decoration: underline; }
-
-.footer-logo {
+/* ---------- Demo-band ---------- */
+.demo-band { background: var(--terra); color: #fff; padding-block: 1.5rem; }
+.demo-band .container {
     display: flex;
     align-items: center;
-    gap: .55rem;
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: #fff;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
-.footer-logo strong { color: #9db7e0; }
+.demo-band .btn-mork:hover { background: var(--papir); color: var(--blekk); }
 
-.footer-bottom {
-    border-top: 1px solid #2c3a58;
-    margin-top: 2.5rem;
-    padding-block: 1.2rem;
-    text-align: center;
-    font-size: .85rem;
-}
-
-/* ---------- Focus & motion ---------- */
-
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid var(--sw1);
-    outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    * { transition: none !important; transform: none !important; }
-}
-
-/* ---------- Responsive ---------- */
-
+/* ---------- Responsivt ---------- */
 @media (max-width: 900px) {
-    .grid-3 { grid-template-columns: 1fr 1fr; }
-    .om-inner { grid-template-columns: 1fr; }
-    .nav { display: none; }
+    .om-inner, .kontakt-inner { grid-template-columns: 1fr; gap: 2.4rem; }
+    .prosjekt-grid { grid-template-columns: 1fr; }
+    .nav a:not(.nav-cta) { display: none; }
+}
+/* =========================================================
+   Berg Malerfirma – demo stylesheet (Design: "Kulør")
+   Palette: varm beige med grønt snev, levende malingsfarger
+   Ekte bilder fra Unsplash (fri kommersiell bruk)
+   ========================================================= */
+
+:root {
+    --blekk: #33292b;          /* mørk – varm undertone */
+    --blekk-lys: #574548;      /* mørk lys */
+    --terra: #b8613f;          /* terrakotta – dempet */
+    --hav: #36566f;            /* støvblå */
+    --salvie: #adb09d;         /* salviegrønn */
+    --sol: #d2c6b8;            /* sandbeige */
+    --vin: #5a5b4b;            /* dyp grønn */
+    --skifer: #565656;         /* mørk grafitt */
+    --kritt: #ece4dd;          /* terrakotta vasket – bakgrunn */
+    --krem: #ddd2c8;           /* dypere – vekslende felt */
+    --surface: #ffffff;
+    --line: #cbbcaf;           /* linje */
+    --tekst: #635550;          /* brødtekst */
+    --tekst-lys: #ddd2c8;      /* tekst på mørk */
+    --radius: 16px;
+    --font-display: "Outfit", sans-serif;
+    --font-body: "Inter", sans-serif;
+    /* Alias – brukes av tilleggsseksjoner */
+    --hsd-hoved: var(--terra);
+    --hsd-mork: var(--blekk);
+    --hsd-bak: var(--kritt);
+    --hsd-flate: var(--surface);
+    --hsd-linje: var(--line);
+    --hsd-tekst: var(--tekst);
+
 }
 
-@media (max-width: 600px) {
-    .grid-3 { grid-template-columns: 1fr; }
-    .foretter-par { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .fargekart { flex-wrap: wrap; }
-}
-
-/* ---------- Demo bestill-banner ---------- */
-/* ---------- Prosjekter ---------- */
-.prosjekt-liste {
+/* ===== SECCIÓN INTERACTIVA DE COLORES (rescatada de 548f699) ===== */
+/* ---------- Interaktiv fargevelger ---------- */
+.section-farger { padding-block: 5.5rem; }
+.farge-verktoy {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
-    margin-top: 2.2rem;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 2.5rem;
+    align-items: stretch;
 }
-.prosjekt {
-    margin: 0;
+
+/* Fargevisning med ekte bilder */
+.vegg {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    min-height: 480px;
+    box-shadow: 0 18px 50px rgba(45, 42, 62, .14);
+    background: #e8e4dd;
+}
+.vegg-foto {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity .35s ease;
+}
+
+
+.vegg-navn {
+    position: absolute;
+    top: 1.3rem;
+    left: 1.3rem;
+    z-index: 3;
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(6px);
+    padding: .7rem 1.1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.1);
+}
+.vegg-navn strong {
+    display: block;
+    font-family: var(--font-display);
+    color: var(--blekk);
+    font-size: 1.05rem;
+}
+.vegg-navn span { font-size: .85rem; color: var(--tekst); }
+
+.vegg-navn strong {
+    display: block;
+    font-family: var(--font-display);
+    color: var(--blekk);
+    font-size: 1.05rem;
+}
+.vegg-navn span { font-size: .85rem; color: var(--tekst); }
+
+
+/* Panel med fargevalg */
+.farge-panel {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    overflow: hidden;
-    transition: transform .18s ease, box-shadow .18s ease;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
 }
-.prosjekt:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(43, 58, 85, .13); }
-.prosjekt .photo-placeholder { border-radius: 0; aspect-ratio: 4 / 3; }
-.prosjekt figcaption { padding: 1.2rem 1.3rem 1.4rem; }
-.prosjekt h3 { font-size: 1.05rem; margin-bottom: .4rem; }
-.prosjekt p { font-size: .9rem; margin: 0; }
 
-@media (max-width: 900px) { .prosjekt-liste { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .prosjekt-liste { grid-template-columns: 1fr; } }
-
-
-/* ---------- Hjemmesidendin-banner (ikke del av kundens design) ---------- */
-.demo-bestill {
-    background: #1d3a2f;
-    border-top: 4px solid #e8641b;
-    text-align: center;
-    padding-block: 4rem;
-    font-family: "Inter", system-ui, sans-serif;
-}
-.demo-bestill-topp,
-.demo-bestill-tekst,
-.demo-eyebrow {
-    font-family: "Space Grotesk", system-ui, sans-serif;
+.farge-panel-tittel {
+    font-family: var(--font-display);
     font-weight: 600;
+    color: var(--blekk);
+    margin-bottom: .2rem;
+}
+.farge-panel-under {
+    font-size: .88rem;
+    color: var(--tekst);
+    margin-bottom: 1.2rem;
+}
+
+.fargekart {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .8rem;
+    margin-bottom: 1.5rem;
+}
+
+.fargekort {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: .4rem;
+    cursor: pointer;
+    text-align: center;
+    transition: transform .15s ease, border-color .15s ease;
+    font: inherit;
+}
+.fargekort:hover { transform: translateY(-3px); }
+.fargekort.aktiv { border-color: var(--blekk); }
+.fargekort span {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    margin-bottom: .4rem;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+}
+.fargekort strong {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: .72rem;
+    color: var(--tekst);
+}
+.farge-cta { margin-top: auto; }
+.farge-note { font-size: .82rem; color: var(--tekst); text-align: center; margin-top: .8rem; }
+
+
+/* --- Fotos de pared del color picker --- */
+/* ---------- Arbeid-visning ---------- */
+.vegg-tittel {
+    display: block;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .1em;
     text-transform: uppercase;
-    letter-spacing: .12em;
-    font-size: .8rem;
-    color: #e8641b;
-    margin-bottom: .5rem;
+    color: var(--terra);
+    margin-bottom: .2rem;
 }
-.demo-bestill h2 {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    color: #fff;
-    margin-bottom: .6rem;
+
+/* Demobilder – kundens egne bilder erstatter disse */
+.vf-arbeid1 { background-image: url("https://images.unsplash.com/photo-1686604523080-b6fad5fe591d?q=80&w=1200&auto=format&fit=crop"); }
+.vf-arbeid2 { background-image: url("https://images.unsplash.com/photo-1722942430337-c195f49747fa?q=80&w=1200&auto=format&fit=crop"); }
+.vf-arbeid3 { background-image: url("https://images.unsplash.com/photo-1723258341178-8462de68b8a0?q=80&w=1200&auto=format&fit=crop"); }
+.vf-arbeid4 { background-image: url("https://images.unsplash.com/photo-1721739494036-b63ddedf9d80?q=80&w=1200&auto=format&fit=crop"); }
+.vf-arbeid5 { background-image: url("https://images.unsplash.com/photo-1721743137841-971baaccf20e?q=80&w=1200&auto=format&fit=crop"); }
+.vf-arbeid6 { background-image: url("https://images.unsplash.com/photo-1750325276350-a8e23c1fc32c?q=80&w=1200&auto=format&fit=crop"); }
+
+
+
+/* --- Fix lila: outline de foco + enlace CTA --- */
+.fargekort:focus,
+.fargekort:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--terra);
+    border-radius: 12px;
 }
-.demo-bestill-pris,
-.demo-bestill > .container > p,
-.demo-bestill > .ramme > p {
-    color: #b8c4bd;
-    margin-bottom: 1.6rem;
+.farge-cta,
+.section-farger a {
+    color: var(--blaa) !important;
 }
-.demo-bestill .btn,
-.demo-bestill .knapp {
-    background: #e8641b;
-    color: #fff;
-    border: none;
-    font-family: "Space Grotesk", system-ui, sans-serif;
+.farge-cta:hover { color: var(--terra) !important; }
+/* Botones sin fondo azul por defecto */
+.fargekort { -webkit-tap-highlight-color: transparent; }
+button.fargekort { color: inherit; }
+
+/* --- Botón "Be om befaring" (color picker CTA) --- */
+.farge-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--blekk) !important;
+    color: var(--papir) !important;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: .95rem;
+    padding: .95rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all .22s ease;
+    margin-top: 1.4rem;
 }
-.demo-bestill .btn:hover,
-.demo-bestill .knapp:hover { background: #c24f0e; }
-.demo-bestill-retur { margin-top: 1.5rem; font-size: .9rem; }
-.demo-bestill-retur a { color: #b8c4bd; text-decoration: underline; }
+.farge-cta:hover {
+    background: var(--terra) !important;
+    color: #fff !important;
+    transform: translateY(-1px);
+}
+
+/* --- Fix: texto del botón befaring siempre claro --- */
+.section-farger a.farge-cta,
+a.farge-cta { color: var(--papir) !important; }
+.section-farger a.farge-cta:hover,
+a.farge-cta:hover { color: #fff !important; }
