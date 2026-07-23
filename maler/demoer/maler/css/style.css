@@ -460,12 +460,12 @@ h1 em { font-style: normal; color: var(--terra); }
 }
 
 /* Demobilder – kundens egne bilder erstatter disse */
-.vf-arbeid1 { background-image: url("https://images.unsplash.com/photo-1686604523080-b6fad5fe591d?q=80&w=1200&auto=format&fit=crop"); }
-.vf-arbeid2 { background-image: url("https://images.unsplash.com/photo-1722942430337-c195f49747fa?q=80&w=1200&auto=format&fit=crop"); }
-.vf-arbeid3 { background-image: url("https://images.unsplash.com/photo-1723258341178-8462de68b8a0?q=80&w=1200&auto=format&fit=crop"); }
-.vf-arbeid4 { background-image: url("https://images.unsplash.com/photo-1721739494036-b63ddedf9d80?q=80&w=1200&auto=format&fit=crop"); }
-.vf-arbeid5 { background-image: url("https://images.unsplash.com/photo-1721743137841-971baaccf20e?q=80&w=1200&auto=format&fit=crop"); }
-.vf-arbeid6 { background-image: url("https://images.unsplash.com/photo-1750325276350-a8e23c1fc32c?q=80&w=1200&auto=format&fit=crop"); }
+.photo-arbeid1 { background-size: cover; background-position: center; }
+.photo-arbeid2 { background-size: cover; background-position: center; }
+.photo-arbeid3 { background-size: cover; background-position: center; }
+.photo-arbeid4 { background-size: cover; background-position: center; }
+.photo-arbeid5 { background-size: cover; background-position: center; }
+.photo-arbeid6 { background-size: cover; background-position: center; }
 
 
 
@@ -513,3 +513,25 @@ button.fargekort { color: inherit; }
 a.farge-cta { color: var(--papir) !important; }
 .section-farger a.farge-cta:hover,
 a.farge-cta:hover { color: #fff !important; }
+
+
+/* ===== Bildeplassholdere (fylles av koble-bilder.py) ===== */
+.photo-placeholder {
+    position: relative;
+    background: #e4ded4;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+.photo-placeholder span {
+    font-size: .78rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(28, 26, 23, .35);
+    text-align: center;
+    padding: .5rem;
+}
+.prosjekt .photo-placeholder { aspect-ratio: 4 / 3; width: 100%; }
+.om-inner .photo-om { aspect-ratio: 4 / 5; border-radius: 10px; width: 100%; }
