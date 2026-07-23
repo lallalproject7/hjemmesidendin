@@ -18,7 +18,7 @@
             <a href="#" class="logo">hjemmesiden<span>din</span></a>
             <nav class="nav">
                 <a href="#slik">Slik fungerer det</a>
-                <a href="#bransjer">Bransjer</a>
+                <a href="endringsrunden.html">Endringsrunden</a>
                 <a href="#pris">Pris</a>
                 <a href="#faq">Spørsmål</a>
                 <a href="om-oss.html">Om oss</a>
@@ -29,10 +29,14 @@
 
  <!-- ===== HERO ===== -->
     <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
+        <div class="hero-lys"></div>
+        <div class="hero-kant"></div>
+        <div class="hero-gulv"></div>
+
+        <div class="hero-tekst">
             <p class="hero-badge">✦ Ferdige nettsider for deg som driver for deg selv</p>
-            <h1>Ferdig hjemmeside for <span class="typed-ord" id="typed"></span><span class="typed-cursor" id="cursor">|</span><br><span class="accent">Uten dyre abonnement.</span></h1>
+            <h1>Velkommen inn<br>i <em>hjemmesidendin.</em></h1>
+            <p class="hero-lead">Velg bransjen din, velg designet du liker – så gjør vi resten.</p>
             <div class="hero-actions">
                 <a href="#bransjer" class="btn btn-primary btn-lg">Se demoer for din bransje</a>
                 <a href="#slik" class="btn btn-hero-ghost btn-lg">Slik fungerer det</a>
@@ -40,9 +44,21 @@
             <div class="hero-stats">
                 <div class="hero-stat"><strong>8 900 kr</strong><span>+ 1200 kr per år</span></div>
                 <div class="hero-stat"><strong>7 dager</strong><span>til siden er på nett</span></div>
-                            </div>
-            <!-- Kapasitet vises nå via Cal.com booking -->
+            </div>
+            <span id="typed" style="display:none"></span><span id="cursor" style="display:none"></span>
         </div>
+
+        <div class="hero-scene">
+            <div class="hero-foto"><img src="img/demoer/elektriker.jpg" alt="Elektriker"><span>Elektriker</span></div>
+            <div class="hero-foto"><img src="img/demoer/rorlegger.jpg" alt="Rørlegger"><span>Rørlegger</span></div>
+            <div class="hero-foto"><img src="img/demoer/maler.jpg" alt="Maler"><span>Maler</span></div>
+            <div class="hero-foto"><img src="img/demoer/fotograf.jpg" alt="Fotograf"><span>Fotograf</span></div>
+            <div class="hero-foto"><img src="img/demoer/snekker.jpg" alt="Snekker"><span>Snekker</span></div>
+            <div class="hero-foto"><img src="img/demoer/gartner.jpg" alt="Gartner"><span>Gartner</span></div>
+        </div>
+
+        <div class="dor dor-v"><div class="dor-lin"></div><span class="dor-merke">HJEMMESIDEN</span></div>
+        <div class="dor dor-h"><div class="dor-lin"></div><span class="dor-merke">DIN</span></div>
     </section>
 
     <!-- ===== SLIK FUNGERER DET ===== -->
@@ -236,7 +252,7 @@
                 <a href="bestill.html" class="btn btn-primary btn-lg">Bestill nettside</a>
 
                 <div class="pris-lenker">
-                    <a href="endringsrunde.html">Slik fungerer endringsrunden</a>
+                    <a href="endringsrunden.html">Slik fungerer endringsrunden</a>
                     <span>·</span>
                     <a href="#oppdateringer">Se priser for oppdateringer</a>
                 </div>
@@ -502,6 +518,40 @@
             }
             tick();
         })();
+    </script>
+<script>
+    (function () {
+        const hero = document.querySelector(".hero");
+        if (!hero) return;
+        const h1 = hero.querySelector("h1");
+        const tekster = [
+            'Velkommen inn<br>i <em>hjemmesidendin.</em>',
+            'Ferdig hjemmeside<br><em>uten dyre abonnement.</em>'
+        ];
+        let i = 0, sist = 0, inne = true;
+        function settTekst() { h1.innerHTML = tekster[i % tekster.length]; i++; }
+        function spill() {
+            hero.classList.remove("spill");
+            void hero.offsetWidth;
+            settTekst();
+            hero.classList.add("spill");
+            sist = Date.now();
+        }
+        function bytt() {
+            h1.classList.add("bytter");
+            setTimeout(function () { settTekst(); h1.classList.remove("bytter"); }, 400);
+        }
+        spill();
+        setInterval(function () { if (inne) bytt(); }, 10000);
+        new IntersectionObserver(function (poster) {
+            poster.forEach(function (p) {
+                if (p.isIntersecting) {
+                    if (!inne && Date.now() - sist > 8000) spill();
+                    inne = true;
+                } else { inne = false; }
+            });
+        }, { threshold: 0.55 }).observe(hero);
+    })();
     </script>
 </body>
 </html>
