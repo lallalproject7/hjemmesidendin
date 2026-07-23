@@ -2734,3 +2734,48 @@ strong, b { color: #f2ede2; }
 }
 @media (max-width: 1000px) { #slik .grid, #slik .grid-4 { grid-template-columns: repeat(3, 1fr) !important; } }
 @media (max-width: 700px)  { #slik .grid, #slik .grid-4 { grid-template-columns: 1fr 1fr !important; } }
+
+/* ===== Årsavgift-kort: ryddig oppsett ===== */
+.pris-arsavgift {
+    display: flex !important;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 1.8rem !important;
+    border-radius: 14px;
+    text-align: left;
+}
+.pris-arsavgift > div {
+    flex: 0 0 auto;
+    min-width: 9.5rem;
+    padding-right: 2rem;
+    border-right: 1px solid rgba(255, 255, 255, .16);
+}
+.pris-arsavgift > div > strong {
+    display: block;
+    font-size: 1.5rem !important;
+    line-height: 1.15;
+    white-space: nowrap;
+}
+.pris-arsavgift > div > span {
+    display: block;
+    font-size: .8rem;
+    opacity: .6;
+    margin-top: .15rem;
+}
+.pris-arsavgift p {
+    margin: 0;
+    font-size: .97rem !important;
+    line-height: 1.6;
+    font-weight: 400;
+}
+/* El strong dentro del texto NO hereda el tamaño del precio */
+.pris-arsavgift p strong {
+    font-size: inherit !important;
+    font-weight: 700;
+    display: inline !important;
+    color: #a8d4ec;
+}
+@media (max-width: 700px) {
+    .pris-arsavgift { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .pris-arsavgift > div { border-right: none; padding-right: 0; }
+}
