@@ -30,7 +30,7 @@
             <div class="hero-tekst">
                 <p class="eyebrow">Fotograf i [BY]</p>
                 <h1>[HERO_TITTEL]</h1>
-                <p class="hero-lead">[HERO_TEKST]</p>
+                <p class="hero-lead">Jeg fanger de ekte øyeblikkene – lyset, latteren og alt det som gjør dagen din unik. Tidløse bilder med et rolig, elegant uttrykk.</p>
                 <div class="hero-actions">
                     <a href="#galleri" class="btn btn-primary">Se galleriet</a>
                     <a href="#kontakt" class="btn btn-ghost">Book fotografering</a>
@@ -73,13 +73,30 @@
         <div class="container">
             <p class="eyebrow">Galleri</p>
             <h2>Et utvalg av arbeidet mitt</h2>
+            <div class="galleri-filter">
+                <button class="gfilter-btn aktiv" data-kat="alle">Alle</button>
+                <button class="gfilter-btn" data-kat="bryllup">Bryllup</button>
+                <button class="gfilter-btn" data-kat="portrett">Portrett</button>
+                <button class="gfilter-btn" data-kat="bedrift">Bedrift</button>
+                <button class="gfilter-btn" data-kat="event">Event</button>
+            </div>
             <div class="galleri-grid">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=700&auto=format&fit=crop" alt="Brudepar i solnedgang">
-                <img src="https://images.unsplash.com/photo-1529634597503-139d3726fed5?q=80&w=700&auto=format&fit=crop" alt="Detaljbilde ringer">
-                <img src="https://images.unsplash.com/photo-1552334823-ca7a70997ad3?q=80&w=700&auto=format&fit=crop" alt="Familieportrett ute">
-                <img src="https://images.unsplash.com/photo-1623091410901-00e2d268901f?q=80&w=700&auto=format&fit=crop" alt="Nyfødtfotografering">
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=700&auto=format&fit=crop" alt="Bedriftsportrett">
-                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=700&auto=format&fit=crop" alt="Bryllupsfest">
+                <figure data-kat="bryllup"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=700&auto=format&fit=crop" alt="Brudepar"></figure>
+                <figure data-kat="bryllup"><img src="https://images.unsplash.com/photo-1529634597503-139d3726fed5?q=80&w=700&auto=format&fit=crop" alt="Ringer"></figure>
+                <figure data-kat="portrett"><img src="https://images.unsplash.com/photo-1552334823-ca7a70997ad3?q=80&w=700&auto=format&fit=crop" alt="Familieportrett"></figure>
+                <figure data-kat="portrett"><img src="https://images.unsplash.com/photo-1623091410901-00e2d268901f?q=80&w=700&auto=format&fit=crop" alt="Nyfødt"></figure>
+                <figure data-kat="bedrift"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=700&auto=format&fit=crop" alt="Bedriftsportrett"></figure>
+                <figure data-kat="event"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=700&auto=format&fit=crop" alt="Bryllupsfest"></figure>
+                <figure data-kat="bryllup"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=700&auto=format&fit=crop" alt="Seremoni"></figure>
+                <figure data-kat="portrett"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=700&auto=format&fit=crop" alt="Portrett ute"></figure>
+                <figure data-kat="bedrift"><img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=700&auto=format&fit=crop" alt="Headshot"></figure>
+                <figure data-kat="event"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=700&auto=format&fit=crop" alt="Konsert"></figure>
+                <figure data-kat="bryllup"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=700&auto=format&fit=crop" alt="Detaljer"></figure>
+                <figure data-kat="portrett"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=700&auto=format&fit=crop" alt="Portrett dame"></figure>
+                <figure data-kat="bedrift"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=700&auto=format&fit=crop" alt="Kontor"></figure>
+                <figure data-kat="event"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=700&auto=format&fit=crop" alt="Festival"></figure>
+                <figure data-kat="bryllup"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=700&auto=format&fit=crop" alt="Bryllup par"></figure>
+                <figure data-kat="portrett"><img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=700&auto=format&fit=crop" alt="Portrett herre"></figure>
             </div>
         </div>
     </section>
@@ -188,5 +205,17 @@
         </div>
     </section>
 
+<script>
+        document.querySelectorAll(".gfilter-btn").forEach(b => {
+            b.addEventListener("click", () => {
+                document.querySelectorAll(".gfilter-btn").forEach(x => x.classList.remove("aktiv"));
+                b.classList.add("aktiv");
+                const kat = b.dataset.kat;
+                document.querySelectorAll(".galleri-grid figure").forEach(f => {
+                    f.style.display = (kat === "alle" || f.dataset.kat === kat) ? "" : "none";
+                });
+            });
+        });
+    </script>
 </body>
 </html>

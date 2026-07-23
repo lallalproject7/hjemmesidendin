@@ -1,5 +1,5 @@
 /* ============================================
-   Nordlys Foto – klassisk elegant
+   [FIRMANAVN] – klassisk elegant
    Palette: krem / kull / gyllen bronse
    ============================================ */
 
@@ -382,4 +382,42 @@ h3 { font-size: 1.25rem; }
     .tjeneste-grid, .pris-grid { grid-template-columns: 1fr; }
     .galleri-grid { grid-template-columns: repeat(2, 1fr); }
     .nav { display: none; }
+}
+/* --- Filtros de galería (estilo clásico) --- */
+.galleri-filter {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.8rem;
+}
+.gfilter-btn {
+    font-family: var(--font-body);
+    font-size: .88rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    padding: .5rem 1.3rem;
+    border-radius: 999px;
+    border: 1px solid var(--linje);
+    background: none;
+    color: var(--kull-myk);
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.gfilter-btn:hover { border-color: var(--bronse); color: var(--bronse-dyp); }
+.gfilter-btn.aktiv {
+    background: var(--bronse);
+    border-color: var(--bronse);
+    color: #fff;
+}
+.galleri-grid figure { margin: 0; }
+.galleri-grid figure img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    width: 100%;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+.galleri-grid figure img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 28px rgba(31, 28, 24, .18);
 }
