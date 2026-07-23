@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[FIRMANAVN] – Portefølje</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="topp">
+        <div class="ramme topp-inn">
+            <a href="#" class="merke">Ditt<span>Firma</span></a>
+            <nav class="meny">
+                <a href="#">Hjem</a>
+                <a href="#">Tjenester</a>
+                <a href="#" class="aktiv">Portefølje</a>
+                <a href="#">Om oss</a>
+                <a href="#kontakt" class="knapp knapp-liten">Kontakt oss</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="ramme">
+            <p class="stikkord">Portefølje</p>
+            <h1>Arbeider vi er stolte av</h1>
+            <p class="intro-tekst">Et utvalg prosjekter vi har levert de siste årene. Klikk deg inn på hvert prosjekt for å se hva vi gjorde, hvordan vi løste det, og hvordan resultatet ble.</p>
+            <div class="intro-tall">
+                <div class="tall-boks"><strong>250+</strong><span>fullførte prosjekter</span></div>
+                <div class="tall-boks"><strong>12</strong><span>år i bransjen</span></div>
+                <div class="tall-boks"><strong>98 %</strong><span>fornøyde kunder</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="galleri">
+        <div class="ramme">
+            <div class="filter" id="filter">
+                <button class="filter-knapp aktiv" data-kat="alle">Alle</button>
+                <button class="filter-knapp" data-kat="bolig">Bolig</button>
+                <button class="filter-knapp" data-kat="bedrift">Bedrift</button>
+                <button class="filter-knapp" data-kat="renovering">Renovering</button>
+                <button class="filter-knapp" data-kat="utendors">Utendørs</button>
+            </div>
+
+            <div class="prosjekt-rutenett" id="rutenett">
+
+                <!-- PROSJEKT 1 -->
+                <article class="prosjekt" data-kat="bolig renovering" tabindex="0" role="button" aria-label="Åpne prosjekt: Komplett oppussing av bad">
+                    <div class="prosjekt-bilde pb1"><span>Bilde: hovedbilde</span></div>
+                    <div class="prosjekt-tekst">
+                        <span class="merkelapp">Renovering</span>
+                        <h3>Komplett oppussing av bad</h3>
+                        <p>Full rehabilitering fra gulv til tak, med membran etter våtromsnormen og varige materialer.</p>
+                        <div class="prosjekt-fot">
+                            <span class="prosjekt-meta">[BY] · 2025</span>
+                            <span class="prosjekt-les">Se prosjektet →</span>
+                        </div>
+                    </div>
+                    <div class="detalj" hidden>
+                        <div class="detalj-hero pb1"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">Renovering</span>
+                        <h2>Komplett oppussing av bad</h2>
+                        <p class="detalj-meta">[BY] · 2025</p>
+                        <div class="detalj-data">
+                            <div><strong>Varighet</strong><span>12 virkedager</span></div>
+                            <div><strong>Omfang</strong><span>Totalrenovering</span></div>
+                            <div><strong>Størrelse</strong><span>6 m²</span></div>
+                            <div><strong>Materialer</strong><span>Flis, membran, eik</span></div>
+                        </div>
+                        <div class="detalj-tekst">
+                            <p>Badet var fra 1987 og hadde synlige fuktskader bak dusjsonen. Kunden ønsket et rom som skulle vare i tretti år til, ikke bare se pent ut på overflaten.</p>
+                            <p>Vi rev ned til bindingsverket, rettet opp fallet mot sluket og la ny membran etter våtromsnormen. Alt arbeidet ble dokumentert underveis, slik at kunden har papirene i orden ved et eventuelt salg. Prosjektet ble levert to dager før avtalt frist.</p>
+                        </div>
+                        <h3 class="detalj-tittel">Før og etter</h3>
+                        <div class="for-etter">
+                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
+                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
+                        </div>
+                        <h3 class="detalj-tittel">Fra prosjektet</h3>
+                        <div class="ekstra-rad">
+                            <div class="ekstra-bilde pb1"><span>Detalj: flisarbeid</span></div>
+                            <div class="ekstra-bilde pb4"><span>Prosess: membran</span></div>
+                            <div class="ekstra-bilde pb6"><span>Detalj: armatur</span></div>
+                        </div>
+                        <blockquote class="detalj-sitat">
+                            <p>«De holdt tiden, ryddet opp hver eneste dag, og forklarte alt underveis. Vi fikk et bad vi ikke trenger å tenke på igjen.»</p>
+                            Kari N. · [BY]
+                        </blockquote>
+                    </div>
+                </article>
+
+                <!-- PROSJEKT 2 -->
+                <article class="prosjekt" data-kat="bedrift" tabindex="0" role="button" aria-label="Åpne prosjekt: Nytt kontorlokale">
+                    <div class="prosjekt-bilde pb2"><span>Bilde: hovedbilde</span></div>
+                    <div class="prosjekt-tekst">
+                        <span class="merkelapp">Bedrift</span>
+                        <h3>Nytt kontorlokale</h3>
+                        <p>Tilpasset løsning for en voksende bedrift, ferdigstilt uten at driften stoppet opp.</p>
+                        <div class="prosjekt-fot">
+                            <span class="prosjekt-meta">Porsgrunn · 2025</span>
+                            <span class="prosjekt-les">Se prosjektet →</span>
+                        </div>
+                    </div>
+                    <div class="detalj" hidden>
+                        <div class="detalj-hero pb2"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">Bedrift</span>
+                        <h2>Nytt kontorlokale</h2>
+                        <p class="detalj-meta">Porsgrunn · 2025</p>
+                        <div class="detalj-data">
+                            <div><strong>Varighet</strong><span>12 virkedager</span></div>
+                            <div><strong>Omfang</strong><span>Innredning og tilpasning</span></div>
+                            <div><strong>Størrelse</strong><span>140 m²</span></div>
+                            <div><strong>Materialer</strong><span>Eik, glass, akustikkplater</span></div>
+                        </div>
+                        <div class="detalj-tekst">
+                            <p>Bedriften hadde vokst fra fire til elleve ansatte og trengte plass som fungerte i praksis – ikke bare på tegningen. Utfordringen var støy i et åpent landskap.</p>
+                            <p>Vi delte lokalet med lette vegger i glass og eik, og monterte akustikkplater i himlingen. Arbeidet foregikk mellom klokken 16 og 22, slik at de ansatte kunne jobbe som vanlig gjennom hele prosjektet.</p>
+                        </div>
+                        <h3 class="detalj-tittel">Før og etter</h3>
+                        <div class="for-etter">
+                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
+                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
+                        </div>
+                        <h3 class="detalj-tittel">Fra prosjektet</h3>
+                        <div class="ekstra-rad">
+                            <div class="ekstra-bilde pb2"><span>Detalj: glassvegg</span></div>
+                            <div class="ekstra-bilde pb5"><span>Prosess: montering</span></div>
+                            <div class="ekstra-bilde pb8"><span>Detalj: himling</span></div>
+                        </div>
+                        <blockquote class="detalj-sitat">
+                            <p>«Vi mistet ikke én arbeidsdag. Det er den beste anbefalingen vi kan gi.»</p>
+                            Tom A. · daglig leder, Porsgrunn
+                        </blockquote>
+                    </div>
+                </article>
+
+                <!-- PROSJEKT 3 -->
+                <article class="prosjekt" data-kat="utendors bolig" tabindex="0" role="button" aria-label="Åpne prosjekt: Terrasse og uteplass">
+                    <div class="prosjekt-bilde pb3"><span>Bilde: hovedbilde</span></div>
+                    <div class="prosjekt-tekst">
+                        <span class="merkelapp">Utendørs</span>
+                        <h3>Terrasse og uteplass</h3>
+                        <p>Et uterom bygget for å tåle norsk vær, med god plass til hele familien.</p>
+                        <div class="prosjekt-fot">
+                            <span class="prosjekt-meta">Bamble · 2024</span>
+                            <span class="prosjekt-les">Se prosjektet →</span>
+                        </div>
+                    </div>
+                    <div class="detalj" hidden>
+                        <div class="detalj-hero pb3"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">Utendørs</span>
+                        <h2>Terrasse og uteplass</h2>
+                        <p class="detalj-meta">Bamble · 2024</p>
+                        <div class="detalj-data">
+                            <div><strong>Varighet</strong><span>8 virkedager</span></div>
+                            <div><strong>Omfang</strong><span>Nybygg</span></div>
+                            <div><strong>Størrelse</strong><span>42 m²</span></div>
+                            <div><strong>Materialer</strong><span>Impregnert furu, glassrekkverk</span></div>
+                        </div>
+                        <div class="detalj-tekst">
+                            <p>Tomten heller mot sjøen, og den gamle terrassen hadde begynt å sige. Kunden ønsket mer plass, men også noe som tålte vind og saltvann over tid.</p>
+                            <p>Vi støpte nye punktfundamenter, bygget bæringen i dimensjoner med god margin, og valgte glassrekkverk for å beholde utsikten. Konstruksjonen er dimensjonert for snølast langt over kravet i området.</p>
+                        </div>
+                        <h3 class="detalj-tittel">Før og etter</h3>
+                        <div class="for-etter">
+                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
+                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
+                        </div>
+                        <h3 class="detalj-tittel">Fra prosjektet</h3>
+                        <div class="ekstra-rad">
+                            <div class="ekstra-bilde pb3"><span>Prosess: fundament</span></div>
+                            <div class="ekstra-bilde pb7"><span>Detalj: rekkverk</span></div>
+                            <div class="ekstra-bilde pb6"><span>Detalj: trapp</span></div>
+                        </div>
+                        <blockquote class="detalj-sitat">
+                            <p>«Vi bruker den fra april til oktober. Beste investeringen vi har gjort i huset.»</p>
+                            Nina S. · Bamble
+                        </blockquote>
+                    </div>
+                </article>
+
+                <!-- PROSJEKT 4 -->
+                <article class="prosjekt" data-kat="bolig renovering" tabindex="0" role="button" aria-label="Åpne prosjekt: Rehabilitering av leilighet">
+                    <div class="prosjekt-bilde pb4"><span>Bilde: hovedbilde</span></div>
+                    <div class="prosjekt-tekst">
+                        <span class="merkelapp">Renovering</span>
+                        <h3>Rehabilitering av leilighet</h3>
+                        <p>Helhetlig oppgradering av en eldre leilighet, med respekt for den opprinnelige stilen.</p>
+                        <div class="prosjekt-fot">
+                            <span class="prosjekt-meta">[BY] · 2024</span>
+                            <span class="prosjekt-les">Se prosjektet →</span>
+                        </div>
+                    </div>
+                    <div class="detalj" hidden>
+                        <div class="detalj-hero pb4"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">Renovering</span>
+                        <h2>Rehabilitering av leilighet</h2>
+                        <p class="detalj-meta">[BY] · 2024</p>
+                        <div class="detalj-data">
+                            <div><strong>Varighet</strong><span>4 uker</span></div>
+                            <div><strong>Omfang</strong><span>Full oppgradering</span></div>
+                            <div><strong>Størrelse</strong><span>68 m²</span></div>
+                            <div><strong>Materialer</strong><span>Furu, linoljemaling, messing</span></div>
+                        </div>
+                        <div class="detalj-tekst">
+                            <p>Leiligheten er fra 1920-tallet og hadde beholdt mye av de originale detaljene, men var slitt etter mange år med utleie. Kunden ville modernisere uten å miste sjelen i rommet.</p>
+                            <p>Vi restaurerte listverk og dører fremfor å bytte dem, slipte og oljet det originale furugulvet, og brukte linoljemaling i farger fra epoken. Kjøkken og bad ble modernisert fullstendig, men med materialer som kler resten av leiligheten.</p>
+                        </div>
+                        <h3 class="detalj-tittel">Før og etter</h3>
+                        <div class="for-etter">
+                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
+                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
+                        </div>
+                        <h3 class="detalj-tittel">Fra prosjektet</h3>
+                        <div class="ekstra-rad">
+                            <div class="ekstra-bilde pb4"><span>Detalj: listverk</span></div>
+                            <div class="ekstra-bilde pb1"><span>Prosess: gulvsliping</span></div>
+                            <div class="ekstra-bilde pb8"><span>Detalj: kjøkken</span></div>
+                        </div>
+                        <blockquote class="detalj-sitat">
+                            <p>«De forsto med én gang hva vi ville ha. Nå ser den ut som den alltid burde ha gjort.»</p>
+                            Per og Anne L. · [BY]
+                        </blockquote>
+                    </div>
+                </article>
+
+                <!-- PROSJEKT 5 -->
+                <article class="prosjekt" data-kat="bolig" tabindex="0" role="button" aria-label="Åpne prosjekt: Enebolig på Gulset">
+                    <div class="prosjekt-bilde pb5"><span>Bilde: hovedbilde</span></div>
+                    <div class="prosjekt-tekst">
+                        <span class="merkelapp">Bolig</span>
+                        <h3>Enebolig på Gulset</h3>
+                        <p>Oppdrag i en enebolig fra 1980-tallet, levert til avtalt tid og pris.</p>
+                        <div class="prosjekt-fot">
+                            <span class="prosjekt-meta">[BY] · 2023</span>
+                            <span class="prosjekt-les">Se prosjektet →</span>
+                        </div>
+                    </div>
+                    <div class="detalj" hidden>
+                        <div class="detalj-hero pb5"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">Bolig</span>
+                        <h2>Enebolig på Gulset</h2>
+                        <p class="detalj-meta">[BY] · 2023</p>
+                        <div class="detalj-data">
+                            <div><strong>Varighet</strong><span>3 uker</span></div>
+                            <div><strong>Omfang</strong><span>Oppgradering</span></div>
+                            <div><strong>Størrelse</strong><span>155 m²</span></div>
+                            <div><strong>Materialer</strong><span>Eik, gips, ull-isolasjon</span></div>
+                        </div>
+                        <div class="detalj-tekst">
+                            <p>Huset var godt vedlikeholdt, men hadde løsninger som ikke lenger fungerte for familien. De ønsket bedre flyt mellom kjøkken og stue, og lavere strømregning.</p>
+                            <p>Vi åpnet mellom kjøkken og stue etter kontroll av bæringen, og etterisolerte samtidig loftet. Kunden fikk en fast pris før oppstart, og sluttsummen ble den samme som i tilbudet.</p>
+                        </div>
+                        <h3 class="detalj-tittel">Før og etter</h3>
+                        <div class="for-etter">
+                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
+                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
+                        </div>
+                        <h3 class="detalj-tittel">Fra prosjektet</h3>
+                        <div class="ekstra-rad">
+                            <div class="ekstra-bilde pb5"><span>Prosess: bæring</span></div>
+                            <div class="ekstra-bilde pb2"><span>Detalj: kjøkkenøy</span></div>
+                            <div class="ekstra-bilde pb7"><span>Prosess: isolering</span></div>
+                        </div>
+                        <blockquote class="detalj-sitat">
+                            <p>«Fast pris som holdt, og de ryddet opp etter seg. Så enkelt burde det alltid være.»</p>
+                            Familien Berg · [BY]
+                        </blockquote>
+                    </div>
+                </article>
+
+                <!-- PROSJEKT 6 -->
+                <article class="prosjekt" data-kat="utendors bedrift" tabindex="0" role="button" aria-label="Åpne prosjekt: Uteområde for borettslag">
+                    <div class="prosjekt-bilde pb7"><span>Bilde: hovedbilde</span></div>
+                    <div class="prosjekt-tekst">
+                        <span class="merkelapp">Utendørs</span>
+                        <h3>Uteområde for borettslag</h3>
+                        <p>Et større fellesprosjekt med 40 boenheter, planlagt i tett dialog med styret.</p>
+                        <div class="prosjekt-fot">
+                            <span class="prosjekt-meta">[BY] · 2023</span>
+                            <span class="prosjekt-les">Se prosjektet →</span>
+                        </div>
+                    </div>
+                    <div class="detalj" hidden>
+                        <div class="detalj-hero pb7"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">Utendørs</span>
+                        <h2>Uteområde for borettslag</h2>
+                        <p class="detalj-meta">[BY] · 2023</p>
+                        <div class="detalj-data">
+                            <div><strong>Varighet</strong><span>6 uker</span></div>
+                            <div><strong>Omfang</strong><span>Fellesareal</span></div>
+                            <div><strong>Størrelse</strong><span>900 m²</span></div>
+                            <div><strong>Materialer</strong><span>Belegningsstein, sedum, furu</span></div>
+                        </div>
+                        <div class="detalj-tekst">
+                            <p>Fellesarealet hadde stått urørt siden 1990-tallet. Styret ønsket et sted beboerne faktisk ville bruke, men budsjettet var stramt og 40 husstander skulle høres.</p>
+                            <p>Vi laget tre alternative løsninger med hver sin prislapp, slik at styret kunne ta et informert valg. Arbeidet ble delt i etapper, slik at området aldri var helt stengt. Alle beboere fikk skriftlig varsel før hver etappe.</p>
+                        </div>
+                        <h3 class="detalj-tittel">Før og etter</h3>
+                        <div class="for-etter">
+                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
+                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
+                        </div>
+                        <h3 class="detalj-tittel">Fra prosjektet</h3>
+                        <div class="ekstra-rad">
+                            <div class="ekstra-bilde pb7"><span>Prosess: grunnarbeid</span></div>
+                            <div class="ekstra-bilde pb3"><span>Detalj: sittegruppe</span></div>
+                            <div class="ekstra-bilde pb6"><span>Detalj: beplantning</span></div>
+                        </div>
+                        <blockquote class="detalj-sitat">
+                            <p>«Ryddig kommunikasjon hele veien. Vi fikk tre valg og forsto hva vi betalte for.»</p>
+                            Styret i Solbakken borettslag
+                        </blockquote>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="tomt-svar" id="tomtSvar" hidden>Ingen prosjekter i denne kategorien ennå.</p>
+        </div>
+    </section>
+
+    <section class="kontakt-felt" id="kontakt">
+        <div class="ramme kontakt-inn">
+            <div>
+                <p class="stikkord lys">Neste prosjekt</p>
+                <h2>Skal vi ta en prat om ditt?</h2>
+                <p>Fortell oss kort hva du tenker på, så gir vi deg et uforpliktende tilbud.</p>
+            </div>
+            <div class="kontakt-knapper">
+                <a href="tel:91234567" class="knapp knapp-stor">Ring [TELEFON]</a>
+                <a href="#" class="knapp knapp-tom">Send en henvendelse</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bunn">
+        <div class="ramme bunn-inn">
+            <div>
+                <p class="merke-bunn">Ditt<span>Firma</span></p>
+                <p>Org.nr [ORGNR] · [BY]</p>
+            </div>
+            <div>
+                <h4>Kontakt</h4>
+                <p>[TELEFON]</p>
+                <p>[EPOST]</p>
+            </div>
+            <div>
+                <h4>Informasjon</h4>
+                <p><a href="personvern.html">Personvernerklæring</a></p>
+                <p><a href="cookies.html">Cookie-erklæring</a></p>
+            </div>
+        </div>
+        <div class="bunn-strek">
+            <p>© 2026 [FIRMANAVN]. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal" hidden>
+        <div class="modal-bakteppe" data-lukk></div>
+        <div class="modal-panel" role="dialog" aria-modal="true">
+            <button class="modal-lukk" data-lukk aria-label="Lukk">✕</button>
+            <div class="modal-innhold" id="modalInnhold"></div>
+        </div>
+    </div>
+<script>
+        /* ===== FILTER ===== */
+        const knapper = document.querySelectorAll(".filter-knapp");
+        const prosjekter = document.querySelectorAll(".prosjekt");
+        const tomtSvar = document.getElementById("tomtSvar");
+
+        knapper.forEach(knapp => {
+            knapp.addEventListener("click", () => {
+                knapper.forEach(k => k.classList.remove("aktiv"));
+                knapp.classList.add("aktiv");
+                const kat = knapp.dataset.kat;
+                let synlige = 0;
+                prosjekter.forEach(p => {
+                    const treff = kat === "alle" || p.dataset.kat.split(" ").includes(kat);
+                    p.style.display = treff ? "" : "none";
+                    if (treff) synlige++;
+                });
+                tomtSvar.hidden = synlige > 0;
+            });
+        });
+
+        /* ===== MODAL ===== */
+        const modal = document.getElementById("modal");
+        const modalInnhold = document.getElementById("modalInnhold");
+
+        function apneProsjekt(prosjekt) {
+            const detalj = prosjekt.querySelector(".detalj");
+            modalInnhold.innerHTML = detalj.innerHTML;
+            modal.hidden = false;
+            document.body.style.overflow = "hidden";
+            modal.querySelector(".modal-panel").scrollTop = 0;
+        }
+        function lukkModal() {
+            modal.hidden = true;
+            modalInnhold.innerHTML = "";
+            document.body.style.overflow = "";
+        }
+
+        prosjekter.forEach(p => {
+            p.addEventListener("click", () => apneProsjekt(p));
+            p.addEventListener("keydown", e => {
+                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); apneProsjekt(p); }
+            });
+        });
+        modal.querySelectorAll("[data-lukk]").forEach(el => el.addEventListener("click", lukkModal));
+        document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) lukkModal(); });
+    </script>
+
+</body>
+</html>
