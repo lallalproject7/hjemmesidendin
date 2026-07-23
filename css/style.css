@@ -954,8 +954,8 @@ summary:focus-visible {
 .design-snekker-2 { background: linear-gradient(150deg, #c17a54, #5f6547); }
 .design-elektriker-1 { background: linear-gradient(150deg, #b4551d, #6e3411); }
 .design-elektriker-2 { background: linear-gradient(150deg, #2563eb, #0d1424); }
-.design-maler-1 { background: linear-gradient(150deg, #3d5a99, #222d44); }
-.design-maler-2 { background: linear-gradient(150deg, #e8934f, #1a1a1f); }
+.design-maler-1 { background: linear-gradient(135deg, #f7f4ef 38%, #c9a227 68%, #b4553a); }
+.design-maler-2 { background: linear-gradient(135deg, #1a1815 58%, #c15f38); }
 
 .design-info { padding: 1.5rem; }
 .design-info h2 { font-size: 1.3rem; margin-bottom: .5rem; }
