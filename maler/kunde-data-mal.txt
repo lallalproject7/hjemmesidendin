@@ -99,3 +99,11 @@ OM_KORT=
 
 # Logotekst med HTML, f.eks: Nordlys <span>Foto</span>
 LOGO_RAA=
+
+# ── Prosjekter i galleriet (Fargerom bruker 1–4, Sjatteret 1–8) ──
+PROSJEKT_7_TITTEL=
+PROSJEKT_7_TEKST=
+PROSJEKT_8_TITTEL=
+PROSJEKT_8_TEKST=
+
+# ── Fargevelgeren (kun Fargerom) ──
