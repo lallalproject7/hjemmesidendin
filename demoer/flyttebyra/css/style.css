@@ -382,7 +382,7 @@ button:focus-visible {
 /* ---------- Hjemmesidendin-banner (ikke del av kundens design) ---------- */
 .demo-bestill {
     background: #1d3a2f;
-    border-top: 4px solid #e8641b;
+    border-top: 4px solid #4d9670;
     text-align: center;
     padding-block: 4rem;
     font-family: "Inter", system-ui, sans-serif;
@@ -395,7 +395,7 @@ button:focus-visible {
     text-transform: uppercase;
     letter-spacing: .12em;
     font-size: .8rem;
-    color: #e8641b;
+    color: #4d9670;
     margin-bottom: .5rem;
 }
 .demo-bestill h2 {
@@ -411,12 +411,12 @@ button:focus-visible {
 }
 .demo-bestill .btn,
 .demo-bestill .knapp {
-    background: #e8641b;
+    background: #4d9670;
     color: #fff;
     border: none;
     font-family: "Space Grotesk", system-ui, sans-serif;
 }
 .demo-bestill .btn:hover,
-.demo-bestill .knapp:hover { background: #c24f0e; }
+.demo-bestill .knapp:hover { background: #3a7757; }
 .demo-bestill-retur { margin-top: 1.5rem; font-size: .9rem; }
 .demo-bestill-retur a { color: #b8c4bd; text-decoration: underline; }
