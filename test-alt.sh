@@ -98,7 +98,7 @@ python3 << 'PYJS'
 import re, glob
 Q, NL = chr(34), chr(10)
 feil = 0
-for f in sorted(glob.glob("bestill-*-ny.html")) + ["oppdatering-ny.html", "endringsrunde.html"]:
+for f in sorted(glob.glob("bestill-*.html")) + ["oppdatering.html", "endringsrunde.html"]:
     m = re.search(r'<script>(.*?)</script>', open(f, encoding="utf-8").read(), re.S)
     if not m: continue
     n = sum(1 for l in m.group(1).split(NL) if l.count(Q) % 2 != 0 and "//" not in l)

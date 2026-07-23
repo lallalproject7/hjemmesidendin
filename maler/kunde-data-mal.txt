@@ -90,3 +90,12 @@ SERVICE_5_PRIS=
 SERVICE_6_TITTEL=
 SERVICE_6_TEKST=
 SERVICE_6_PRIS=
+
+# Byen bedriften holder til i (brukes i tekster)
+BY=
+
+# Kort setning om bedriften, f.eks: Malermester i Trondheim.
+OM_KORT=
+
+# Logotekst med HTML, f.eks: Nordlys <span>Foto</span>
+LOGO_RAA=
