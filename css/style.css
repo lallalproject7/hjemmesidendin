@@ -5,7 +5,7 @@
 :root {
     --pine: #10231b;          /* deep forest green – headers & dark blocks */
     --pine-soft: #3a4a40;     /* softer green-grey for body text */
-    --signal: #d98b5c;        /* signal orange – primary action */
+    --signal: #8fc9a8;        /* signal orange – primary action */
     --signal-dark: #c2744a;
     --sand: #e2d9c7;          /* warm beige background */
     --surface: #f2ede2;       /* soft cream (ikke ren hvit) */
@@ -76,7 +76,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 }
 
 .btn-primary {
-    background: linear-gradient(180deg, #e6a373, #c66c40);
+    background: linear-gradient(180deg, #8fc9a8, #3a7757);
     color: #fff;
     border: 1.5px solid #1a1a1a;
     box-shadow:
@@ -1543,9 +1543,9 @@ summary:focus-visible {
     box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
 }
 .ben-ikon { display: block; font-size: 1.6rem; margin-bottom: .6rem; }
-.ben-oransje { background: linear-gradient(140deg, #e8641b, #b8481a); }
+.ben-oransje { background: linear-gradient(140deg, #4d9670, #b8481a); }
 .ben-gronn   { background: linear-gradient(140deg, #3d8a5a, #1e4433); }
-.ben-kobber  { background: linear-gradient(140deg, #d98b5c, #a85528); }
+.ben-kobber  { background: linear-gradient(140deg, #8fc9a8, #a85528); }
 .ben-gronn2  { background: linear-gradient(140deg, #4a9d5f, #26603a); }
 @media (prefers-reduced-motion: reduce) {
     .ben-carrusel-track { animation: none; flex-wrap: wrap; justify-content: center; }
@@ -1573,7 +1573,7 @@ label { color: rgba(242, 237, 226, .85); }
 /* ===== Arreglos de legibilidad modo oscuro ===== */
 /* Textos que quedaron en verde oscuro sobre oscuro */
 .eyebrow { color: var(--signal); }
-a { color: #e6a373; }
+a { color: #8fc9a8; }
 .nav a { color: rgba(242, 237, 226, .85); }
 strong, b { color: #f2ede2; }
 /* Cajas/tarjetas claras que queden en páginas internas: texto oscuro dentro */
@@ -1598,7 +1598,7 @@ strong, b { color: #f2ede2; }
 #hvorfor {
     background:
         radial-gradient(circle at 85% 20%, rgba(255, 255, 255, .18), transparent 50%),
-        linear-gradient(150deg, #e6a373, #c66c40);
+        linear-gradient(150deg, #8fc9a8, #3a7757);
 }
 #hvorfor .eyebrow { color: #6b3a1f; }
 #hvorfor h2 { color: #2e1a0e; }
@@ -1738,7 +1738,7 @@ strong, b { color: #f2ede2; }
     position: absolute;
     inset: -60%;
     background: conic-gradient(from 0deg,
-        transparent 40%, #34a86e 47%, #7ee0a3 50%, #e6a373 53%, transparent 60%);
+        transparent 40%, #34a86e 47%, #7ee0a3 50%, #8fc9a8 53%, transparent 60%);
     animation: orbit-border 6s linear infinite;
 }
 #pris .priskort::after {
@@ -1760,7 +1760,7 @@ strong, b { color: #f2ede2; }
 }
 /* Precio holográfico */
 #pris .pris-belop {
-    background: linear-gradient(120deg, #f2ede2 20%, #7ee0a3 45%, #e6a373 70%, #f2ede2 90%);
+    background: linear-gradient(120deg, #f2ede2 20%, #7ee0a3 45%, #8fc9a8 70%, #f2ede2 90%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent !important;

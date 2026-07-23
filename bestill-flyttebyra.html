@@ -104,15 +104,26 @@
         }
     
 /* === Override: mørk bakgrunn + lyse bokser === */
-:root { --sand: #e9e2d2; --surface: #f2ede2; --line: #ddd5c4; }
-body { background: linear-gradient(150deg, #122c22, #0a1811); color: #d9e3dd; }
+:root { --sand: #dfe4e1; --surface: #eceeed; --line: #ccd3cf; }
+body { background: linear-gradient(160deg, #232b36, #141a21); color: #b9c4bd; }
 .best-topp h1, h1 { color: #f2ede2; }
 .best-topp p { color: rgba(242, 237, 226, .8); }
 .best-del { background: var(--surface); }
 .best-del h2, .best-del h3, .best-del h4, .best-del label { color: var(--pine); }
 .best-del p, .best-del li, .best-del span { color: var(--pine-soft); }
-input, select, textarea { background: #faf7f0; color: #1d3a2f; border-color: #d5ccba; }
+input, select, textarea { background: #f7f9f8; color: #1b2229; border-color: #c6cec9; }
 
+
+/* Paleta ny: lesbarhet i lyse bokser */
+.best-del h2, .best-del h3, .best-del h4, .best-del label,
+.best-topp h1, .skjema-boks h2, .skjema-boks h3 { color: #1b2229 !important; }
+.best-del p, .best-del li, .best-del span, .best-del .forklaring { color: #4a5560 !important; }
+.best-topp h1 { color: #f2f5f3 !important; }
+.best-nr { background: #4d9670 !important; color: #0e1a13 !important; }
+a { color: #8fc9a8; }
+.best-del a, .regler-kol a, .regler-note a, .skjema-boks a,
+.oppd-boks a, .best-send a { color: #2f6b4f; }
+.regler-kol a:hover, .regler-note a:hover, .best-del a:hover { color: #1f4d38; }
 </style>
 </head>
 <body>
@@ -515,7 +526,7 @@ input, select, textarea { background: #faf7f0; color: #1d3a2f; border-color: #d5
 
     <script>
         const swatchFarger = {
-            hoved: ["#e8613c","#e8b93f","#e8641b","#d98324","#2f6247","#4d9670","#3d6b8c","#4189b8","#c4703f","#a3562c","#8b5a2b","#a0522d","#b8733e","#96603a","#7b5544"],
+            hoved: ["#e8613c","#e8b93f","#4d9670","#d98324","#2f6247","#4d9670","#3d6b8c","#4189b8","#c4703f","#a3562c","#8b5a2b","#a0522d","#b8733e","#96603a","#7b5544"],
             mork: ["#23272e","#2d2440","#16191e","#1e3b2f","#232b36","#1a212a","#2b2733","#3e2f26","#4a3b32","#5c4a3a","#463f38","#514a42"],
             sekundaer: ["#f4b942","#e8b93f","#5aa4d4","#4d9670","#5b8c9e","#7a9e5b","#c4703f","#e5b93c","#a8845c","#8b8378","#b8a888","#9c9488"]
         };
