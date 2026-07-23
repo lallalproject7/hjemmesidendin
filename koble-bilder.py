@@ -7,7 +7,7 @@ Bruk: python3 koble-bilder.py <kundemappe>
 Eks:  python3 koble-bilder.py skien-elektro
 
 Filnavn som gjenkjennes:
-  logo.png · hero.jpg · team.jpg · galleri1.jpg ... galleri6.jpg
+  logo.png · hero.jpg · team.jpg · galleri1.jpg ... galleri16.jpg
 """
 import sys, os, re
 
@@ -23,7 +23,7 @@ css_sti = os.path.join(mappe, "css", "style.css")
 os.makedirs(bildemappe, exist_ok=True)
 
 kart = {"hero": ".photo-hero", "team": ".photo-om", "om": ".photo-om"}
-for i in range(1, 7):
+for i in range(1, 17):
     kart[f"galleri{i}"] = f".photo-galleri{i}"
     kart[f"arbeid{i}"] = f".photo-galleri{i}"
 
@@ -65,4 +65,4 @@ else:
     print("  ⚠ Ingen bilder funnet – legg dem i bilder/ og kjør på nytt")
 if ukjent:
     print(f"\n  ? Ukjente filnavn ({len(ukjent)}): {', '.join(ukjent)}")
-    print("    Gyldige navn: logo · hero · team · galleri1–6")
+    print("    Gyldige navn: logo · hero · team · galleri1–16")
