@@ -34,7 +34,7 @@ for b in bransjer:
         if not demo:
             rader.append((None, None, None)); continue
         d_ant = tell_bilder_demo(demo)
-        m_ant = len(set(re.findall(r'photo-(?:galleri\d+|arbeid\d+|hero|om)', mal)))
+        m_ant = len(set(re.findall(r'photo-(?:galleri\d+|arbeid\d+|tjeneste\d+|hero|om)', mal)))
         unsplash = "unsplash" in mal
         rader.append((d_ant, m_ant, unsplash))
 
