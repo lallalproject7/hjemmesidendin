@@ -252,6 +252,8 @@ Prioridad alta: lo que no se comprueba, se rompe sin avisar.
 
 - [ ] Fallar si un glob no encuentra archivos (causa raíz del fallo silencioso)
 - [ ] Cuadre por gremio: nº de fotos en demo == campos en formulario == huecos en molde
+- [ ] Cuadrar también los TEXTOS: servicios, proyectos y títulos
+      (el formulario pedía 6 servicios y la demo tenía 3; lo detectó Lallal a ojo, no el script)
 - [ ] Ningún molde debe contener unsplash ni URLs externas de imagen
 - [ ] Todo hueco de imagen debe estar numerado (photo-galleriN, photo-hero, photo-om)
 - [ ] Los moldes no deben tener textos de la demo: exigir marcadores

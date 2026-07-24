@@ -61,3 +61,22 @@ Last aldri opp bilder rett fra kameraet - de kan veie 5 MB hver.
 Merk: bildene ligger som bakgrunnsbilder i CSS, ikke som img-tagger.
 Derfor virker ikke lazy loading. Optimaliseringen i steg 2 er det som
 holder nettsiden rask - den er ikke valgfri.
+
+
+## Verktoyene: hva sjekker hva
+
+To ulike sjekker som gjor to helt ulike jobber:
+
+**sjekk.py <kundemappe>** — sjekker EN ferdig kundenettside.
+Kjores etter at nettsiden er generert, for levering. Ser etter:
+markorer som ikke er fylt ut, demo-data som henger igjen, manglende
+juridiske sider, firmanavn som ikke stemmer overens, og dode lenker.
+Dette er kvalitetskontrollen for kunden far siden.
+
+**python3 sjekk-samsvar.py** — sjekker SELVE SYSTEMET, ikke en kunde.
+Sammenligner demo, skjema og mal for hver bransje, og sier fra nar de
+ikke henger sammen: skjemaet ber om 6 bilder mens demoen viser 16, en
+mal inneholder unsplash-bilder, eller en mal mangler bildeplasser.
+Kjores nar noe endres i en demo, et skjema eller en mal.
+
+Den forste ser utover mot kunden. Den andre ser innover i verkstedet.
