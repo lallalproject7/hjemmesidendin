@@ -68,3 +68,34 @@ else:
 if ukjent:
     print(f"\n  ? Ukjente filnavn ({len(ukjent)}): {', '.join(ukjent)}")
     print("    Gyldige navn: logo · hero · team · galleri1–16 · prosjekt1–16 · arbeid1–16")
+
+# ===== Fjern blokker uten bilde =====
+import glob as _glob
+brukte = {os.path.splitext(f)[0].lower() for f in funnet}
+fjernet = []
+for html_sti in _glob.glob(os.path.join(mappe, "*.html")):
+    h = open(html_sti, encoding="utf-8").read()
+    original = h
+    for m in list(re.finditer(r'<(\w+)[^>]*data-blokk="([^"]+)"', h)):
+        tag, navn = m.group(1), m.group(2)
+        if navn.lower() in brukte:
+            continue
+        start = m.start()
+        dyp, pos = 0, start
+        while True:
+            aapne = h.find("<" + tag, pos)
+            lukke = h.find("</" + tag + ">", pos)
+            if lukke == -1:
+                break
+            if aapne != -1 and aapne < lukke:
+                dyp += 1; pos = aapne + len(tag) + 1
+            else:
+                dyp -= 1; pos = lukke + len(tag) + 3
+                if dyp == 0:
+                    break
+        h = h[:start] + h[pos:]
+        fjernet.append(navn)
+    if h != original:
+        open(html_sti, "w", encoding="utf-8").write(h)
+if fjernet:
+    print("  Fjernet", len(fjernet), "blokker uten bilde:", ", ".join(sorted(set(fjernet))))
