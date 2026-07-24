@@ -277,8 +277,8 @@ borran de Cloudinary para no superar el límite mensual gratuito.
 Nuevo modelo: 7 700 kr de pago único + 2 000 kr al año.
 Baja la barrera de entrada y aumenta el ingreso recurrente.
 
-- [ ] Cambiar 8 900 → 7 700 en toda la tienda
-- [ ] Cambiar 1 200 → 2 000 en toda la tienda
+- [x] Cambiar 8 900 → 7 700 en toda la tienda
+- [x] Cambiar 1 200 → 2 000 en toda la tienda
 - [ ] Revisar los textos del FAQ que explican qué cubre la cuota anual
 - [ ] Verificar qué cubre de verdad cada servicio antes de prometerlo:
       Netlify (hosting, SSL, CDN, formularios con límite mensual),
