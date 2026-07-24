@@ -2779,3 +2779,13 @@ strong, b { color: #f2ede2; }
     .pris-arsavgift { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .pris-arsavgift > div { border-right: none; padding-right: 0; }
 }
+
+/* Portefølje-kort og forhåndsvisninger */
+.mockup-portefolje { background: linear-gradient(160deg, #2b2e33, #565c66); }
+.design-portefolje-1 { background: linear-gradient(135deg, #f0ede6 38%, #a86f43 72%, #628074); }
+.design-portefolje-2 { background: linear-gradient(135deg, #f4f3ef 45%, #16181c 72%, #d84427); }
+.mockup-portefolje {
+    background-image: url("../img/demoer/portefolje.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+}

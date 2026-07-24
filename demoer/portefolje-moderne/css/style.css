@@ -282,7 +282,7 @@ h1 em { font-style: normal; color: var(--signal); }
 .photo-galleri3 { background-image: url("https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1400&auto=format&fit=crop"); }
 .photo-galleri4 { background-image: url("https://images.unsplash.com/photo-1565043666747-69f6646db940?q=80&w=1400&auto=format&fit=crop"); }
 .photo-galleri5 { background-image: url("https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1400&auto=format&fit=crop"); }
-.photo-om      { background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=900&auto=format&fit=crop"); }
+.photo-om      { background-image: url("https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=900&auto=format&fit=crop"); }
 
 .photo-galleri1 span, .photo-galleri2 span, .photo-galleri3 span,
 .photo-galleri4 span, .photo-galleri5 span, .photo-om span { display: none; }
@@ -323,5 +323,113 @@ h1 em { font-style: normal; color: var(--signal); }
 .photo-galleri3 { background-image: url("https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1400&auto=format&fit=crop"); }
 .photo-galleri4 { background-image: url("https://images.unsplash.com/photo-1565043666747-69f6646db940?q=80&w=1400&auto=format&fit=crop"); }
 .photo-galleri5 { background-image: url("https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1400&auto=format&fit=crop"); }
-.photo-om      { background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=900&auto=format&fit=crop"); }
+.photo-om      { background-image: url("https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=900&auto=format&fit=crop"); }
 .sak-bilde { height: 300px; }
+
+/* ===== Prosjektdetaljer ===== */
+.sak-knapp {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    margin-top: 1.6rem;
+    padding: .7rem 1.3rem;
+    font-family: var(--mono);
+    font-size: .78rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--blekk);
+    color: var(--blekk);
+    cursor: pointer;
+    transition: all .18s ease;
+}
+.sak-knapp:hover { background: var(--blekk); color: var(--papir); }
+.sak-knapp-ikon { font-size: 1.1rem; line-height: 1; }
+
+.sak-detalj {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--blekk);
+}
+.detalj-rad {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+.detalj-rad h4 {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: .8rem;
+}
+.detalj-rad p { max-width: 56ch; }
+.detalj-rad ul { list-style: none; }
+.detalj-rad li {
+    padding: .5rem 0 .5rem 1.4rem;
+    border-bottom: 1px solid var(--linje);
+    position: relative;
+    font-size: .95rem;
+}
+.detalj-rad li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--signal);
+}
+.detalj-bilder {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--linje);
+    border: 1px solid var(--linje);
+}
+.detalj-bilde {
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--papir-dyp);
+}
+
+@media (max-width: 900px) {
+    .detalj-rad { grid-template-columns: 1fr; gap: 1.6rem; }
+    .detalj-bilder { grid-template-columns: 1fr; }
+}
+
+/* Åpnet prosjekt: mørk flate */
+.sak-detalj {
+    background: var(--blekk);
+    color: rgba(244, 243, 239, .78);
+    padding: 2.6rem 2rem 2rem;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    border-top: none;
+}
+.sak-detalj h4 { color: var(--signal); }
+.sak-detalj p { color: rgba(244, 243, 239, .78); }
+.sak-detalj li {
+    color: rgba(244, 243, 239, .88);
+    border-bottom-color: rgba(255, 255, 255, .14);
+}
+.sak-detalj .detalj-bilder {
+    background: rgba(255, 255, 255, .14);
+    border-color: rgba(255, 255, 255, .14);
+}
+.sak-detalj .detalj-bilde { background-color: #23262b; }
+
+/* Mindre luft over hero */
+.hero { padding-block: 2.5rem 3rem; }
+
+/* Bilder i det åpne prosjektet */
+.photo-detalj1a { background-image: url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop"); }
+.photo-detalj1b { background-image: url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop"); }
+.photo-detalj2a { background-image: url("https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1000&auto=format&fit=crop"); }
+.photo-detalj2b { background-image: url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1000&auto=format&fit=crop"); }
+.photo-detalj3a { background-image: url("https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1000&auto=format&fit=crop"); }
+.photo-detalj3b { background-image: url("https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1000&auto=format&fit=crop"); }
+.photo-detalj4a { background-image: url("https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=1000&auto=format&fit=crop"); }
+.photo-detalj4b { background-image: url("https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1000&auto=format&fit=crop"); }
+.photo-detalj5a { background-image: url("https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1000&auto=format&fit=crop"); }
+.photo-detalj5b { background-image: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1000&auto=format&fit=crop"); }
