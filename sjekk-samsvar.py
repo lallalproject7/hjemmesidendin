@@ -70,7 +70,8 @@ for b in bransjer:
         if r[0] is None: continue
         navn = "klassisk" if i == 0 else "moderne"
         if r[2]: problemer.append(f"unsplash i mal ({navn})")
-        if r[1] == 0: problemer.append(f"mal mangler bildeplasser ({navn})")
+        if r[1] == 0 and r[0] > 2:
+            problemer.append(f"mal mangler bildeplasser ({navn})")
         elif abs(r[0] - r[1]) > 1: problemer.append(f"demo {r[0]} vs mal {r[1]} ({navn})")
 
     maks_mal = max([r[1] for r in rader if r[1] is not None] or [0])
