@@ -225,3 +225,75 @@ CUANDO LLEGA UN PEDIDO:
 9. Email de entrega + marcar ✅ en Sheets
 Eso es lo que de verdad te hace independiente. No mi ayuda — tu checklist.
 
+---
+
+## 🔍 REVISIÓN RIGUROSA POR GREMIO (demo ↔ formulario ↔ molde)
+
+Método validado: para cada gremio, comprobar que las tres piezas piden y muestran
+exactamente lo mismo. Errores encontrados con este método: moldes con fotos de
+Unsplash, formularios que imponen el tipo de obra, huecos sin numerar, textos de
+demo escritos a fuego en los moldes.
+
+- [x] maler / maler-moderne (Fargerom 11 fotos, Sjatteret 10)
+- [x] snekker (5 + hero + team + logo, títulos libres)
+- [x] snekker-moderne (huecos y marcadores) — falta decidir el campo KATEGORI
+- [ ] fotograf / fotograf-moderne — moldes con Unsplash, form pide 6 y la demo enseña 16
+- [ ] rorlegger / rorlegger-moderne
+- [ ] elektriker / elektriker-moderne
+- [ ] gartner / gartner-moderne
+- [ ] renhold / renhold-moderne
+- [ ] flyttebyra / flyttebyra-moderne
+- [ ] portefolje
+
+## 🛡️ MEJORAR EL SISTEMA DE CHEQUEO (sjekk.py + test-alt.sh)
+
+El test pasaba en vacío durante semanas porque buscaba archivos que ya no existían.
+Prioridad alta: lo que no se comprueba, se rompe sin avisar.
+
+- [ ] Fallar si un glob no encuentra archivos (causa raíz del fallo silencioso)
+- [ ] Cuadre por gremio: nº de fotos en demo == campos en formulario == huecos en molde
+- [ ] Ningún molde debe contener unsplash ni URLs externas de imagen
+- [ ] Todo hueco de imagen debe estar numerado (photo-galleriN, photo-hero, photo-om)
+- [ ] Los moldes no deben tener textos de la demo: exigir marcadores
+- [ ] Enlaces internos rotos en toda la tienda (encontró 13 de una vez)
+- [ ] Llaves balanceadas en cada CSS (fallo recurrente por pegados cortados)
+- [ ] IDs duplicados en HTML (rompen la navegación del menú)
+- [ ] Matriz de completitud: cada gremio con demo, form, molde y línea en kopier-juridisk
+
+## 🖼️ FLUJO DE IMÁGENES (decidido)
+
+Cloudinary solo como tránsito: el cliente sube las fotos desde el formulario.
+Después se descargan, se alojan en Netlify (plan de pago, el más económico) y se
+borran de Cloudinary para no superar el límite mensual gratuito.
+
+- [ ] Contratar el plan de pago de Netlify
+- [ ] Documentar el paso de descarga y borrado en RUTINER.md
+- [ ] Definir tamaños y compresión antes de subir a Netlify
+
+## 💰 PRECIOS (pendiente de aplicar)
+
+Nuevo modelo: 7 700 kr de pago único + 2 000 kr al año.
+Baja la barrera de entrada y aumenta el ingreso recurrente.
+
+- [ ] Cambiar 8 900 → 7 700 en toda la tienda
+- [ ] Cambiar 1 200 → 2 000 en toda la tienda
+- [ ] Revisar los textos del FAQ que explican qué cubre la cuota anual
+- [ ] Verificar qué cubre de verdad cada servicio antes de prometerlo:
+      Netlify (hosting, SSL, CDN, formularios con límite mensual),
+      domene.no (dominio .no, ~150–250 kr/año),
+      copias de seguridad: NO las hace Netlify — hay que montarlas con git
+
+## 🆕 NUEVOS GREMIOS (webs estáticas)
+
+- [ ] Fisioterapeuta
+- [ ] Entrenador personal
+- [ ] Ingeniero / consultor
+- [ ] Restaurante (ojo: suelen querer menú actualizable, choca con el modelo estático)
+
+## 💾 COPIAS DE SEGURIDAD DE LAS WEBS DE CLIENTES
+
+Ahora mismo las webs generadas viven solo en ~/kunder/ del portátil.
+Si se promete copia de seguridad, hay que resolverlo antes.
+
+- [ ] Un repositorio git por cliente
+- [ ] Documentar cómo restaurar una web desde cero
