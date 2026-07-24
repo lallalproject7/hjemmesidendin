@@ -461,3 +461,22 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--terra); outline
     color: rgba(255,255,255,.9);
     text-decoration: underline;
 }
+
+/* ===== Bildeplassholdere (fylles av koble-bilder.py) ===== */
+.photo-placeholder {
+    position: relative;
+    background: #2a2724;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+.photo-placeholder span {
+    font-size: .78rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .32);
+    text-align: center;
+    padding: .5rem;
+}
