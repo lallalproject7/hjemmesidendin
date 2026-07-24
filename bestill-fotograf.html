@@ -378,54 +378,346 @@ a { color: #8fc9a8; }
                         <div class="opplast-status" id="status-logo"></div>
                         <div class="opplast-thumbs" id="thumbs-logo"></div>
                     </div>
-                    <div class="opplast-kort">
-                        <h4>Bilde av teamet <span class="valgfri">(valgfritt)</span></h4>
-                        <p class="opplast-hint">Vises i «Om oss». Et bilde som viser hvem dere er.</p>
-                        <button type="button" class="opplast-knapp" data-type="team">Last opp bilde</button>
-                        <div class="opplast-status" id="status-team"></div>
-                        <div class="opplast-thumbs" id="thumbs-team"></div>
-                    </div>
+                    
                 </div>
 
                 <div class="kun-kobber vis" id="kobberBilder">
                     <div class="opplast-rad" style="margin-top:1rem">
+                        <div id="nordlysBilder" class="design-bilder">
+                    <p class="best-del-hint">Nordlys viser 16 galleribilder, tre bilder i tjenester og ett om deg.</p>
                         <div class="opplast-kort">
-                            <h4>Hovedbilde øverst <span class="valgfri">(valgfritt)</span></h4>
-                            <p class="opplast-hint">Klassisk-designet viser et stort bilde øverst – f.eks. fotograf i arbeid.</p>
+                            <h4>Hovedbilde (hero)</h4>
+                            <p class="opplast-hint">Vises stort øverst – velg ditt aller beste bilde.</p>
                             <button type="button" class="opplast-knapp" data-type="hero">Last opp bilde</button>
                             <div class="opplast-status" id="status-hero"></div>
                             <div class="opplast-thumbs" id="thumbs-hero"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Bilde: eget arbeid <span class="valgfri">(valgfritt)</span></h4>
-                            <p class="opplast-hint">Et av dine beste bilder – vises i galleriet.</p>
-                            <button type="button" class="opplast-knapp" data-type="arbeid1">Last opp bilde</button>
-                            <div class="opplast-status" id="status-arbeid1"></div>
-                            <div class="opplast-thumbs" id="thumbs-arbeid1"></div>
+                            <h4>Bilde: om deg</h4>
+                            <p class="opplast-hint">Portrett eller bilde av deg i arbeid.</p>
+                            <button type="button" class="opplast-knapp" data-type="om">Last opp bilde</button>
+                            <div class="opplast-status" id="status-om"></div>
+                            <div class="opplast-thumbs" id="thumbs-om"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Bilde: elbillader <span class="valgfri">(valgfritt)</span></h4>
-                            <p class="opplast-hint">Bilde av en elbillader dere har installert.</p>
-                            <button type="button" class="opplast-knapp" data-type="arbeid2">Last opp bilde</button>
-                            <div class="opplast-status" id="status-arbeid2"></div>
-                            <div class="opplast-thumbs" id="thumbs-arbeid2"></div>
+                            <h4>Bilde: tjeneste 1</h4>
+                            <p class="opplast-hint">Illustrerer en av tjenestene dine.</p>
+                            <button type="button" class="opplast-knapp" data-type="tjeneste1">Last opp bilde</button>
+                            <div class="opplast-status" id="status-tjeneste1"></div>
+                            <div class="opplast-thumbs" id="thumbs-tjeneste1"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Bilde: belysning <span class="valgfri">(valgfritt)</span></h4>
-                            <p class="opplast-hint">Bilde av utebelysning eller innebelysning dere har montert.</p>
-                            <button type="button" class="opplast-knapp" data-type="arbeid3">Last opp bilde</button>
-                            <div class="opplast-status" id="status-arbeid3"></div>
-                            <div class="opplast-thumbs" id="thumbs-arbeid3"></div>
+                            <h4>Bilde: tjeneste 2</h4>
+                            <p class="opplast-hint">Illustrerer en av tjenestene dine.</p>
+                            <button type="button" class="opplast-knapp" data-type="tjeneste2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-tjeneste2"></div>
+                            <div class="opplast-thumbs" id="thumbs-tjeneste2"></div>
                         </div>
+                        <div class="opplast-kort">
+                            <h4>Bilde: tjeneste 3</h4>
+                            <p class="opplast-hint">Illustrerer en av tjenestene dine.</p>
+                            <button type="button" class="opplast-knapp" data-type="tjeneste3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-tjeneste3"></div>
+                            <div class="opplast-thumbs" id="thumbs-tjeneste3"></div>
+                        </div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 1</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri1">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri1"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri1"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri1_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 2</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri2"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri2"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri2_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 3</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri3"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri3"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri3_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 4</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri4">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri4"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri4"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri4_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 5</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri5">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri5"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri5"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri5_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 6</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri6">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri6"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri6"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri6_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 7 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri7">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri7"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri7"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri7_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 8 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri8">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri8"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri8"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri8_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 9 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri9">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri9"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri9"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri9_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 10 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri10">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri10"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri10"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri10_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 11 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri11">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri11"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri11"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri11_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 12 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri12">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri12"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri12"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri12_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 13 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri13">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri13"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri13"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri13_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 14 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri14">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri14"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri14"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri14_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 15 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri15">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri15"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri15"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri15_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 16 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri16">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri16"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri16"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri16_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                    </div>
+                    <div id="blendeBilder" class="design-bilder">
+                    <p class="best-del-hint">Blende viser 16 galleribilder og ett om deg.</p>
+                        <div class="opplast-kort">
+                            <h4>Hovedbilde (hero)</h4>
+                            <p class="opplast-hint">Vises stort øverst – velg ditt aller beste bilde.</p>
+                            <button type="button" class="opplast-knapp" data-type="hero">Last opp bilde</button>
+                            <div class="opplast-status" id="status-hero"></div>
+                            <div class="opplast-thumbs" id="thumbs-hero"></div>
+                        </div>
+                        <div class="opplast-kort">
+                            <h4>Bilde: om deg</h4>
+                            <p class="opplast-hint">Portrett eller bilde av deg i arbeid.</p>
+                            <button type="button" class="opplast-knapp" data-type="om">Last opp bilde</button>
+                            <div class="opplast-status" id="status-om"></div>
+                            <div class="opplast-thumbs" id="thumbs-om"></div>
+                        </div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 1</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri1">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri1"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri1"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri1_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 2</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri2"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri2"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri2_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 3</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri3"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri3"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri3_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 4</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri4">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri4"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri4"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri4_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 5</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri5">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri5"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri5"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri5_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 6</h4>
+                            <p class="opplast-hint">Vises i galleriet.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri6">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri6"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri6"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri6_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 7 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri7">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri7"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri7"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri7_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 8 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri8">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri8"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri8"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri8_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 9 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri9">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri9"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri9"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri9_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 10 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri10">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri10"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri10"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri10_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 11 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri11">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri11"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri11"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri11_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 12 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri12">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri12"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri12"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri12_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 13 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri13">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri13"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri13"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri13_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 14 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri14">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri14"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri14"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri14_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 15 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri15">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri15"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri15"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri15_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
+                        <div class="opplast-kort">
+                            <h4>Galleribilde 16 <span class="valgfri">(valgfritt)</span></h4>
+                            <p class="opplast-hint">Fyll ut hvis du vil vise flere.</p>
+                            <button type="button" class="opplast-knapp" data-type="galleri16">Last opp bilde</button>
+                            <div class="opplast-status" id="status-galleri16"></div>
+                            <div class="opplast-thumbs" id="thumbs-galleri16"></div>
+                        </div>
+                        <div class="bfelt" style="margin:.4rem 0 1rem"><input type="text" name="galleri16_tittel" placeholder="Kort tekst – f.eks: Bryllup · Vestlandet"></div>
                     </div>
                 </div>
 
                 <input type="hidden" name="bilde_logo" id="bilde_logo">
-                <input type="hidden" name="bilde_team" id="bilde_team">
                 <input type="hidden" name="bilde_hero" id="bilde_hero">
-                <input type="hidden" name="bilde_arbeid1" id="bilde_arbeid1">
-                <input type="hidden" name="bilde_arbeid2" id="bilde_arbeid2">
-                <input type="hidden" name="bilde_arbeid3" id="bilde_arbeid3">
+                <input type="hidden" name="bilde_om" id="bilde_om">
+                <input type="hidden" name="bilde_tjeneste1" id="bilde_tjeneste1">
+                <input type="hidden" name="bilde_tjeneste2" id="bilde_tjeneste2">
+                <input type="hidden" name="bilde_tjeneste3" id="bilde_tjeneste3">
+                <input type="hidden" name="bilde_galleri1" id="bilde_galleri1">
+                <input type="hidden" name="bilde_galleri2" id="bilde_galleri2">
+                <input type="hidden" name="bilde_galleri3" id="bilde_galleri3">
+                <input type="hidden" name="bilde_galleri4" id="bilde_galleri4">
+                <input type="hidden" name="bilde_galleri5" id="bilde_galleri5">
+                <input type="hidden" name="bilde_galleri6" id="bilde_galleri6">
+                <input type="hidden" name="bilde_galleri7" id="bilde_galleri7">
+                <input type="hidden" name="bilde_galleri8" id="bilde_galleri8">
+                <input type="hidden" name="bilde_galleri9" id="bilde_galleri9">
+                <input type="hidden" name="bilde_galleri10" id="bilde_galleri10">
+                <input type="hidden" name="bilde_galleri11" id="bilde_galleri11">
+                <input type="hidden" name="bilde_galleri12" id="bilde_galleri12">
+                <input type="hidden" name="bilde_galleri13" id="bilde_galleri13">
+                <input type="hidden" name="bilde_galleri14" id="bilde_galleri14">
+                <input type="hidden" name="bilde_galleri15" id="bilde_galleri15">
+                <input type="hidden" name="bilde_galleri16" id="bilde_galleri16">
             </div>
 
             <!-- DEL: JURIDISKE SIDER -->
@@ -654,8 +946,9 @@ a { color: #8fc9a8; }
         });
 
         function oppdaterDesign() {
-            const erKobber = document.querySelector('[name="design"]:checked').value.includes("Kobber");
-            document.getElementById("kobberBilder").classList.toggle("vis", erKobber);
+            const erNordlys = document.querySelector('[name="design"]:checked').value.includes("Nordlys");
+            document.getElementById("nordlysBilder").style.display = erNordlys ? "block" : "none";
+            document.getElementById("blendeBilder").style.display = erNordlys ? "none" : "block";
         }
         document.querySelectorAll('.dv-kort input').forEach(radio => {
             radio.addEventListener('change', () => {
@@ -681,7 +974,7 @@ a { color: #8fc9a8; }
 
         const CLOUD_NAME = "jsl4llt9";
         const UPLOAD_PRESET = "ml_default";
-        const opplastet = { logo: [], team: [], hero: [], arbeid1: [], arbeid2: [], arbeid3: [] };
+        const opplastet = { logo: [], hero: [], om: [], tjeneste1: [], tjeneste2: [], tjeneste3: [], galleri1: [], galleri2: [], galleri3: [], galleri4: [], galleri5: [], galleri6: [], galleri7: [], galleri8: [], galleri9: [], galleri10: [], galleri11: [], galleri12: [], galleri13: [], galleri14: [], galleri15: [], galleri16: [] };
         const flerbilde = {};
 
 

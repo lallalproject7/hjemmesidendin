@@ -421,3 +421,16 @@ h3 { font-size: 1.25rem; }
     transform: scale(1.02);
     box-shadow: 0 12px 28px rgba(31, 28, 24, .18);
 }
+
+/* Tjenester uten bilde */
+.tjeneste-liste {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    margin-top: 2.4rem;
+    padding-top: 2.2rem;
+    border-top: 1px solid var(--linje);
+}
+.tjeneste-enkel h3 { margin-bottom: .35rem; }
+.tjeneste-enkel p { font-size: .93rem; margin-bottom: .6rem; }
+@media (max-width: 800px) { .tjeneste-liste { grid-template-columns: 1fr; } }
