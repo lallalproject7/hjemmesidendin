@@ -47,7 +47,10 @@ for l in open("maler/kunde-data-mal.txt", encoding="utf-8"):
         felt.add(l.split("=")[0].strip())
 auto = {"FARGE_HOVED_MORK","FARGE_HOVED_LYS","FARGE_MORK_DYP","FARGE_MORK_LYS"}
 mangler = {}
-for d in sorted(glob.glob("maler/demoer/*/")):
+maler_funnet = sorted(glob.glob("maler/demoer/*/"))
+if not maler_funnet:
+    print("  x INGEN MALER FUNNET - testen sjekker ingenting!")
+for d in maler_funnet:
     m = set()
     for f in ["index.html","css/style.css","personvern.html","cookies.html"]:
         p = os.path.join(d, f)
@@ -98,7 +101,10 @@ python3 << 'PYJS'
 import re, glob
 Q, NL = chr(34), chr(10)
 feil = 0
-for f in sorted(glob.glob("bestill-*.html")) + ["oppdatering.html", "endringsrunde.html"]:
+skjemaer = sorted(glob.glob("bestill-*.html")) + ["oppdatering.html", "endringsrunde.html"]
+if len([x for x in skjemaer if __import__("os").path.exists(x)]) < 3:
+    print("  x FOR FA SKJEMAER FUNNET - testen sjekker nesten ingenting!")
+for f in skjemaer:
     m = re.search(r'<script>(.*?)</script>', open(f, encoding="utf-8").read(), re.S)
     if not m: continue
     n = sum(1 for l in m.group(1).split(NL) if l.count(Q) % 2 != 0 and "//" not in l)
