@@ -421,3 +421,24 @@ h3 { font-size: 1.25rem; }
     transform: scale(1.02);
     box-shadow: 0 12px 28px rgba(31, 28, 24, .18);
 }
+
+/* ===== Bildeplassholdere (fylles av koble-bilder.py) ===== */
+.photo-placeholder {
+    position: relative;
+    background: rgba(128, 128, 128, .18);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    aspect-ratio: 1;
+    width: 100%;
+}
+.photo-placeholder span {
+    font-size: .75rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    opacity: .45;
+    text-align: center;
+    padding: .4rem;
+}

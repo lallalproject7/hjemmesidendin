@@ -27,6 +27,7 @@ for i in range(1, 17):
     kart[f"galleri{i}"] = f".photo-galleri{i}"
     kart[f"prosjekt{i}"] = f".photo-galleri{i}"
     kart[f"arbeid{i}"] = f".photo-arbeid{i}"
+    kart[f"tjeneste{i}"] = f".photo-tjeneste{i}"
 
 css, funnet, ukjent, logo = [], [], [], None
 for fil in sorted(os.listdir(bildemappe)):

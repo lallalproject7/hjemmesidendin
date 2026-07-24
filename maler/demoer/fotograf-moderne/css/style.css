@@ -408,3 +408,24 @@ h1 em, h2 em { font-style: normal; color: var(--oransje); }
     border-color: var(--oransje);
     color: var(--svart);
 }
+
+/* ===== Bildeplassholdere (fylles av koble-bilder.py) ===== */
+.photo-placeholder {
+    position: relative;
+    background: rgba(128, 128, 128, .18);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    aspect-ratio: 1;
+    width: 100%;
+}
+.photo-placeholder span {
+    font-size: .75rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    opacity: .45;
+    text-align: center;
+    padding: .4rem;
+}
