@@ -18,8 +18,8 @@
                 <a href="#">Hjem</a>
                 <a href="#">Tjenester</a>
                 <a href="#" class="aktiv">Portefølje</a>
-                <a href="#">Om oss</a>
-                <a href="#kontakt" class="knapp knapp-liten">Kontakt oss</a>
+                <a href="#">Om meg</a>
+                <a href="#kontakt" class="knapp knapp-liten">Kontakt meg</a>
             </nav>
         </div>
     </header>
@@ -27,13 +27,50 @@
     <section class="intro">
         <div class="ramme">
             <p class="stikkord">Portefølje</p>
-            <h1>Arbeider vi er stolte av</h1>
-            <p class="intro-tekst">Et utvalg prosjekter vi har levert de siste årene. Klikk deg inn på hvert prosjekt for å se hva vi gjorde, hvordan vi løste det, og hvordan resultatet ble.</p>
+            <h1>Arbeider jeg er stolt av</h1>
+            <p class="intro-tekst">Et utvalg prosjekter jeg har levert de siste årene. Klikk deg inn på hvert prosjekt for å se hva vi gjorde, hvordan vi løste det, og hvordan resultatet ble.</p>
             <div class="intro-tall">
                 <div class="tall-boks"><strong>250+</strong><span>fullførte prosjekter</span></div>
                 <div class="tall-boks"><strong>12</strong><span>år i bransjen</span></div>
                 <div class="tall-boks"><strong>98 %</strong><span>fornøyde kunder</span></div>
             </div>
+        </div>
+    </section>
+
+    <section class="tjenester-felt" id="tjenester">
+        <div class="ramme">
+            <p class="stikkord">Tjenester</p>
+            <h2>Dette jobber jeg med</h2>
+            <div class="tjenester-rutenett">
+                <div class="tjeneste-boks" style="--akse:#628074">
+                    <h3>Totalrenovering</h3>
+                    <p>Fra riving til ferdig rom. Jeg styrer hele prosessen og holder deg oppdatert underveis.</p>
+                </div>
+                <div class="tjeneste-boks" style="--akse:#667588">
+                    <h3>Bad og våtrom</h3>
+                    <p>Utført etter våtromsnormen, med dokumentasjon du kan vise fram ved salg.</p>
+                </div>
+                <div class="tjeneste-boks" style="--akse:#8a7d5e">
+                    <h3>Kjøkken og innredning</h3>
+                    <p>Spesialtilpasset til rommet ditt, i materialer som tåler daglig bruk.</p>
+                </div>
+                <div class="tjeneste-boks" style="--akse:#a86f43">
+                    <h3>Utvendig arbeid</h3>
+                    <p>Terrasse, kledning og bod – bygget for å stå imot norsk vær.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="om-felt" id="om">
+        <div class="ramme om-inn">
+            <div class="om-tekst">
+                <p class="stikkord">Om meg</p>
+                <h2>Håndverk du kan stole på</h2>
+                <p>Jeg tar få prosjekter av gangen, slik at hver kunde får full oppmerksomhet. Jeg er fagutdannet, og står bak arbeidet mitt lenge etter at siste faktura er betalt.</p>
+                <p>Fast pris avtales før jeg starter. Ingen overraskelser underveis.</p>
+            </div>
+            <div class="om-visual photo-placeholder photo-om"><span>Bilde: om oss</span></div>
         </div>
     </section>
 
@@ -330,12 +367,16 @@
             <div>
                 <p class="stikkord lys">Neste prosjekt</p>
                 <h2>Skal vi ta en prat om ditt?</h2>
-                <p>Fortell oss kort hva du tenker på, så gir vi deg et uforpliktende tilbud.</p>
+                <p>Fortell meg kort hva du tenker på, så gir jeg deg et uforpliktende tilbud.</p>
             </div>
-            <div class="kontakt-knapper">
-                <a href="tel:91234567" class="knapp knapp-stor">Ring 912 34 567</a>
-                <a href="#" class="knapp knapp-tom">Send en henvendelse</a>
-            </div>
+            <form class="kontakt-skjema">
+                <label>Navn<input type="text" name="navn" required></label>
+                <label>Telefon<input type="tel" name="telefon" required></label>
+                <label>E-post<input type="email" name="epost" required></label>
+                <label>Kort om prosjektet<textarea name="melding" rows="4"></textarea></label>
+                <button type="submit" class="knapp knapp-stor">Send henvendelse</button>
+                <p class="skjema-note">Eller ring meg på <a href="tel:91234567">912 34 567</a></p>
+            </form>
         </div>
     </section>
 
