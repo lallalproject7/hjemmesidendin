@@ -32,3 +32,32 @@ de havner i Cloudinary, og derfra tar vi dem videre.
 Netlify står for hosting, SSL og CDN. Domenet kjopes hos domene.no og
 registreres på kundens firma. Sikkerhetskopi er ikke inkludert i Netlify —
 det løses med git.
+
+
+## Bilder steg for steg (kommandoer)
+
+Etter at kunden har sendt inn skjemaet:
+
+    # 1. Last ned bildene fra Cloudinary til kundens bilder-mappe
+    #    Gi dem riktig navn: logo, hero, om, galleri1..16, arbeid1..6, tjeneste1..3
+
+    # 2. Optimaliser (originalene lagres i bilder-original/)
+    python3 optimize-kundebilder.py <kundemappe>
+
+    # 3. Koble bildene til nettsiden
+    python3 koble-bilder.py <kundemappe>
+
+    # 4. Sjekk at alt er på plass
+    python3 sjekk.py <kundemappe>
+
+    # 5. Legg ut på Netlify (betalt plan)
+
+    # 6. Slett bildene i Cloudinary så gratiskvoten ikke fylles opp
+
+Bildene skaleres til 1200 px bredde og lagres med kvalitet 82.
+Et optimalisert galleribilde havner typisk på 150-250 kB.
+Last aldri opp bilder rett fra kameraet - de kan veie 5 MB hver.
+
+Merk: bildene ligger som bakgrunnsbilder i CSS, ikke som img-tagger.
+Derfor virker ikke lazy loading. Optimaliseringen i steg 2 er det som
+holder nettsiden rask - den er ikke valgfri.
