@@ -97,6 +97,10 @@ BY=
 # Kort setning om bedriften, f.eks: Malermester i Trondheim.
 OM_KORT=
 
+# Navn og erfaring til eieren (brukes i Om oss)
+OM_NAVN=
+OM_ERFARING=
+
 # Logotekst med HTML, f.eks: Nordlys <span>Foto</span>
 LOGO_RAA=
 

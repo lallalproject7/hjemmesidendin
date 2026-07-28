@@ -159,7 +159,41 @@ El proyecto tiene dos generadores distintos. No confundirlos:
 
 ---
 
-## 8. FLUJO DE TRABAJO AL VENDER (resumen)
+## 8. LOS DOS VOCABULARIOS (concepto clave)
+
+El formulario y el molde NO hablan el mismo idioma. Tú eres el puente.
+
+**El formulario** (bestill-<oficio>.html) → habla en "resumen legible".
+El cliente rellena campos normales (om_navn, tall_aar…) y el JavaScript
+arma un texto que te llega por email con etiquetas en noruego:
+
+    ── OM OSS ──
+    Navn utad: Jonas Lien
+    År i bransjen: 12
+
+**El molde** (maler/demoer/<oficio>/) → habla en "marcadores":
+
+    [OM_NAVN] har [OM_ERFARING] år i faget.
+
+**El puente eres tú:** copias los valores del email al kunde-data.txt,
+y ny-kunde.py mete cada valor en su marcador.
+
+    email → kunde-data.txt → ny-kunde.py → web del cliente
+
+### ⚠️ La regla de oro
+
+Si añades o cambias un marcador en un molde, TIENES que tocar también
+el formulario (el campo + su línea en el resumen del JS). Si no, el molde
+pide un dato que el formulario nunca recoge, y no te enteras hasta que
+vendes.
+
+El guardián de esto es **sjekk-samsvar.py**: su aviso "form asks more
+than demo shows" salta justo cuando molde y formulario se desalinean.
+Córrelo siempre después de tocar un molde o un formulario.
+
+---
+
+## 9. FLUJO DE TRABAJO AL VENDER (resumen)
 
 1. Llega el pedido (email del formulario bestill).
 2. Copiar maler/kunde-data-mal.txt → kunde-data.txt y rellenarlo.

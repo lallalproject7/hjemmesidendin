@@ -128,11 +128,15 @@ h1 em { font-style: normal; color: var(--terra); }
 .hero-blokk {
     position: absolute;
     inset: 0;
-    background:
-        linear-gradient(180deg, rgba(26, 24, 21, .35), rgba(26, 24, 21, .9) 88%),
-        url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1600&auto=format&fit=crop");
+    background: #2a2723;
     background-size: cover;
     background-position: center;
+}
+.hero-blokk::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26, 24, 21, .35), rgba(26, 24, 21, .9) 88%);
 }
 .ral-kode {
     position: absolute;

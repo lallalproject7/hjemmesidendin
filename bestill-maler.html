@@ -348,6 +348,11 @@ a { color: #8fc9a8; }
                 <div class="best-del-topp"><span class="best-nr">6</span><h2>Om oss</h2></div>
                 <p class="best-del-hint">En kort tekst om hvem dere er og hvorfor kundene kan stole på dere.</p>
                 <div class="bfelt">
+                    <label for="om_navn">Navn utad</label>
+                    <span class="forklaring">Navnet ditt eller firmanavnet – det du vil vise i «Om oss». F.eks: Jonas Lien, eller Grenland Maling.</span>
+                    <input type="text" id="om_navn" name="om_navn" placeholder="F.eks: Jonas Lien">
+                </div>
+                <div class="bfelt">
                     <label for="om_tekst">Om bedriften</label>
                     <span class="forklaring">2–3 setninger. Fortell om historie, verdier eller hva som gjør dere spesielle.</span>
                     <textarea id="om_tekst" name="om_tekst" rows="4" placeholder="Skriv her..."></textarea>
@@ -978,6 +983,7 @@ a { color: #8fc9a8; }
             }
             t += "\n";
             t += "── OM OSS ──\n";
+            t += "Navn utad: " + v("om_navn") + "\n";
             t += v("om_tekst") + "\n";
             t += "År i bransjen: " + v("tall_aar") + "\n";
             t += "Antall prosjekter: " + v("tall_prosjekt") + "\n\n";

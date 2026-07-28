@@ -1,97 +1,207 @@
 #!/usr/bin/env python3
 """
-Sjekker at demo, skjema og mal ber om og viser det samme.
-Bruk: python3 sjekk-samsvar.py
+Integrity checker for the template system.
+
+Verifies that every showcase demo (demoer/) has a matching, clean
+template (maler/demoer/) that ny-kunde.py can actually fill in.
+
+Two severities:
+  FAIL    - deterministic, certain bugs. Any FAIL makes the script exit 1.
+  WARNING - fuzzy heuristics. Reported, but never block (exit stays 0).
+
+Usage: python3 sjekk-samsvar.py
 """
-import re, os, glob
+import re, os, sys, glob
 
-def les(sti):
-    return open(sti, encoding="utf-8").read() if os.path.exists(sti) else ""
+SHOWCASE = "demoer"
+TEMPLATES = "maler/demoer"
+DATA_MODEL = "maler/kunde-data-mal.txt"
 
-def tell_bilder_demo(h):
-    """Bildeplasser i demoen: img-tagger + kjente bakgrunnsklasser."""
-    n = len(re.findall(r'<img\b', h))
-    for m in re.finditer(r'class="([^"]+)"', h):
-        kl = m.group(1)
-        if re.search(r'\b(vb\d+|vf-arbeid\d+|pb\d+|photo-galleri\d+|photo-hero|photo-om|hero-blokk|om-visual|om-foto|hero-foto-inner)\b', kl):
-            n += 1
-    return n
+# Demo identities that must never survive inside a template.
+DEMO_NAMES = ["Nordvik", "Fossum", "Voltek", "Berg Maler", "Lund",
+              "Lien", "Grønn Hage", "Trygg Flytt", "Klar Renhold"]
 
+# Colour markers ny-kunde.py derives automatically (not in the data model).
+AUTO_MARKERS = {"FARGE_HOVED_MORK", "FARGE_HOVED_LYS",
+                "FARGE_MORK_DYP", "FARGE_MORK_LYS"}
 
-def tell_tekstfelt(skjema):
-    """Grupper av tekstfelt i skjemaet: tjeneste1_tittel -> {'tjeneste': 6}"""
-    ut = {}
-    for navn in set(re.findall(r'name="([a-z]+)(\d+)_[a-z]+"', skjema)):
-        pass
-    for gruppe, nr in re.findall(r'name="([a-z]+)(\d+)_[a-z]+"', skjema):
-        ut[gruppe] = max(ut.get(gruppe, 0), int(nr))
-    return ut
+# Valid photo-hole base names.
+VALID_HOLE = re.compile(r'^photo-(hero|om|placeholder|galleri\d+|arbeid\d+|tjeneste\d+)$')
 
+# External IMAGE only: unsplash by name, or url()/<img src> pointing to an image file.
+# Deliberately does NOT match Google Fonts or map embeds.
+EXTERNAL_IMG = re.compile(
+    r'unsplash'
+    r'|(?:url\(\s*["\']?|<img\b[^>]*\bsrc\s*=\s*["\'])https?://[^"\')> ]+\.(?:jpe?g|png|webp|gif|avif|svg)',
+    re.I)
 
-def tell_tekstblokker(demo):
-    """Hvor mange tjenester/prosjekter demoen faktisk viser."""
-    ut = {}
-    ut["tjeneste"] = len(re.findall(r'class="tjeneste(?:["\s])', demo)) + \
-                     len(re.findall(r'class="tjeneste-enkel"', demo)) + \
-                     len(re.findall(r'class="tjeneste-rad"', demo))
-    ut["prosjekt"] = len(re.findall(r'class="prosjekt"', demo)) + \
-                     len(re.findall(r'class="arbeid-kort"', demo))
-    ut["galleri"] = len(re.findall(r'class="verk[ "]', demo)) + \
-                    len(re.findall(r'data-kat=', demo))
-    return {k: v for k, v in ut.items() if v}
+fails, warnings = [], []
 
 
-bransjer = sorted({os.path.basename(p).replace("bestill-", "").replace(".html", "")
-                   for p in glob.glob("bestill-*.html")})
+def read(*parts):
+    path = os.path.join(*parts)
+    return open(path, encoding="utf-8").read() if os.path.isfile(path) else ""
 
-print("bransje          skjema  demo(kl/mod)  mal(kl/mod)   status")
-print("─" * 66)
-feil = 0
-for b in bransjer:
-    skjema = les(f"bestill-{b}.html")
-    felt = len(set(re.findall(r'data-type="([^"]+)"', skjema)))
 
-    rader = []
-    for variant in (b, f"{b}-moderne"):
-        demo = les(f"demoer/{variant}/index.html")
-        mal  = les(f"maler/demoer/{variant}/index.html")
-        if not demo:
-            rader.append((None, None, None)); continue
-        d_ant = tell_bilder_demo(demo)
-        m_ant = len(set(re.findall(r'photo-(?:galleri\d+|arbeid\d+|tjeneste\d+|hero|om)', mal)))
-        unsplash = "unsplash" in mal
-        rader.append((d_ant, m_ant, unsplash))
+def strip_comments(text):
+    """Remove CSS /* ... */ and HTML <!-- ... --> comments before scanning,
+    so a note that merely mentions Unsplash is not mistaken for a real image."""
+    text = re.sub(r'/\*.*?\*/', '', text, flags=re.S)
+    text = re.sub(r'<!--.*?-->', '', text, flags=re.S)
+    return text
 
-    demo_tekst = "/".join(str(r[0]) if r[0] is not None else "-" for r in rader)
-    mal_tekst  = "/".join(str(r[1]) if r[1] is not None else "-" for r in rader)
 
-    problemer = []
-    for i, r in enumerate(rader):
-        if r[0] is None: continue
-        navn = "klassisk" if i == 0 else "moderne"
-        if r[2]: problemer.append(f"unsplash i mal ({navn})")
-        if r[1] == 0 and r[0] > 2:
-            problemer.append(f"mal mangler bildeplasser ({navn})")
-        elif abs(r[0] - r[1]) > 1: problemer.append(f"demo {r[0]} vs mal {r[1]} ({navn})")
+def template_files(template_dir):
+    """All .html and .css files inside one template folder."""
+    out = []
+    for root, _, files in os.walk(template_dir):
+        for f in files:
+            if f.endswith((".html", ".css")):
+                out.append(os.path.join(root, f))
+    return out
 
-    maks_mal = max([r[1] for r in rader if r[1] is not None] or [0])
-    if felt and maks_mal and felt + 2 < maks_mal:
-        problemer.append(f"skjema {felt} felt, mal trenger {maks_mal}")
 
-    # Tekstfelt: ber skjemaet om flere enn demoen viser?
-    felt_tekst = tell_tekstfelt(skjema)
-    for i, variant in enumerate((b, f"{b}-moderne")):
-        demo = les(f"demoer/{variant}/index.html")
-        if not demo: continue
-        navn = "klassisk" if i == 0 else "moderne"
-        vist = tell_tekstblokker(demo)
-        for gruppe, ant in felt_tekst.items():
-            if gruppe in vist and ant > vist[gruppe]:
-                problemer.append(f"skjema ber om {ant} {gruppe}, demo viser {vist[gruppe]} ({navn})")
+def load_vocabulary():
+    """Marker names the data model knows about, plus the auto colours."""
+    if not os.path.isfile(DATA_MODEL):
+        fails.append(f"Data model missing: {DATA_MODEL} - cannot validate markers")
+        return None
+    vocab = set(AUTO_MARKERS)
+    for line in open(DATA_MODEL, encoding="utf-8"):
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            vocab.add(line.split("=", 1)[0].strip())
+    return vocab
 
-    status = "ok" if not problemer else "; ".join(problemer)
-    if problemer: feil += 1
-    print(f"{b:16} {felt:>4}   {demo_tekst:>10}   {mal_tekst:>10}   {status}")
 
-print("─" * 66)
-print(f"{len(bransjer) - feil} av {len(bransjer)} bransjer uten avvik")
+def photo_holes(text):
+    return set(re.findall(r'photo-(?:hero|om|galleri\d+|arbeid\d+|tjeneste\d+)', text))
+
+
+def demo_image_slots(demo_name):
+    """Approximate number of image slots a showcase demo shows.
+    Counts <img> tags plus CSS background-image declarations."""
+    html = read(SHOWCASE, demo_name, "index.html")
+    css = read(SHOWCASE, demo_name, "css", "style.css")
+    return len(re.findall(r'<img\b', html)) + len(re.findall(r'background-image\s*:', css))
+
+
+# ---- discover showcase demos ----------------------------------------------
+demos = sorted(os.path.basename(p.rstrip("/"))
+               for p in glob.glob(f"{SHOWCASE}/*/") if os.path.isdir(p))
+
+if not demos:
+    print(f"FAIL: no showcase demos found under {SHOWCASE}/ - checker verified nothing")
+    sys.exit(1)
+
+vocab = load_vocabulary()
+
+
+# ---- per-demo checks -------------------------------------------------------
+for demo in demos:
+    tmpl_dir = os.path.join(TEMPLATES, demo)
+
+    # FAIL: template does not exist at all
+    if not os.path.isdir(tmpl_dir):
+        fails.append(f"[{demo}] template missing: {tmpl_dir}/")
+        continue
+
+    files = template_files(tmpl_dir)
+    if not files:
+        fails.append(f"[{demo}] template folder has no html/css files")
+        continue
+
+    blob = "\n".join(read(f) for f in files)
+
+    # FAIL: external images only (unsplash, or http url()/<img> to an image file).
+    # Fonts (fonts.googleapis/gstatic) and map embeds are NOT flagged.
+    if EXTERNAL_IMG.search(strip_comments(blob)):
+        hit = next((os.path.relpath(f) for f in files
+                    if EXTERNAL_IMG.search(strip_comments(read(f)))), tmpl_dir)
+        fails.append(f"[{demo}] external image in template: {hit}")
+
+    # FAIL: demo identity leaked into template
+    leaked = [name for name in DEMO_NAMES
+              if re.search(r'\b' + re.escape(name) + r'\b', blob)]
+    if leaked:
+        fails.append(f"[{demo}] demo data left in template: {', '.join(leaked)}")
+
+    # FAIL: markers the data model can't fill
+    if vocab is not None:
+        used = set(re.findall(r'\[([A-Z][A-Z_0-9]*)\]', blob))
+        unknown = sorted(used - vocab)
+        if unknown:
+            fails.append(f"[{demo}] unknown markers (not in data model): {', '.join(unknown)}")
+
+    # WARNING: odd photo-hole names
+    all_holes = set(re.findall(r'photo-[a-z0-9]+', blob))
+    odd = sorted(h for h in all_holes if not VALID_HOLE.match(h))
+    if odd:
+        warnings.append(f"[{demo}] unusual photo names: {', '.join(odd)}")
+
+    # WARNING: image-slot count demo vs template
+    d = demo_image_slots(demo)
+    t = len(photo_holes(blob))
+    if t and d and abs(d - t) > 2:
+        warnings.append(f"[{demo}] image slots differ: demo~{d} vs template {t}")
+
+
+# ---- form cross-check (WARNING only) --------------------------------------
+def form_groups(form):
+    out = {}
+    for group, num in re.findall(r'name="([a-z]+)(\d+)_[a-z]+"', form):
+        out[group] = max(out.get(group, 0), int(num))
+    return out
+
+
+def demo_blocks(html):
+    out = {}
+    out["tjeneste"] = (len(re.findall(r'class="tjeneste[ "]', html))
+                       + len(re.findall(r'class="tjeneste-enkel"', html))
+                       + len(re.findall(r'class="tjeneste-rad"', html)))
+    out["prosjekt"] = (len(re.findall(r'class="prosjekt"', html))
+                       + len(re.findall(r'class="arbeid-kort"', html)))
+    return {k: v for k, v in out.items() if v}
+
+
+for form_path in sorted(glob.glob("bestill-*.html")):
+    trade = os.path.basename(form_path)[len("bestill-"):-len(".html")]
+    form = read(form_path)
+    groups = form_groups(form)
+    for variant in (trade, f"{trade}-moderne"):
+        demo_html = read(SHOWCASE, variant, "index.html")
+        if not demo_html:
+            continue
+        shown = demo_blocks(demo_html)
+        for group, asked in groups.items():
+            if group in shown and asked > shown[group]:
+                warnings.append(
+                    f"[{variant}] form asks {asked} {group}, demo shows {shown[group]}")
+
+
+# ---- report ----------------------------------------------------------------
+line = "=" * 60
+print(f"\n{line}\n  SAMSVAR - template system check\n{line}")
+print(f"  showcase demos: {len(demos)}   templates dir: {TEMPLATES}/\n")
+
+if fails:
+    print(f"  FAIL ({len(fails)}):")
+    for f in fails:
+        print(f"    x {f}")
+if warnings:
+    print(f"\n  WARNING ({len(warnings)}):")
+    for w in warnings:
+        print(f"    . {w}")
+if not fails and not warnings:
+    print("  All templates clean and consistent.")
+
+print()
+if fails:
+    print("  RESULT: NOT OK - fix the FAILs above\n")
+    sys.exit(1)
+elif warnings:
+    print("  RESULT: OK, but review the warnings\n")
+    sys.exit(0)
+else:
+    print("  RESULT: OK\n")
+    sys.exit(0)

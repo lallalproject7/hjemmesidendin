@@ -1,3 +1,5 @@
 kunder/
 kunde-*.txt
 img/demoer-original/
+*.bak
+*.bak*
