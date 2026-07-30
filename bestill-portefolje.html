@@ -399,12 +399,27 @@ a { color: #8fc9a8; }
                 <div class="kun-kobber vis" id="kobberBilder">
                     <div class="opplast-rad" style="margin-top:1rem">
                         <div id="klassiskBilder" class="design-bilder">
-                    <p class="best-del-hint">Åtte prosjekter. Bare hovedbildet er påkrevd.</p>
+<p class="best-del-hint">Seks prosjekter. Bare hovedbildet er påkrevd.</p>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 1</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k1_tittel" placeholder="Tittel – f.eks: Komplett oppussing av bad"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k1_kategori" placeholder="Kategori – f.eks: Renovering"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k1_tekst" placeholder="Kort beskrivelse"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k1_tittel" placeholder="Tittel – f.eks: Baderom i ro og varme"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k1_kategori" placeholder="Kategori – f.eks: Baderom"></div>
                         <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k1_sted" placeholder="Sted og år – f.eks: Skien · 2025"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k1_tekst" placeholder="Kort beskrivelse (vises på kortet)"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k1_tekst_lang" rows="4" placeholder="Lang beskrivelse (vises inne i prosjektet) – gjerne to avsnitt: utfordringen og hva du gjorde"></textarea></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="k1_label1" placeholder="Navn – f.eks: Størrelse">
+                            <input type="text" name="k1_verdi1" placeholder="Verdi – f.eks: 6 m²">
+                            <input type="text" name="k1_label2" placeholder="Navn – f.eks: Omfang">
+                            <input type="text" name="k1_verdi2" placeholder="Verdi – f.eks: Design + styling">
+                            <input type="text" name="k1_label3" placeholder="Navn – f.eks: Varighet">
+                            <input type="text" name="k1_verdi3" placeholder="Verdi – f.eks: 3 uker">
+                            <input type="text" name="k1_label4" placeholder="Navn – f.eks: Materialer">
+                            <input type="text" name="k1_verdi4" placeholder="Verdi – f.eks: Naturstein, eik">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k1_sitat" placeholder="Sitat fra kunde (valgfritt) – f.eks: «Hun forsto med én gang hva vi ville ha.»"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k1_sitat_navn" placeholder="Hvem sa det (valgfritt) – f.eks: Kari N. · Skien"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k1_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="k1_hoved">Last opp bilde</button>
@@ -412,29 +427,38 @@ a { color: #8fc9a8; }
                             <div class="opplast-thumbs" id="thumbs-k1_hoved"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Før-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k1_for">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k1_for"></div>
-                            <div class="opplast-thumbs" id="thumbs-k1_for"></div>
+                            <h4>Bilde 2 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k1_bilde2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k1_bilde2"></div>
+                            <div class="opplast-thumbs" id="thumbs-k1_bilde2"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Etter-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k1_etter">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k1_etter"></div>
-                            <div class="opplast-thumbs" id="thumbs-k1_etter"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Bilde fra arbeidet <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k1_prosess">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k1_prosess"></div>
-                            <div class="opplast-thumbs" id="thumbs-k1_prosess"></div>
+                            <h4>Bilde 3 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k1_bilde3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k1_bilde3"></div>
+                            <div class="opplast-thumbs" id="thumbs-k1_bilde3"></div>
                         </div>
                     </div>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 2</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k2_tittel" placeholder="Tittel – f.eks: Komplett oppussing av bad"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k2_kategori" placeholder="Kategori – f.eks: Renovering"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k2_tekst" placeholder="Kort beskrivelse"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k2_tittel" placeholder="Tittel – f.eks: Baderom i ro og varme"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k2_kategori" placeholder="Kategori – f.eks: Baderom"></div>
                         <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k2_sted" placeholder="Sted og år – f.eks: Skien · 2025"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k2_tekst" placeholder="Kort beskrivelse (vises på kortet)"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k2_tekst_lang" rows="4" placeholder="Lang beskrivelse (vises inne i prosjektet) – gjerne to avsnitt: utfordringen og hva du gjorde"></textarea></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="k2_label1" placeholder="Navn – f.eks: Størrelse">
+                            <input type="text" name="k2_verdi1" placeholder="Verdi – f.eks: 6 m²">
+                            <input type="text" name="k2_label2" placeholder="Navn – f.eks: Omfang">
+                            <input type="text" name="k2_verdi2" placeholder="Verdi – f.eks: Design + styling">
+                            <input type="text" name="k2_label3" placeholder="Navn – f.eks: Varighet">
+                            <input type="text" name="k2_verdi3" placeholder="Verdi – f.eks: 3 uker">
+                            <input type="text" name="k2_label4" placeholder="Navn – f.eks: Materialer">
+                            <input type="text" name="k2_verdi4" placeholder="Verdi – f.eks: Naturstein, eik">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k2_sitat" placeholder="Sitat fra kunde (valgfritt) – f.eks: «Hun forsto med én gang hva vi ville ha.»"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k2_sitat_navn" placeholder="Hvem sa det (valgfritt) – f.eks: Kari N. · Skien"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k2_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="k2_hoved">Last opp bilde</button>
@@ -442,29 +466,38 @@ a { color: #8fc9a8; }
                             <div class="opplast-thumbs" id="thumbs-k2_hoved"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Før-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k2_for">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k2_for"></div>
-                            <div class="opplast-thumbs" id="thumbs-k2_for"></div>
+                            <h4>Bilde 2 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k2_bilde2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k2_bilde2"></div>
+                            <div class="opplast-thumbs" id="thumbs-k2_bilde2"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Etter-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k2_etter">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k2_etter"></div>
-                            <div class="opplast-thumbs" id="thumbs-k2_etter"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Bilde fra arbeidet <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k2_prosess">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k2_prosess"></div>
-                            <div class="opplast-thumbs" id="thumbs-k2_prosess"></div>
+                            <h4>Bilde 3 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k2_bilde3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k2_bilde3"></div>
+                            <div class="opplast-thumbs" id="thumbs-k2_bilde3"></div>
                         </div>
                     </div>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 3</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k3_tittel" placeholder="Tittel – f.eks: Komplett oppussing av bad"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k3_kategori" placeholder="Kategori – f.eks: Renovering"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k3_tekst" placeholder="Kort beskrivelse"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k3_tittel" placeholder="Tittel – f.eks: Baderom i ro og varme"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k3_kategori" placeholder="Kategori – f.eks: Baderom"></div>
                         <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k3_sted" placeholder="Sted og år – f.eks: Skien · 2025"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k3_tekst" placeholder="Kort beskrivelse (vises på kortet)"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k3_tekst_lang" rows="4" placeholder="Lang beskrivelse (vises inne i prosjektet) – gjerne to avsnitt: utfordringen og hva du gjorde"></textarea></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="k3_label1" placeholder="Navn – f.eks: Størrelse">
+                            <input type="text" name="k3_verdi1" placeholder="Verdi – f.eks: 6 m²">
+                            <input type="text" name="k3_label2" placeholder="Navn – f.eks: Omfang">
+                            <input type="text" name="k3_verdi2" placeholder="Verdi – f.eks: Design + styling">
+                            <input type="text" name="k3_label3" placeholder="Navn – f.eks: Varighet">
+                            <input type="text" name="k3_verdi3" placeholder="Verdi – f.eks: 3 uker">
+                            <input type="text" name="k3_label4" placeholder="Navn – f.eks: Materialer">
+                            <input type="text" name="k3_verdi4" placeholder="Verdi – f.eks: Naturstein, eik">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k3_sitat" placeholder="Sitat fra kunde (valgfritt) – f.eks: «Hun forsto med én gang hva vi ville ha.»"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k3_sitat_navn" placeholder="Hvem sa det (valgfritt) – f.eks: Kari N. · Skien"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k3_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="k3_hoved">Last opp bilde</button>
@@ -472,29 +505,38 @@ a { color: #8fc9a8; }
                             <div class="opplast-thumbs" id="thumbs-k3_hoved"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Før-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k3_for">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k3_for"></div>
-                            <div class="opplast-thumbs" id="thumbs-k3_for"></div>
+                            <h4>Bilde 2 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k3_bilde2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k3_bilde2"></div>
+                            <div class="opplast-thumbs" id="thumbs-k3_bilde2"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Etter-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k3_etter">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k3_etter"></div>
-                            <div class="opplast-thumbs" id="thumbs-k3_etter"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Bilde fra arbeidet <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k3_prosess">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k3_prosess"></div>
-                            <div class="opplast-thumbs" id="thumbs-k3_prosess"></div>
+                            <h4>Bilde 3 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k3_bilde3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k3_bilde3"></div>
+                            <div class="opplast-thumbs" id="thumbs-k3_bilde3"></div>
                         </div>
                     </div>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 4</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k4_tittel" placeholder="Tittel – f.eks: Komplett oppussing av bad"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k4_kategori" placeholder="Kategori – f.eks: Renovering"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k4_tekst" placeholder="Kort beskrivelse"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k4_tittel" placeholder="Tittel – f.eks: Baderom i ro og varme"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k4_kategori" placeholder="Kategori – f.eks: Baderom"></div>
                         <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k4_sted" placeholder="Sted og år – f.eks: Skien · 2025"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k4_tekst" placeholder="Kort beskrivelse (vises på kortet)"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k4_tekst_lang" rows="4" placeholder="Lang beskrivelse (vises inne i prosjektet) – gjerne to avsnitt: utfordringen og hva du gjorde"></textarea></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="k4_label1" placeholder="Navn – f.eks: Størrelse">
+                            <input type="text" name="k4_verdi1" placeholder="Verdi – f.eks: 6 m²">
+                            <input type="text" name="k4_label2" placeholder="Navn – f.eks: Omfang">
+                            <input type="text" name="k4_verdi2" placeholder="Verdi – f.eks: Design + styling">
+                            <input type="text" name="k4_label3" placeholder="Navn – f.eks: Varighet">
+                            <input type="text" name="k4_verdi3" placeholder="Verdi – f.eks: 3 uker">
+                            <input type="text" name="k4_label4" placeholder="Navn – f.eks: Materialer">
+                            <input type="text" name="k4_verdi4" placeholder="Verdi – f.eks: Naturstein, eik">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k4_sitat" placeholder="Sitat fra kunde (valgfritt) – f.eks: «Hun forsto med én gang hva vi ville ha.»"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k4_sitat_navn" placeholder="Hvem sa det (valgfritt) – f.eks: Kari N. · Skien"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k4_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="k4_hoved">Last opp bilde</button>
@@ -502,29 +544,38 @@ a { color: #8fc9a8; }
                             <div class="opplast-thumbs" id="thumbs-k4_hoved"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Før-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k4_for">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k4_for"></div>
-                            <div class="opplast-thumbs" id="thumbs-k4_for"></div>
+                            <h4>Bilde 2 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k4_bilde2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k4_bilde2"></div>
+                            <div class="opplast-thumbs" id="thumbs-k4_bilde2"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Etter-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k4_etter">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k4_etter"></div>
-                            <div class="opplast-thumbs" id="thumbs-k4_etter"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Bilde fra arbeidet <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k4_prosess">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k4_prosess"></div>
-                            <div class="opplast-thumbs" id="thumbs-k4_prosess"></div>
+                            <h4>Bilde 3 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k4_bilde3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k4_bilde3"></div>
+                            <div class="opplast-thumbs" id="thumbs-k4_bilde3"></div>
                         </div>
                     </div>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 5</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k5_tittel" placeholder="Tittel – f.eks: Komplett oppussing av bad"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k5_kategori" placeholder="Kategori – f.eks: Renovering"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k5_tekst" placeholder="Kort beskrivelse"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k5_tittel" placeholder="Tittel – f.eks: Baderom i ro og varme"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k5_kategori" placeholder="Kategori – f.eks: Baderom"></div>
                         <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k5_sted" placeholder="Sted og år – f.eks: Skien · 2025"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k5_tekst" placeholder="Kort beskrivelse (vises på kortet)"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k5_tekst_lang" rows="4" placeholder="Lang beskrivelse (vises inne i prosjektet) – gjerne to avsnitt: utfordringen og hva du gjorde"></textarea></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="k5_label1" placeholder="Navn – f.eks: Størrelse">
+                            <input type="text" name="k5_verdi1" placeholder="Verdi – f.eks: 6 m²">
+                            <input type="text" name="k5_label2" placeholder="Navn – f.eks: Omfang">
+                            <input type="text" name="k5_verdi2" placeholder="Verdi – f.eks: Design + styling">
+                            <input type="text" name="k5_label3" placeholder="Navn – f.eks: Varighet">
+                            <input type="text" name="k5_verdi3" placeholder="Verdi – f.eks: 3 uker">
+                            <input type="text" name="k5_label4" placeholder="Navn – f.eks: Materialer">
+                            <input type="text" name="k5_verdi4" placeholder="Verdi – f.eks: Naturstein, eik">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k5_sitat" placeholder="Sitat fra kunde (valgfritt) – f.eks: «Hun forsto med én gang hva vi ville ha.»"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k5_sitat_navn" placeholder="Hvem sa det (valgfritt) – f.eks: Kari N. · Skien"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k5_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="k5_hoved">Last opp bilde</button>
@@ -532,29 +583,38 @@ a { color: #8fc9a8; }
                             <div class="opplast-thumbs" id="thumbs-k5_hoved"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Før-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k5_for">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k5_for"></div>
-                            <div class="opplast-thumbs" id="thumbs-k5_for"></div>
+                            <h4>Bilde 2 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k5_bilde2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k5_bilde2"></div>
+                            <div class="opplast-thumbs" id="thumbs-k5_bilde2"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Etter-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k5_etter">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k5_etter"></div>
-                            <div class="opplast-thumbs" id="thumbs-k5_etter"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Bilde fra arbeidet <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k5_prosess">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k5_prosess"></div>
-                            <div class="opplast-thumbs" id="thumbs-k5_prosess"></div>
+                            <h4>Bilde 3 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k5_bilde3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k5_bilde3"></div>
+                            <div class="opplast-thumbs" id="thumbs-k5_bilde3"></div>
                         </div>
                     </div>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 6</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k6_tittel" placeholder="Tittel – f.eks: Komplett oppussing av bad"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k6_kategori" placeholder="Kategori – f.eks: Renovering"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k6_tekst" placeholder="Kort beskrivelse"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k6_tittel" placeholder="Tittel – f.eks: Baderom i ro og varme"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k6_kategori" placeholder="Kategori – f.eks: Baderom"></div>
                         <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k6_sted" placeholder="Sted og år – f.eks: Skien · 2025"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k6_tekst" placeholder="Kort beskrivelse (vises på kortet)"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k6_tekst_lang" rows="4" placeholder="Lang beskrivelse (vises inne i prosjektet) – gjerne to avsnitt: utfordringen og hva du gjorde"></textarea></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="k6_label1" placeholder="Navn – f.eks: Størrelse">
+                            <input type="text" name="k6_verdi1" placeholder="Verdi – f.eks: 6 m²">
+                            <input type="text" name="k6_label2" placeholder="Navn – f.eks: Omfang">
+                            <input type="text" name="k6_verdi2" placeholder="Verdi – f.eks: Design + styling">
+                            <input type="text" name="k6_label3" placeholder="Navn – f.eks: Varighet">
+                            <input type="text" name="k6_verdi3" placeholder="Verdi – f.eks: 3 uker">
+                            <input type="text" name="k6_label4" placeholder="Navn – f.eks: Materialer">
+                            <input type="text" name="k6_verdi4" placeholder="Verdi – f.eks: Naturstein, eik">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k6_sitat" placeholder="Sitat fra kunde (valgfritt) – f.eks: «Hun forsto med én gang hva vi ville ha.»"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k6_sitat_navn" placeholder="Hvem sa det (valgfritt) – f.eks: Kari N. · Skien"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="k6_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="k6_hoved">Last opp bilde</button>
@@ -562,85 +622,19 @@ a { color: #8fc9a8; }
                             <div class="opplast-thumbs" id="thumbs-k6_hoved"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Før-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k6_for">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k6_for"></div>
-                            <div class="opplast-thumbs" id="thumbs-k6_for"></div>
+                            <h4>Bilde 2 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k6_bilde2">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k6_bilde2"></div>
+                            <div class="opplast-thumbs" id="thumbs-k6_bilde2"></div>
                         </div>
                         <div class="opplast-kort">
-                            <h4>Etter-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k6_etter">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k6_etter"></div>
-                            <div class="opplast-thumbs" id="thumbs-k6_etter"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Bilde fra arbeidet <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k6_prosess">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k6_prosess"></div>
-                            <div class="opplast-thumbs" id="thumbs-k6_prosess"></div>
+                            <h4>Bilde 3 <span class="valgfri">(valgfritt)</span></h4>
+                            <button type="button" class="opplast-knapp" data-type="k6_bilde3">Last opp bilde</button>
+                            <div class="opplast-status" id="status-k6_bilde3"></div>
+                            <div class="opplast-thumbs" id="thumbs-k6_bilde3"></div>
                         </div>
                     </div>
-                    <div class="arb-blokk"><span class="arb-nr">Prosjekt 7</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k7_tittel" placeholder="Tittel – f.eks: Komplett oppussing av bad"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k7_kategori" placeholder="Kategori – f.eks: Renovering"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k7_tekst" placeholder="Kort beskrivelse"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k7_sted" placeholder="Sted og år – f.eks: Skien · 2025"></div>
-                        <div class="opplast-kort">
-                            <h4>Hovedbilde</h4>
-                            <button type="button" class="opplast-knapp" data-type="k7_hoved">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k7_hoved"></div>
-                            <div class="opplast-thumbs" id="thumbs-k7_hoved"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Før-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k7_for">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k7_for"></div>
-                            <div class="opplast-thumbs" id="thumbs-k7_for"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Etter-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k7_etter">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k7_etter"></div>
-                            <div class="opplast-thumbs" id="thumbs-k7_etter"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Bilde fra arbeidet <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k7_prosess">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k7_prosess"></div>
-                            <div class="opplast-thumbs" id="thumbs-k7_prosess"></div>
-                        </div>
-                    </div>
-                    <div class="arb-blokk"><span class="arb-nr">Prosjekt 8</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k8_tittel" placeholder="Tittel – f.eks: Komplett oppussing av bad"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k8_kategori" placeholder="Kategori – f.eks: Renovering"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k8_tekst" placeholder="Kort beskrivelse"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="k8_sted" placeholder="Sted og år – f.eks: Skien · 2025"></div>
-                        <div class="opplast-kort">
-                            <h4>Hovedbilde</h4>
-                            <button type="button" class="opplast-knapp" data-type="k8_hoved">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k8_hoved"></div>
-                            <div class="opplast-thumbs" id="thumbs-k8_hoved"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Før-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k8_for">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k8_for"></div>
-                            <div class="opplast-thumbs" id="thumbs-k8_for"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Etter-bilde <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k8_etter">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k8_etter"></div>
-                            <div class="opplast-thumbs" id="thumbs-k8_etter"></div>
-                        </div>
-                        <div class="opplast-kort">
-                            <h4>Bilde fra arbeidet <span class="valgfri">(valgfritt)</span></h4>
-                            <button type="button" class="opplast-knapp" data-type="k8_prosess">Last opp bilde</button>
-                            <div class="opplast-status" id="status-k8_prosess"></div>
-                            <div class="opplast-thumbs" id="thumbs-k8_prosess"></div>
-                        </div>
-                    </div>
-                </div>
+</div>
                 <div id="moderneBilder" class="design-bilder">
                     <p class="best-del-hint">Fem prosjekter med tekniske detaljer.</p>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 1</span>
@@ -1098,22 +1092,23 @@ a { color: #8fc9a8; }
         function v(name) { const el = document.querySelector(`[name="${name}"]`); return el ? el.value.trim() : ""; }
         function valgtRadio(name) { const el = document.querySelector(`[name="${name}"]:checked`); return el ? el.value : ""; }
 
-        document.getElementById("lagResultat").addEventListener("click", () => {
-            const erKobber = valgtRadio("design").includes("Kobber");
+document.getElementById("lagResultat").addEventListener("click", () => {
+            const design = valgtRadio("design");
+            const erKlassisk = design === "Klassisk";
             let t = "";
             t += "═══════════════════════════════════\n";
-            t += "  BESTILLING – ELEKTRIKERSIDE\n";
+            t += "  BESTILLING – PORTEFØLJESIDE\n";
             t += "═══════════════════════════════════\n\n";
             t += "── DESIGN ──\n";
-            t += "Valgt design: " + valgtRadio("design") + "\n\n";
+            t += "Valgt design: " + (design || "(ikke valgt)") + "\n\n";
             t += "── FARGER ──\n";
             if (v("valgt_farge")) t += "Fargevalg: " + v("valgt_farge") + "\n";
             t += "Hovedfarge:      " + v("farge_hoved").toUpperCase() + "\n";
             t += "Mørk farge:      " + v("farge_mork").toUpperCase() + "\n";
             t += "Sekundærfarge:   " + v("farge_sekundaer").toUpperCase() + "\n";
             t += "Bakgrunnsfarge:  " + v("farge_bakgrunn").toUpperCase() + "\n\n";
-            t += "── BEDRIFTSINFO ──\n";
-            t += "Firmanavn:  " + v("firmanavn") + "\n";
+            t += "── OM PERSONEN / BEDRIFTEN ──\n";
+            t += "Navn utad:  " + v("firmanavn") + "\n";
             t += "Telefon:    " + v("telefon") + "\n";
             t += "E-post:     " + v("epost") + "\n";
             t += "Org.nr:     " + v("orgnr") + "\n";
@@ -1122,7 +1117,6 @@ a { color: #8fc9a8; }
             t += "2. valg: " + (v("domene_2") || "-") + "\n";
             t += "3. valg: " + (v("domene_3") || "-") + "\n";
             t += "Eier allerede 1. valg: " + (document.querySelector('[name="har_domene"]:checked') ? "JA" : "Nei") + "\n";
-            t += "El-virk.nr: " + v("elnr") + "\n";
             t += "Adresse:    " + v("adresse") + "\n";
             t += "Område:     " + v("omrade") + "\n";
             t += "Startet:    " + v("startaar") + "\n\n";
@@ -1131,32 +1125,57 @@ a { color: #8fc9a8; }
             t += "Høydepunkt 1: " + v("hoydepunkt1") + "\n";
             t += "Høydepunkt 2: " + v("hoydepunkt2") + "\n";
             t += "Høydepunkt 3: " + v("hoydepunkt3") + "\n\n";
-            t += "── TJENESTER ──\n";
+            t += "── TJENESTER / KOMPETANSE ──\n";
             for (let i = 1; i <= 6; i++) {
                 const tit = v("tjeneste" + i + "_tittel");
                 const tek = v("tjeneste" + i + "_tekst");
                 if (tit || tek) { t += i + ". " + tit + "\n"; if (tek) t += "   " + tek + "\n"; }
             }
             t += "\n";
-            t += "── OM OSS ──\n";
-            t += v("om_tekst") + "\n";
-            t += "År i bransjen: " + v("tall_aar") + "\n";
-            t += "Antall jobber: " + v("tall_jobber") + "\n\n";
-            t += "── BILDER (Cloudinary-lenker) ──\n";
-            t += "Logo:  " + (v("bilde_logo") || "(ikke lastet opp)") + "\n";
-            t += "Team:  " + (v("bilde_team") || "(ikke lastet opp)") + "\n";
-            if (erKobber) {
-                t += "Hovedbilde:   " + (v("bilde_hero") || "(ikke lastet opp)") + "\n";
-                t += "Sikringsskap: " + (v("bilde_arbeid1") || "(ikke lastet opp)") + "\n";
-                t += "Elbillader:   " + (v("bilde_arbeid2") || "(ikke lastet opp)") + "\n";
-                t += "Belysning:    " + (v("bilde_arbeid3") || "(ikke lastet opp)") + "\n";
+            t += "── OM DEG ──\n";
+            t += v("om_tekst") + "\n\n";
+            t += "── PROSJEKTER ──\n";
+            if (erKlassisk) {
+                for (let i = 1; i <= 6; i++) {
+                    const tit = v("k" + i + "_tittel");
+                    if (!tit) continue;
+                    t += "\nPROSJEKT " + i + ": " + tit + "\n";
+                    t += "  Kategori: " + v("k" + i + "_kategori") + "\n";
+                    t += "  Sted/år:  " + v("k" + i + "_sted") + "\n";
+                    t += "  Kort:     " + v("k" + i + "_tekst") + "\n";
+                    if (v("k" + i + "_tekst_lang")) t += "  Lang:     " + v("k" + i + "_tekst_lang") + "\n";
+                    for (let p = 1; p <= 4; p++) {
+                        const lab = v("k" + i + "_label" + p);
+                        const ver = v("k" + i + "_verdi" + p);
+                        if (lab || ver) t += "  • " + lab + ": " + ver + "\n";
+                    }
+                    if (v("k" + i + "_sitat")) t += "  Sitat:    " + v("k" + i + "_sitat") + " — " + v("k" + i + "_sitat_navn") + "\n";
+                    if (v("k" + i + "_ekstra")) t += "  Ekstra:   " + v("k" + i + "_ekstra") + "\n";
+                    t += "  Bilder:   hoved=" + (v("bilde_k" + i + "_hoved") || "-") + " | b2=" + (v("bilde_k" + i + "_bilde2") || "-") + " | b3=" + (v("bilde_k" + i + "_bilde3") || "-") + "\n";
+                }
+            } else {
+                for (let i = 1; i <= 5; i++) {
+                    const tit = v("m" + i + "_tittel");
+                    if (!tit) continue;
+                    t += "\nPROSJEKT " + i + ": " + tit + "\n";
+                    t += "  Sektor:     " + v("m" + i + "_sektor") + "\n";
+                    t += "  Rolle:      " + v("m" + i + "_rolle") + "\n";
+                    t += "  År:         " + v("m" + i + "_aar") + "\n";
+                    t += "  Resultat:   " + v("m" + i + "_resultat") + "\n";
+                    t += "  Utfordring: " + v("m" + i + "_utfordring") + "\n";
+                    t += "  Leveranse:  " + v("m" + i + "_leveranse") + "\n";
+                    if (v("m" + i + "_tekst")) t += "  Tekst:      " + v("m" + i + "_tekst") + "\n";
+                    t += "  Bilder:     hoved=" + (v("bilde_m" + i + "_hoved") || "-") + " | a=" + (v("bilde_m" + i + "_detalj_a") || "-") + " | b=" + (v("bilde_m" + i + "_detalj_b") || "-") + "\n";
+                }
             }
             t += "\n";
+            t += "── BILDER (generelt) ──\n";
+            t += "Logo:      " + (v("bilde_logo") || "(ikke lastet opp)") + "\n";
+            t += "Portrett:  " + (v("bilde_om") || "(ikke lastet opp)") + "\n\n";
             t += "── JURIDISKE SIDER ──\n";
             const jurValg = valgtRadio("juridisk");
             t += "Valg: " + jurValg + "\n";
             if (jurValg === "Lag for meg") {
-                t += "  PERSONVERN:\n";
                 t += "  Behandlingsansvarlig: " + v("jur_ansvarlig") + "\n";
                 t += "  Kontaktperson:        " + v("jur_kontakt_navn") + "\n";
                 t += "  E-post:               " + v("jur_kontakt_epost") + "\n";
@@ -1179,7 +1198,6 @@ a { color: #8fc9a8; }
             t += "Navn:    " + v("din_navn") + "\n";
             t += "Telefon: " + v("din_telefon") + "\n";
             t += "E-post:  " + v("din_epost") + "\n";
-
             document.getElementById("resultatTekst").value = t;
             let skjult = document.getElementById("oppsummering_skjult");
             if (!skjult) {
@@ -1206,37 +1224,23 @@ a { color: #8fc9a8; }
 </html<input type="hidden" name="bilde_logo" id="bilde_logo">
 <input type="hidden" name="bilde_om" id="bilde_om">
 <input type="hidden" name="bilde_k1_hoved" id="bilde_k1_hoved">
-<input type="hidden" name="bilde_k1_for" id="bilde_k1_for">
-<input type="hidden" name="bilde_k1_etter" id="bilde_k1_etter">
-<input type="hidden" name="bilde_k1_prosess" id="bilde_k1_prosess">
+<input type="hidden" name="bilde_k1_bilde2" id="bilde_k1_bilde2">
+<input type="hidden" name="bilde_k1_bilde3" id="bilde_k1_bilde3">
 <input type="hidden" name="bilde_k2_hoved" id="bilde_k2_hoved">
-<input type="hidden" name="bilde_k2_for" id="bilde_k2_for">
-<input type="hidden" name="bilde_k2_etter" id="bilde_k2_etter">
-<input type="hidden" name="bilde_k2_prosess" id="bilde_k2_prosess">
+<input type="hidden" name="bilde_k2_bilde2" id="bilde_k2_bilde2">
+<input type="hidden" name="bilde_k2_bilde3" id="bilde_k2_bilde3">
 <input type="hidden" name="bilde_k3_hoved" id="bilde_k3_hoved">
-<input type="hidden" name="bilde_k3_for" id="bilde_k3_for">
-<input type="hidden" name="bilde_k3_etter" id="bilde_k3_etter">
-<input type="hidden" name="bilde_k3_prosess" id="bilde_k3_prosess">
+<input type="hidden" name="bilde_k3_bilde2" id="bilde_k3_bilde2">
+<input type="hidden" name="bilde_k3_bilde3" id="bilde_k3_bilde3">
 <input type="hidden" name="bilde_k4_hoved" id="bilde_k4_hoved">
-<input type="hidden" name="bilde_k4_for" id="bilde_k4_for">
-<input type="hidden" name="bilde_k4_etter" id="bilde_k4_etter">
-<input type="hidden" name="bilde_k4_prosess" id="bilde_k4_prosess">
+<input type="hidden" name="bilde_k4_bilde2" id="bilde_k4_bilde2">
+<input type="hidden" name="bilde_k4_bilde3" id="bilde_k4_bilde3">
 <input type="hidden" name="bilde_k5_hoved" id="bilde_k5_hoved">
-<input type="hidden" name="bilde_k5_for" id="bilde_k5_for">
-<input type="hidden" name="bilde_k5_etter" id="bilde_k5_etter">
-<input type="hidden" name="bilde_k5_prosess" id="bilde_k5_prosess">
+<input type="hidden" name="bilde_k5_bilde2" id="bilde_k5_bilde2">
+<input type="hidden" name="bilde_k5_bilde3" id="bilde_k5_bilde3">
 <input type="hidden" name="bilde_k6_hoved" id="bilde_k6_hoved">
-<input type="hidden" name="bilde_k6_for" id="bilde_k6_for">
-<input type="hidden" name="bilde_k6_etter" id="bilde_k6_etter">
-<input type="hidden" name="bilde_k6_prosess" id="bilde_k6_prosess">
-<input type="hidden" name="bilde_k7_hoved" id="bilde_k7_hoved">
-<input type="hidden" name="bilde_k7_for" id="bilde_k7_for">
-<input type="hidden" name="bilde_k7_etter" id="bilde_k7_etter">
-<input type="hidden" name="bilde_k7_prosess" id="bilde_k7_prosess">
-<input type="hidden" name="bilde_k8_hoved" id="bilde_k8_hoved">
-<input type="hidden" name="bilde_k8_for" id="bilde_k8_for">
-<input type="hidden" name="bilde_k8_etter" id="bilde_k8_etter">
-<input type="hidden" name="bilde_k8_prosess" id="bilde_k8_prosess">
+<input type="hidden" name="bilde_k6_bilde2" id="bilde_k6_bilde2">
+<input type="hidden" name="bilde_k6_bilde3" id="bilde_k6_bilde3">
 <input type="hidden" name="bilde_m1_hoved" id="bilde_m1_hoved">
 <input type="hidden" name="bilde_m1_detalj_a" id="bilde_m1_detalj_a">
 <input type="hidden" name="bilde_m1_detalj_b" id="bilde_m1_detalj_b">

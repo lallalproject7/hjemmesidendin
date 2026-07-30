@@ -168,6 +168,15 @@ for form_path in sorted(glob.glob("bestill-*.html")):
     trade = os.path.basename(form_path)[len("bestill-"):-len(".html")]
     form = read(form_path)
     groups = form_groups(form)
+    # FAIL: form summary title must match the trade (catches forms copied from another trade)
+    def _norm(x): return x.upper().replace("Æ","A").replace("Ø","O").replace("Å","A")
+    m_tit = re.search(r"BESTILLING\s*[–-]\s*([A-ZÆØÅ]+)SIDE", form)
+    if not m_tit:
+        fails.append(f"[{trade}] form summary title missing (BESTILLING - XXXSIDE)")
+    else:
+        _tit = _norm(m_tit.group(1)); _exp = _norm(trade)
+        if _tit not in _exp and _exp not in _tit:
+            fails.append(f"[{trade}] form summary says '{m_tit.group(1)}SIDE' - copied from wrong trade?")
     for variant in (trade, f"{trade}-moderne"):
         demo_html = read(SHOWCASE, variant, "index.html")
         if not demo_html:

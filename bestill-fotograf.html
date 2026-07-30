@@ -1035,7 +1035,7 @@ a { color: #8fc9a8; }
             const erKobber = valgtRadio("design").includes("Kobber");
             let t = "";
             t += "═══════════════════════════════════\n";
-            t += "  BESTILLING – ELEKTRIKERSIDE\n";
+            t += "  BESTILLING – FOTOGRAFSIDE\n";
             t += "═══════════════════════════════════\n\n";
             t += "── DESIGN ──\n";
             t += "Valgt design: " + valgtRadio("design") + "\n\n";
@@ -1076,13 +1076,16 @@ a { color: #8fc9a8; }
             t += "År i bransjen: " + v("tall_aar") + "\n";
             t += "Antall jobber: " + v("tall_jobber") + "\n\n";
             t += "── BILDER (Cloudinary-lenker) ──\n";
-            t += "Logo:  " + (v("bilde_logo") || "(ikke lastet opp)") + "\n";
-            t += "Team:  " + (v("bilde_team") || "(ikke lastet opp)") + "\n";
-            if (erKobber) {
-                t += "Hovedbilde:   " + (v("bilde_hero") || "(ikke lastet opp)") + "\n";
-                t += "Sikringsskap: " + (v("bilde_arbeid1") || "(ikke lastet opp)") + "\n";
-                t += "Elbillader:   " + (v("bilde_arbeid2") || "(ikke lastet opp)") + "\n";
-                t += "Belysning:    " + (v("bilde_arbeid3") || "(ikke lastet opp)") + "\n";
+            t += "Logo:      " + (v("bilde_logo") || "(ikke lastet opp)") + "\n";
+            t += "Hovedbilde: " + (v("bilde_hero") || "(ikke lastet opp)") + "\n";
+            t += "Om meg:    " + (v("bilde_om") || "(ikke lastet opp)") + "\n";
+            for (let i = 1; i <= 3; i++) {
+                if (v("bilde_tjeneste" + i)) t += "Tjeneste " + i + ": " + v("bilde_tjeneste" + i) + "\n";
+            }
+            t += "Galleri:\n";
+            for (let i = 1; i <= 16; i++) {
+                const b = v("bilde_galleri" + i);
+                if (b) t += "  " + i + ": " + b + "\n";
             }
             t += "\n";
             t += "── JURIDISKE SIDER ──\n";
