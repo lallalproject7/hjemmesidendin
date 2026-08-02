@@ -4,7 +4,7 @@ Lager kundens nettside fra en mal.
 Bruk: python3 ny-kunde.py <mal> <kundemappe> <datafil>
 Eks:  python3 ny-kunde.py snekker lund-snekkerverksted kunde-data.txt
 """
-import sys, os, shutil, re
+import re, sys, os, shutil, re
 
 def _rgb(x):
     x = x.lstrip("#")
@@ -98,6 +98,31 @@ if os.path.exists(mal_dir):
     print(f"✗ Mappen finnes allerede: {mal_dir}")
     sys.exit(1)
 
+def fjern_tomme_blokker(h, tomme):
+    """Marcador vacío con data-blokk -> borra el bloque; si no -> deja vacío."""
+    tomme_lower = {t.lower() for t in tomme}
+    while True:
+        borret = False
+        for m in re.finditer(r'<(\w+)[^>]*data-blokk="([^"]+)"', h):
+            tag, navn = m.group(1), m.group(2)
+            if navn.lower() not in tomme_lower:
+                continue
+            start = m.start(); dyp, pos = 0, start
+            while True:
+                aapne = h.find("<" + tag, pos); lukke = h.find("</" + tag + ">", pos)
+                if lukke == -1: break
+                if aapne != -1 and aapne < lukke:
+                    dyp += 1; pos = aapne + len(tag) + 1
+                else:
+                    dyp -= 1; pos = lukke + len(tag) + 3
+                    if dyp == 0: break
+            h = h[:start] + h[pos:]; borret = True; break
+        if not borret: break
+    for t in tomme:
+        h = h.replace(f"[{t}]", "")
+    return h
+
+
 # Les data
 data = {}
 tomme = []
@@ -128,6 +153,7 @@ for rot, _, filer in os.walk(mal_dir):
         orig = h
         for n, v in data.items():
             h = h.replace(f"[{n}]", v)
+        h = fjern_tomme_blokker(h, tomme)
         if h != orig:
             open(sti, "w", encoding="utf-8").write(h)
             endret += 1

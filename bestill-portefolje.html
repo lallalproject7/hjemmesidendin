@@ -305,19 +305,34 @@ a { color: #8fc9a8; }
             <!-- DEL 4: HERO -->
             <div class="best-del">
                 <div class="best-del-topp"><span class="best-nr">4</span><h2>Toppen av siden</h2></div>
-                <p class="best-del-hint">Det første folk ser – den store teksten helt øverst.</p>
+                <p class="best-del-hint">Det første folk ser – helt øverst på siden.</p>
                 <div class="bfelt">
-                    <label for="hero_frase">Presentasjonstekst</label>
-                    <span class="forklaring">1–2 setninger under overskriften som forteller hva dere tilbyr.</span>
-                    <textarea id="hero_frase" name="hero_frase" rows="2" placeholder="Skriv her..."></textarea>
-                    <span class="eksempel">Eks: «Vi utfører alt innen elinstallasjon for boliger og hytter i Skien, Porsgrunn og omegn – alltid med skriftlig tilbud før vi starter.»</span>
+                    <label for="hero_stikkord">Fagfelt / stikkord</label>
+                    <span class="forklaring">Den lille teksten over tittelen.</span>
+                    <input type="text" id="hero_stikkord" name="hero_stikkord" placeholder="F.eks: Interiørdesign">
                 </div>
                 <div class="bfelt">
-                    <label>Tre korte høydepunkter</label>
-                    <span class="forklaring">Tre ting som gjør dere trygge å velge.</span>
-                    <input type="text" name="hoydepunkt1" placeholder="1 – f.eks: Over 10 års erfaring" style="margin-bottom:.5rem">
-                    <input type="text" name="hoydepunkt2" placeholder="2 – f.eks: Levering innen 2 uker" style="margin-bottom:.5rem">
-                    <input type="text" name="hoydepunkt3" placeholder="3 – f.eks: Reiser i hele fylket">
+                    <label for="hero_tittel">Stor overskrift</label>
+                    <span class="forklaring">Den store tittelen helt øverst.</span>
+                    <input type="text" id="hero_tittel" name="hero_tittel" placeholder="F.eks: Rom du får lyst til å bli i">
+                </div>
+                <div class="bfelt">
+                    <label for="hero_frase">Presentasjonstekst</label>
+                    <span class="forklaring">1–2 setninger under overskriften.</span>
+                    <textarea id="hero_frase" name="hero_frase" rows="2" placeholder="Skriv her..."></textarea>
+                    <span class="eksempel">Eks: «Et utvalg rom jeg har designet de siste årene – klikk deg inn på hvert prosjekt for å se ideen bak.»</span>
+                </div>
+                <div class="bfelt">
+                    <label>Tre nøkkeltall</label>
+                    <span class="forklaring">Tre tall som viser erfaringen din – du velger både tall og tekst.</span>
+                    <div class="par-rad" style="display:grid;grid-template-columns:1fr 2fr;gap:.5rem;margin-bottom:.4rem">
+                        <input type="text" name="tall1" placeholder="Tall – f.eks: 20+">
+                        <input type="text" name="tall1_navn" placeholder="Tekst – f.eks: rom forvandlet">
+                        <input type="text" name="tall2" placeholder="Tall – f.eks: 12">
+                        <input type="text" name="tall2_navn" placeholder="Tekst – f.eks: år med interiør">
+                        <input type="text" name="tall3" placeholder="Tall – f.eks: 100 %">
+                        <input type="text" name="tall3_navn" placeholder="Tekst – f.eks: skreddersydd">
+                    </div>
                 </div>
             </div>
 
@@ -1121,10 +1136,12 @@ document.getElementById("lagResultat").addEventListener("click", () => {
             t += "Område:     " + v("omrade") + "\n";
             t += "Startet:    " + v("startaar") + "\n\n";
             t += "── TOPPEN AV SIDEN ──\n";
+            t += "Stikkord:     " + v("hero_stikkord") + "\n";
+            t += "Overskrift:   " + v("hero_tittel") + "\n";
             t += "Presentasjon: " + v("hero_frase") + "\n";
-            t += "Høydepunkt 1: " + v("hoydepunkt1") + "\n";
-            t += "Høydepunkt 2: " + v("hoydepunkt2") + "\n";
-            t += "Høydepunkt 3: " + v("hoydepunkt3") + "\n\n";
+            t += "Tall 1: " + v("tall1") + " – " + v("tall1_navn") + "\n";
+            t += "Tall 2: " + v("tall2") + " – " + v("tall2_navn") + "\n";
+            t += "Tall 3: " + v("tall3") + " – " + v("tall3_navn") + "\n\n";
             t += "── TJENESTER / KOMPETANSE ──\n";
             for (let i = 1; i <= 6; i++) {
                 const tit = v("tjeneste" + i + "_tittel");

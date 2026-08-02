@@ -13,308 +13,304 @@
 
     <header class="topp">
         <div class="ramme topp-inn">
-            <a href="#" class="merke">Ditt<span>Firma</span></a>
+            <a href="#" class="merke">[FIRMANAVN]</a>
             <nav class="meny">
-                <a href="#">Hjem</a>
-                <a href="#">Tjenester</a>
-                <a href="#" class="aktiv">Portefølje</a>
-                <a href="#">Om oss</a>
-                <a href="#kontakt" class="knapp knapp-liten">Kontakt oss</a>
+                <a href="#tjenester">Tjenester</a>
+                <a href="#rutenett" class="aktiv">Prosjekter</a>
+                <a href="#om">Om meg</a>
+                <a href="#kontakt" class="knapp knapp-liten">Kontakt meg</a>
             </nav>
         </div>
     </header>
 
     <section class="intro">
+        <div class="ramme intro-inn">
+            <div class="intro-tekst-kol">
+                <p class="stikkord">[HERO_STIKKORD]</p>
+                <h1>[HERO_TITTEL]</h1>
+                <p class="intro-tekst">[HERO_TEKST]</p>
+                <div class="intro-tall">
+                    <div class="tall-boks"><strong>[TALL1]</strong><span>[TALL1_NAVN]</span></div>
+                    <div class="tall-boks"><strong>[TALL2]</strong><span>[TALL2_NAVN]</span></div>
+                    <div class="tall-boks"><strong>[TALL3]</strong><span>[TALL3_NAVN]</span></div>
+                </div>
+            </div>
+            <div class="intro-foto photo-hero"><span>Bilde: portrett</span></div>
+        </div>
+    </section>
+
+    <section class="tjenester-felt" id="tjenester">
         <div class="ramme">
-            <p class="stikkord">Portefølje</p>
-            <h1>Arbeider vi er stolte av</h1>
-            <p class="intro-tekst">Et utvalg prosjekter vi har levert de siste årene. Klikk deg inn på hvert prosjekt for å se hva vi gjorde, hvordan vi løste det, og hvordan resultatet ble.</p>
-            <div class="intro-tall">
-                <div class="tall-boks"><strong>250+</strong><span>fullførte prosjekter</span></div>
-                <div class="tall-boks"><strong>12</strong><span>år i bransjen</span></div>
-                <div class="tall-boks"><strong>98 %</strong><span>fornøyde kunder</span></div>
+            <p class="stikkord">Tjenester</p>
+            <h2>[TJENESTER_TITTEL]</h2>
+            <div class="tjenester-rutenett">
+                <div class="tjeneste-boks" style="--akse:#628074">
+                    <h3>[SERVICE_1_TITTEL]</h3>
+                    <p>[SERVICE_1_TEKST]</p>
+                </div>
+                <div class="tjeneste-boks" style="--akse:#667588">
+                    <h3>[SERVICE_2_TITTEL]</h3>
+                    <p>[SERVICE_2_TEKST]</p>
+                </div>
+                <div class="tjeneste-boks" style="--akse:#8a7d5e">
+                    <h3>[SERVICE_3_TITTEL]</h3>
+                    <p>[SERVICE_3_TEKST]</p>
+                </div>
+                <div class="tjeneste-boks" style="--akse:#a86f43">
+                    <h3>[SERVICE_4_TITTEL]</h3>
+                    <p>[SERVICE_4_TEKST]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="om-felt" id="om">
+        <div class="ramme om-inn">
+            <div class="om-tekst">
+                <p class="stikkord">Om meg</p>
+                <h2>[OM_TITTEL]</h2>
+                <p class="om-ingress">[OM_TEKST_1]</p>
+                <p>[OM_TEKST_2]</p>
+            </div>
+            <div class="om-fakta">
+                <div class="fakta-boks"><span class="fakta-tall">[FAKTA1]</span><span class="fakta-navn">[FAKTA1_NAVN]</span></div>
+                <div class="fakta-boks"><span class="fakta-tall">[FAKTA2]</span><span class="fakta-navn">[FAKTA2_NAVN]</span></div>
+                <div class="fakta-boks"><span class="fakta-tall">[FAKTA3]</span><span class="fakta-navn">[FAKTA3_NAVN]</span></div>
+                <div class="fakta-boks"><span class="fakta-tall">[FAKTA4]</span><span class="fakta-navn">[FAKTA4_NAVN]</span></div>
             </div>
         </div>
     </section>
 
     <section class="galleri">
         <div class="ramme">
-            <div class="filter" id="filter">
+<div class="filter" id="filter">
                 <button class="filter-knapp aktiv" data-kat="alle">Alle</button>
                 <button class="filter-knapp" data-kat="bolig">Bolig</button>
-                <button class="filter-knapp" data-kat="bedrift">Bedrift</button>
+                <button class="filter-knapp" data-kat="bedrift">Næring</button>
                 <button class="filter-knapp" data-kat="renovering">Renovering</button>
-                <button class="filter-knapp" data-kat="utendors">Utendørs</button>
+                <button class="filter-knapp" data-kat="utendors">Uterom</button>
             </div>
-
             <div class="prosjekt-rutenett" id="rutenett">
-
                 <!-- PROSJEKT 1 -->
-                <article class="prosjekt" data-kat="bolig renovering" tabindex="0" role="button" aria-label="Åpne prosjekt: Komplett oppussing av bad">
-                    <div class="prosjekt-bilde pb1"><span>Bilde: hovedbilde</span></div>
+<!-- PROSJEKT 1 -->
+                <article class="prosjekt" data-kat="[K1_KATEGORI_KODE]" tabindex="0" role="button" aria-label="Åpne prosjekt: [K1_TITTEL]" data-blokk="galleri1">
+                    <div class="prosjekt-bilde photo-galleri1"><span>Bilde: hovedbilde</span></div>
                     <div class="prosjekt-tekst">
-                        <span class="merkelapp">Renovering</span>
-                        <h3>Komplett oppussing av bad</h3>
-                        <p>Full rehabilitering fra gulv til tak, med membran etter våtromsnormen og varige materialer.</p>
+                        <span class="merkelapp">[K1_KATEGORI]</span>
+                        <h3>[K1_TITTEL]</h3>
+                        <p>[K1_TEKST]</p>
                         <div class="prosjekt-fot">
-                            <span class="prosjekt-meta">[BY] · 2025</span>
+                            <span class="prosjekt-meta">[K1_STED]</span>
                             <span class="prosjekt-les">Se prosjektet →</span>
                         </div>
                     </div>
                     <div class="detalj" hidden>
-                        <div class="detalj-hero pb1"><span>Bilde: hovedbilde</span></div>
-                        <span class="merkelapp">Renovering</span>
-                        <h2>Komplett oppussing av bad</h2>
-                        <p class="detalj-meta">[BY] · 2025</p>
+                        <div class="detalj-hero photo-galleri1"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">[K1_KATEGORI]</span>
+                        <h2>[K1_TITTEL]</h2>
+                        <p class="detalj-meta">[K1_STED]</p>
                         <div class="detalj-data">
-                            <div><strong>Varighet</strong><span>12 virkedager</span></div>
-                            <div><strong>Omfang</strong><span>Totalrenovering</span></div>
-                            <div><strong>Størrelse</strong><span>6 m²</span></div>
-                            <div><strong>Materialer</strong><span>Flis, membran, eik</span></div>
+                            <div><strong>[K1_LABEL1]</strong><span>[K1_VERDI1]</span></div>
+                            <div><strong>[K1_LABEL2]</strong><span>[K1_VERDI2]</span></div>
+                            <div><strong>[K1_LABEL3]</strong><span>[K1_VERDI3]</span></div>
+                            <div><strong>[K1_LABEL4]</strong><span>[K1_VERDI4]</span></div>
                         </div>
                         <div class="detalj-tekst">
-                            <p>Badet var fra 1987 og hadde synlige fuktskader bak dusjsonen. Kunden ønsket et rom som skulle vare i tretti år til, ikke bare se pent ut på overflaten.</p>
-                            <p>Vi rev ned til bindingsverket, rettet opp fallet mot sluket og la ny membran etter våtromsnormen. Alt arbeidet ble dokumentert underveis, slik at kunden har papirene i orden ved et eventuelt salg. Prosjektet ble levert to dager før avtalt frist.</p>
+                            <p>[K1_TEKST_LANG]</p>
                         </div>
-                        <h3 class="detalj-tittel">Før og etter</h3>
-                        <div class="for-etter">
-                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
-                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
-                        </div>
-                        <h3 class="detalj-tittel">Fra prosjektet</h3>
                         <div class="ekstra-rad">
-                            <div class="ekstra-bilde pb1"><span>Detalj: flisarbeid</span></div>
-                            <div class="ekstra-bilde pb4"><span>Prosess: membran</span></div>
-                            <div class="ekstra-bilde pb6"><span>Detalj: armatur</span></div>
+                            <div class="ekstra-bilde photo-galleri2" data-blokk="galleri2"><span>Bilde 2</span></div>
+                            <div class="ekstra-bilde photo-galleri3" data-blokk="galleri3"><span>Bilde 3</span></div>
                         </div>
-                        <blockquote class="detalj-sitat">
-                            <p>«De holdt tiden, ryddet opp hver eneste dag, og forklarte alt underveis. Vi fikk et bad vi ikke trenger å tenke på igjen.»</p>
-                            Kari N. · [BY]
+                        <p class="detalj-ekstra" data-blokk="k1_ekstra">[K1_EKSTRA]</p>
+                        <blockquote class="detalj-sitat" data-blokk="k1_sitat">
+                            <p>[K1_SITAT]</p>
+                            [K1_SITAT_NAVN]
                         </blockquote>
                     </div>
                 </article>
-
                 <!-- PROSJEKT 2 -->
-                <article class="prosjekt" data-kat="bedrift" tabindex="0" role="button" aria-label="Åpne prosjekt: Nytt kontorlokale">
-                    <div class="prosjekt-bilde pb2"><span>Bilde: hovedbilde</span></div>
+                <article class="prosjekt" data-kat="[K2_KATEGORI_KODE]" tabindex="0" role="button" aria-label="Åpne prosjekt: [K2_TITTEL]" data-blokk="galleri4">
+                    <div class="prosjekt-bilde photo-galleri4"><span>Bilde: hovedbilde</span></div>
                     <div class="prosjekt-tekst">
-                        <span class="merkelapp">Bedrift</span>
-                        <h3>Nytt kontorlokale</h3>
-                        <p>Tilpasset løsning for en voksende bedrift, ferdigstilt uten at driften stoppet opp.</p>
+                        <span class="merkelapp">[K2_KATEGORI]</span>
+                        <h3>[K2_TITTEL]</h3>
+                        <p>[K2_TEKST]</p>
                         <div class="prosjekt-fot">
-                            <span class="prosjekt-meta">Porsgrunn · 2025</span>
+                            <span class="prosjekt-meta">[K2_STED]</span>
                             <span class="prosjekt-les">Se prosjektet →</span>
                         </div>
                     </div>
                     <div class="detalj" hidden>
-                        <div class="detalj-hero pb2"><span>Bilde: hovedbilde</span></div>
-                        <span class="merkelapp">Bedrift</span>
-                        <h2>Nytt kontorlokale</h2>
-                        <p class="detalj-meta">Porsgrunn · 2025</p>
+                        <div class="detalj-hero photo-galleri4"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">[K2_KATEGORI]</span>
+                        <h2>[K2_TITTEL]</h2>
+                        <p class="detalj-meta">[K2_STED]</p>
                         <div class="detalj-data">
-                            <div><strong>Varighet</strong><span>12 virkedager</span></div>
-                            <div><strong>Omfang</strong><span>Innredning og tilpasning</span></div>
-                            <div><strong>Størrelse</strong><span>140 m²</span></div>
-                            <div><strong>Materialer</strong><span>Eik, glass, akustikkplater</span></div>
+                            <div><strong>[K2_LABEL1]</strong><span>[K2_VERDI1]</span></div>
+                            <div><strong>[K2_LABEL2]</strong><span>[K2_VERDI2]</span></div>
+                            <div><strong>[K2_LABEL3]</strong><span>[K2_VERDI3]</span></div>
+                            <div><strong>[K2_LABEL4]</strong><span>[K2_VERDI4]</span></div>
                         </div>
                         <div class="detalj-tekst">
-                            <p>Bedriften hadde vokst fra fire til elleve ansatte og trengte plass som fungerte i praksis – ikke bare på tegningen. Utfordringen var støy i et åpent landskap.</p>
-                            <p>Vi delte lokalet med lette vegger i glass og eik, og monterte akustikkplater i himlingen. Arbeidet foregikk mellom klokken 16 og 22, slik at de ansatte kunne jobbe som vanlig gjennom hele prosjektet.</p>
+                            <p>[K2_TEKST_LANG]</p>
                         </div>
-                        <h3 class="detalj-tittel">Før og etter</h3>
-                        <div class="for-etter">
-                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
-                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
-                        </div>
-                        <h3 class="detalj-tittel">Fra prosjektet</h3>
                         <div class="ekstra-rad">
-                            <div class="ekstra-bilde pb2"><span>Detalj: glassvegg</span></div>
-                            <div class="ekstra-bilde pb5"><span>Prosess: montering</span></div>
-                            <div class="ekstra-bilde pb8"><span>Detalj: himling</span></div>
+                            <div class="ekstra-bilde photo-galleri5" data-blokk="galleri5"><span>Bilde 2</span></div>
+                            <div class="ekstra-bilde photo-galleri6" data-blokk="galleri6"><span>Bilde 3</span></div>
                         </div>
-                        <blockquote class="detalj-sitat">
-                            <p>«Vi mistet ikke én arbeidsdag. Det er den beste anbefalingen vi kan gi.»</p>
-                            Tom A. · daglig leder, Porsgrunn
+                        <p class="detalj-ekstra" data-blokk="k2_ekstra">[K2_EKSTRA]</p>
+                        <blockquote class="detalj-sitat" data-blokk="k2_sitat">
+                            <p>[K2_SITAT]</p>
+                            [K2_SITAT_NAVN]
                         </blockquote>
                     </div>
                 </article>
-
                 <!-- PROSJEKT 3 -->
-                <article class="prosjekt" data-kat="utendors bolig" tabindex="0" role="button" aria-label="Åpne prosjekt: Terrasse og uteplass">
-                    <div class="prosjekt-bilde pb3"><span>Bilde: hovedbilde</span></div>
+                <article class="prosjekt" data-kat="[K3_KATEGORI_KODE]" tabindex="0" role="button" aria-label="Åpne prosjekt: [K3_TITTEL]" data-blokk="galleri7">
+                    <div class="prosjekt-bilde photo-galleri7"><span>Bilde: hovedbilde</span></div>
                     <div class="prosjekt-tekst">
-                        <span class="merkelapp">Utendørs</span>
-                        <h3>Terrasse og uteplass</h3>
-                        <p>Et uterom bygget for å tåle norsk vær, med god plass til hele familien.</p>
+                        <span class="merkelapp">[K3_KATEGORI]</span>
+                        <h3>[K3_TITTEL]</h3>
+                        <p>[K3_TEKST]</p>
                         <div class="prosjekt-fot">
-                            <span class="prosjekt-meta">Bamble · 2024</span>
+                            <span class="prosjekt-meta">[K3_STED]</span>
                             <span class="prosjekt-les">Se prosjektet →</span>
                         </div>
                     </div>
                     <div class="detalj" hidden>
-                        <div class="detalj-hero pb3"><span>Bilde: hovedbilde</span></div>
-                        <span class="merkelapp">Utendørs</span>
-                        <h2>Terrasse og uteplass</h2>
-                        <p class="detalj-meta">Bamble · 2024</p>
+                        <div class="detalj-hero photo-galleri7"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">[K3_KATEGORI]</span>
+                        <h2>[K3_TITTEL]</h2>
+                        <p class="detalj-meta">[K3_STED]</p>
                         <div class="detalj-data">
-                            <div><strong>Varighet</strong><span>8 virkedager</span></div>
-                            <div><strong>Omfang</strong><span>Nybygg</span></div>
-                            <div><strong>Størrelse</strong><span>42 m²</span></div>
-                            <div><strong>Materialer</strong><span>Impregnert furu, glassrekkverk</span></div>
+                            <div><strong>[K3_LABEL1]</strong><span>[K3_VERDI1]</span></div>
+                            <div><strong>[K3_LABEL2]</strong><span>[K3_VERDI2]</span></div>
+                            <div><strong>[K3_LABEL3]</strong><span>[K3_VERDI3]</span></div>
+                            <div><strong>[K3_LABEL4]</strong><span>[K3_VERDI4]</span></div>
                         </div>
                         <div class="detalj-tekst">
-                            <p>Tomten heller mot sjøen, og den gamle terrassen hadde begynt å sige. Kunden ønsket mer plass, men også noe som tålte vind og saltvann over tid.</p>
-                            <p>Vi støpte nye punktfundamenter, bygget bæringen i dimensjoner med god margin, og valgte glassrekkverk for å beholde utsikten. Konstruksjonen er dimensjonert for snølast langt over kravet i området.</p>
+                            <p>[K3_TEKST_LANG]</p>
                         </div>
-                        <h3 class="detalj-tittel">Før og etter</h3>
-                        <div class="for-etter">
-                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
-                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
-                        </div>
-                        <h3 class="detalj-tittel">Fra prosjektet</h3>
                         <div class="ekstra-rad">
-                            <div class="ekstra-bilde pb3"><span>Prosess: fundament</span></div>
-                            <div class="ekstra-bilde pb7"><span>Detalj: rekkverk</span></div>
-                            <div class="ekstra-bilde pb6"><span>Detalj: trapp</span></div>
+                            <div class="ekstra-bilde photo-galleri8" data-blokk="galleri8"><span>Bilde 2</span></div>
+                            <div class="ekstra-bilde photo-galleri9" data-blokk="galleri9"><span>Bilde 3</span></div>
                         </div>
-                        <blockquote class="detalj-sitat">
-                            <p>«Vi bruker den fra april til oktober. Beste investeringen vi har gjort i huset.»</p>
-                            Nina S. · Bamble
+                        <p class="detalj-ekstra" data-blokk="k3_ekstra">[K3_EKSTRA]</p>
+                        <blockquote class="detalj-sitat" data-blokk="k3_sitat">
+                            <p>[K3_SITAT]</p>
+                            [K3_SITAT_NAVN]
                         </blockquote>
                     </div>
                 </article>
-
                 <!-- PROSJEKT 4 -->
-                <article class="prosjekt" data-kat="bolig renovering" tabindex="0" role="button" aria-label="Åpne prosjekt: Rehabilitering av leilighet">
-                    <div class="prosjekt-bilde pb4"><span>Bilde: hovedbilde</span></div>
+                <article class="prosjekt" data-kat="[K4_KATEGORI_KODE]" tabindex="0" role="button" aria-label="Åpne prosjekt: [K4_TITTEL]" data-blokk="galleri10">
+                    <div class="prosjekt-bilde photo-galleri10"><span>Bilde: hovedbilde</span></div>
                     <div class="prosjekt-tekst">
-                        <span class="merkelapp">Renovering</span>
-                        <h3>Rehabilitering av leilighet</h3>
-                        <p>Helhetlig oppgradering av en eldre leilighet, med respekt for den opprinnelige stilen.</p>
+                        <span class="merkelapp">[K4_KATEGORI]</span>
+                        <h3>[K4_TITTEL]</h3>
+                        <p>[K4_TEKST]</p>
                         <div class="prosjekt-fot">
-                            <span class="prosjekt-meta">[BY] · 2024</span>
+                            <span class="prosjekt-meta">[K4_STED]</span>
                             <span class="prosjekt-les">Se prosjektet →</span>
                         </div>
                     </div>
                     <div class="detalj" hidden>
-                        <div class="detalj-hero pb4"><span>Bilde: hovedbilde</span></div>
-                        <span class="merkelapp">Renovering</span>
-                        <h2>Rehabilitering av leilighet</h2>
-                        <p class="detalj-meta">[BY] · 2024</p>
+                        <div class="detalj-hero photo-galleri10"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">[K4_KATEGORI]</span>
+                        <h2>[K4_TITTEL]</h2>
+                        <p class="detalj-meta">[K4_STED]</p>
                         <div class="detalj-data">
-                            <div><strong>Varighet</strong><span>4 uker</span></div>
-                            <div><strong>Omfang</strong><span>Full oppgradering</span></div>
-                            <div><strong>Størrelse</strong><span>68 m²</span></div>
-                            <div><strong>Materialer</strong><span>Furu, linoljemaling, messing</span></div>
+                            <div><strong>[K4_LABEL1]</strong><span>[K4_VERDI1]</span></div>
+                            <div><strong>[K4_LABEL2]</strong><span>[K4_VERDI2]</span></div>
+                            <div><strong>[K4_LABEL3]</strong><span>[K4_VERDI3]</span></div>
+                            <div><strong>[K4_LABEL4]</strong><span>[K4_VERDI4]</span></div>
                         </div>
                         <div class="detalj-tekst">
-                            <p>Leiligheten er fra 1920-tallet og hadde beholdt mye av de originale detaljene, men var slitt etter mange år med utleie. Kunden ville modernisere uten å miste sjelen i rommet.</p>
-                            <p>Vi restaurerte listverk og dører fremfor å bytte dem, slipte og oljet det originale furugulvet, og brukte linoljemaling i farger fra epoken. Kjøkken og bad ble modernisert fullstendig, men med materialer som kler resten av leiligheten.</p>
+                            <p>[K4_TEKST_LANG]</p>
                         </div>
-                        <h3 class="detalj-tittel">Før og etter</h3>
-                        <div class="for-etter">
-                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
-                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
-                        </div>
-                        <h3 class="detalj-tittel">Fra prosjektet</h3>
                         <div class="ekstra-rad">
-                            <div class="ekstra-bilde pb4"><span>Detalj: listverk</span></div>
-                            <div class="ekstra-bilde pb1"><span>Prosess: gulvsliping</span></div>
-                            <div class="ekstra-bilde pb8"><span>Detalj: kjøkken</span></div>
+                            <div class="ekstra-bilde photo-galleri11" data-blokk="galleri11"><span>Bilde 2</span></div>
+                            <div class="ekstra-bilde photo-galleri12" data-blokk="galleri12"><span>Bilde 3</span></div>
                         </div>
-                        <blockquote class="detalj-sitat">
-                            <p>«De forsto med én gang hva vi ville ha. Nå ser den ut som den alltid burde ha gjort.»</p>
-                            Per og Anne L. · [BY]
+                        <p class="detalj-ekstra" data-blokk="k4_ekstra">[K4_EKSTRA]</p>
+                        <blockquote class="detalj-sitat" data-blokk="k4_sitat">
+                            <p>[K4_SITAT]</p>
+                            [K4_SITAT_NAVN]
                         </blockquote>
                     </div>
                 </article>
-
                 <!-- PROSJEKT 5 -->
-                <article class="prosjekt" data-kat="bolig" tabindex="0" role="button" aria-label="Åpne prosjekt: Enebolig på Gulset">
-                    <div class="prosjekt-bilde pb5"><span>Bilde: hovedbilde</span></div>
+                <article class="prosjekt" data-kat="[K5_KATEGORI_KODE]" tabindex="0" role="button" aria-label="Åpne prosjekt: [K5_TITTEL]" data-blokk="galleri13">
+                    <div class="prosjekt-bilde photo-galleri13"><span>Bilde: hovedbilde</span></div>
                     <div class="prosjekt-tekst">
-                        <span class="merkelapp">Bolig</span>
-                        <h3>Enebolig på Gulset</h3>
-                        <p>Oppdrag i en enebolig fra 1980-tallet, levert til avtalt tid og pris.</p>
+                        <span class="merkelapp">[K5_KATEGORI]</span>
+                        <h3>[K5_TITTEL]</h3>
+                        <p>[K5_TEKST]</p>
                         <div class="prosjekt-fot">
-                            <span class="prosjekt-meta">[BY] · 2023</span>
+                            <span class="prosjekt-meta">[K5_STED]</span>
                             <span class="prosjekt-les">Se prosjektet →</span>
                         </div>
                     </div>
                     <div class="detalj" hidden>
-                        <div class="detalj-hero pb5"><span>Bilde: hovedbilde</span></div>
-                        <span class="merkelapp">Bolig</span>
-                        <h2>Enebolig på Gulset</h2>
-                        <p class="detalj-meta">[BY] · 2023</p>
+                        <div class="detalj-hero photo-galleri13"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">[K5_KATEGORI]</span>
+                        <h2>[K5_TITTEL]</h2>
+                        <p class="detalj-meta">[K5_STED]</p>
                         <div class="detalj-data">
-                            <div><strong>Varighet</strong><span>3 uker</span></div>
-                            <div><strong>Omfang</strong><span>Oppgradering</span></div>
-                            <div><strong>Størrelse</strong><span>155 m²</span></div>
-                            <div><strong>Materialer</strong><span>Eik, gips, ull-isolasjon</span></div>
+                            <div><strong>[K5_LABEL1]</strong><span>[K5_VERDI1]</span></div>
+                            <div><strong>[K5_LABEL2]</strong><span>[K5_VERDI2]</span></div>
+                            <div><strong>[K5_LABEL3]</strong><span>[K5_VERDI3]</span></div>
+                            <div><strong>[K5_LABEL4]</strong><span>[K5_VERDI4]</span></div>
                         </div>
                         <div class="detalj-tekst">
-                            <p>Huset var godt vedlikeholdt, men hadde løsninger som ikke lenger fungerte for familien. De ønsket bedre flyt mellom kjøkken og stue, og lavere strømregning.</p>
-                            <p>Vi åpnet mellom kjøkken og stue etter kontroll av bæringen, og etterisolerte samtidig loftet. Kunden fikk en fast pris før oppstart, og sluttsummen ble den samme som i tilbudet.</p>
+                            <p>[K5_TEKST_LANG]</p>
                         </div>
-                        <h3 class="detalj-tittel">Før og etter</h3>
-                        <div class="for-etter">
-                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
-                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
-                        </div>
-                        <h3 class="detalj-tittel">Fra prosjektet</h3>
                         <div class="ekstra-rad">
-                            <div class="ekstra-bilde pb5"><span>Prosess: bæring</span></div>
-                            <div class="ekstra-bilde pb2"><span>Detalj: kjøkkenøy</span></div>
-                            <div class="ekstra-bilde pb7"><span>Prosess: isolering</span></div>
+                            <div class="ekstra-bilde photo-galleri14" data-blokk="galleri14"><span>Bilde 2</span></div>
+                            <div class="ekstra-bilde photo-galleri15" data-blokk="galleri15"><span>Bilde 3</span></div>
                         </div>
-                        <blockquote class="detalj-sitat">
-                            <p>«Fast pris som holdt, og de ryddet opp etter seg. Så enkelt burde det alltid være.»</p>
-                            Familien Berg · [BY]
+                        <p class="detalj-ekstra" data-blokk="k5_ekstra">[K5_EKSTRA]</p>
+                        <blockquote class="detalj-sitat" data-blokk="k5_sitat">
+                            <p>[K5_SITAT]</p>
+                            [K5_SITAT_NAVN]
                         </blockquote>
                     </div>
                 </article>
-
                 <!-- PROSJEKT 6 -->
-                <article class="prosjekt" data-kat="utendors bedrift" tabindex="0" role="button" aria-label="Åpne prosjekt: Uteområde for borettslag">
-                    <div class="prosjekt-bilde pb7"><span>Bilde: hovedbilde</span></div>
+                <article class="prosjekt" data-kat="[K6_KATEGORI_KODE]" tabindex="0" role="button" aria-label="Åpne prosjekt: [K6_TITTEL]" data-blokk="galleri16">
+                    <div class="prosjekt-bilde photo-galleri16"><span>Bilde: hovedbilde</span></div>
                     <div class="prosjekt-tekst">
-                        <span class="merkelapp">Utendørs</span>
-                        <h3>Uteområde for borettslag</h3>
-                        <p>Et større fellesprosjekt med 40 boenheter, planlagt i tett dialog med styret.</p>
+                        <span class="merkelapp">[K6_KATEGORI]</span>
+                        <h3>[K6_TITTEL]</h3>
+                        <p>[K6_TEKST]</p>
                         <div class="prosjekt-fot">
-                            <span class="prosjekt-meta">[BY] · 2023</span>
+                            <span class="prosjekt-meta">[K6_STED]</span>
                             <span class="prosjekt-les">Se prosjektet →</span>
                         </div>
                     </div>
                     <div class="detalj" hidden>
-                        <div class="detalj-hero pb7"><span>Bilde: hovedbilde</span></div>
-                        <span class="merkelapp">Utendørs</span>
-                        <h2>Uteområde for borettslag</h2>
-                        <p class="detalj-meta">[BY] · 2023</p>
+                        <div class="detalj-hero photo-galleri16"><span>Bilde: hovedbilde</span></div>
+                        <span class="merkelapp">[K6_KATEGORI]</span>
+                        <h2>[K6_TITTEL]</h2>
+                        <p class="detalj-meta">[K6_STED]</p>
                         <div class="detalj-data">
-                            <div><strong>Varighet</strong><span>6 uker</span></div>
-                            <div><strong>Omfang</strong><span>Fellesareal</span></div>
-                            <div><strong>Størrelse</strong><span>900 m²</span></div>
-                            <div><strong>Materialer</strong><span>Belegningsstein, sedum, furu</span></div>
+                            <div><strong>[K6_LABEL1]</strong><span>[K6_VERDI1]</span></div>
+                            <div><strong>[K6_LABEL2]</strong><span>[K6_VERDI2]</span></div>
+                            <div><strong>[K6_LABEL3]</strong><span>[K6_VERDI3]</span></div>
+                            <div><strong>[K6_LABEL4]</strong><span>[K6_VERDI4]</span></div>
                         </div>
                         <div class="detalj-tekst">
-                            <p>Fellesarealet hadde stått urørt siden 1990-tallet. Styret ønsket et sted beboerne faktisk ville bruke, men budsjettet var stramt og 40 husstander skulle høres.</p>
-                            <p>Vi laget tre alternative løsninger med hver sin prislapp, slik at styret kunne ta et informert valg. Arbeidet ble delt i etapper, slik at området aldri var helt stengt. Alle beboere fikk skriftlig varsel før hver etappe.</p>
+                            <p>[K6_TEKST_LANG]</p>
                         </div>
-                        <h3 class="detalj-tittel">Før og etter</h3>
-                        <div class="for-etter">
-                            <figure><div class="fe-bilde fe-for"><span>Bilde: før</span></div><figcaption>Før</figcaption></figure>
-                            <figure><div class="fe-bilde fe-etter"><span>Bilde: etter</span></div><figcaption>Etter</figcaption></figure>
-                        </div>
-                        <h3 class="detalj-tittel">Fra prosjektet</h3>
                         <div class="ekstra-rad">
-                            <div class="ekstra-bilde pb7"><span>Prosess: grunnarbeid</span></div>
-                            <div class="ekstra-bilde pb3"><span>Detalj: sittegruppe</span></div>
-                            <div class="ekstra-bilde pb6"><span>Detalj: beplantning</span></div>
+                            <div class="ekstra-bilde photo-galleri17" data-blokk="galleri17"><span>Bilde 2</span></div>
+                            <div class="ekstra-bilde photo-galleri18" data-blokk="galleri18"><span>Bilde 3</span></div>
                         </div>
-                        <blockquote class="detalj-sitat">
-                            <p>«Ryddig kommunikasjon hele veien. Vi fikk tre valg og forsto hva vi betalte for.»</p>
-                            Styret i Solbakken borettslag
+                        <p class="detalj-ekstra" data-blokk="k6_ekstra">[K6_EKSTRA]</p>
+                        <blockquote class="detalj-sitat" data-blokk="k6_sitat">
+                            <p>[K6_SITAT]</p>
+                            [K6_SITAT_NAVN]
                         </blockquote>
                     </div>
                 </article>
@@ -330,19 +326,23 @@
             <div>
                 <p class="stikkord lys">Neste prosjekt</p>
                 <h2>Skal vi ta en prat om ditt?</h2>
-                <p>Fortell oss kort hva du tenker på, så gir vi deg et uforpliktende tilbud.</p>
+                <p>Fortell meg kort hva du tenker på, så gir jeg deg et uforpliktende tilbud.</p>
             </div>
-            <div class="kontakt-knapper">
-                <a href="tel:91234567" class="knapp knapp-stor">Ring [TELEFON]</a>
-                <a href="#" class="knapp knapp-tom">Send en henvendelse</a>
-            </div>
+            <form class="kontakt-skjema">
+                <label>Navn<input type="text" name="navn" required></label>
+                <label>Telefon<input type="tel" name="telefon" required></label>
+                <label>E-post<input type="email" name="epost" required></label>
+                <label>Kort om prosjektet<textarea name="melding" rows="4"></textarea></label>
+                <button type="submit" class="knapp knapp-stor">Send henvendelse</button>
+                <p class="skjema-note">Eller ring meg på <a href="tel:[TELEFON_LENKE]">[TELEFON]</a></p>
+            </form>
         </div>
     </section>
 
     <footer class="bunn">
         <div class="ramme bunn-inn">
             <div>
-                <p class="merke-bunn">Ditt<span>Firma</span></p>
+                <p class="merke-bunn">[FIRMANAVN]</p>
                 <p>Org.nr [ORGNR] · [BY]</p>
             </div>
             <div>
@@ -369,7 +369,18 @@
             <div class="modal-innhold" id="modalInnhold"></div>
         </div>
     </div>
-<script>
+
+    <div class="demo-bestill">
+        <div class="ramme">
+            <p class="demo-eyebrow">Tilleggsside · Portefølje</p>
+            <h2>Vil du ha en porteføljeside som dette?</h2>
+            <p>Vi bygger den med dine prosjekter, dine bilder og fargene fra nettsiden din.</p>
+            <a href="../../bestill-portefolje.html" class="knapp knapp-stor">Bestill porteføljeside →</a>
+            <p class="demo-bestill-retur"><a href="../../index.html">← Tilbake til Hjemmesidendin</a></p>
+        </div>
+    </div>
+
+    <script>
         /* ===== FILTER ===== */
         const knapper = document.querySelectorAll(".filter-knapp");
         const prosjekter = document.querySelectorAll(".prosjekt");

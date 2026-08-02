@@ -23,7 +23,7 @@ css_sti = os.path.join(mappe, "css", "style.css")
 os.makedirs(bildemappe, exist_ok=True)
 
 kart = {"hero": ".photo-hero", "team": ".photo-om", "om": ".photo-om"}
-for i in range(1, 17):
+for i in range(1, 25):
     kart[f"galleri{i}"] = f".photo-galleri{i}"
     kart[f"prosjekt{i}"] = f".photo-galleri{i}"
     kart[f"arbeid{i}"] = f".photo-arbeid{i}"
