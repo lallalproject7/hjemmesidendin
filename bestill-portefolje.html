@@ -652,15 +652,24 @@ a { color: #8fc9a8; }
 </div>
                 <div id="moderneBilder" class="design-bilder">
                     <p class="best-del-hint">Fem prosjekter med tekniske detaljer.</p>
-                    <div class="arb-blokk"><span class="arb-nr">Prosjekt 1</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m1_tittel" placeholder="Tittel"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m1_sektor" placeholder="Sektor og sted – f.eks: Offshore · Nordsjøen"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m1_tekst" placeholder="Kort beskrivelse"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m1_rolle" placeholder="Din rolle"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m1_aar" placeholder="År"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m1_resultat" placeholder="Resultat"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m1_utfordring" placeholder="Utfordringen"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m1_leveranse" placeholder="Hva du leverte (skill med semikolon)"></div>
+<div class="arb-blokk"><span class="arb-nr">Prosjekt 1</span>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m1_tittel" placeholder="Tittel – f.eks: Ventilhus for subsea-installasjon"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m1_sektor" placeholder="Sektor og sted – f.eks: Subsea · Offshore"></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="m1_label1" placeholder="Navn – f.eks: Dybde">
+                            <input type="text" name="m1_verdi1" placeholder="Verdi – f.eks: 320 m">
+                            <input type="text" name="m1_label2" placeholder="Navn – f.eks: År">
+                            <input type="text" name="m1_verdi2" placeholder="Verdi – f.eks: 2024">
+                            <input type="text" name="m1_label3" placeholder="Navn – f.eks: Levetid">
+                            <input type="text" name="m1_verdi3" placeholder="Verdi – f.eks: 25 år">
+                            <input type="text" name="m1_label4" placeholder="Navn – f.eks: Rolle">
+                            <input type="text" name="m1_verdi4" placeholder="Verdi – f.eks: Ledende ing.">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m1_utfordring" rows="3" placeholder="Utfordringen – hva var problemet?"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m1_prosess" rows="3" placeholder="Prosess – én linje per punkt (blir til punktliste)"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m1_resultat" rows="2" placeholder="Resultat – hva ble oppnådd?"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m1_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="m1_hoved">Last opp bilde</button>
@@ -681,14 +690,23 @@ a { color: #8fc9a8; }
                         </div>
                     </div>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 2</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m2_tittel" placeholder="Tittel"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m2_sektor" placeholder="Sektor og sted – f.eks: Offshore · Nordsjøen"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m2_tekst" placeholder="Kort beskrivelse"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m2_rolle" placeholder="Din rolle"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m2_aar" placeholder="År"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m2_resultat" placeholder="Resultat"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m2_utfordring" placeholder="Utfordringen"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m2_leveranse" placeholder="Hva du leverte (skill med semikolon)"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m2_tittel" placeholder="Tittel – f.eks: Ventilhus for subsea-installasjon"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m2_sektor" placeholder="Sektor og sted – f.eks: Subsea · Offshore"></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="m2_label1" placeholder="Navn – f.eks: Dybde">
+                            <input type="text" name="m2_verdi1" placeholder="Verdi – f.eks: 320 m">
+                            <input type="text" name="m2_label2" placeholder="Navn – f.eks: År">
+                            <input type="text" name="m2_verdi2" placeholder="Verdi – f.eks: 2024">
+                            <input type="text" name="m2_label3" placeholder="Navn – f.eks: Levetid">
+                            <input type="text" name="m2_verdi3" placeholder="Verdi – f.eks: 25 år">
+                            <input type="text" name="m2_label4" placeholder="Navn – f.eks: Rolle">
+                            <input type="text" name="m2_verdi4" placeholder="Verdi – f.eks: Ledende ing.">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m2_utfordring" rows="3" placeholder="Utfordringen – hva var problemet?"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m2_prosess" rows="3" placeholder="Prosess – én linje per punkt (blir til punktliste)"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m2_resultat" rows="2" placeholder="Resultat – hva ble oppnådd?"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m2_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="m2_hoved">Last opp bilde</button>
@@ -709,14 +727,23 @@ a { color: #8fc9a8; }
                         </div>
                     </div>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 3</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m3_tittel" placeholder="Tittel"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m3_sektor" placeholder="Sektor og sted – f.eks: Offshore · Nordsjøen"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m3_tekst" placeholder="Kort beskrivelse"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m3_rolle" placeholder="Din rolle"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m3_aar" placeholder="År"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m3_resultat" placeholder="Resultat"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m3_utfordring" placeholder="Utfordringen"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m3_leveranse" placeholder="Hva du leverte (skill med semikolon)"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m3_tittel" placeholder="Tittel – f.eks: Ventilhus for subsea-installasjon"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m3_sektor" placeholder="Sektor og sted – f.eks: Subsea · Offshore"></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="m3_label1" placeholder="Navn – f.eks: Dybde">
+                            <input type="text" name="m3_verdi1" placeholder="Verdi – f.eks: 320 m">
+                            <input type="text" name="m3_label2" placeholder="Navn – f.eks: År">
+                            <input type="text" name="m3_verdi2" placeholder="Verdi – f.eks: 2024">
+                            <input type="text" name="m3_label3" placeholder="Navn – f.eks: Levetid">
+                            <input type="text" name="m3_verdi3" placeholder="Verdi – f.eks: 25 år">
+                            <input type="text" name="m3_label4" placeholder="Navn – f.eks: Rolle">
+                            <input type="text" name="m3_verdi4" placeholder="Verdi – f.eks: Ledende ing.">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m3_utfordring" rows="3" placeholder="Utfordringen – hva var problemet?"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m3_prosess" rows="3" placeholder="Prosess – én linje per punkt (blir til punktliste)"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m3_resultat" rows="2" placeholder="Resultat – hva ble oppnådd?"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m3_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="m3_hoved">Last opp bilde</button>
@@ -737,14 +764,23 @@ a { color: #8fc9a8; }
                         </div>
                     </div>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 4</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m4_tittel" placeholder="Tittel"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m4_sektor" placeholder="Sektor og sted – f.eks: Offshore · Nordsjøen"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m4_tekst" placeholder="Kort beskrivelse"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m4_rolle" placeholder="Din rolle"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m4_aar" placeholder="År"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m4_resultat" placeholder="Resultat"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m4_utfordring" placeholder="Utfordringen"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m4_leveranse" placeholder="Hva du leverte (skill med semikolon)"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m4_tittel" placeholder="Tittel – f.eks: Ventilhus for subsea-installasjon"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m4_sektor" placeholder="Sektor og sted – f.eks: Subsea · Offshore"></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="m4_label1" placeholder="Navn – f.eks: Dybde">
+                            <input type="text" name="m4_verdi1" placeholder="Verdi – f.eks: 320 m">
+                            <input type="text" name="m4_label2" placeholder="Navn – f.eks: År">
+                            <input type="text" name="m4_verdi2" placeholder="Verdi – f.eks: 2024">
+                            <input type="text" name="m4_label3" placeholder="Navn – f.eks: Levetid">
+                            <input type="text" name="m4_verdi3" placeholder="Verdi – f.eks: 25 år">
+                            <input type="text" name="m4_label4" placeholder="Navn – f.eks: Rolle">
+                            <input type="text" name="m4_verdi4" placeholder="Verdi – f.eks: Ledende ing.">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m4_utfordring" rows="3" placeholder="Utfordringen – hva var problemet?"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m4_prosess" rows="3" placeholder="Prosess – én linje per punkt (blir til punktliste)"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m4_resultat" rows="2" placeholder="Resultat – hva ble oppnådd?"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m4_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="m4_hoved">Last opp bilde</button>
@@ -765,14 +801,23 @@ a { color: #8fc9a8; }
                         </div>
                     </div>
                     <div class="arb-blokk"><span class="arb-nr">Prosjekt 5</span>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m5_tittel" placeholder="Tittel"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m5_sektor" placeholder="Sektor og sted – f.eks: Offshore · Nordsjøen"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m5_tekst" placeholder="Kort beskrivelse"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m5_rolle" placeholder="Din rolle"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m5_aar" placeholder="År"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m5_resultat" placeholder="Resultat"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m5_utfordring" placeholder="Utfordringen"></div>
-                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m5_leveranse" placeholder="Hva du leverte (skill med semikolon)"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m5_tittel" placeholder="Tittel – f.eks: Ventilhus for subsea-installasjon"></div>
+                        <div class="bfelt" style="margin:.5rem 0"><input type="text" name="m5_sektor" placeholder="Sektor og sted – f.eks: Subsea · Offshore"></div>
+                        <p class="best-del-hint" style="margin:.6rem 0 .3rem">Fire nøkkeltall – du velger både navn og verdi</p>
+                        <div class="par-rad" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+                            <input type="text" name="m5_label1" placeholder="Navn – f.eks: Dybde">
+                            <input type="text" name="m5_verdi1" placeholder="Verdi – f.eks: 320 m">
+                            <input type="text" name="m5_label2" placeholder="Navn – f.eks: År">
+                            <input type="text" name="m5_verdi2" placeholder="Verdi – f.eks: 2024">
+                            <input type="text" name="m5_label3" placeholder="Navn – f.eks: Levetid">
+                            <input type="text" name="m5_verdi3" placeholder="Verdi – f.eks: 25 år">
+                            <input type="text" name="m5_label4" placeholder="Navn – f.eks: Rolle">
+                            <input type="text" name="m5_verdi4" placeholder="Verdi – f.eks: Ledende ing.">
+                        </div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m5_utfordring" rows="3" placeholder="Utfordringen – hva var problemet?"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m5_prosess" rows="3" placeholder="Prosess – én linje per punkt (blir til punktliste)"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m5_resultat" rows="2" placeholder="Resultat – hva ble oppnådd?"></textarea></div>
+                        <div class="bfelt" style="margin:.5rem 0"><textarea name="m5_ekstra" rows="2" placeholder="Ekstra info om dette prosjektet (valgfritt) – noe spesielt du vil trekke fram"></textarea></div>
                         <div class="opplast-kort">
                             <h4>Hovedbilde</h4>
                             <button type="button" class="opplast-knapp" data-type="m5_hoved">Last opp bilde</button>
@@ -1176,12 +1221,15 @@ document.getElementById("lagResultat").addEventListener("click", () => {
                     if (!tit) continue;
                     t += "\nPROSJEKT " + i + ": " + tit + "\n";
                     t += "  Sektor:     " + v("m" + i + "_sektor") + "\n";
-                    t += "  Rolle:      " + v("m" + i + "_rolle") + "\n";
-                    t += "  År:         " + v("m" + i + "_aar") + "\n";
-                    t += "  Resultat:   " + v("m" + i + "_resultat") + "\n";
+                    for (let p = 1; p <= 4; p++) {
+                        const lab = v("m" + i + "_label" + p);
+                        const ver = v("m" + i + "_verdi" + p);
+                        if (lab || ver) t += "  • " + lab + ": " + ver + "\n";
+                    }
                     t += "  Utfordring: " + v("m" + i + "_utfordring") + "\n";
-                    t += "  Leveranse:  " + v("m" + i + "_leveranse") + "\n";
-                    if (v("m" + i + "_tekst")) t += "  Tekst:      " + v("m" + i + "_tekst") + "\n";
+                    if (v("m" + i + "_prosess")) t += "  Prosess:\n" + v("m" + i + "_prosess").split("\n").map(l => "    - " + l).join("\n") + "\n";
+                    t += "  Resultat:   " + v("m" + i + "_resultat") + "\n";
+                    if (v("m" + i + "_ekstra")) t += "  Ekstra:     " + v("m" + i + "_ekstra") + "\n";
                     t += "  Bilder:     hoved=" + (v("bilde_m" + i + "_hoved") || "-") + " | a=" + (v("bilde_m" + i + "_detalj_a") || "-") + " | b=" + (v("bilde_m" + i + "_detalj_b") || "-") + "\n";
                 }
             }
