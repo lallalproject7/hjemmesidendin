@@ -123,6 +123,39 @@ def fjern_tomme_blokker(h, tomme):
     return h
 
 
+def prosess_til_liste(data):
+    """Marcador _PROSESS con varias linjer -> _PROSESS_LISTE med <li>."""
+    import html as _html
+    nye = {}
+    for n, v in list(data.items()):
+        if n.endswith("_PROSESS"):
+            linjer = [l.strip() for l in v.replace("\r","").split("\n") if l.strip()]
+            nye[n + "_LISTE"] = "".join(f"<li>{_html.escape(l)}</li>" for l in linjer)
+    data.update(nye)
+    return data
+
+
+def lag_sammendrag(data):
+    """Junta MN_VERDI1..3 i MN_SAMMENDRAG (kort tekst til prosjektlista)."""
+    nye = {}
+    for pre in ["M1","M2","M3","M4","M5","M6"]:
+        verdier = [data.get(f"{pre}_VERDI{i}","").strip() for i in (1,2,3)]
+        verdier = [v for v in verdier if v]
+        if verdier:
+            nye[f"{pre}_SAMMENDRAG"] = " · ".join(verdier)
+    data.update(nye)
+    return data
+
+
+def kompetanse_til_tagger(data):
+    """KOMPETANSE=a; b; c -> KOMPETANSE_TAGGER = <span>a</span>..."""
+    import html as _html
+    if "KOMPETANSE" in data:
+        deler = [d.strip() for d in data["KOMPETANSE"].replace("\n",";").split(";") if d.strip()]
+        data["KOMPETANSE_TAGGER"] = "".join(f"<span>{_html.escape(d)}</span>" for d in deler)
+    return data
+
+
 # Les data
 data = {}
 tomme = []
@@ -138,6 +171,9 @@ for linje in open(datafil, encoding="utf-8"):
 
 data = utled_farger(data)
 data = formater_typed(data)
+data = prosess_til_liste(data)
+data = lag_sammendrag(data)
+data = kompetanse_til_tagger(data)
 
 # Kopier og erstatt
 os.makedirs(os.path.expanduser("~/kunder"), exist_ok=True)
