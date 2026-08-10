@@ -153,6 +153,12 @@ def kompetanse_til_tagger(data):
     if "KOMPETANSE" in data:
         deler = [d.strip() for d in data["KOMPETANSE"].replace("\n",";").split(";") if d.strip()]
         data["KOMPETANSE_TAGGER"] = "".join(f"<span>{_html.escape(d)}</span>" for d in deler)
+    # Tagger per prosjekt (moderne): M1_TAGGER -> M1_TAGGER_HTML
+    for n in range(1, 7):
+        n_key = f"M{n}_TAGGER"
+        if n_key in data:
+            deler = [d.strip() for d in data[n_key].replace("\n",";").split(";") if d.strip()]
+            data[f"M{n}_TAGGER_HTML"] = "".join(f"<span>{_html.escape(d)}</span>" for d in deler)
     return data
 
 
