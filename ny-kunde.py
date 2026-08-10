@@ -138,7 +138,7 @@ def prosess_til_liste(data):
 def lag_sammendrag(data):
     """Junta MN_VERDI1..3 i MN_SAMMENDRAG (kort tekst til prosjektlista)."""
     nye = {}
-    for pre in ["M1","M2","M3","M4","M5","M6"]:
+    for pre in ["M1","M2","M3","M4","M5","M6","T1","T2","T3","T4","T5","T6"]:
         verdier = [data.get(f"{pre}_VERDI{i}","").strip() for i in (1,2,3)]
         verdier = [v for v in verdier if v]
         if verdier:
