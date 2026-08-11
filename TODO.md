@@ -321,3 +321,28 @@ Contenido típico de una web de restaurante en Noruega:
 NOTA (de TODO previo): los restaurantes suelen querer menú actualizable,
 lo que choca con el modelo estático. Decidir cómo manejarlo:
 ¿menú fijo? ¿servicio de actualización aparte? ¿un formato fácil de editar?
+
+
+## 🎨 REDISEÑO DE COLORES DE LA TIENDA (decidido, pendiente de ejecutar)
+Paleta ELEGIDA (fondo oscuro tipo editor de código):
+- Fondo principal: #0e0e10 (negro cálido); fondo alterno: #141418; superficie: #18181c
+- Líneas/bordes: #26262c
+- Texto principal: #f5f5f2 (blanco cálido); secundario: #a0a0a8; tenue: #8a8a92
+- ACENTO PRINCIPAL (acción: botones, precio, título destacado): verde manzana #9dd649
+  (texto sobre verde: #16240a)
+- ACENTO SECUNDARIO (navegación e info: enlaces, "din" del logo, iconos info): celeste #a5d8f3
+- ACENTO DE ÉNFASIS (puntual: badges "Populær", detalles): rojo coral #e05a4d
+Regla de uso: verde=acción, celeste=info/navegación, rojo=énfasis puntual. Nunca compitiendo.
+
+DIAGNÓSTICO (importante para el chat nuevo):
+- css/style.css tiene 2804 líneas y ~366 colores FIJOS (hex a mano), solo ~159 usos de var().
+- La tienda NO es "clara": ya tiene secciones oscuras pintadas a mano (hero con degradados
+  verde bosque, etc.) MEZCLADAS con secciones claras. Por eso cambiar solo el :root no funcionó
+  ("todo del mismo color") — la mayoría de colores no usan variables.
+- Por tanto el rediseño hay que hacerlo SECCIÓN POR SECCIÓN (32 secciones marcadas con
+  comentarios /* ---- X ---- */), convirtiendo colores fijos a las variables nuevas.
+- Estrategia recomendada: (1) definir las variables nuevas en :root, (2) ir sección por sección
+  (Hero, Header, Sections, Steps, Bransjer, Pris, FAQ, Footer, etc.) cambiando los hex fijos por
+  var(--...), (3) revisar visualmente cada una antes de pasar a la siguiente.
+- Copia de seguridad previa: css/style.css.bak-colores (por si acaso).
+- El intento inicial (solo :root) se REVIRTIÓ; la tienda está como estaba antes del intento.
