@@ -299,3 +299,25 @@ Si se promete copia de seguridad, hay que resolverlo antes.
 
 - [ ] Un repositorio git por cliente
 - [ ] Documentar cómo restaurar una web desde cero
+
+
+## 🎨 MEJORAS DE LA TIENDA (diseño y profesionalismo)
+Objetivo: que la tienda (index) se vea más elegante y profesional.
+- [ ] Revisar y mejorar la paleta de colores de la tienda
+- [ ] Identificar secciones que se ven pobres o poco profesionales
+- [ ] Rediseñar/pulir esas secciones (espaciado, tipografía, jerarquía visual)
+- [ ] Mantener la sobriedad noruega — nada genérico ni exagerado
+
+## 🍽️ NUEVA DEMO: RESTAURANTE (web estática)
+Demo para restaurantes / pequeños restaurantes noruegos. SIN compra online.
+Contenido típico de una web de restaurante en Noruega:
+- [ ] Menú con lista de precios (secciones: forrett, hovedrett, dessert, drikke)
+- [ ] Datos de contacto (teléfono, email, dirección)
+- [ ] Horario de apertura (åpningstider)
+- [ ] Ubicación / mapa
+- [ ] Fotos del local y los platos
+- [ ] Posible: reservas por teléfono/email (ikke online booking)
+- [ ] Posible: enlaces a redes sociales
+NOTA (de TODO previo): los restaurantes suelen querer menú actualizable,
+lo que choca con el modelo estático. Decidir cómo manejarlo:
+¿menú fijo? ¿servicio de actualización aparte? ¿un formato fácil de editar?
