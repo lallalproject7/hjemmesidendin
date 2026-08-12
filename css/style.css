@@ -2424,9 +2424,10 @@ strong, b { color: #9dd649; }
 
 /* Menú legible sobre la franja clara */
 .header {
-    background: rgba(165, 216, 243, .72);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(8, 8, 10, .72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
 .header .nav a, .header .logo { color: #f5f5f2; }
 
@@ -2595,19 +2596,19 @@ strong, b { color: #9dd649; }
     box-shadow: 0 12px 30px rgba(0, 0, 0, .28) !important;
 }
 
-/* ===== Fire grunner: tarjetas claras (como la franja del hero) ===== */
+/* ===== Fire grunner: tarjetas oscuras (coherencia con el tema) ===== */
 .grid-2 .grunn,
 #hvorfor .grid .grunn,
 #hvorfor .grunn {
-    background: rgba(211, 217, 213, .90) !important;
-    border: 1px solid rgba(255, 255, 255, .55) !important;
+    background: rgba(255, 255, 255, .03) !important;
+    border: 1px solid rgba(255, 255, 255, .10) !important;
     box-shadow: 0 14px 32px rgba(0, 0, 0, .3) !important;
     backdrop-filter: blur(4px) !important;
     -webkit-backdrop-filter: blur(4px) !important;
 }
-#hvorfor .grunn h3 { color: #0d0d0f !important; }
-#hvorfor .grunn p  { color: #26262c !important; }
-#hvorfor .grunn strong { color: #0d0d0f !important; }
+#hvorfor .grunn h3 { color: var(--accent) !important; }
+#hvorfor .grunn p  { color: rgba(245, 245, 242, .82) !important; }
+#hvorfor .grunn strong { color: var(--sky) !important; }
 
 /* ===== Oppdateringer: lista ordenada y alineada ===== */
 .oppd-grupper {
@@ -2840,3 +2841,42 @@ strong, b { color: #9dd649; }
 .hero-lead-kode .k-blaa   { color: var(--sky) !important; }
 .hero-lead-kode .k-roed   { color: var(--flag) !important; }
 .hero-lead-kode .k-groenn { color: var(--accent) !important; }
+
+/* Eyebrows estilo terminal/código (coherencia con el hero) */
+.eyebrow {
+    font-family: "Ubuntu Mono", "JetBrains Mono", "Fira Code", "DejaVu Sans Mono", "Courier New", monospace !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    color: var(--sky) !important;
+    font-size: .95rem !important;
+}
+.eyebrow::before {
+    content: "> ";
+    color: var(--accent);
+}
+
+/* Logo tricolor (verde · azul · rojo) */
+.logo .lg-1 { color: var(--accent) !important; }
+.logo .lg-2 { color: var(--sky) !important; }
+.logo .lg-3 { color: var(--flag) !important; }
+
+/* Fire grunner: degradados cálido/frío por tarjeta (experimento) */
+#hvorfor .grunn:nth-child(1) { background: linear-gradient(150deg, #e0533d, #3d5a99) !important; border: none !important; }
+#hvorfor .grunn:nth-child(2) { background: linear-gradient(150deg, #e8934f, #2a7a8c) !important; border: none !important; }
+#hvorfor .grunn:nth-child(3) { background: linear-gradient(150deg, #d94a6a, #4a5cae) !important; border: none !important; }
+#hvorfor .grunn:nth-child(4) { background: linear-gradient(150deg, #e0533d, #2a8c6a) !important; border: none !important; }
+/* texto blanco para que resalte sobre el degradado */
+#hvorfor .grunn h3 { color: #ffffff !important; }
+#hvorfor .grunn p  { color: rgba(255,255,255,.90) !important; }
+
+/* Slik fungerer det: degradados cálido/frío por paso (igual que Fire grunner) */
+#slik .step:nth-child(1) { background: linear-gradient(150deg, #e0533d, #3d5a99) !important; border: none !important; }
+#slik .step:nth-child(2) { background: linear-gradient(150deg, #e8934f, #2a7a8c) !important; border: none !important; }
+#slik .step:nth-child(3) { background: linear-gradient(150deg, #d94a6a, #4a5cae) !important; border: none !important; }
+#slik .step:nth-child(4) { background: linear-gradient(150deg, #e0533d, #2a8c6a) !important; border: none !important; }
+#slik .step:nth-child(5) { background: linear-gradient(150deg, #3d5a99, #d94a6a) !important; border: none !important; }
+/* texto blanco sobre el degradado */
+#slik .step h3 { color: #ffffff !important; }
+#slik .step p  { color: rgba(255,255,255,.90) !important; }
+#slik .step p a { color: #ffffff !important; text-decoration: underline; }
+#slik .step-num { color: rgba(255,255,255,.95) !important; }
