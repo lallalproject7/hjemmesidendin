@@ -2905,7 +2905,7 @@ strong, b { color: #9dd649; }
     font-weight: 700 !important;
 }
 #oppdateringer .oppd-tittel.oppd-gronn {
-    background: linear-gradient(120deg, #d94a6a, #4a5cae) !important;
+    background: linear-gradient(120deg, #f2b880, #2a8c7a) !important;
 }
 #oppdateringer .oppd-rad {
     display: flex !important;
@@ -2943,7 +2943,7 @@ strong, b { color: #9dd649; }
     border: 1px solid rgba(242, 184, 128, .3) !important;
 }
 #oppdateringer .oppd-spesial-tittel {
-    background: linear-gradient(120deg, #f2b880, #2a8c7a) !important;
+    background: linear-gradient(120deg, #d94a6a, #4a5cae) !important;
     display: flex !important;
     align-items: center !important;
     gap: .6rem !important;
@@ -2956,8 +2956,8 @@ strong, b { color: #9dd649; }
     font-size: .72rem;
     font-weight: 600;
 }
-#oppdateringer .oppd-spesiell .oppd-rad strong { color: #f2b880 !important; }
+#oppdateringer .oppd-spesiell .oppd-rad strong { color: #a5d8f3 !important; }
 
 /* Fotograf: encabezado ámbar→índigo (distinto de portefolje) */
-#oppd-fotograf .oppd-spesial-tittel { background: linear-gradient(120deg, #d99a2e, #4a5cae) !important; }
-#oppd-fotograf .oppd-rad strong { color: #d99a2e !important; }
+#oppd-fotograf .oppd-spesial-tittel { background: linear-gradient(120deg, #e0533d, #2a8c6a) !important; }
+#oppd-fotograf .oppd-rad strong { color: #4a9d6a !important; }
