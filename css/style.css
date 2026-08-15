@@ -137,7 +137,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 .header.scrolled .logo { color: var(--pine); }
 .header .nav a { color: rgba(255, 255, 255, .88); }
 .header.scrolled .nav a { color: var(--pine-soft); }
-.header .logo span { color: var(--flag); }
+.header .logo span { color: inherit; }
 
 .header-inner {
     display: flex;
@@ -148,10 +148,11 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 }
 
 .logo {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-family: "Outfit", var(--font-display);
+    font-size: 1.35rem;
     font-weight: 700;
-    color: var(--pine);
+    letter-spacing: -0.01em;
+    color: var(--ink);
     text-decoration: none;
 }
 
@@ -2856,9 +2857,9 @@ strong, b { color: #9dd649; }
 }
 
 /* Logo tricolor (verde · azul · rojo) */
-.logo .lg-1 { color: var(--accent) !important; }
-.logo .lg-2 { color: var(--sky) !important; }
-.logo .lg-3 { color: var(--flag) !important; }
+.logo .lg-1 { color: var(--ink) !important; }
+.logo .lg-2 { color: var(--accent) !important; }
+.logo .lg-3 { color: var(--sky) !important; }
 
 /* Fire grunner: degradados cálido/frío por tarjeta (experimento) */
 #hvorfor .grunn:nth-child(1) { background: linear-gradient(150deg, #e0533d, #3d5a99) !important; border: none !important; }
@@ -2880,3 +2881,83 @@ strong, b { color: #9dd649; }
 #slik .step p  { color: rgba(255,255,255,.90) !important; }
 #slik .step p a { color: #ffffff !important; text-decoration: underline; }
 #slik .step-num { color: rgba(255,255,255,.95) !important; }
+
+/* ===== Oppdateringer: dos grupos con encabezado en degradado (opción C) ===== */
+#oppdateringer .oppd-grupper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 2rem 0;
+}
+#oppdateringer .oppd-gruppe {
+    background: #0d0d0f !important;
+    border: 1px solid #26262c !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+}
+#oppdateringer .oppd-tittel {
+    background: linear-gradient(120deg, #e0533d, #3d5a99) !important;
+    color: #ffffff !important;
+    padding: .85rem 1.25rem !important;
+    margin: 0 !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+}
+#oppdateringer .oppd-tittel.oppd-gronn {
+    background: linear-gradient(120deg, #d94a6a, #4a5cae) !important;
+}
+#oppdateringer .oppd-rad {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    gap: 1rem !important;
+    padding: .85rem 1.25rem !important;
+    border-bottom: 1px solid #1e1e24 !important;
+}
+#oppdateringer .oppd-gruppe .oppd-rad:last-child { border-bottom: none !important; }
+#oppdateringer .oppd-navn {
+    color: #f5f5f2 !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: .15rem !important;
+}
+#oppdateringer .oppd-navn em {
+    color: #8a8a92 !important;
+    font-style: normal !important;
+    font-size: .8rem !important;
+    font-weight: 400 !important;
+}
+#oppdateringer .oppd-rad strong {
+    color: #9dd649 !important;
+    font-weight: 700 !important;
+    font-size: 1.05rem !important;
+    white-space: nowrap !important;
+}
+#oppdateringer .oppd-gruppe:nth-child(2) .oppd-rad strong { color: #a5d8f3 !important; }
+
+/* ===== Oppdateringer: tercer bloque específico (portefolje/fotograf) ===== */
+#oppdateringer .oppd-spesiell {
+    grid-column: 1 / -1;
+    border: 1px solid rgba(242, 184, 128, .3) !important;
+}
+#oppdateringer .oppd-spesial-tittel {
+    background: linear-gradient(120deg, #f2b880, #2a8c7a) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: .6rem !important;
+}
+#oppdateringer .oppd-merkelapp {
+    background: rgba(255, 255, 255, .22);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 8px;
+    font-size: .72rem;
+    font-weight: 600;
+}
+#oppdateringer .oppd-spesiell .oppd-rad strong { color: #f2b880 !important; }
+
+/* Fotograf: encabezado ámbar→índigo (distinto de portefolje) */
+#oppd-fotograf .oppd-spesial-tittel { background: linear-gradient(120deg, #d99a2e, #4a5cae) !important; }
+#oppd-fotograf .oppd-rad strong { color: #d99a2e !important; }
