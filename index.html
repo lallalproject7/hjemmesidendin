@@ -350,7 +350,28 @@
             </div>
             <div class="oppd-gruppe oppd-spesiell" id="oppd-portefolje">
                 <h3 class="oppd-tittel oppd-spesial-tittel"><span class="oppd-merkelapp">Portefølje</span> Spesielt for din nettside</h3>
-                <div class="oppd-rad"><span class="oppd-navn">Legg til «Bakgrunn»<em>Utdanning og arbeidserfaring, tilpasset designet ditt</em></span><strong>790 kr</strong></div>
+                <div class="oppd-rad oppd-rad-eksempel"><span class="oppd-navn">Legg til «Bakgrunn»<em>Utdanning og arbeidserfaring, tilpasset designet ditt</em><button type="button" class="se-eksempel-knapp" data-mal="bakgrunn">▸ Se eksempel</button></span><strong>790 kr</strong></div>
+                <div class="eksempel-boks" id="eksempel-bakgrunn" hidden>
+                    <div class="eksempel-velger">
+                        <button type="button" class="eks-stil aktiv" data-stil="klassisk">Klassisk</button>
+                        <button type="button" class="eks-stil" data-stil="moderne">Moderne</button>
+                        <button type="button" class="eks-stil" data-stil="teknisk">Teknisk</button>
+                    </div>
+                    <div class="eksempel-demo demo-klassisk" id="demo-bakgrunn">
+                        <p class="demo-stikk">Bakgrunn</p>
+                        <h4 class="demo-tit">Utdanning og erfaring</h4>
+                        <div class="demo-grid">
+                            <div class="demo-kol">
+                                <span class="demo-koltit">Utdanning</span>
+                                <div class="demo-post"><span class="demo-rolle">Interiørdesign MNIL</span><span class="demo-sted">Kunsthøgskolen i Oslo</span><span class="demo-aar">2010 – 2013</span></div>
+                            </div>
+                            <div class="demo-kol">
+                                <span class="demo-koltit">Arbeidserfaring</span>
+                                <div class="demo-post"><span class="demo-rolle">Senior interiørarkitekt</span><span class="demo-sted">Studio Nord, Oslo</span><span class="demo-aar">2018 – nå</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="oppd-rad"><span class="oppd-navn">Nytt prosjekt i porteføljen<em>Bilder, tekst og nøkkeltall</em></span><strong>690 kr</strong></div>
             </div>
             <div class="oppd-gruppe oppd-spesiell" id="oppd-fotograf">
@@ -572,5 +593,33 @@
         }, { threshold: 0.55 }).observe(hero);
     })();
     </script>
+<script>
+    (function () {
+        document.querySelectorAll(".se-eksempel-knapp").forEach(function (knapp) {
+            knapp.addEventListener("click", function () {
+                var mal = knapp.getAttribute("data-mal");
+                var boks = document.getElementById("eksempel-" + mal);
+                if (!boks) return;
+                if (boks.hasAttribute("hidden")) {
+                    boks.removeAttribute("hidden");
+                    knapp.textContent = "▾ Skjul eksempel";
+                } else {
+                    boks.setAttribute("hidden", "");
+                    knapp.textContent = "▸ Se eksempel";
+                }
+            });
+        });
+        document.querySelectorAll(".eksempel-velger").forEach(function (velger) {
+            var demo = velger.parentElement.querySelector(".eksempel-demo");
+            velger.querySelectorAll(".eks-stil").forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    demo.className = "eksempel-demo demo-" + btn.getAttribute("data-stil");
+                    velger.querySelectorAll(".eks-stil").forEach(function (b) { b.classList.remove("aktiv"); });
+                    btn.classList.add("aktiv");
+                });
+            });
+        });
+    })();
+</script>
 </body>
 </html>

@@ -2961,3 +2961,78 @@ strong, b { color: #9dd649; }
 /* Fotograf: encabezado ámbar→índigo (distinto de portefolje) */
 #oppd-fotograf .oppd-spesial-tittel { background: linear-gradient(120deg, #e0533d, #2a8c6a) !important; }
 #oppd-fotograf .oppd-rad strong { color: #4a9d6a !important; }
+
+/* ===== Se eksempel: botón, selector y mini-demo ===== */
+.se-eksempel-knapp {
+    display: inline-block;
+    margin-top: .4rem;
+    background: none;
+    border: none;
+    color: var(--sky);
+    font-size: .82rem;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+}
+.se-eksempel-knapp:hover { text-decoration: underline; }
+.eksempel-boks {
+    grid-column: 1 / -1;
+    padding: 1rem 1.25rem 1.25rem;
+    border-top: 1px solid #1e1e24;
+    background: #0a0a0c;
+}
+.eksempel-velger { display: flex; gap: .5rem; margin-bottom: 1rem; }
+.eks-stil {
+    background: #18181c;
+    border: 1px solid #26262c;
+    color: var(--ink-soft);
+    padding: 5px 14px;
+    border-radius: 14px;
+    font-size: .8rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all .2s ease;
+}
+.eks-stil.aktiv { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+
+/* La mini-demo base */
+.eksempel-demo { border-radius: 10px; padding: 1.5rem; }
+.demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.demo-stikk { margin: 0 0 .3rem; font-size: .72rem; font-weight: 600; }
+.demo-tit { margin: 0 0 1.2rem; font-size: 1.15rem; font-weight: 700; }
+.demo-koltit { display: block; font-size: .78rem; font-weight: 700; padding-bottom: .4rem; margin-bottom: .7rem; border-bottom: 1px solid; }
+.demo-rolle { display: block; font-weight: 600; font-size: .92rem; }
+.demo-sted { display: block; font-size: .82rem; }
+.demo-aar { display: block; font-size: .76rem; margin-top: .15rem; }
+
+/* --- Estilo KLASSISK (crema/bronce) --- */
+.demo-klassisk { background: #e5e1d8; font-family: "Inter", sans-serif; }
+.demo-klassisk .demo-stikk { color: #a86f43; font-family: "Outfit", sans-serif; }
+.demo-klassisk .demo-tit { color: #2b2e33; font-family: "Outfit", sans-serif; }
+.demo-klassisk .demo-koltit { color: #8a5732; border-color: #cfc9bd; font-family: "Outfit", sans-serif; }
+.demo-klassisk .demo-rolle { color: #2b2e33; font-family: "Outfit", sans-serif; }
+.demo-klassisk .demo-sted { color: #7a7268; }
+.demo-klassisk .demo-aar { color: #a86f43; }
+
+/* --- Estilo MODERNE (papel/rejilla/rojo+azul) --- */
+.demo-moderne { background-color: #f4f3ef; background-image: linear-gradient(rgba(22,24,28,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(22,24,28,.07) 1px, transparent 1px); background-size: 28px 28px; font-family: "Inter", sans-serif; }
+.demo-moderne .demo-stikk { color: #d84427; font-family: "SFMono-Regular", monospace; text-transform: uppercase; letter-spacing: .12em; font-size: .68rem; }
+.demo-moderne .demo-tit { color: #16181c; font-family: "Space Grotesk", sans-serif; text-transform: uppercase; }
+.demo-moderne .demo-koltit { color: #1c4fa1; font-family: "SFMono-Regular", monospace; text-transform: uppercase; letter-spacing: .1em; border-color: #d5d2c9; }
+.demo-moderne .demo-post { border-left: 2px solid #d84427; padding-left: .8rem; }
+.demo-moderne .demo-kol:last-child .demo-post { border-left-color: #1c4fa1; }
+.demo-moderne .demo-rolle { color: #16181c; font-family: "Space Grotesk", sans-serif; }
+.demo-moderne .demo-sted { color: #5c6068; }
+.demo-moderne .demo-aar { color: #5c6068; font-family: "SFMono-Regular", monospace; }
+
+/* --- Estilo TEKNISK (negro/rejilla/ámbar) --- */
+.demo-teknisk { background-color: #08090b; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 40px 40px; border: 1px solid rgba(255,255,255,.08); font-family: "JetBrains Mono", monospace; }
+.demo-teknisk .demo-stikk { color: #d9a24e; text-transform: uppercase; letter-spacing: .15em; font-size: .68rem; }
+.demo-teknisk .demo-stikk::before { content: "// "; }
+.demo-teknisk .demo-tit { color: #eceae4; font-weight: 500; }
+.demo-teknisk .demo-kol { background: #0e1013; border: 1px solid rgba(255,255,255,.08); padding: 1.1rem; }
+.demo-teknisk .demo-koltit { color: #8b8f96; text-transform: uppercase; letter-spacing: .1em; border-color: rgba(255,255,255,.08); }
+.demo-teknisk .demo-rolle { color: #eceae4; font-weight: 500; }
+.demo-teknisk .demo-sted { color: #8b8f96; }
+.demo-teknisk .demo-aar { color: #d9a24e; }
+@media (max-width: 600px) { .demo-grid { grid-template-columns: 1fr; gap: 1rem; } }
