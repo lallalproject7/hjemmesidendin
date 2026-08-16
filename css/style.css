@@ -8,7 +8,7 @@
     --bg-2: #050506;          /* fondo alterno de secciones */
     --surface: #18181c;       /* superficie de tarjetas */
     --line: #26262c;          /* líneas y bordes sutiles */
-    --ink: #f5f5f2;           /* texto principal (blanco cálido) */
+    --ink: #f0e4cb;           /* texto principal (blanco cálido) */
     --ink-soft: #a0a0a8;      /* texto secundario (gris) */
     --ink-faint: #a0a0a8;     /* texto tenue */
     --accent: #9dd649;        /* verde manzana – acción principal */
@@ -102,14 +102,14 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 }
 
 .btn-ghost { border-color: var(--pine); color: var(--pine); }
-.btn-ghost:hover { background: var(--pine); color: #f5f5f2; }
+.btn-ghost:hover { background: var(--pine); color: #f0e4cb; }
 
 .btn-small { padding: .55rem 1.2rem; font-size: .92rem; }
 .btn-lg { padding: .7rem 2rem; font-size: 1.05rem; }
 .btn-hero-ghost {
     background: rgba(255, 255, 255, .08);
     border-color: rgba(255, 255, 255, .35);
-    color: #f5f5f2;
+    color: #f0e4cb;
     backdrop-filter: blur(6px);
 }
 .btn-hero-ghost:hover { background: rgba(255, 255, 255, .18); }
@@ -133,7 +133,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     box-shadow: 0 2px 20px rgba(157, 214, 73, .06);
 }
 /* Logo og nav lyse over hero, mørke når scrolled */
-.header .logo { color: #f5f5f2; }
+.header .logo { color: #f0e4cb; }
 .header.scrolled .logo { color: var(--pine); }
 .header .nav a { color: rgba(255, 255, 255, .88); }
 .header.scrolled .nav a { color: var(--pine-soft); }
@@ -226,7 +226,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     padding: .35rem 1rem;
     margin-bottom: 1.5rem;
 }
-.hero h1 { color: #f5f5f2; }
+.hero h1 { color: #f0e4cb; }
 .hero .accent { color: var(--signal); }
 .hero-lead {
     max-width: 56ch;
@@ -285,7 +285,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 }
 #oppdateringer > .container { position: relative; z-index: 1; }
 #oppdateringer .eyebrow { color: var(--signal); }
-#oppdateringer h2 { color: #f5f5f2; }
+#oppdateringer h2 { color: #f0e4cb; }
 #oppdateringer .section-lead { color: rgba(255, 255, 255, .85); }
 #oppdateringer .oppdatering-rad {
     background: rgba(255, 255, 255, .07);
@@ -319,7 +319,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     height: 2.2rem;
     border-radius: 50%;
     background: var(--pine);
-    color: #f5f5f2;
+    color: #f0e4cb;
     font-family: var(--font-display);
     font-weight: 700;
     margin-bottom: .9rem;
@@ -360,7 +360,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 
 .priskort {
     background: var(--pine);
-    color: #f5f5f2;
+    color: #f0e4cb;
     border-radius: calc(var(--radius) * 1.5);
     padding: 2.8rem 2.4rem;
     text-align: center;
@@ -372,7 +372,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     font-family: var(--font-display);
     font-size: clamp(2.6rem, 6vw, 3.6rem);
     font-weight: 700;
-    color: #f5f5f2;
+    color: #f0e4cb;
     line-height: 1;
 }
 
@@ -424,7 +424,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 
 .footer {
     background: var(--pine);
-    color: #f5f5f2;
+    color: #f0e4cb;
     padding-top: 3.5rem;
     border-top: 1px solid rgba(255, 255, 255, .08);
 }
@@ -436,7 +436,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
 }
 
 .footer h3 {
-    color: #f5f5f2;
+    color: #f0e4cb;
     font-size: 1rem;
     margin-bottom: .7rem;
 }
@@ -450,7 +450,7 @@ h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: .4rem; }
     font-family: var(--font-display);
     font-size: 1.2rem;
     font-weight: 700;
-    color: #f5f5f2;
+    color: #f0e4cb;
 }
 
 .footer-logo span { color: var(--signal); }
@@ -586,17 +586,17 @@ summary:focus-visible {
 
 .takk-steg {
     background: var(--pine);
-    color: #f5f5f2;
+    color: #f0e4cb;
     border-radius: calc(var(--radius) * 1.5);
     padding: 2.2rem 2rem;
     margin-block: 2.2rem;
 }
 
-.takk-steg h2 { color: #f5f5f2; margin-bottom: .6rem; }
+.takk-steg h2 { color: #f0e4cb; margin-bottom: .6rem; }
 
 .takk-steg .btn { margin-block: 1.2rem .8rem; }
 
-.takk-steg .form-note { color: #f5f5f2; }
+.takk-steg .form-note { color: #f0e4cb; }
 
 .takk-neste {
     text-align: left;
@@ -832,7 +832,7 @@ summary:focus-visible {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    border: 2px solid #f5f5f2;
+    border: 2px solid #f0e4cb;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
     flex-shrink: 0;
 }
@@ -1021,7 +1021,7 @@ summary:focus-visible {
     width: 280px;
     max-width: 78vw;
     background: var(--pine);
-    color: #f5f5f2;
+    color: #f0e4cb;
     font-size: .82rem;
     font-weight: 400;
     line-height: 1.5;
@@ -1079,7 +1079,7 @@ summary:focus-visible {
     margin: 0;
     color: rgba(255, 255, 255, .78);
 }
-.pris-arsavgift strong:not(:first-child) { color: #f5f5f2; }
+.pris-arsavgift strong:not(:first-child) { color: #f0e4cb; }
 
 @media (max-width: 600px) {
     .pris-arsavgift { flex-direction: column; align-items: flex-start; gap: .6rem; }
@@ -1547,7 +1547,7 @@ summary:focus-visible {
     flex-shrink: 0;
     border-radius: 14px;
     padding: 1.3rem 1.2rem;
-    color: #f5f5f2;
+    color: #f0e4cb;
     font-size: .92rem;
     font-weight: 600;
     line-height: 1.35;
@@ -1565,7 +1565,7 @@ summary:focus-visible {
 /* ===== MODO OSCURO GLOBAL (todas las páginas) ===== */
 body {
     background: linear-gradient(150deg, #0d0d0f, #050506);
-    color: #f5f5f2;
+    color: #f0e4cb;
 }
 h1, h2, h3, h4 { color: #9dd649; }
 p, li { color: rgba(242, 237, 226, .78); }
@@ -1644,7 +1644,7 @@ strong, b { color: #9dd649; }
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 8px 24px rgba(224, 90, 77, .25);
 }
-#hvorfor .grunn h3 { color: #f5f5f2; }
+#hvorfor .grunn h3 { color: #f0e4cb; }
 #hvorfor .grunn p { color: rgba(255, 245, 235, .88); }
 #hvorfor .eyebrow { color: #18181c; }
 
@@ -1717,7 +1717,7 @@ strong, b { color: #9dd649; }
 }
 #slik .step h3 { color: #0d0d0f; }
 #slik .step p { color: #18181c; }
-#slik .step-num { background: #9dd649; color: #f5f5f2; }
+#slik .step-num { background: #9dd649; color: #f0e4cb; }
 
 /* ===== FAQ: claro con velo translúcido (como slik) ===== */
 #faq {
@@ -1811,7 +1811,7 @@ strong, b { color: #9dd649; }
 
 /* ===== Slik: gris-beige piedra (claro refinado) ===== */
 #slik {
-    background: linear-gradient(165deg, #f5f5f2, #f5f5f2);
+    background: linear-gradient(165deg, #f0e4cb, #f0e4cb);
 }
 #slik .eyebrow { color: #9dd649; }
 #slik h2 { color: #0d0d0f; }
@@ -1825,7 +1825,7 @@ strong, b { color: #9dd649; }
 }
 #slik .step h3 { color: #0d0d0f; }
 #slik .step p { color: #26262c; }
-#slik .step-num { background: #9dd649; color: #f5f5f2; }
+#slik .step-num { background: #9dd649; color: #f0e4cb; }
 
 /* ===== PALETA C: crema CTA + azul hielo (sin naranja) ===== */
 :root {
@@ -1890,10 +1890,7 @@ strong, b { color: #9dd649; }
 .ben-kobber  { background: linear-gradient(140deg, #9dd649, #26262c); }
 /* Sección pris: radiales sin cobre */
 #pris {
-    background:
-        radial-gradient(ellipse 60% 50% at 82% 18%, rgba(165, 216, 243, .09), transparent 60%),
-        radial-gradient(ellipse 55% 50% at 15% 88%, rgba(157, 214, 73, .5), transparent 62%),
-        linear-gradient(160deg, #18181c, var(--pine)) !important;
+    background: #050506 !important;
 }
 
 /* Slik = estilo Fire grunner (azul noche) + resto paleta C */
@@ -1915,7 +1912,7 @@ strong, b { color: #9dd649; }
 #slik .step h3 { color: #9dd649; }
 #slik .step p { color: rgba(242, 237, 226, .78); }
 #slik .step-num { background: #a5d8f3; color: #050506; }
-#hvorfor .grunn h3 { color: #f5f5f2; }
+#hvorfor .grunn h3 { color: #f0e4cb; }
 #hvorfor .grunn p { color: rgba(242, 237, 226, .8); }
 #pris .priskort::before {
     background: conic-gradient(from 0deg, transparent 40%, #9dd649 47%, #a5d8f3 50%, #a5d8f3 53%, transparent 60%);
@@ -2228,7 +2225,7 @@ strong, b { color: #9dd649; }
     font-weight: 800 !important;
     line-height: .98 !important;
     letter-spacing: -.035em !important;
-    color: #f5f5f2 !important;
+    color: #f0e4cb !important;
     margin-bottom: 1rem !important;
 }
 .hero h1 em { font-style: normal; color: #9dd649; }
@@ -2288,7 +2285,7 @@ strong, b { color: #9dd649; }
     left: 0; right: 0; bottom: 0;
     padding: 2rem .9rem .8rem;
     background: linear-gradient(180deg, transparent, rgba(5, 5, 6, .92));
-    color: #f5f5f2;
+    color: #f0e4cb;
     font-size: .8rem;
     font-weight: 700;
     letter-spacing: .04em;
@@ -2413,10 +2410,7 @@ strong, b { color: #9dd649; }
 /* ===== HERO: ajuste de franja, menú y transición de titular ===== */
 .hero-lys {
     width: 34%;
-    background:
-        radial-gradient(circle at 50% 30%, rgba(157, 214, 73, .10), transparent 55%),
-        radial-gradient(circle at 70% 80%, rgba(165, 216, 243, .08), transparent 50%),
-        linear-gradient(160deg, #101014, #050506);
+    background: linear-gradient(150deg, #9dd649, #3d5a99 55%, #e0533d) !important;
 }
 .hero-kant  { right: 34%; }
 .hero-gulv  { width: 66%; }
@@ -2430,7 +2424,7 @@ strong, b { color: #9dd649; }
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
-.header .nav a, .header .logo { color: #f5f5f2; }
+.header .nav a, .header .logo { color: #f0e4cb; }
 
 /* Transición suave del titular */
 .hero h1 { transition: opacity .4s ease, transform .4s ease; }
@@ -2481,7 +2475,7 @@ strong, b { color: #9dd649; }
 .er-steg { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 1.5rem; }
 .er-kort { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.13); border-radius: 14px; padding: 1.4rem; }
 .er-nr { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #9dd649; color: #050506; font-weight: 700; font-size: .9rem; margin-bottom: .7rem; }
-.er-kort h3 { color: #f5f5f2; margin-bottom: .3rem; font-size: 1.05rem; }
+.er-kort h3 { color: #f0e4cb; margin-bottom: .3rem; font-size: 1.05rem; }
 .er-kort p { color: rgba(242,245,243,.78); font-size: .95rem; }
 .er-to { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; margin-top: 1.5rem; }
 .er-liste { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 1.5rem; }
@@ -2545,7 +2539,7 @@ strong, b { color: #9dd649; }
 
 /* Textos legibles */
 #hvorfor .eyebrow { color: #a5d8f3 !important; }
-#hvorfor h2 { color: #f5f5f2 !important; }
+#hvorfor h2 { color: #f0e4cb !important; }
 #hvorfor .section-lead { color: rgba(255, 255, 255, .82) !important; }
 
 /* Tarjetas: gris oscuro translúcido (se ve la rejilla detrás) */
@@ -2558,7 +2552,7 @@ strong, b { color: #9dd649; }
     -webkit-backdrop-filter: blur(6px);
     box-shadow: 0 10px 26px rgba(0, 0, 0, .28);
 }
-#hvorfor .grunn h3 { color: #f5f5f2 !important; }
+#hvorfor .grunn h3 { color: #f0e4cb !important; }
 #hvorfor .grunn p { color: rgba(255, 255, 255, .88) !important; }
 
 /* ===== Fire grunner: contraste más marcado ===== */
@@ -2638,7 +2632,7 @@ strong, b { color: #9dd649; }
 .oppd-gruppe .oppd-rad:last-child { border-bottom: none; }
 .oppd-navn {
     display: block;
-    color: #f5f5f2;
+    color: #f0e4cb;
     font-size: .97rem;
     line-height: 1.35;
 }
@@ -2730,7 +2724,7 @@ strong, b { color: #9dd649; }
     padding: .6rem .8rem;
     border-radius: 8px;
     font-size: .92rem;
-    color: #f5f5f2;
+    color: #f0e4cb;
     white-space: nowrap;
 }
 .nav-drop-meny a:hover { background: rgba(255, 255, 255, .09); }
@@ -2864,8 +2858,8 @@ strong, b { color: #9dd649; }
 /* Fire grunner: degradados cálido/frío por tarjeta (experimento) */
 #hvorfor .grunn:nth-child(1) { background: linear-gradient(150deg, #e0533d, #3d5a99) !important; border: none !important; }
 #hvorfor .grunn:nth-child(2) { background: linear-gradient(150deg, #e8934f, #2a7a8c) !important; border: none !important; }
-#hvorfor .grunn:nth-child(3) { background: linear-gradient(150deg, #d94a6a, #4a5cae) !important; border: none !important; }
-#hvorfor .grunn:nth-child(4) { background: linear-gradient(150deg, #e0533d, #2a8c6a) !important; border: none !important; }
+#hvorfor .grunn:nth-child(3) { background: #0d0d0f !important; border: 1px solid rgba(157, 214, 73, .45) !important; }
+#hvorfor .grunn:nth-child(4) { background: linear-gradient(150deg, #9dd649, #3d5a99 55%, #e0533d) !important; border: none !important; }
 /* texto blanco para que resalte sobre el degradado */
 #hvorfor .grunn h3 { color: #ffffff !important; }
 #hvorfor .grunn p  { color: rgba(255,255,255,.90) !important; }
@@ -2873,7 +2867,7 @@ strong, b { color: #9dd649; }
 /* Slik fungerer det: degradados cálido/frío por paso (igual que Fire grunner) */
 #slik .step:nth-child(1) { background: linear-gradient(150deg, #e0533d, #3d5a99) !important; border: none !important; }
 #slik .step:nth-child(2) { background: linear-gradient(150deg, #e8934f, #2a7a8c) !important; border: none !important; }
-#slik .step:nth-child(3) { background: linear-gradient(150deg, #d94a6a, #4a5cae) !important; border: none !important; }
+#slik .step:nth-child(3) { background: #0d0d0f !important; border: 1px solid rgba(157, 214, 73, .45) !important; }
 #slik .step:nth-child(4) { background: linear-gradient(150deg, #e0533d, #2a8c6a) !important; border: none !important; }
 #slik .step:nth-child(5) { background: linear-gradient(150deg, #3d5a99, #d94a6a) !important; border: none !important; }
 /* texto blanco sobre el degradado */
@@ -2917,7 +2911,7 @@ strong, b { color: #9dd649; }
 }
 #oppdateringer .oppd-gruppe .oppd-rad:last-child { border-bottom: none !important; }
 #oppdateringer .oppd-navn {
-    color: #f5f5f2 !important;
+    color: #f0e4cb !important;
     font-weight: 600 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -3045,7 +3039,7 @@ strong, b { color: #9dd649; }
     letter-spacing: -.01em !important;
 }
 /* rotación de colores: blanco, verde, azul, rojo */
-#faq .faq-item:nth-child(4n+1) summary { color: #f5f5f2 !important; }
+#faq .faq-item:nth-child(4n+1) summary { color: #f0e4cb !important; }
 #faq .faq-item:nth-child(4n+2) summary { color: #9dd649 !important; }
 #faq .faq-item:nth-child(4n+3) summary { color: #a5d8f3 !important; }
 #faq .faq-item:nth-child(4n)   summary { color: #e05a4d !important; }
@@ -3053,3 +3047,142 @@ strong, b { color: #9dd649; }
 #faq .faq-item p { color: #f0e4cb !important; }
 #faq .faq-item strong { color: #f0e4cb !important; font-weight: 700 !important; }
 #faq .faq-item li { color: #f0e4cb !important; }
+
+/* ===== Precio: banner con degradado + mockup + dos costes ===== */
+#pris .pris-banner {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    background: linear-gradient(135deg, #e0533d, #3d5a99);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 2rem 0 1.25rem;
+}
+#pris .pris-banner-tekst { padding: 2.75rem 2.5rem; }
+#pris .pris-kode {
+    font-family: "JetBrains Mono", "Ubuntu Mono", monospace;
+    color: rgba(255,255,255,.8);
+    font-size: .78rem;
+    letter-spacing: .1em;
+    margin: 0 0 1rem;
+}
+#pris .pris-belop {
+    font-family: "Outfit", var(--font-display), sans-serif !important;
+    font-size: 3.6rem !important;
+    font-weight: 800 !important;
+    color: #fff !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+}
+#pris .pris-belop .pris-mva { font-size: .9rem; font-weight: 500; color: rgba(255,255,255,.75); }
+#pris .pris-under { color: rgba(255,255,255,.88) !important; font-size: .95rem; margin: .7rem 0 1.75rem !important; }
+#pris .btn-hvit {
+    display: inline-block;
+    background: #fff;
+    color: #0a1628;
+    padding: 13px 32px;
+    border-radius: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+#pris .btn-hvit:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.3); }
+#pris .pris-lenker { margin-top: 1.25rem; display: flex; gap: .6rem; flex-wrap: wrap; align-items: center; }
+#pris .pris-lenker a { color: rgba(255,255,255,.85); font-size: .85rem; text-decoration: underline; }
+#pris .pris-lenker span { color: rgba(255,255,255,.5); }
+
+/* mockup visual */
+#pris .pris-banner-mockup { background: rgba(0,0,0,.22); display: flex; align-items: center; justify-content: center; padding: 2rem; }
+#pris .mockup-vindu { width: 100%; max-width: 250px; background: #0d0d0f; border-radius: 10px; overflow: hidden; box-shadow: 0 14px 34px rgba(0,0,0,.45); }
+#pris .mockup-topp { background: #18181c; padding: .5rem .7rem; display: flex; gap: .3rem; }
+#pris .mockup-topp span { width: 8px; height: 8px; border-radius: 50%; background: #565c66; }
+#pris .mockup-topp span:nth-child(1) { background: #e05a4d; }
+#pris .mockup-topp span:nth-child(2) { background: #e8b04b; }
+#pris .mockup-topp span:nth-child(3) { background: #9dd649; }
+#pris .mockup-body { padding: 1.1rem; }
+#pris .mockup-linje { height: 7px; border-radius: 4px; background: #33333a; margin-bottom: .5rem; }
+#pris .mockup-linje.mockup-tit { height: 10px; width: 55%; background: #9dd649; margin-bottom: .8rem; }
+#pris .mockup-linje.kort { width: 78%; }
+#pris .mockup-knapp2 { height: 24px; width: 48%; background: #a5d8f3; border-radius: 6px; margin-top: .8rem; }
+
+/* los dos costes */
+#pris .pris-koster { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+#pris .pris-kost { border-radius: 16px; padding: 1.75rem 2rem; }
+#pris .pris-kost-engang { background: linear-gradient(150deg, #e0533d, #2a8c6a); }
+#pris .pris-kost-arlig { background: #0d0d0f; border: 1px solid #26262c; }
+#pris .pris-kost-merke { display: block; font-size: .82rem; margin-bottom: .4rem; }
+#pris .pris-kost-engang .pris-kost-merke { color: rgba(255,255,255,.85); }
+#pris .pris-kost-arlig .pris-kost-merke { color: #8a8a92; }
+#pris .pris-kost-tall { display: block; font-family: "Outfit", var(--font-display), sans-serif; font-size: 2.4rem; font-weight: 800; line-height: 1; }
+#pris .pris-kost-engang .pris-kost-tall { color: #fff; }
+#pris .pris-kost-arlig .pris-kost-tall { color: #a5d8f3; }
+#pris .pris-kost-tall em { font-size: 1rem; font-style: normal; color: #8a8a92; }
+#pris .pris-kost p { font-size: .85rem; margin: .5rem 0 0; }
+#pris .pris-kost-engang p { color: rgba(255,255,255,.85); }
+#pris .pris-kost-arlig p { color: #a0a0a8; }
+
+@media (max-width: 720px) {
+    #pris .pris-banner { grid-template-columns: 1fr; }
+    #pris .pris-banner-mockup { display: none; }
+    #pris .pris-koster { grid-template-columns: 1fr; }
+}
+
+/* ===== Precio: bloque de código directo (sin caja) + lista ===== */
+#pris .pris-kode-blokk {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 0;
+    margin-top: 1.25rem;
+}
+#pris .pris-kode-kol {
+    font-family: "JetBrains Mono", "Ubuntu Mono", monospace;
+    font-size: 1.05rem;
+    line-height: 2.4;
+    background: linear-gradient(150deg, #e0533d, #2a8c6a);
+    border-radius: 16px;
+    padding: 2.75rem 2.25rem;
+}
+#pris .pk-komm { color: rgba(255,255,255,.65); margin: 0; }
+#pris .pk-linje { margin: 0; }
+#pris .pk-var { color: #fff; font-weight: 700; }
+#pris .pk-op { color: rgba(255,255,255,.6); }
+#pris .pk-val { color: #ffe4b0; font-weight: 700; }
+#pris .pris-kode-liste {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    border-left: 1px solid rgba(157, 214, 73, .2);
+    padding-left: 2.5rem;
+}
+#pris .pris-kode-liste li {
+    color: #f0e4cb;
+    font-size: .95rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+#pris .pris-kode-liste li::before {
+    content: "✓";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+}
+@media (max-width: 720px) {
+    #pris .pris-kode-blokk { grid-template-columns: 1fr; gap: 1.75rem; }
+    #pris .pris-kode-liste { border-left: none; padding-left: 0; }
+}
+
+/* Ancho intermedio para el FAQ (más ancho que narrow, texto aún legible) */
+.container-faq { width: min(900px, 92%); margin-inline: auto; }
+
+/* Texto arena claro cálido en las cajas oscuras (3ª de cada sección) */
+#hvorfor .grunn:nth-child(3) h3,
+#hvorfor .grunn:nth-child(3) p,
+#slik .step:nth-child(3) h3,
+#slik .step:nth-child(3) p,
+#slik .step:nth-child(3) a {
+    color: #f0e4cb !important;
+}
