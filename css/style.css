@@ -1424,7 +1424,8 @@ summary:focus-visible {
 .mockup-maler,
 .mockup-renhold,
 .mockup-gartner,
-.mockup-flyttebyra {
+.mockup-flyttebyra,
+.mockup-spa {
     background-size: cover !important;
     background-position: top center !important;
     background-repeat: no-repeat !important;
@@ -1436,6 +1437,7 @@ summary:focus-visible {
 .mockup-renhold    { background-image: url("../img/demoer/renhold.jpg") !important; }
 .mockup-gartner    { background-image: url("../img/demoer/gartner.jpg") !important; }
 .mockup-flyttebyra { background-image: url("../img/demoer/flyttebyra.jpg") !important; }
+.mockup-spa        { background-image: url("../img/demoer/spa.jpg") !important; }
 
 /* Ocultar las barras internas del mockup viejo */
 .bransje-kort .mockup-bar,

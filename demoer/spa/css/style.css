@@ -1,0 +1,135 @@
+/* ===== Salong Serene – estilo inmersivo/elegante ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --krem: #faf8f5;
+    --krem-2: #efe9e1;
+    --sand: #c9b8a4;
+    --brun: #8a7460;
+    --brun-myk: #a89678;
+    --mork: #2a2420;
+    --tekst: #6a6058;
+    --linje: #ece5da;
+}
+
+body { font-family: 'Jost', sans-serif; font-weight: 300; color: var(--tekst); background: var(--krem); line-height: 1.65; }
+.container { width: min(1200px, 92%); margin: 0 auto; }
+
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; color: var(--mork); line-height: 1.1; }
+h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
+
+.eyebrow, .hero-eyebrow { font-size: .7rem; color: var(--brun-myk); text-transform: uppercase; letter-spacing: .2em; margin-bottom: 1rem; font-weight: 400; }
+
+/* Botones */
+.btn-lys { display: inline-block; background: var(--krem); color: var(--mork); padding: 13px 30px; text-decoration: none; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; transition: opacity .2s; }
+.btn-lys:hover { opacity: .85; }
+.btn-linje { display: inline-block; border: 1px solid #6a5f52; color: var(--krem); padding: 13px 30px; text-decoration: none; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; transition: all .2s; }
+.btn-linje:hover { background: rgba(255,255,255,.1); }
+
+/* Header */
+.header { background: rgba(250,248,245,.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linje); position: sticky; top: 0; z-index: 100; }
+.header-inner { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0; }
+.logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--mork); text-decoration: none; letter-spacing: .03em; }
+.logo span { color: var(--brun); font-style: italic; }
+.nav { display: flex; gap: 1.75rem; align-items: center; }
+.nav a { color: var(--tekst); text-decoration: none; font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; transition: color .2s; }
+.nav a:hover { color: var(--brun); }
+.nav-cta { background: var(--mork); color: var(--krem) !important; padding: 9px 18px; }
+
+/* HERO inmersivo */
+.hero { position: relative; height: 82vh; min-height: 520px; background: linear-gradient(120deg, #c9b8a4, #a8917a 60%, #8a7460); background-size: cover; background-position: center; display: flex; align-items: flex-start; overflow: hidden; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(42,36,32,.5), rgba(42,36,32,.1) 55%, transparent); }
+.hero-tekst { position: relative; z-index: 2; padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 6rem); max-width: 520px; }
+.hero-eyebrow { color: rgba(250,248,245,.85); }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); color: #fff; font-weight: 500; margin-bottom: 1.5rem; max-width: 14ch; }
+.hero-navn { position: absolute; bottom: clamp(-1rem, -2vw, -2rem); left: 0; right: 0; z-index: 1; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: clamp(6rem, 22vw, 20rem); font-weight: 600; color: rgba(255,255,255,.9); line-height: .8; letter-spacing: .02em; pointer-events: none; }
+
+/* Behandlinger / categorías */
+.behandlinger { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+.seksjon-topp { text-align: center; margin-bottom: 3rem; width: min(1200px, 92%); margin-left: auto; margin-right: auto; }
+.seksjon-lead { font-size: 1rem; color: var(--tekst); margin-top: .5rem; }
+.kat-liste { display: flex; flex-direction: column; gap: 1.25rem; width: min(1200px, 92%); margin: 0 auto; }
+.kat { position: relative; height: clamp(220px, 30vw, 300px); border-radius: 4px; overflow: hidden; display: flex; align-items: center; background-size: cover; background-position: center; }
+.kat-haar { background: linear-gradient(120deg, #c9b8a4, #8a7460); }
+.kat-hud { background: linear-gradient(120deg, #e0d0c0, #b89a80); }
+.kat-negler { background: linear-gradient(120deg, #d8c8b8, #a89078); }
+.kat-massasje { background: linear-gradient(120deg, #ccbaa6, #9a8168); }
+.kat-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(42,36,32,.65), rgba(42,36,32,.2) 55%, transparent); }
+.kat-innhold { position: relative; z-index: 2; padding: 0 clamp(2rem, 5vw, 4rem); max-width: 60%; }
+.kat-nr { font-size: .68rem; color: rgba(255,255,255,.8); text-transform: uppercase; letter-spacing: .2em; margin-bottom: .6rem; }
+.kat-innhold h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); color: #fff; font-weight: 600; margin-bottom: .5rem; }
+.kat-tekst { font-size: .9rem; color: rgba(255,255,255,.9); font-weight: 300; margin-bottom: 1.25rem; max-width: 32ch; }
+.kat-lenke { display: inline-block; border: 1px solid rgba(255,255,255,.7); color: #fff; padding: 9px 22px; text-decoration: none; font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; transition: all .2s; }
+.kat-lenke:hover { background: rgba(255,255,255,.15); }
+
+/* Galleri */
+.galleri { padding: clamp(3.5rem, 7vw, 6rem) 0; background: var(--krem-2); }
+.galleri-rutenett { width: min(1200px, 92%); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.galleri-bilde { aspect-ratio: 3/4; border-radius: 3px; background-size: cover; background-position: center; }
+.gb1 { background: linear-gradient(160deg, #d9c9b0, #b5a288); }
+.gb2 { background: linear-gradient(160deg, #c9b89a, #a08a68); }
+.gb3 { background: linear-gradient(160deg, #e0d4bf, #c0a880); }
+.gb4 { background: linear-gradient(160deg, #d4c4a8, #b09878); }
+
+/* Om oss */
+.om { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+.om-bilde { min-height: 440px; background: linear-gradient(160deg, var(--sand), var(--brun)); background-size: cover; background-position: center; }
+.om-tekst { padding: clamp(2.5rem, 6vw, 5rem); display: flex; flex-direction: column; justify-content: center; background: var(--krem-2); }
+.om-tekst p { margin-top: 1rem; }
+
+/* Kontakt */
+.kontakt { padding: clamp(3.5rem, 7vw, 6rem) 0; background: var(--mork); text-align: center; }
+.kontakt-innhold { width: min(700px, 92%); margin: 0 auto; }
+.kontakt .eyebrow { color: var(--sand); }
+.kontakt h2 { color: var(--krem); }
+.kontakt > .kontakt-innhold > p { color: #c9beb0; margin-bottom: 2rem; }
+.kontakt-knapper { display: flex; gap: .75rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
+.kontakt-info { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+.kontakt-info span { font-size: .68rem; text-transform: uppercase; letter-spacing: .15em; color: var(--sand); }
+.kontakt-info p { color: var(--krem); margin-top: .3rem; }
+
+/* Footer */
+.footer { background: #1f1b17; color: #b0a698; padding: 3rem 0 1.5rem; }
+.footer-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--krem); }
+.footer-tit { font-size: .7rem; text-transform: uppercase; letter-spacing: .15em; color: var(--sand); margin-bottom: .5rem; }
+.footer p { font-size: .85rem; margin-top: .2rem; }
+.footer-bunn { text-align: center; border-top: 1px solid #3a332d; margin-top: 2rem; padding-top: 1.5rem; font-size: .8rem; }
+
+/* Responsive */
+@media (max-width: 820px) {
+    .om { grid-template-columns: 1fr; }
+    .om-bilde { min-height: 280px; }
+    .galleri-rutenett { grid-template-columns: 1fr 1fr; }
+    .nav { display: none; }
+    .kat-innhold { max-width: 85%; }
+    .footer-inner { grid-template-columns: 1fr; }
+}
+/* ===== Acordeón de categorías ===== */
+.kat-blokk { margin-bottom: 1.25rem; }
+.kat { width: 100%; border: none; padding: 0; cursor: pointer; text-align: left; font-family: inherit; display: flex; align-items: center; }
+.kat-pil { display: inline-block; transition: transform .3s ease; margin-left: .3rem; }
+.kat-blokk.open .kat-pil { transform: rotate(180deg); }
+
+/* Panel desplegable */
+.kat-panel { max-height: 0; overflow: hidden; transition: max-height .4s ease; background: var(--krem); }
+.kat-blokk.open .kat-panel { max-height: 600px; }
+.beh-liste { list-style: none; padding: 1.5rem clamp(1.5rem, 4vw, 3rem); margin: 0; border-left: 4px solid var(--brun); }
+.beh-liste li { display: flex; justify-content: space-between; align-items: baseline; padding: .8rem 0; border-bottom: 1px solid var(--linje); font-family: 'Jost', sans-serif; }
+.beh-liste li:last-child { border-bottom: none; }
+.beh-liste li > span:first-child { color: var(--mork); font-size: .95rem; }
+.beh-pris { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--brun); white-space: nowrap; padding-left: 1rem; }
+
+/* ===== Sección Productos ===== */
+.produkter { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+.prod-bilder { width: min(1200px, 92%); margin: 0 auto 2.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.prod-bilde { aspect-ratio: 1; border-radius: 6px; background-size: cover; background-position: center; }
+.pb1 { background: linear-gradient(160deg, #d9c9b0, #b5a288); }
+.pb2 { background: linear-gradient(160deg, #c9b89a, #a08a68); }
+.pb3 { background: linear-gradient(160deg, #e0d4bf, #c0a880); }
+.pb4 { background: linear-gradient(160deg, #d4c4a8, #b09878); }
+.prod-merker { width: min(1000px, 92%); margin: 0 auto; border-top: 1px solid var(--linje); border-bottom: 1px solid var(--linje); padding: 1.75rem 0; display: flex; justify-content: center; align-items: center; gap: clamp(1.5rem, 4vw, 3rem); flex-wrap: wrap; }
+.merke { color: var(--brun); font-size: 1.3rem; }
+.m-serif { font-family: 'Cormorant Garamond', serif; letter-spacing: .05em; }
+.m-serif-i { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.m-sans { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: .15em; }

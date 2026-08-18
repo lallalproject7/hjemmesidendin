@@ -1,0 +1,118 @@
+/* ===== Bloom Studio – moderno colorido ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --hvit: #ffffff;
+    --lys: #fdf6f8;
+    --korall: #f5825f;
+    --rosa: #e0699a;
+    --lilla: #9d7ad4;
+    --mork: #2a2438;
+    --tekst: #6a6278;
+    --linje: #f0e6ec;
+    --grad: linear-gradient(120deg, #f5825f, #e0699a 55%, #9d7ad4);
+}
+
+body { font-family: 'Poppins', sans-serif; color: var(--tekst); background: var(--hvit); line-height: 1.65; }
+.container { width: min(1100px, 92%); margin: 0 auto; }
+
+h1, h2 { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--mork); line-height: 1.1; }
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); }
+
+.eyebrow, .hero-eyebrow {
+    font-size: .72rem; text-transform: uppercase; letter-spacing: .15em;
+    font-weight: 600; margin-bottom: 1rem;
+    background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* Botones */
+.btn-fyll {
+    display: inline-block; background: var(--grad); color: #fff;
+    padding: 13px 30px; border-radius: 26px; text-decoration: none;
+    font-size: .82rem; font-weight: 600; transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 6px 18px rgba(224,105,154,.3);
+}
+.btn-fyll:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(224,105,154,.4); }
+.btn-linje {
+    display: inline-block; border: 2px solid var(--rosa); color: var(--rosa);
+    padding: 11px 28px; border-radius: 26px; text-decoration: none;
+    font-size: .82rem; font-weight: 600; transition: all .2s;
+}
+.btn-linje:hover { background: var(--lys); }
+
+/* Header */
+.header { background: rgba(255,255,255,.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linje); position: sticky; top: 0; z-index: 100; }
+.header-inner { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0; }
+.logo { font-size: 1.4rem; font-weight: 800; color: var(--mork); text-decoration: none; }
+.logo span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.nav { display: flex; gap: 1.75rem; align-items: center; }
+.nav a { color: var(--tekst); text-decoration: none; font-size: .85rem; font-weight: 500; transition: color .2s; }
+.nav a:hover { color: var(--rosa); }
+.nav-cta { background: var(--grad); color: #fff !important; padding: 9px 20px; border-radius: 22px; font-weight: 600; }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; align-items: center; }
+.hero-tekst { padding: 4rem clamp(2rem, 5vw, 5rem); }
+.hero-lead { font-size: 1.05rem; margin: 1rem 0 2rem; max-width: 34ch; }
+.hero-knapper { display: flex; gap: .75rem; flex-wrap: wrap; }
+.hero-bilde { min-height: 100%; height: 100%; background: linear-gradient(150deg, #ffd9b0, #f5a3c0 55%, #c9a3e0); background-size: cover; background-position: center; }
+
+/* Secciones */
+.seksjon, .seksjon-galleri, .seksjon-om, .seksjon-kontakt { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+.seksjon-topp { text-align: center; margin-bottom: 3rem; width: min(1100px, 92%); margin-left: auto; margin-right: auto; }
+
+/* Behandlinger */
+.behandling-liste { width: min(760px, 92%); margin: 0 auto; display: grid; gap: 1rem; }
+.behandling { display: flex; justify-content: space-between; align-items: center; background: var(--lys); border-radius: 16px; padding: 1.1rem 1.5rem; transition: transform .2s; }
+.behandling:hover { transform: translateX(4px); }
+.beh-info { display: flex; flex-direction: column; }
+.beh-navn { font-size: 1rem; color: var(--mork); font-weight: 600; }
+.beh-under { font-size: .8rem; color: var(--tekst); }
+.beh-pris { font-size: 1.05rem; font-weight: 700; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; white-space: nowrap; padding-left: 1rem; }
+.behandling-note { text-align: center; font-size: .8rem; color: var(--tekst); margin-top: 2rem; }
+
+/* Galleri */
+.seksjon-galleri { background: var(--lys); }
+.galleri-rutenett { width: min(1100px, 92%); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.galleri-bilde { aspect-ratio: 3/4; border-radius: 18px; background-size: cover; background-position: center; }
+.gb1 { background: linear-gradient(150deg, #ffd9b0, #f5825f); }
+.gb2 { background: linear-gradient(150deg, #f5a3c0, #e0699a); }
+.gb3 { background: linear-gradient(150deg, #c9a3e0, #9d7ad4); }
+.gb4 { background: linear-gradient(150deg, #ffc9d4, #f5825f); }
+
+/* Om oss */
+.seksjon-om { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem,5vw,4rem); }
+.om-bilde { min-height: 400px; height: 100%; border-radius: 24px; background: linear-gradient(150deg, #ffd9b0, #f5a3c0 55%, #c9a3e0); background-size: cover; background-position: center; }
+.seksjon-om { width: min(1100px, 92%); margin: 0 auto; padding: clamp(3.5rem,7vw,6rem) 0; }
+.om-tekst p { margin-top: 1rem; }
+
+/* Kontakt */
+.seksjon-kontakt { background: var(--grad); text-align: center; }
+.kontakt-innhold { width: min(700px, 92%); margin: 0 auto; }
+.seksjon-kontakt .eyebrow { -webkit-text-fill-color: rgba(255,255,255,.9); color: #fff; background: none; }
+.seksjon-kontakt h2 { color: #fff; }
+.seksjon-kontakt p { color: rgba(255,255,255,.9); margin-bottom: 2rem; }
+.kontakt-knapper { display: flex; gap: .75rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
+.seksjon-kontakt .btn-fyll { background: #fff; color: var(--rosa); box-shadow: none; }
+.seksjon-kontakt .btn-linje { border-color: rgba(255,255,255,.7); color: #fff; }
+.kontakt-info { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+.kontakt-info span { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: rgba(255,255,255,.75); }
+.kontakt-info p { color: #fff; margin-top: .3rem; font-weight: 500; }
+
+/* Footer */
+.footer { background: var(--mork); color: #b8b0c8; padding: 3rem 0 1.5rem; }
+.footer-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.footer-logo { font-size: 1.3rem; font-weight: 800; color: #fff; }
+.footer-tit { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--rosa); margin-bottom: .5rem; font-weight: 600; }
+.footer p { font-size: .85rem; margin-top: .2rem; }
+.footer-bunn { text-align: center; border-top: 1px solid #3f3852; margin-top: 2rem; padding-top: 1.5rem; font-size: .8rem; }
+
+/* Responsive */
+@media (max-width: 820px) {
+    .hero, .seksjon-om { grid-template-columns: 1fr; }
+    .hero-bilde, .om-bilde { min-height: 300px; }
+    .galleri-rutenett { grid-template-columns: 1fr 1fr; }
+    .nav { display: none; }
+    .footer-inner { grid-template-columns: 1fr; }
+}

@@ -29,6 +29,27 @@ Objetivo: captar más mercado con gremios de mayor volumen. Sistema compartido (
 - [ ] **Consultor/Coach/Terapeuta** (servicios personalizados) — base flexible. Secciones: hero + om meg + tjenester + bakgrunn + timebestilling/kontakt
 - [ ] **Restaurante/Kafé** — al final (reto: menú actualizable vía oppdatering). Secciones: hero + meny + om oss + åpningstider/kart + kontakt/reservas
 
+### Demo Spa — decisiones de construcción (sesión actual)
+- Diseño **Serene**: estilo inmersivo (hero grande con nombre gigante + categorías verticales a todo el ancho), fondo claro. Mantener como está por ahora.
+- **6 categorías**: Hår (incl. extensions + hårkur), Skjegg (barba, categoría propia para atraer hombres), Hudpleie, Negler, Vipper & bryn, Massasje
+- Tratamientos por categoría en **acordeón desplegable** (clic en categoría → se abre lista con precios)
+- 3 diseños del gremio: Serene (en rediseño), Bloom (hecho), Lyx (pendiente — oscuro lujo)
+- Nombres ficticios: Serene = "Salong Serene", Bloom = "Bloom Studio", Lyx = "Salong Noir" (pendiente). Todos en Oslo.
+
+### Formulario inteligente de spa (bestill-spa.html) — PENDIENTE, construir DESPUÉS de la demo
+Debe permitir al cliente personalizar su web:
+- **Elegir qué tratamientos incluir**: checkboxes por tratamiento predefinido (cada salón marca los suyos, no todos ofrecen lo mismo)
+- **Añadir tratamientos extra/diferentes**: campos dinámicos para nombre + precio de servicios que no están en la lista predefinida
+- **Mostrar precios o no**: toggle para decidir si la web muestra precios "fra" o solo nombres de tratamientos
+- Los tratamientos elegidos + extras rellenan los marcadores del molde (acordeón de categorías)
+- Nota: es un formulario complejo (checkboxes, campos dinámicos, toggle). Construir cuando la demo/molde estén cerrados.
+
+### Reservas — 3 opciones en el formulario de pedido (bestill-spa.html)
+1. **Cal.com**: nosotros lo configuramos/embebemos en la web, el cliente lo gestiona después (gratis)
+2. **Sistema propio del cliente** (Reservio, Fixit, Timma, etc.): el cliente pasa su enlace/URL para conectarlo a la web
+3. **Sin reservas**: el botón se convierte en "Kontakt oss" (tel/formulario)
+- NOTA técnica: la lista de precios de la web y los servicios de Cal.com son listas SEPARADAS (la web no lee de Cal.com). Cal.com se puede EMBEBER (widget/botón), no solo enlazar. "Reserva integrada" = Cal.com embebido, NO sistema propio con backend (eso rompería el modelo estático).
+
 ### Decisiones sobre reservas (timebestilling)
 - Botón "Bestill time" = MARCADOR de URL (flexible): el cliente pone su enlace de reserva
 - Cal.com = mejor opción GRATIS (reservas/tipos de evento ilimitados) — usar en el escaparate/demo
