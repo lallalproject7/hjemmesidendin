@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gratis visittkort-generator – lag ditt eget visittkort med QR-kode | Hjemmesidendin</title>
+    <meta name="description" content="Lag ditt eget profesjonelle visittkort gratis. Fyll inn navn, yrke og nettside – få et ferdig visittkort med QR-kode, klart for utskrift. Skandinavisk design, helt gratis.">
+    <meta name="keywords" content="visittkort, gratis visittkort, lag visittkort, visittkort med qr-kode, visittkort generator, business card">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .vk-wrap { width: min(1200px, 94%); margin: 2.5rem auto 4rem; }
+        .vk-topp { text-align: center; margin-bottom: 2.5rem; }
+        .vk-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+
+        /* Formulario */
+        .vk-seksjon-tit { font-size: 1.1rem; margin: 0 0 1rem; color: var(--ink); }
+        .vk-mt { margin-top: 2rem; }
+        .vk-felt { margin-bottom: 1rem; }
+        .vk-felt label { display: block; font-size: .85rem; color: var(--ink-soft); margin-bottom: .35rem; }
+        .vk-pakrevd { color: #e05a4d; }
+        .vk-felt input {
+            width: 100%; padding: 11px 14px; border-radius: 10px;
+            border: 1px solid var(--line); background: var(--bg-2);
+            color: var(--ink); font-size: .92rem; font-family: inherit; box-sizing: border-box;
+        }
+        .vk-felt input:focus { outline: none; border-color: var(--accent); }
+        .vk-hjelp { display: block; font-size: .75rem; color: var(--ink-soft); margin-top: .3rem; }
+
+        /* Selector de diseño */
+        .vk-design-velger { display: flex; gap: .5rem; flex-wrap: wrap; }
+        .vk-design-knapp {
+            flex: 1; min-width: 80px; padding: 9px 12px; border-radius: 10px;
+            border: 1px solid var(--line); background: var(--surface);
+            color: var(--ink-soft); font-size: .85rem; cursor: pointer; font-family: inherit;
+            transition: all .2s ease;
+        }
+        .vk-design-knapp.aktiv { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+
+        /* Selector de color */
+        .vk-farge-velger { display: flex; gap: .6rem; flex-wrap: wrap; }
+        .vk-farge {
+            width: 38px; height: 38px; border-radius: 50%; cursor: pointer;
+            border: 2px solid transparent; transition: transform .15s ease;
+        }
+        .vk-farge.aktiv { border-color: var(--ink); transform: scale(1.12); }
+        .vk-farge-lys { display: none; }
+        .vk-kort-scene[data-vis-lys] ~ * .vk-farge-lys { display: inline-block; }
+
+        /* Botones descarga */
+        .vk-last-ned { width: 100%; margin-top: 2rem; }
+        .vk-last-png {
+            width: 100%; margin-top: .75rem; background: none; border: none;
+            color: var(--sky); font-size: .88rem; cursor: pointer; font-family: inherit; text-decoration: underline;
+        }
+
+        /* Escena de la tarjeta */
+        .vk-kort-scene { display: flex; justify-content: center; padding: 1.5rem 0; }
+        .vk-kort-info { font-size: .8rem; color: var(--ink-soft); text-align: center; }
+
+        /* === LA TARJETA (85x55mm, escalada a px: 425x275 a 5px/mm) === */
+        .vk-kort {
+            width: 425px; height: 275px; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 12px 34px rgba(0,0,0,.35); position: relative;
+            font-family: 'Inter', sans-serif; box-sizing: border-box;
+            background: #fff;
+        }
+        .vk-kort * { box-sizing: border-box; }
+
+        /* Elementos comunes de contenido */
+        .vkc-navn { font-family: 'Outfit', sans-serif; font-weight: 700; line-height: 1.1; }
+        .vkc-tittel { font-size: .82rem; margin-top: .2rem; }
+        .vkc-kontakt { font-size: .74rem; line-height: 1.7; }
+        .vkc-nettside { font-weight: 600; }
+        .vkc-qr { background: #fff; padding: 4px; border-radius: 4px; }
+        .vkc-qr img, .vkc-qr canvas { display: block; width: 100%; height: 100%; }
+
+        @media (max-width: 900px) {
+            .vk-layout { grid-template-columns: 1fr; }
+            .vk-kort { transform: scale(.85); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo"><span class="lg-1">hjemmeside</span><span class="lg-2">n</span><span class="lg-3">din</span></a>
+            <nav class="nav">
+                <a href="index.html#oppdateringer">Priser</a>
+                <a href="index.html#faq">Spørsmål</a>
+                <a href="index.html">Til forsiden</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="vk-wrap">
+        <div class="vk-topp">
+            <p class="eyebrow">Gratis verktøy fra Hjemmesidendin</p>
+            <h1>Lag ditt eget visittkort</h1>
+            <p class="section-lead">Fyll inn informasjonen din, velg design og farge – så lager vi et ferdig visittkort med QR-kode, klart for utskrift. Helt gratis.</p>
+        </div>
+
+        <div class="vk-layout">
+            <!-- Columna izquierda: formulario (se llena después) -->
+            <div class="vk-skjema" id="vkSkjema">
+                <h2 class="vk-seksjon-tit">Din informasjon</h2>
+                <div class="vk-felt">
+                    <label for="vk-navn">Navn <span class="vk-pakrevd">*</span></label>
+                    <input type="text" id="vk-navn" placeholder="Erik Johansen" maxlength="40">
+                </div>
+                <div class="vk-felt">
+                    <label for="vk-tittel">Tittel / yrke <span class="vk-pakrevd">*</span></label>
+                    <input type="text" id="vk-tittel" placeholder="Elektriker" maxlength="40">
+                </div>
+                <div class="vk-felt">
+                    <label for="vk-firma">Firmanavn</label>
+                    <input type="text" id="vk-firma" placeholder="Johansen Elektro AS" maxlength="40">
+                </div>
+                <div class="vk-felt">
+                    <label for="vk-telefon">Telefon</label>
+                    <input type="tel" id="vk-telefon" placeholder="+47 900 12 345" maxlength="25">
+                </div>
+                <div class="vk-felt">
+                    <label for="vk-epost">E-post</label>
+                    <input type="email" id="vk-epost" placeholder="erik@firma.no" maxlength="50">
+                </div>
+                <div class="vk-felt">
+                    <label for="vk-nettside">Nettside (URL) <span class="vk-pakrevd">*</span></label>
+                    <input type="text" id="vk-nettside" placeholder="firma.no" maxlength="60">
+                    <span class="vk-hjelp">Denne blir til QR-koden på kortet</span>
+                </div>
+                <div class="vk-felt">
+                    <label for="vk-orgnr">Org.nr</label>
+                    <input type="text" id="vk-orgnr" placeholder="123 456 789" maxlength="15">
+                </div>
+
+
+
+                <button type="button" class="btn btn-primary vk-last-ned" id="vkLastNed">Last ned som PDF (for trykk)</button>
+                <button type="button" class="vk-last-png" id="vkLastPng">Eller last ned som bilde (PNG)</button>
+            </div>
+
+            <!-- Columna derecha: vista previa (se llena después) -->
+            <div class="vk-forhandsvisning" id="vkForhandsvisning">
+                <h2 class="vk-seksjon-tit vk-mt">Velg design</h2>
+                <div class="vk-design-velger">
+                    <button type="button" class="vk-design-knapp aktiv" data-design="A">Minimal</button>
+                    <button type="button" class="vk-design-knapp" data-design="B">Sentrert</button>
+                    <button type="button" class="vk-design-knapp" data-design="C">Topplinje</button>
+                    <button type="button" class="vk-design-knapp" data-design="2">Sidefarge</button>
+                    <button type="button" class="vk-design-knapp" data-design="3">Mørk</button>
+                </div>
+
+                <h2 class="vk-seksjon-tit vk-mt">Velg farge</h2>
+                <div class="vk-farge-velger">
+                    <button type="button" class="vk-farge aktiv" data-farge="#e0533d" style="background:#e0533d" aria-label="Rød"></button>
+                    <button type="button" class="vk-farge" data-farge="#3d5a99" style="background:#3d5a99" aria-label="Blå"></button>
+                    <button type="button" class="vk-farge" data-farge="#2a8c6a" style="background:#2a8c6a" aria-label="Grønn"></button>
+                    <button type="button" class="vk-farge" data-farge="#d99a2e" style="background:#d99a2e" aria-label="Gul"></button>
+                    <button type="button" class="vk-farge" data-farge="#7c5cbf" style="background:#7c5cbf" aria-label="Lilla"></button>
+                    <button type="button" class="vk-farge" data-farge="#16181c" style="background:#16181c" aria-label="Svart"></button>
+                    <button type="button" class="vk-farge vk-farge-lys" data-farge="#ffffff" style="background:#ffffff" aria-label="Hvit"></button>
+                    <button type="button" class="vk-farge vk-farge-lys" data-farge="#f0e4cb" style="background:#f0e4cb" aria-label="Krem"></button>
+                    <button type="button" class="vk-farge vk-farge-lys" data-farge="#d4e4f0" style="background:#d4e4f0" aria-label="Lys blå"></button>
+                    <button type="button" class="vk-farge vk-farge-lys" data-farge="#d8ecd8" style="background:#d8ecd8" aria-label="Lys grønn"></button>
+                    <button type="button" class="vk-farge vk-farge-lys" data-farge="#e8e5e0" style="background:#e8e5e0" aria-label="Lys grå"></button>
+                    <button type="button" class="vk-farge" data-farge="#1a2a4a" style="background:#1a2a4a" aria-label="Marineblå"></button>
+                    <button type="button" class="vk-farge" data-farge="#1e3d2a" style="background:#1e3d2a" aria-label="Mørk grønn"></button>
+                    <button type="button" class="vk-farge" data-farge="#5a1a28" style="background:#5a1a28" aria-label="Vinrød"></button>
+                </div>
+                <h2 class="vk-seksjon-tit">Forhåndsvisning</h2>
+                <div class="vk-kort-scene">
+                    <div class="vk-kort" id="vkKort" data-design="A">
+                        <!-- El contenido de la tarjeta lo genera el JavaScript -->
+                    </div>
+                </div>
+                <p class="vk-kort-info">Kortet er i standard visittkort-størrelse (85 × 55 mm). PDF-en er klar for trykk med 3 mm utfallende kant.</p>
+                <div class="vk-qr-skjult" id="vkQrKilde" hidden></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Librerías: QR, PDF, captura -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+    (function () {
+        // ---- Estado ----
+        var data = { navn:"", tittel:"", firma:"", telefon:"", epost:"", nettside:"", orgnr:"" };
+        var design = "A";
+        var farge = "#e0533d";
+
+        var kort = document.getElementById("vkKort");
+        var qrKilde = document.getElementById("vkQrKilde");
+
+        // ---- Generar el QR (devuelve un canvas dataURL) ----
+        function lagQr(tekst, cb) {
+            qrKilde.innerHTML = "";
+            if (!tekst) { cb(""); return; }
+            var url = tekst;
+            if (!/^https?:\/\//i.test(url)) url = "https://" + url;
+            new QRCode(qrKilde, { text: url, width: 200, height: 200, correctLevel: QRCode.CorrectLevel.M });
+            setTimeout(function () {
+                var img = qrKilde.querySelector("img") || qrKilde.querySelector("canvas");
+                if (!img) { cb(""); return; }
+                if (img.tagName === "CANVAS") { cb(img.toDataURL("image/png")); }
+                else { cb(img.src); }
+            }, 120);
+        }
+
+        // ---- Escapar HTML para evitar roturas ----
+        function esc(s) { return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+        // ---- Bloque de contacto reutilizable ----
+        function kontaktHtml(farToner) {
+            var linjer = [];
+            if (data.telefon) linjer.push('<div>'+esc(data.telefon)+'</div>');
+            if (data.epost) linjer.push('<div>'+esc(data.epost)+'</div>');
+            if (data.nettside) linjer.push('<div style="font-weight:600;color:'+farToner.sterk+'">'+esc(data.nettside)+'</div>');
+            if (data.orgnr) linjer.push('<div style="opacity:.7">Org.nr '+esc(data.orgnr)+'</div>');
+            return linjer.join("");
+        }
+
+        // ---- Los 4 diseños. Cada uno devuelve HTML con estilos inline ----
+        function tegnKort(qrSrc) {
+            var navn = esc(data.navn) || "Ditt navn";
+            var tittel = esc(data.tittel) || "Din tittel";
+            var firma = data.firma ? " · " + esc(data.firma) : "";
+            var qrImg = qrSrc ? '<img src="'+qrSrc+'" style="width:100%;height:100%;display:block">' : '';
+
+            // Diseño A: minimalista tipográfico con fondo elegible + contraste automático
+            if (design === "A") {
+                var hex = farge.replace("#","");
+                var r = parseInt(hex.substring(0,2),16), g = parseInt(hex.substring(2,4),16), b = parseInt(hex.substring(4,6),16);
+                var lum = (0.299*r + 0.587*g + 0.114*b) / 255;
+                var mork = lum < 0.55;
+                var tekstSterk = mork ? "#f0e4cb" : "#1a1a1a";
+                var tekstMyk = mork ? "#a0988a" : "#888";
+                var tekstKontakt = mork ? "#c2beb4" : "#444";
+                var qrStil = mork ? "filter:invert(1);" : "";
+                var qrImgA = qrSrc ? '<img src="'+qrSrc+'" style="width:100%;height:100%;display:block;'+qrStil+'">' : '';
+                return '<div style="width:100%;height:100%;background:'+farge+';padding:26px;display:flex;flex-direction:column;justify-content:space-between;">'
+                    + '<div><div class="vkc-navn" style="font-size:1.4rem;color:'+tekstSterk+';">'+navn+'</div>'
+                    + '<div style="font-size:.78rem;color:'+tekstMyk+';margin-top:3px;">'+tittel+firma+'</div></div>'
+                    + '<div style="display:flex;justify-content:space-between;align-items:flex-end;">'
+                    + '<div class="vkc-kontakt" style="color:'+tekstKontakt+';">'+kontaktHtml({sterk:tekstSterk})+'</div>'
+                    + '<div class="vkc-qr" style="width:56px;height:56px;background:transparent;">'+qrImgA+'</div></div>'
+                    + '</div>';
+            }
+            if (design === "B") {
+                // Centrado simétrico (fondo claro)
+                return '<div style="width:100%;height:100%;background:#fff;padding:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">'
+                    + '<div style="width:36px;height:3px;background:'+farge+';margin-bottom:14px;"></div>'
+                    + '<div class="vkc-navn" style="font-size:1.5rem;color:#16181c;text-transform:uppercase;letter-spacing:.02em;">'+navn+'</div>'
+                    + '<div style="font-family:\'JetBrains Mono\',monospace;font-size:.7rem;color:#888;margin:6px 0 14px;text-transform:uppercase;letter-spacing:.12em;">'+tittel+'</div>'
+                    + '<div class="vkc-qr" style="width:58px;height:58px;">'+qrImg+'</div>'
+                    + '<div class="vkc-kontakt" style="color:#555;margin-top:12px;">'+kontaktHtml({sterk:"#16181c"})+'</div>'
+                    + '</div>';
+            }
+            if (design === "C") {
+                // Banda superior (membrete)
+                return '<div style="width:100%;height:100%;background:#fff;display:flex;flex-direction:column;">'
+                    + '<div style="height:76px;background:linear-gradient(135deg,'+farge+',#3d5a99);padding:0 28px;display:flex;align-items:center;">'
+                    + '<div class="vkc-navn" style="font-size:1.5rem;color:#fff;">'+navn+'</div></div>'
+                    + '<div style="flex:1;padding:20px 28px;display:flex;justify-content:space-between;align-items:flex-end;">'
+                    + '<div><div style="font-size:.82rem;color:'+farge+';font-weight:600;margin-bottom:8px;">'+tittel+firma+'</div>'
+                    + '<div class="vkc-kontakt" style="color:#555;">'+kontaktHtml({sterk:"#16181c"})+'</div></div>'
+                    + '<div class="vkc-qr" style="width:64px;height:64px;">'+qrImg+'</div>'
+                    + '</div></div>';
+            }
+            if (design === "2") {
+                // Barra lateral de color (fondo claro)
+                return '<div style="width:100%;height:100%;background:#fff;display:flex;">'
+                    + '<div style="width:16px;background:linear-gradient(180deg,'+farge+',#2a8c6a);"></div>'
+                    + '<div style="flex:1;padding:28px;display:flex;flex-direction:column;justify-content:space-between;">'
+                    + '<div><div class="vkc-navn" style="font-size:1.5rem;color:#16181c;">'+navn+'</div>'
+                    + '<div style="font-family:\'JetBrains Mono\',monospace;font-size:.72rem;color:'+farge+';margin-top:6px;text-transform:uppercase;letter-spacing:.1em;">'+tittel+'</div></div>'
+                    + '<div style="display:flex;justify-content:space-between;align-items:flex-end;">'
+                    + '<div class="vkc-kontakt" style="color:#555;">'+kontaktHtml({sterk:"#16181c"})+'</div>'
+                    + '<div class="vkc-qr" style="width:60px;height:60px;">'+qrImg+'</div></div>'
+                    + '</div></div>';
+            }
+            // design "3" - Oscuro elegante
+            return '<div style="width:100%;height:100%;background:#16181c;padding:28px;display:flex;flex-direction:column;justify-content:space-between;">'
+                + '<div><div class="vkc-navn" style="font-size:1.5rem;color:#f0e4cb;">'+navn+'</div>'
+                + '<div style="font-size:.85rem;color:'+farge+';margin-top:5px;">'+tittel+firma+'</div></div>'
+                + '<div style="display:flex;justify-content:space-between;align-items:flex-end;">'
+                + '<div class="vkc-kontakt" style="color:#c2beb4;">'+kontaktHtml({sterk:"#f0e4cb"})+'</div>'
+                + '<div class="vkc-qr" style="width:62px;height:62px;background:#f0e4cb;padding:4px;">'+qrImg+'</div></div>'
+                + '</div>';
+        }
+
+        // exponer para la parte B
+        window._vk = { get data(){return data;}, get design(){return design;}, set design(v){design=v;}, get farge(){return farge;}, set farge(v){farge=v;}, lagQr:lagQr, tegnKort:tegnKort, kort:kort };
+    })();
+    </script>
+    <script>
+    (function () {
+        var vk = window._vk;
+        var felt = ["navn","tittel","firma","telefon","epost","nettside","orgnr"];
+
+        // Redibuja la tarjeta (genera QR y pinta)
+        function oppdater() {
+            vk.lagQr(vk.data.nettside, function (qrSrc) {
+                vk.kort.innerHTML = vk.tegnKort(qrSrc);
+                vk.kort.setAttribute("data-design", vk.design);
+            });
+        }
+
+        // Escuchar cambios en los campos
+        felt.forEach(function (f) {
+            var el = document.getElementById("vk-" + f);
+            if (!el) return;
+            el.addEventListener("input", function () {
+                vk.data[f] = el.value;
+                oppdater();
+            });
+        });
+
+        // Selector de diseño
+        document.querySelectorAll(".vk-design-knapp").forEach(function (b) {
+            b.addEventListener("click", function () {
+                vk.design = b.getAttribute("data-design");
+                document.querySelectorAll(".vk-design-knapp").forEach(function (x) { x.classList.remove("aktiv"); });
+                b.classList.add("aktiv");
+                visLyseFarger();
+                oppdater();
+            });
+        });
+
+        // Selector de color
+        document.querySelectorAll(".vk-farge").forEach(function (b) {
+            b.addEventListener("click", function () {
+                vk.farge = b.getAttribute("data-farge");
+                document.querySelectorAll(".vk-farge").forEach(function (x) { x.classList.remove("aktiv"); });
+                b.classList.add("aktiv");
+                oppdater();
+            });
+        });
+
+        // ---- Descarga PDF (imprenta, 91x61mm con sangrado) ----
+        function lastNedPdf() {
+            html2canvas(vk.kort, { scale: 4, backgroundColor: null }).then(function (canvas) {
+                var img = canvas.toDataURL("image/png");
+                var jsPDF = window.jspdf.jsPDF;
+                // 91x61mm = tarjeta 85x55 + 3mm sangrado por lado
+                var pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: [91, 61] });
+                // centrar la tarjeta (85x55) dejando 3mm de margen
+                pdf.addImage(img, "PNG", 3, 3, 85, 55);
+                pdf.save("visittkort.pdf");
+            });
+        }
+
+        // ---- Descarga PNG (alta resolución) ----
+        function lastNedPng() {
+            html2canvas(vk.kort, { scale: 4, backgroundColor: null }).then(function (canvas) {
+                var a = document.createElement("a");
+                a.href = canvas.toDataURL("image/png");
+                a.download = "visittkort.png";
+                a.click();
+            });
+        }
+
+        document.getElementById("vkLastNed").addEventListener("click", lastNedPdf);
+        document.getElementById("vkLastPng").addEventListener("click", lastNedPng);
+
+        // Mostrar u ocultar colores claros según el diseño (solo Minimal "A")
+        function visLyseFarger() {
+            var vis = (vk.design === "A");
+            document.querySelectorAll(".vk-farge-lys").forEach(function (b) {
+                b.style.display = vis ? "inline-block" : "none";
+            });
+        }
+
+        // Dibujar al cargar
+        visLyseFarger();
+        oppdater();
+    })();
+    </script>
+</body>
+</html>

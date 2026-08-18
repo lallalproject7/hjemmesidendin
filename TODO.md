@@ -16,6 +16,26 @@ Mapa de pendientes del proyecto. Actualizar a medida que se completen tareas.
 
 ---
 
+## 🎁 HERRAMIENTA GRATIS: VISITTKORT-GENERATOR (regalo/SEO)
+- Página gratis-visittkort.html: generador de visittkort con QR, 5 diseños, selector de color, descarga PDF (imprenta 91×61mm) + PNG — COMPLETADO
+- Sección de enganche "Gratis gave" en el index (banner verdoso + mini tarjeta) que enlaza al generador — COMPLETADO
+- Estrategia: página propia dedicada para SEO ("gratis visittkort", "lag visittkort") + gancho en index
+- Coste: 0 (todo en el navegador, librerías gratis vía CDN, Netlify estático)
+- [ ] Al publicar: verificar que Google indexe la página (no lleva noindex)
+
+## 🆕 NUEVAS DEMOS PLANIFICADAS (ampliar más allá de oficios)
+Objetivo: captar más mercado con gremios de mayor volumen. Sistema compartido (molde + formulario + sjekk-samsvar.py).
+- [ ] **Spa/Peluquería/Belleza** (frisør, hudpleie, negler, massasje) — EMPEZAR POR ESTA (fácil, visual, alto volumen). Secciones: hero + tjenester con precios + galleri + om oss + timebestilling/kontakt
+- [ ] **Consultor/Coach/Terapeuta** (servicios personalizados) — base flexible. Secciones: hero + om meg + tjenester + bakgrunn + timebestilling/kontakt
+- [ ] **Restaurante/Kafé** — al final (reto: menú actualizable vía oppdatering). Secciones: hero + meny + om oss + åpningstider/kart + kontakt/reservas
+
+### Decisiones sobre reservas (timebestilling)
+- Botón "Bestill time" = MARCADOR de URL (flexible): el cliente pone su enlace de reserva
+- Cal.com = mejor opción GRATIS (reservas/tipos de evento ilimitados) — usar en el escaparate/demo
+- Timma (timma.no) = la que usan salones reales en Skien (ej. Kirkerudklinikken), pero es de pago
+- El molde permite cualquier sistema: Cal.com, Timma, Reservio, etc.
+
+---
 ## 🚀 SIGUIENTE PASO: PUBLICAR EN NETLIFY (Fase 2)
 - [ ] Conectar repositorio de GitHub a Netlify
 - [ ] Deploy (publish = ".", sin build command)
