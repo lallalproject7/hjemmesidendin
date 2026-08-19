@@ -37,7 +37,7 @@ h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
 .nav-cta { background: var(--mork); color: var(--krem) !important; padding: 9px 18px; }
 
 /* HERO inmersivo */
-.hero { position: relative; height: 82vh; min-height: 520px; background: linear-gradient(120deg, #c9b8a4, #a8917a 60%, #8a7460); background-size: cover; background-position: center; display: flex; align-items: flex-start; overflow: hidden; }
+.hero { position: relative; height: 82vh; min-height: 520px; background: linear-gradient(120deg, #c9b8a4, #a8917a 60%, #8a7460); background-size: cover; background-position: center 30%; display: flex; align-items: flex-start; overflow: hidden; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(42,36,32,.5), rgba(42,36,32,.1) 55%, transparent); }
 .hero-tekst { position: relative; z-index: 2; padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 6rem); max-width: 520px; }
 .hero-eyebrow { color: rgba(250,248,245,.85); }
@@ -64,14 +64,16 @@ h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
 
 /* Galleri */
 .galleri { padding: clamp(3.5rem, 7vw, 6rem) 0; background: var(--krem-2); }
-.galleri-rutenett { width: min(1200px, 92%); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 220px); gap: 1rem; }
+.galleri-rutenett { width: min(1200px, 92%); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 200px); gap: 1rem; }
 .galleri-bilde { border-radius: 3px; background-size: cover; background-position: center; background-repeat: no-repeat; }
 .gb1 { grid-column: span 2; grid-row: span 2; }
+.gb6 { grid-column: span 2; grid-row: span 1; }
 
 /* Om oss */
-.om { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+.om { padding: clamp(3.5rem, 7vw, 6rem) 0; border-top: 1px solid var(--linje); }
+.om-innhold { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; width: min(1200px, 92%); margin: 0 auto; border-radius: 6px; overflow: hidden; }
 .om-bilde { min-height: 440px; background: linear-gradient(160deg, var(--sand), var(--brun)); background-size: cover; background-position: center; }
-.om-tekst { padding: clamp(2.5rem, 6vw, 5rem); display: flex; flex-direction: column; justify-content: center; background: var(--krem-2); }
+.om-tekst { padding: clamp(2.5rem, 6vw, 5rem); display: flex; flex-direction: column; justify-content: center; background: var(--krem); }
 .om-tekst p { margin-top: 1rem; }
 
 /* Kontakt */
@@ -95,7 +97,7 @@ h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
 
 /* Responsive */
 @media (max-width: 820px) {
-    .om { grid-template-columns: 1fr; }
+    .om-innhold { grid-template-columns: 1fr; }
     .om-bilde { min-height: 280px; }
     .galleri-rutenett { grid-template-columns: 1fr 1fr; }
     .nav { display: none; }
@@ -128,23 +130,26 @@ h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
 .m-sans { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: .15em; }
 
 /* ===== Imágenes reales (Serene) ===== */
-.hero { background-image: linear-gradient(120deg, rgba(42,36,32,.3), rgba(42,36,32,.1)), url("../img/cabello-1.jpg"); }
+.hero { background-image: linear-gradient(120deg, rgba(42,36,32,.3), rgba(42,36,32,.1)), url("../img/hero-serene.jpg"); }
 .kat-haar { background-image: url("../img/cabello-2.jpg"); }
-.kat-skjegg { background-image: url("../img/barba-1.jpg"); }
+.kat-skjegg { background-image: url("../img/skjegg-serene.jpg"); }
 .kat-hud { background-image: url("../img/piel-1.jpg"); }
-.kat-negler { background-image: url("../img/manicura-1.jpg"); }
+.kat-negler { background-image: url("../img/negler-serene.jpg"); background-position: center 40%; background-size: 130%; }
 .kat-vipper { background-image: url("../img/pestanas-1.jpg"); }
-.kat-massasje { background-image: url("../img/masaje-1.jpg"); }
-.om-bilde { background-image: url("../img/cabello-3.jpg"); }
+.kat-massasje { background-image: url("../img/massasje-serene.jpg"); background-position: center 60%; }
+.om-bilde { background-image: url("../img/om-serene.jpg"); }
 .pb1 { background-image: url("../img/producto-1.jpg"); }
 .pb2 { background-image: url("../img/producto-4.jpg"); }
 .pb3 { background-image: url("../img/producto-5.jpg"); }
 .pb4 { background-image: url("../img/producto-8.jpg"); }
-.gb1 { background-image: url("../img/cabello-2.jpg"); }
-.gb2 { background-image: url("../img/masaje-3.jpg"); }
-.gb3 { background-image: url("../img/piel-3.jpg"); }
-.gb4 { background-image: url("../img/barba-2.jpg"); }
-.gb5 { background-image: url("../img/manicura-3.jpg"); }
+.gb1 { background-image: url("../img/galleri-1.jpg"); }
+.gb2 { background-image: url("../img/galleri-6.jpg"); }
+.gb3 { background-image: url("../img/galleri-8.jpg"); }
+.gb4 { background-image: url("../img/galleri-11.jpg"); }
+.gb5 { background-image: url("../img/galleri-14.jpg"); }
+.gb6 { background-image: url("../img/galleri-3.jpg"); }
+.gb7 { background-image: url("../img/galleri-20.jpg"); }
+.gb8 { background-image: url("../img/galleri-25.jpg"); }
 
 /* ===== Lightbox de galería ===== */
 .galleri-bilde { cursor: pointer; transition: opacity .2s; }
@@ -158,3 +163,6 @@ h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
 .lb-forrige { left: 1.5rem; }
 .lb-neste { right: 1.5rem; }
 @media (max-width: 600px) { .lb-pil { width: 2.5rem; height: 2.5rem; font-size: 1.5rem; } }
+
+/* Separador galería */
+.galleri { padding-bottom: clamp(4rem, 8vw, 7rem); }

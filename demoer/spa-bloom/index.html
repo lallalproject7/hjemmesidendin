@@ -24,70 +24,217 @@
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO inmersivo -->
     <section class="hero">
         <div class="hero-tekst">
             <p class="hero-eyebrow">Hår · Negler · Velvære</p>
-            <h1>Se bra ut,<br>føl deg fri</h1>
-            <p class="hero-lead">En moderne salong i hjertet av Oslo – for deg som vil ta vare på deg selv og ha det gøy med det.</p>
-            <div class="hero-knapper">
-                <a href="#kontakt" class="btn-fyll">Bestill time</a>
-                <a href="#behandlinger" class="btn-linje">Se behandlinger</a>
+            <h1>Se bra ut, føl deg fri</h1>
+            <a href="#kontakt" class="btn-lys">Bestill time</a>
+        </div>
+        <div class="hero-bilder">
+            <div class="hero-bilde hb-stor"></div>
+            <div class="hero-bilde-kolonne">
+                <div class="hero-bilde hb-a"></div>
+                <div class="hero-bilde hb-b"></div>
             </div>
         </div>
-        <div class="hero-bilde"></div>
+        <div class="hero-navn">Bloom</div>
     </section>
 
-    <!-- BEHANDLINGER -->
-    <section class="seksjon" id="behandlinger">
+    <!-- BEHANDLINGER por categorías -->
+    <section class="behandlinger" id="behandlinger">
         <div class="seksjon-topp">
             <p class="eyebrow">Våre behandlinger</p>
-            <h2>Hva vi tilbyr</h2>
+            <h2>Utforsk kategoriene</h2>
+            <p class="seksjon-lead">Velg en kategori for å se behandlinger og priser.</p>
         </div>
-        <div class="behandling-liste">
-            <div class="behandling"><div class="beh-info"><span class="beh-navn">Klipp & styling</span><span class="beh-under">Dame og herre, inkl. vask</span></div><span class="beh-pris">fra 590,-</span></div>
-            <div class="behandling"><div class="beh-info"><span class="beh-navn">Farge & striper</span><span class="beh-under">Inkl. vask og føn</span></div><span class="beh-pris">fra 1290,-</span></div>
-            <div class="behandling"><div class="beh-info"><span class="beh-navn">Ansiktsbehandling</span><span class="beh-under">Rens, peeling og pleie</span></div><span class="beh-pris">fra 790,-</span></div>
-            <div class="behandling"><div class="beh-info"><span class="beh-navn">Manikyr & pedikyr</span><span class="beh-under">Negler og neglebånd</span></div><span class="beh-pris">fra 450,-</span></div>
-            <div class="behandling"><div class="beh-info"><span class="beh-navn">Massasje</span><span class="beh-under">Klassisk, 60 minutter</span></div><span class="beh-pris">fra 890,-</span></div>
-            <div class="behandling"><div class="beh-info"><span class="beh-navn">Vipper & bryn</span><span class="beh-under">Farge og forming</span></div><span class="beh-pris">fra 390,-</span></div>
+        <div class="kat-liste">
+            <!-- HÅR -->
+            <div class="kat-blokk">
+                <button type="button" class="kat kat-haar" aria-expanded="false">
+                    <div class="kat-overlay"></div>
+                    <div class="kat-innhold">
+                        <p class="kat-nr">01 — Hår</p>
+                        <h3>Klipp, farge & styling</h3>
+                        <p class="kat-tekst">Alt innen hår – fra klipp og føn til farge, striper og extensions.</p>
+                        <span class="kat-lenke">Se behandlinger & priser <span class="kat-pil">↓</span></span>
+                    </div>
+                </button>
+                <div class="kat-panel">
+                    <ul class="beh-liste">
+                        <li><span>Klipp dame</span><span class="beh-pris">fra 590,-</span></li>
+                        <li><span>Klipp herre</span><span class="beh-pris">fra 490,-</span></li>
+                        <li><span>Farge</span><span class="beh-pris">fra 1290,-</span></li>
+                        <li><span>Striper / highlights</span><span class="beh-pris">fra 1490,-</span></li>
+                        <li><span>Føn & styling</span><span class="beh-pris">fra 450,-</span></li>
+                        <li><span>Hårkur & behandling</span><span class="beh-pris">fra 350,-</span></li>
+                        <li><span>Extensions</span><span class="beh-pris">fra 2500,-</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- SKJEGG -->
+            <div class="kat-blokk">
+                <button type="button" class="kat kat-skjegg" aria-expanded="false">
+                    <div class="kat-overlay"></div>
+                    <div class="kat-innhold">
+                        <p class="kat-nr">02 — Skjegg</p>
+                        <h3>Skjegg & barbering</h3>
+                        <p class="kat-tekst">Stell og forming av skjegg – for et velpleid uttrykk.</p>
+                        <span class="kat-lenke">Se behandlinger & priser <span class="kat-pil">↓</span></span>
+                    </div>
+                </button>
+                <div class="kat-panel">
+                    <ul class="beh-liste">
+                        <li><span>Skjeggtrim</span><span class="beh-pris">fra 290,-</span></li>
+                        <li><span>Skjeggforming</span><span class="beh-pris">fra 350,-</span></li>
+                        <li><span>Barbering</span><span class="beh-pris">fra 390,-</span></li>
+                        <li><span>Klipp + skjegg</span><span class="beh-pris">fra 690,-</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- HUDPLEIE -->
+            <div class="kat-blokk">
+                <button type="button" class="kat kat-hud" aria-expanded="false">
+                    <div class="kat-overlay"></div>
+                    <div class="kat-innhold">
+                        <p class="kat-nr">03 — Hudpleie</p>
+                        <h3>Ansiktsbehandling & pleie</h3>
+                        <p class="kat-tekst">Dyprens, peeling og pleie tilpasset din hud.</p>
+                        <span class="kat-lenke">Se behandlinger & priser <span class="kat-pil">↓</span></span>
+                    </div>
+                </button>
+                <div class="kat-panel">
+                    <ul class="beh-liste">
+                        <li><span>Ansiktsbehandling</span><span class="beh-pris">fra 790,-</span></li>
+                        <li><span>Dyprens</span><span class="beh-pris">fra 690,-</span></li>
+                        <li><span>Peeling</span><span class="beh-pris">fra 590,-</span></li>
+                        <li><span>Voksing ansikt</span><span class="beh-pris">fra 250,-</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- NEGLER -->
+            <div class="kat-blokk">
+                <button type="button" class="kat kat-negler" aria-expanded="false">
+                    <div class="kat-overlay"></div>
+                    <div class="kat-innhold">
+                        <p class="kat-nr">04 — Negler</p>
+                        <h3>Manikyr & pedikyr</h3>
+                        <p class="kat-tekst">Velstelte hender og føtter, klassisk eller gellack.</p>
+                        <span class="kat-lenke">Se behandlinger & priser <span class="kat-pil">↓</span></span>
+                    </div>
+                </button>
+                <div class="kat-panel">
+                    <ul class="beh-liste">
+                        <li><span>Manikyr</span><span class="beh-pris">fra 450,-</span></li>
+                        <li><span>Pedikyr</span><span class="beh-pris">fra 550,-</span></li>
+                        <li><span>Gellack</span><span class="beh-pris">fra 490,-</span></li>
+                        <li><span>Negleforlengelse</span><span class="beh-pris">fra 750,-</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- VIPPER & BRYN -->
+            <div class="kat-blokk">
+                <button type="button" class="kat kat-vipper" aria-expanded="false">
+                    <div class="kat-overlay"></div>
+                    <div class="kat-innhold">
+                        <p class="kat-nr">05 — Vipper & bryn</p>
+                        <h3>Vipper & bryn</h3>
+                        <p class="kat-tekst">Farge, forming og extensions for et markert blikk.</p>
+                        <span class="kat-lenke">Se behandlinger & priser <span class="kat-pil">↓</span></span>
+                    </div>
+                </button>
+                <div class="kat-panel">
+                    <ul class="beh-liste">
+                        <li><span>Brynsforming</span><span class="beh-pris">fra 290,-</span></li>
+                        <li><span>Brynsfarge</span><span class="beh-pris">fra 250,-</span></li>
+                        <li><span>Vippefarge</span><span class="beh-pris">fra 290,-</span></li>
+                        <li><span>Vippeextensions</span><span class="beh-pris">fra 890,-</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- MASSASJE -->
+            <div class="kat-blokk">
+                <button type="button" class="kat kat-massasje" aria-expanded="false">
+                    <div class="kat-overlay"></div>
+                    <div class="kat-innhold">
+                        <p class="kat-nr">06 — Massasje</p>
+                        <h3>Massasje & velvære</h3>
+                        <p class="kat-tekst">Klassisk massasje og avslappende velværebehandlinger.</p>
+                        <span class="kat-lenke">Se behandlinger & priser <span class="kat-pil">↓</span></span>
+                    </div>
+                </button>
+                <div class="kat-panel">
+                    <ul class="beh-liste">
+                        <li><span>Klassisk massasje (60 min)</span><span class="beh-pris">fra 890,-</span></li>
+                        <li><span>Aromaterapi (60 min)</span><span class="beh-pris">fra 990,-</span></li>
+                        <li><span>Nakke & skulder (30 min)</span><span class="beh-pris">fra 550,-</span></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <p class="behandling-note">Prisene er veiledende «fra»-priser. Endelig pris avtales i salongen.</p>
+    </section>
+
+    <!-- PRODUKTER (opcional) -->
+    <section class="produkter" id="produkter">
+        <div class="seksjon-topp">
+            <p class="eyebrow">Kvalitet du kan stole på</p>
+            <h2>Produkter vi bruker & selger</h2>
+            <p class="seksjon-lead">Vi bruker og forhandler kvalitetsmerker. Spør oss gjerne i salongen.</p>
+        </div>
+        <div class="prod-bilder">
+            <div class="prod-bilde pb1"></div>
+            <div class="prod-bilde pb2"></div>
+            <div class="prod-bilde pb3"></div>
+            <div class="prod-bilde pb4"></div>
+        </div>
+        <div class="prod-merker">
+            <span class="merke m-serif">Kérastase</span>
+            <span class="merke m-sans">OLAPLEX</span>
+            <span class="merke m-serif-i">Maria Nila</span>
+            <span class="merke m-sans">GHD</span>
+            <span class="merke m-serif">L'Oréal</span>
+        </div>
     </section>
 
     <!-- GALLERI -->
-    <section class="seksjon-galleri" id="galleri">
+    <section class="galleri" id="galleri">
         <div class="seksjon-topp">
             <p class="eyebrow">Et glimt av salongen</p>
             <h2>Galleri</h2>
         </div>
         <div class="galleri-rutenett">
-            <div class="galleri-bilde gb1"></div>
-            <div class="galleri-bilde gb2"></div>
-            <div class="galleri-bilde gb3"></div>
-            <div class="galleri-bilde gb4"></div>
+            <div class="galleri-bilde gb1" data-img="img/galleri-15.jpg"></div>
+            <div class="galleri-bilde gb2" data-img="img/galleri-9.jpg"></div>
+            <div class="galleri-bilde gb3" data-img="img/galleri-10.jpg"></div>
+            <div class="galleri-bilde gb4" data-img="img/galleri-16.jpg"></div>
+            <div class="galleri-bilde gb5" data-img="img/galleri-21.jpg"></div>
+            <div class="galleri-bilde gb6" data-img="img/galleri-17.jpg"></div>
+            <div class="galleri-bilde gb7" data-img="img/galleri-22.jpg"></div>
+            <div class="galleri-bilde gb8" data-img="img/galleri-26.jpg"></div>
         </div>
     </section>
 
     <!-- OM OSS -->
-    <section class="seksjon-om" id="om">
-        <div class="om-bilde"></div>
-        <div class="om-tekst">
+    <section class="om" id="om">
+        <div class="seksjon-topp">
             <p class="eyebrow">Om oss</p>
             <h2>En salong med god energi</h2>
-            <p>Hos Bloom Studio handler det om å føle seg vel. Vi kombinerer faglig dyktighet med en avslappet, leken atmosfære der alle er velkomne.</p>
-            <p>Kom som du er – gå ut som den beste versjonen av deg selv.</p>
+        </div>
+        <div class="om-foto"></div>
+        <div class="om-beskrivelse">
+            <p>Hos Bloom Studio tror vi at velvære skal være gøy. Det handler om å ta vare på deg selv, føle deg fri og gå ut med et smil.</p>
+            <p>Teamet vårt møter deg med faglig dyktighet, god energi og ekte omtanke – hver gang.</p>
         </div>
     </section>
 
     <!-- KONTAKT -->
-    <section class="seksjon-kontakt" id="kontakt">
+    <section class="kontakt" id="kontakt">
         <div class="kontakt-innhold">
             <p class="eyebrow">Bestill time</p>
             <h2>Vi gleder oss til å se deg</h2>
             <p>Bestill enkelt time online, eller ta kontakt med oss direkte.</p>
             <div class="kontakt-knapper">
-                <a href="#" class="btn-fyll">Bestill time online</a>
+                <a href="#" class="btn-lys">Bestill time online</a>
                 <a href="tel:+4722000000" class="btn-linje">Ring oss</a>
             </div>
             <div class="kontakt-info">
@@ -120,5 +267,70 @@
             <p>© 2026 Bloom Studio</p>
         </div>
     </footer>
+    <script>
+    (function () {
+        var blokker = document.querySelectorAll(".kat-blokk");
+        blokker.forEach(function (blokk) {
+            var knapp = blokk.querySelector(".kat");
+            knapp.addEventListener("click", function () {
+                var eraApierto = blokk.classList.contains("open");
+                // cerrar todos
+                blokker.forEach(function (b) {
+                    b.classList.remove("open");
+                    var k = b.querySelector(".kat");
+                    if (k) k.setAttribute("aria-expanded", "false");
+                });
+                // abrir el actual si estaba cerrado
+                if (!eraApierto) {
+                    blokk.classList.add("open");
+                    knapp.setAttribute("aria-expanded", "true");
+                }
+            });
+        });
+    })();
+    </script>
+    <!-- Lightbox de galería -->
+    <div class="lightbox" id="lightbox">
+        <button class="lb-lukk" id="lbLukk" aria-label="Lukk">×</button>
+        <button class="lb-pil lb-forrige" id="lbForrige" aria-label="Forrige">‹</button>
+        <img class="lb-bilde" id="lbBilde" src="" alt="Galleri">
+        <button class="lb-pil lb-neste" id="lbNeste" aria-label="Neste">›</button>
+    </div>
+
+    <script>
+    (function () {
+        var bilder = Array.prototype.slice.call(document.querySelectorAll(".galleri-bilde"));
+        var lightbox = document.getElementById("lightbox");
+        var lbBilde = document.getElementById("lbBilde");
+        var lbLukk = document.getElementById("lbLukk");
+        var lbForrige = document.getElementById("lbForrige");
+        var lbNeste = document.getElementById("lbNeste");
+        var indeks = 0;
+
+        function vis(i) {
+            if (i < 0) i = bilder.length - 1;
+            if (i >= bilder.length) i = 0;
+            indeks = i;
+            var src = bilder[i].getAttribute("data-img");
+            lbBilde.src = src;
+        }
+        function apne(i) { vis(i); lightbox.classList.add("open"); }
+        function lukk() { lightbox.classList.remove("open"); }
+
+        bilder.forEach(function (b, i) {
+            b.addEventListener("click", function () { apne(i); });
+        });
+        lbLukk.addEventListener("click", lukk);
+        lbForrige.addEventListener("click", function (e) { e.stopPropagation(); vis(indeks - 1); });
+        lbNeste.addEventListener("click", function (e) { e.stopPropagation(); vis(indeks + 1); });
+        lightbox.addEventListener("click", function (e) { if (e.target === lightbox) lukk(); });
+        document.addEventListener("keydown", function (e) {
+            if (!lightbox.classList.contains("open")) return;
+            if (e.key === "Escape") lukk();
+            if (e.key === "ArrowLeft") vis(indeks - 1);
+            if (e.key === "ArrowRight") vis(indeks + 1);
+        });
+    })();
+    </script>
 </body>
 </html>
