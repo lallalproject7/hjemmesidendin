@@ -64,12 +64,9 @@ h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
 
 /* Galleri */
 .galleri { padding: clamp(3.5rem, 7vw, 6rem) 0; background: var(--krem-2); }
-.galleri-rutenett { width: min(1200px, 92%); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.galleri-bilde { aspect-ratio: 3/4; border-radius: 3px; background-size: cover; background-position: center; }
-.gb1 { background: linear-gradient(160deg, #d9c9b0, #b5a288); }
-.gb2 { background: linear-gradient(160deg, #c9b89a, #a08a68); }
-.gb3 { background: linear-gradient(160deg, #e0d4bf, #c0a880); }
-.gb4 { background: linear-gradient(160deg, #d4c4a8, #b09878); }
+.galleri-rutenett { width: min(1200px, 92%); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 220px); gap: 1rem; }
+.galleri-bilde { border-radius: 3px; background-size: cover; background-position: center; background-repeat: no-repeat; }
+.gb1 { grid-column: span 2; grid-row: span 2; }
 
 /* Om oss */
 .om { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
@@ -123,13 +120,41 @@ h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); }
 /* ===== Sección Productos ===== */
 .produkter { padding: clamp(3.5rem, 7vw, 6rem) 0; }
 .prod-bilder { width: min(1200px, 92%); margin: 0 auto 2.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.prod-bilde { aspect-ratio: 1; border-radius: 6px; background-size: cover; background-position: center; }
-.pb1 { background: linear-gradient(160deg, #d9c9b0, #b5a288); }
-.pb2 { background: linear-gradient(160deg, #c9b89a, #a08a68); }
-.pb3 { background: linear-gradient(160deg, #e0d4bf, #c0a880); }
-.pb4 { background: linear-gradient(160deg, #d4c4a8, #b09878); }
+.prod-bilde { aspect-ratio: 3/4; border-radius: 6px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #efe9e1; }
 .prod-merker { width: min(1000px, 92%); margin: 0 auto; border-top: 1px solid var(--linje); border-bottom: 1px solid var(--linje); padding: 1.75rem 0; display: flex; justify-content: center; align-items: center; gap: clamp(1.5rem, 4vw, 3rem); flex-wrap: wrap; }
 .merke { color: var(--brun); font-size: 1.3rem; }
 .m-serif { font-family: 'Cormorant Garamond', serif; letter-spacing: .05em; }
 .m-serif-i { font-family: 'Cormorant Garamond', serif; font-style: italic; }
 .m-sans { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 500; letter-spacing: .15em; }
+
+/* ===== Imágenes reales (Serene) ===== */
+.hero { background-image: linear-gradient(120deg, rgba(42,36,32,.3), rgba(42,36,32,.1)), url("../img/cabello-1.jpg"); }
+.kat-haar { background-image: url("../img/cabello-2.jpg"); }
+.kat-skjegg { background-image: url("../img/barba-1.jpg"); }
+.kat-hud { background-image: url("../img/piel-1.jpg"); }
+.kat-negler { background-image: url("../img/manicura-1.jpg"); }
+.kat-vipper { background-image: url("../img/pestanas-1.jpg"); }
+.kat-massasje { background-image: url("../img/masaje-1.jpg"); }
+.om-bilde { background-image: url("../img/cabello-3.jpg"); }
+.pb1 { background-image: url("../img/producto-1.jpg"); }
+.pb2 { background-image: url("../img/producto-4.jpg"); }
+.pb3 { background-image: url("../img/producto-5.jpg"); }
+.pb4 { background-image: url("../img/producto-8.jpg"); }
+.gb1 { background-image: url("../img/cabello-2.jpg"); }
+.gb2 { background-image: url("../img/masaje-3.jpg"); }
+.gb3 { background-image: url("../img/piel-3.jpg"); }
+.gb4 { background-image: url("../img/barba-2.jpg"); }
+.gb5 { background-image: url("../img/manicura-3.jpg"); }
+
+/* ===== Lightbox de galería ===== */
+.galleri-bilde { cursor: pointer; transition: opacity .2s; }
+.galleri-bilde:hover { opacity: .88; }
+.lightbox { position: fixed; inset: 0; background: rgba(26,20,16,.94); z-index: 1000; display: none; align-items: center; justify-content: center; }
+.lightbox.open { display: flex; }
+.lb-bilde { max-width: 88vw; max-height: 85vh; border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.lb-lukk { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; color: #faf8f5; font-size: 2.5rem; cursor: pointer; line-height: 1; font-family: 'Jost', sans-serif; }
+.lb-pil { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(250,248,245,.12); border: 1px solid rgba(250,248,245,.3); color: #faf8f5; font-size: 2rem; width: 3rem; height: 3rem; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+.lb-pil:hover { background: rgba(250,248,245,.25); }
+.lb-forrige { left: 1.5rem; }
+.lb-neste { right: 1.5rem; }
+@media (max-width: 600px) { .lb-pil { width: 2.5rem; height: 2.5rem; font-size: 1.5rem; } }

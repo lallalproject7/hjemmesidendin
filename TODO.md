@@ -36,6 +36,20 @@ Objetivo: captar más mercado con gremios de mayor volumen. Sistema compartido (
 - 3 diseños del gremio: Serene (en rediseño), Bloom (hecho), Lyx (pendiente — oscuro lujo)
 - Nombres ficticios: Serene = "Salong Serene", Bloom = "Bloom Studio", Lyx = "Salong Noir" (pendiente). Todos en Oslo.
 
+### Galería con lightbox (visor de imágenes al hacer clic)
+Función añadida: al hacer clic en una foto de galería, se abre en grande sobre fondo oscuro, con flechas ‹ ›, cierre con × / clic fuera / Escape.
+- ✅ Funciona en: demo Spa Serene (galería asimétrica), fotograf (clásica), fotograf-moderne
+- ❌ FALTA añadir lightbox a: gartner-moderne, portefolje, portefolje-moderne, portefolje-teknisk, snekker, snekker-moderne, spa-bloom
+- Patrón definido (HTML visor + CSS + JS). El selector JS se adapta a cada galería: Spa usa divs con data-img; fotograf usa ".galleri-grid img"; fotograf-moderne usa ".arbeid-grid img". Revisar la estructura de cada demo antes de aplicar.
+- LECCIÓN: tras aplicar, hacer hard reload (F12 → clic derecho recargar → "Empty Cache and Hard Reload") porque la caché puede ocultar que sí funciona.
+
+### Molde de spa — actualizar con las mejoras nuevas (IMPORTANTE)
+Todas las mejoras de la demo deben llevarse a los MOLDES reales (maler/demoer/), no solo al escaparate:
+- Acordeón de categorías con tratamientos/precios
+- Sección de productos (opcional)
+- Galería con lightbox
+- Los moldes de spa AÚN NO EXISTEN — hay que crearlos con [MARCADORES]. Al crearlos, incluir estas funciones desde el inicio.
+
 ### Formulario inteligente de spa (bestill-spa.html) — PENDIENTE, construir DESPUÉS de la demo
 Debe permitir al cliente personalizar su web:
 - **Elegir qué tratamientos incluir**: checkboxes por tratamiento predefinido (cada salón marca los suyos, no todos ofrecen lo mismo)

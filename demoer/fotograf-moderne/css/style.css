@@ -408,3 +408,14 @@ h1 em, h2 em { font-style: normal; color: var(--oransje); }
     border-color: var(--oransje);
     color: var(--svart);
 }
+
+/* ===== Lightbox ===== */
+.lightbox { position: fixed; inset: 0; background: rgba(10,10,12,.94); z-index: 1000; display: none; align-items: center; justify-content: center; }
+.lightbox.open { display: flex; }
+.lb-bilde { max-width: 88vw; max-height: 85vh; border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.lb-lukk { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; color: #fff; font-size: 2.5rem; cursor: pointer; line-height: 1; }
+.lb-pil { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); color: #fff; font-size: 2rem; width: 3rem; height: 3rem; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+.lb-pil:hover { background: rgba(255,255,255,.25); }
+.lb-forrige { left: 1.5rem; }
+.lb-neste { right: 1.5rem; }
+@media (max-width: 600px) { .lb-pil { width: 2.5rem; height: 2.5rem; font-size: 1.5rem; } }

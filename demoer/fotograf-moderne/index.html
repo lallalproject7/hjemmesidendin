@@ -189,5 +189,41 @@
             });
         });
     </script>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lb-lukk" id="lbLukk" aria-label="Lukk">×</button>
+        <button class="lb-pil lb-forrige" id="lbForrige" aria-label="Forrige">‹</button>
+        <img class="lb-bilde" id="lbBilde" src="" alt="Galleri">
+        <button class="lb-pil lb-neste" id="lbNeste" aria-label="Neste">›</button>
+    </div>
+
+    <script>
+    (function () {
+        var bilder = Array.prototype.slice.call(document.querySelectorAll(".arbeid-grid img"));
+        if (!bilder.length) return;
+        var lightbox = document.getElementById("lightbox");
+        var lbBilde = document.getElementById("lbBilde");
+        var indeks = 0;
+        function vis(i) {
+            if (i < 0) i = bilder.length - 1;
+            if (i >= bilder.length) i = 0;
+            indeks = i;
+            lbBilde.src = bilder[i].src;
+        }
+        function apne(i) { vis(i); lightbox.classList.add("open"); }
+        function lukk() { lightbox.classList.remove("open"); }
+        bilder.forEach(function (b, i) { b.style.cursor = "pointer"; b.addEventListener("click", function () { apne(i); }); });
+        document.getElementById("lbLukk").addEventListener("click", lukk);
+        document.getElementById("lbForrige").addEventListener("click", function (e) { e.stopPropagation(); vis(indeks - 1); });
+        document.getElementById("lbNeste").addEventListener("click", function (e) { e.stopPropagation(); vis(indeks + 1); });
+        lightbox.addEventListener("click", function (e) { if (e.target === lightbox) lukk(); });
+        document.addEventListener("keydown", function (e) {
+            if (!lightbox.classList.contains("open")) return;
+            if (e.key === "Escape") lukk();
+            if (e.key === "ArrowLeft") vis(indeks - 1);
+            if (e.key === "ArrowRight") vis(indeks + 1);
+        });
+    })();
+    </script>
 </body>
 </html>

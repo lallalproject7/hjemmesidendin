@@ -197,10 +197,11 @@
             <h2>Galleri</h2>
         </div>
         <div class="galleri-rutenett">
-            <div class="galleri-bilde gb1"></div>
-            <div class="galleri-bilde gb2"></div>
-            <div class="galleri-bilde gb3"></div>
-            <div class="galleri-bilde gb4"></div>
+            <div class="galleri-bilde gb1" data-img="img/cabello-2.jpg"></div>
+            <div class="galleri-bilde gb2" data-img="img/masaje-3.jpg"></div>
+            <div class="galleri-bilde gb3" data-img="img/piel-3.jpg"></div>
+            <div class="galleri-bilde gb4" data-img="img/barba-2.jpg"></div>
+            <div class="galleri-bilde gb5" data-img="img/manicura-3.jpg"></div>
         </div>
     </section>
 
@@ -274,6 +275,49 @@
                     knapp.setAttribute("aria-expanded", "true");
                 }
             });
+        });
+    })();
+    </script>
+    <!-- Lightbox de galería -->
+    <div class="lightbox" id="lightbox">
+        <button class="lb-lukk" id="lbLukk" aria-label="Lukk">×</button>
+        <button class="lb-pil lb-forrige" id="lbForrige" aria-label="Forrige">‹</button>
+        <img class="lb-bilde" id="lbBilde" src="" alt="Galleri">
+        <button class="lb-pil lb-neste" id="lbNeste" aria-label="Neste">›</button>
+    </div>
+
+    <script>
+    (function () {
+        var bilder = Array.prototype.slice.call(document.querySelectorAll(".galleri-bilde"));
+        var lightbox = document.getElementById("lightbox");
+        var lbBilde = document.getElementById("lbBilde");
+        var lbLukk = document.getElementById("lbLukk");
+        var lbForrige = document.getElementById("lbForrige");
+        var lbNeste = document.getElementById("lbNeste");
+        var indeks = 0;
+
+        function vis(i) {
+            if (i < 0) i = bilder.length - 1;
+            if (i >= bilder.length) i = 0;
+            indeks = i;
+            var src = bilder[i].getAttribute("data-img");
+            lbBilde.src = src;
+        }
+        function apne(i) { vis(i); lightbox.classList.add("open"); }
+        function lukk() { lightbox.classList.remove("open"); }
+
+        bilder.forEach(function (b, i) {
+            b.addEventListener("click", function () { apne(i); });
+        });
+        lbLukk.addEventListener("click", lukk);
+        lbForrige.addEventListener("click", function (e) { e.stopPropagation(); vis(indeks - 1); });
+        lbNeste.addEventListener("click", function (e) { e.stopPropagation(); vis(indeks + 1); });
+        lightbox.addEventListener("click", function (e) { if (e.target === lightbox) lukk(); });
+        document.addEventListener("keydown", function (e) {
+            if (!lightbox.classList.contains("open")) return;
+            if (e.key === "Escape") lukk();
+            if (e.key === "ArrowLeft") vis(indeks - 1);
+            if (e.key === "ArrowRight") vis(indeks + 1);
         });
     })();
     </script>
