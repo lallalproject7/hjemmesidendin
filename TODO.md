@@ -401,3 +401,17 @@ DIAGNÓSTICO (importante para el chat nuevo):
   var(--...), (3) revisar visualmente cada una antes de pasar a la siguiente.
 - Copia de seguridad previa: css/style.css.bak-colores (por si acaso).
 - El intento inicial (solo :root) se REVIRTIÓ; la tienda está como estaba antes del intento.
+
+### Estado demos SPA (sesión actual — COMPLETADO)
+Las 3 demos de spa/peluquería/barbería están COMPLETAS con acordeón + productos + galería con lightbox:
+- ✅ **Serene** (demoer/spa/) — elegante/beige, unisex. Hero nuevo, om oss con encabezado, galería 8 fotos, fotos de categorías mejoradas.
+- ✅ **Bloom** (demoer/spa-bloom/) — moderno/colorido coral-rosa-lila. Hero con 3 fotos + degradado gris-rosa, tratamientos en tarjetas con borde de color, productos en círculos, om oss foto+texto. Nombre "Bloom Salong".
+- ✅ **Noir** (demoer/spa-noir/) — oscuro/masculino, cobre #c67b4a, Bebas Neue, enfoque barbería. "Salong Noir".
+- ✅ Selectora demoer-spa.html con los 3 diseños (design-spa-1 Serene, design-spa-3 Bloom, design-spa-2 Noir)
+- ✅ Index: tarjeta "Frisør & salong" → 3 design. Portefølje → 3 design.
+- Método usado: clonar Serene → adaptar identidad (11 strings) → CSS propio → conectar imágenes por variantes.
+
+### PRÓXIMO (chat nuevo): formularios + scaffolding de spa
+1. **bestill-spa.html** (formulario inteligente): checkboxes por tratamiento, campos dinámicos para tratamientos extra, toggle mostrar-precios-o-no, 3 opciones de reserva (Cal.com / sistema propio del cliente / solo kontakt).
+2. **Moldes de spa** (maler/demoer/) con [MARCADORES]: crear desde cero incluyendo acordeón + productos (opcional) + galería con lightbox.
+3. Lightbox pendiente en otras demos: gartner-moderne, portefolje x3, snekker x2 (spa-bloom y spa-noir ya lo tienen).
