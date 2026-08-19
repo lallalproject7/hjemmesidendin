@@ -415,3 +415,15 @@ Las 3 demos de spa/peluquería/barbería están COMPLETAS con acordeón + produc
 1. **bestill-spa.html** (formulario inteligente): checkboxes por tratamiento, campos dinámicos para tratamientos extra, toggle mostrar-precios-o-no, 3 opciones de reserva (Cal.com / sistema propio del cliente / solo kontakt).
 2. **Moldes de spa** (maler/demoer/) con [MARCADORES]: crear desde cero incluyendo acordeón + productos (opcional) + galería con lightbox.
 3. Lightbox pendiente en otras demos: gartner-moderne, portefolje x3, snekker x2 (spa-bloom y spa-noir ya lo tienen).
+
+### Pendientes recordatorio (sesión actual)
+**Verticales nuevos por crear** (más allá de oficios manuales):
+- ✅ Spa/Peluquería/Belleza — HECHO (Serene, Bloom, Noir)
+- ❌ Consultor/Coach/Terapeuta — falta crear
+- ❌ Restaurante/Kafé — falta crear (dejar para el final: reto de actualizar menú/precios en modelo estático)
+
+**Lightbox faltante en 6 demos** (ya lo tienen: fotograf x2, spa x3):
+- gartner-moderne
+- portefolje, portefolje-moderne, portefolje-teknisk
+- snekker, snekker-moderne
+- (revisar estructura de galería de cada una antes de aplicar: puede ser .galleri-grid img, .arbeid-grid img u otra)
