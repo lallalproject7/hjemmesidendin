@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestill fotografside – Hjemmesidendin</title>
+    <title>Bestill porteføljeside – Hjemmesidendin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,6 +31,7 @@
         .bfelt-rekke { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
         .design-velg-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .design-velg-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
         .dv-kort { position: relative; border: 2px solid var(--line); border-radius: var(--radius); padding: 1.2rem; cursor: pointer; transition: all .15s ease; }
         .dv-kort:hover { border-color: var(--signal); }
         .dv-kort input { position: absolute; top: 1rem; right: 1rem; }
@@ -101,7 +102,7 @@
         .kopier-ok { display: inline-block; margin-left: .8rem; color: #8ce5c6; font-size: .88rem; }
 
         @media (max-width: 600px) {
-            .bfelt-rekke, .design-velg-2, .opplast-rad, .combo-rad { grid-template-columns: 1fr; }
+            .bfelt-rekke, .design-velg-2, .design-velg-3, .opplast-rad, .combo-rad { grid-template-columns: 1fr; }
             .bakgrunn-rad { grid-template-columns: 1fr 1fr; }
         }
     

@@ -355,9 +355,9 @@ a { color: #8fc9a8; }
                     </div>
                 </div>
                 <div class="bfelt" id="produktTekstFelt">
-                    <label for="produkter_tekst">Produkter &ndash; tekst</label>
-                    <span class="forklaring">Fortell kort om merkene du bruker og selger.</span>
-                    <textarea id="produkter_tekst" name="produkter_tekst" rows="3" placeholder="F.eks: Vi bruker og selger K&eacute;rastase, Olaplex og GHD."></textarea>
+                    <label for="produkter_merker">Merker du bruker &amp; selger</label>
+                    <span class="forklaring">Skriv merkene adskilt med semikolon (;). Hvert merke vises pent p&aring; nettsiden. F.eks: K&eacute;rastase; Olaplex; Maria Nila; GHD; L&apos;Or&eacute;al</span>
+                    <input type="text" id="produkter_merker" name="produkter_merker" placeholder="K&eacute;rastase; Olaplex; GHD">
                 </div>
             </div>
 
@@ -370,6 +370,11 @@ a { color: #8fc9a8; }
             <div class="best-del">
                 <div class="best-del-topp"><span class="best-nr">8</span><h2>En salong med hjerte</h2></div>
                 <p class="best-del-hint">En kort tekst om salongen &ndash; hvem dere er og hva som gj&oslash;r dere spesielle.</p>
+                <div class="bfelt">
+                    <label for="om_tittel">Tittel / slagord til &laquo;om oss&raquo;</label>
+                    <span class="forklaring">En kort tittel eller slagord som st&aring;r over teksten om salongen. F.eks: &laquo;En salong med hjerte&raquo;, &laquo;Der kvalitet m&oslash;ter varme&raquo; eller &laquo;Stil og h&aring;ndverk siden 2015&raquo;.</span>
+                    <input type="text" id="om_tittel" name="om_tittel" placeholder="F.eks: En salong med hjerte">
+                </div>
                 <div class="bfelt">
                     <label for="om_tekst">Om-tekst</label>
                     <textarea id="om_tekst" name="om_tekst" rows="4" placeholder="Skriv her om salongen din..."></textarea>
@@ -407,21 +412,44 @@ a { color: #8fc9a8; }
                     <span class="forklaring">Merk: prislisten p&aring; nettsiden og tjenestene i bookingsystemet er to separate lister.</span>
                     <div style="margin-top:.6rem">
                         <label class="booking-valg">
-                            <input type="radio" name="booking" value="Cal.com (vi setter opp)" checked>
-                            <span><strong>Vi setter opp booking for deg</strong><span>Vi konfigurerer og bygger inn et bookingsystem (Cal.com) du selv styrer.</span></span>
+                            <input type="radio" name="booking" value="Cal.com" checked>
+                            <span><strong>Gratis timebestilling med Cal.com (anbefalt)</strong><span>Et proft, gratis bookingsystem som vises rett p&aring; nettsiden din. Kundene bestiller time uten &aring; forlate siden. Du styrer selv tider, tjenester og priser &ndash; n&aring;r som helst.</span></span>
                         </label>
                         <label class="booking-valg">
                             <input type="radio" name="booking" value="Eget system">
-                            <span><strong>Jeg har allerede et system</strong><span>Reservio, Fixit, Timma e.l. &ndash; lim inn lenken din under.</span></span>
+                            <span><strong>Jeg har (eller vil bruke) et eget bookingsystem</strong><span>Foretrekker du et norsk eller lokalt system fremfor Cal.com? Mange bruker Timma, Fixit eller Reservio. Har du allerede ett, limer du bare inn lenken din &ndash; har du ikke ett enn&aring;, kan du velge et under og opprette konto der.</span></span>
                         </label>
                         <label class="booking-valg">
                             <input type="radio" name="booking" value="Ingen &ndash; kontaktknapp">
                             <span><strong>Ingen booking &ndash; bruk &laquo;Kontakt oss&raquo;</strong><span>Kundene ringer eller sender e-post i stedet.</span></span>
                         </label>
                     </div>
-                    <div class="bfelt skjult" id="bookingUrlFelt" style="margin-top:.9rem">
-                        <label for="booking_url">Lenke til ditt bookingsystem</label>
+
+                    <div class="bfelt skjult" id="calFelt" style="margin-top:.9rem">
+                        <label for="cal_lenke">Ditt Cal.com-brukernavn</label>
+                        <span class="forklaring">Opprett en gratis konto p&aring; <a href="https://cal.com" target="_blank" rel="noopener">cal.com</a> og sett opp tjenestene dine. Brukernavnet ditt finner du i adressen din: cal.com/<strong>ditt-navn</strong>. Skriv bare den siste delen her (f.eks. &laquo;salong-serene&raquo;) &ndash; ikke hele lenken.</span>
+                        <input type="text" id="cal_lenke" name="cal_lenke" placeholder="F.eks: salong-serene">
+                    </div>
+
+                    <div class="bfelt skjult" id="egetFelt" style="margin-top:.9rem">
+                        <label for="booking_system">Hvilket system?</label>
+                        <select id="booking_system" name="booking_system" style="margin-bottom:.6rem">
+                            <option>Timma</option>
+                            <option>Fixit</option>
+                            <option>EasySalon</option>
+                            <option>SalongenOnline</option>
+                            <option>Reservio</option>
+                            <option>Annet</option>
+                        </select>
+                        <label for="booking_url">Lenke til bookingsiden din</label>
+                        <span class="forklaring">Lim inn nettadressen kundene bruker for &aring; bestille time. F.eks: timma.no/salong/ditt-navn</span>
                         <input type="url" id="booking_url" name="booking_url" placeholder="https://...">
+                    </div>
+
+                    <div class="bfelt skjult" id="ingenFelt" style="margin-top:.9rem">
+                        <div style="background:var(--sand); border-radius:8px; padding:.9rem 1.1rem; font-size:.87rem; line-height:1.55; color:var(--pine-soft)">
+                            Helt greit! Kundene kontakter deg via telefon eller e-post. Vil du legge til timebestilling senere, kan vi gj&oslash;re det som en enkel oppdatering.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -713,12 +741,14 @@ a { color: #8fc9a8; }
             });
         });
         document.getElementById("produktTekstFelt").style.display = "none";
-        document.querySelectorAll('[name="booking"]').forEach(r => {
-            r.addEventListener("change", () => {
-                const eget = document.querySelector('[name="booking"]:checked').value === "Eget system";
-                document.getElementById("bookingUrlFelt").classList.toggle("skjult", !eget);
-            });
-        });
+        function oppdaterBooking() {
+            const valg = document.querySelector('[name="booking"]:checked').value;
+            document.getElementById("calFelt").classList.toggle("skjult", valg !== "Cal.com");
+            document.getElementById("egetFelt").classList.toggle("skjult", valg !== "Eget system");
+            document.getElementById("ingenFelt").classList.toggle("skjult", valg.indexOf("Ingen") !== 0);
+        }
+        document.querySelectorAll('[name="booking"]').forEach(r => r.addEventListener("change", oppdaterBooking));
+        oppdaterBooking();
         function oppdaterJuridisk() {
             const valg = document.querySelector('[name="juridisk"]:checked').value;
             document.getElementById("jurLagForMeg").style.display = (valg === "Lag for meg") ? "block" : "none";

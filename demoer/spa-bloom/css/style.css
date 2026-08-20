@@ -192,3 +192,15 @@ h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
 .om-beskrivelse { width: min(720px, 92%); margin: 0 auto; text-align: center; }
 .om-beskrivelse p { margin-top: 1rem; font-size: 1.05rem; }
 .om-beskrivelse p:first-child { margin-top: 0; }
+
+
+/* ===== BANNER: Bestill salongside (kun for demo-visning) ===== */
+.demo-bestill { background: var(--mork); padding: 4rem 1.5rem; text-align: center; }
+.demo-bestill .ramme { width: min(720px, 92%); margin-inline: auto; }
+.demo-bestill .demo-eyebrow { color: var(--rosa); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .8rem; }
+.demo-bestill h2 { color: #fff; font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: .8rem; }
+.demo-bestill p { color: rgba(255,255,255,.82); font-size: 1rem; line-height: 1.6; margin-bottom: 1.8rem; }
+.demo-bestill .knapp-stor { display: inline-block; background: var(--grad); color: #fff; padding: 1rem 2.2rem; border-radius: 999px; font-weight: 600; text-decoration: none; transition: transform .15s ease, filter .15s ease; }
+.demo-bestill .knapp-stor:hover { filter: brightness(1.08); transform: translateY(-2px); }
+.demo-bestill-retur { margin-top: 1.6rem; font-size: .9rem; margin-bottom: 0; }
+.demo-bestill-retur a { color: var(--rosa); text-decoration: underline; }
