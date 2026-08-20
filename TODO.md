@@ -1,5 +1,38 @@
 # TODO – Hjemmesidendin
 
+## 📌 SESIÓN 20. AUGUST 2026 — Formulario spa + reservas + arreglos
+
+### ✅ HECHO HOY
+- **ny-kunde.py**: función `behandlinger_til_liste` (marcador `KAT_N_BEHANDLINGER` → `<li>`).
+  Separadores: `;` entre tratamientos, `|` entre nombre|precio. Respeta `VIS_PRISER=Nei`. Enganchada tras kompetanse_til_tagger. Probada (con/sin precio, escape, 15 tratamientos). Commit 09b88e7.
+- **bestill-spa.html**:
+  - Campo `om_tittel` (eslogan de "om oss", con explicación al cliente).
+  - Productos → `produkter_merker` (marcas separadas por `;`, se pintan como `<span class="merke">`).
+  - Booking enriquecido (3 sub-campos que aparecen/desaparecen): Cal.com (pide `cal_lenke` = brukernavn), Eget system (desplegable Timma/Fixit/EasySalon/SalongenOnline/Reservio/Annet + `booking_url`), Ingen (nota sobre futuro servicio de actualización).
+- **3 demos spa**: banner "Bestill salongside" (HTML + CSS adaptado a cada diseño) → lleva a bestill-spa.html.
+- **bestill.html**: añadidos "Frisør & salong" y "Portefølje" al selector de bransje.
+- **Fix bestill-portefolje.html**: bug visual `.design-velg-3` (no estaba definida, las 3 tarjetas se solapaban) + título corregido (decía "fotografside").
+
+### ⏳ PENDIENTE INMEDIATO (en orden)
+1. **JS del resumen de bestill-spa.html**: aún emite `produkter_tekst` (viejo). Debe emitir: `om_tittel`, marcas (`produkter_merker`), `cal_lenke`/`booking_system`, y las líneas `KAT_N_BEHANDLINGER=nombre|precio ; ...` en formato del script.
+2. **Templar molde `maler/demoer/spa/`** (ya copiado limpio, SIN templar aún — NO commitear hasta templar; tiene datos de demo/Unsplash que sjekk-samsvar prohíbe).
+   - Marcadores acordados: hero, 6 categorías fijas + 4 extra (`data-blokk`), `KAT_N_BEHANDLINGER_LISTE`, productos (`PRODUKTER_MERKER`), om (`OM_TITTEL`/`OM_TEKST`), kontakt, booking, footer.
+   - Logo partido → `[FIRMANAVN_DEL1]`/`[FIRMANAVN_DEL2]`. Hero-navn gigante → `[FIRMANAVN]` (ajustar CSS responsive si nombre largo).
+3. **Funciones nuevas en ny-kunde.py**: `merker_til_span` (marcas → `<span class="merke">`), split de `[FIRMANAVN]` en 2 partes, lógica de booking (`[BOOKING_URL]`/`[BOOKING_TEKST]` + bloque embebido Cal.com con `data-blokk`).
+4. **Cal.com embebido**: montar PRIMERO en la tienda propia (sandbox, para aprender el flujo con mi cuenta real) → luego llevar el snippet al molde como `[CAL_LENKE]`.
+   - FLUJO DECIDIDO: el CLIENTE crea su propia cuenta Cal.com y me da solo su brukernavn (una palabra). YO no gestiono cuentas ajenas → respeta el modelo sin contacto. Script limpia si pega la URL completa.
+5. **Página orientativa** que explique a fondo cada opción de reserva (Cal.com / eget / ingen) — hacer DESPUÉS de tener el embebido funcionando.
+6. **Moldes Bloom y Noir**: derivar del Serene templado (mismo HTML de marcadores, solo cambia CSS/carpeta).
+7. **Validar** con sjekk-samsvar.py + **documentar** el formato de tratamientos en ESTRUCTURA.md (tras §8, cuando funcione de verdad).
+
+### 📎 DECISIONES CLAVE DE ESTA SESIÓN
+- Molde spa = **3 moldes** (uno por diseño), NO uno parametrizado: el HTML es idéntico pero los 3 CSS tienen vocabularios de variables distintos (--krem vs --korall vs --kobber) y fuentes distintas. Templar HTML una vez, replicar; cada uno conserva su CSS ya probado.
+- Nomenclatura carpetas moldes: espejar demos → `maler/demoer/spa/` (Serene), `spa-bloom/`, `spa-noir/`.
+- Tratamientos: **6 categorías fijas + hasta 4 extra** (data-blokk), cada una con tratamientos ILIMITADOS (lista generada). Cubre maquillaje/piercing/hulltaking sin perder ninguno.
+- Booking: botón(es) con `data-blokk` — cada cliente ve solo el suyo (Cal.com embebido / enlace a su sistema / Kontakt oss).
+
+
+
 Mapa de pendientes del proyecto. Actualizar a medida que se completen tareas.
 
 ---
