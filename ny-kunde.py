@@ -160,6 +160,33 @@ def kompetanse_til_tagger(data):
             deler = [d.strip() for d in data[n_key].replace("\n",";").split(";") if d.strip()]
             data[f"M{n}_TAGGER_HTML"] = "".join(f"<span>{_html.escape(d)}</span>" for d in deler)
     return data
+def behandlinger_til_liste(data):
+    """KAT_N_BEHANDLINGER='Navn|590 ; Navn2|490' -> KAT_N_BEHANDLINGER_LISTE med <li>.
+    Skille mellom behandlinger: ';'  |  mellom navn og pris: '|'.
+    Pris vises kun hvis VIS_PRISER != 'Nei' OG behandlingen har en pris."""
+    import html as _html
+    vis_priser = data.get("VIS_PRISER", "Ja").strip().lower() != "nei"
+    nye = {}
+    for n, v in list(data.items()):
+        if n.endswith("_BEHANDLINGER"):
+            elementer = [e.strip() for e in v.replace("\n", ";").split(";") if e.strip()]
+            li = []
+            for e in elementer:
+                if "|" in e:
+                    navn, pris = e.split("|", 1)
+                    navn, pris = navn.strip(), pris.strip()
+                else:
+                    navn, pris = e.strip(), ""
+                if not navn:
+                    continue
+                navn_h = _html.escape(navn)
+                if vis_priser and pris:
+                    li.append(f'<li><span>{navn_h}</span><span class="beh-pris">fra {_html.escape(pris)},-</span></li>')
+                else:
+                    li.append(f'<li><span>{navn_h}</span></li>')
+            nye[n + "_LISTE"] = "".join(li)
+    data.update(nye)
+    return data
 
 
 # Les data
@@ -180,6 +207,7 @@ data = formater_typed(data)
 data = prosess_til_liste(data)
 data = lag_sammendrag(data)
 data = kompetanse_til_tagger(data)
+data = behandlinger_til_liste(data)
 
 # Kopier og erstatt
 os.makedirs(os.path.expanduser("~/kunder"), exist_ok=True)
