@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestill salongside – Hjemmesidendin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <style>
+        .best-wrap { width: min(780px, 92%); margin: 2.5rem auto 4rem; }
+        .best-topp { text-align: center; margin-bottom: 2rem; }
+        .best-topp h1 { margin-bottom: .6rem; }
+        .best-del { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; margin-bottom: 1.5rem; }
+        .best-del-topp { display: flex; align-items: center; gap: .8rem; margin-bottom: .4rem; }
+        .best-nr { width: 2rem; height: 2rem; flex-shrink: 0; display: grid; place-items: center; background: var(--pine); color: #fff; border-radius: 50%; font-family: var(--font-display); font-weight: 700; font-size: .95rem; }
+        .best-del h2 { font-size: 1.25rem; margin: 0; }
+        .best-del-hint { font-size: .9rem; color: var(--pine-soft); margin-bottom: 1.4rem; margin-top: .3rem; }
+        .best-del-hint a { color: var(--signal-dark); }
+        .bfelt { margin-bottom: 1.3rem; }
+        .bfelt:last-child { margin-bottom: 0; }
+        .bfelt label { display: block; font-weight: 600; font-size: .95rem; color: var(--pine); margin-bottom: .15rem; }
+        .bfelt .forklaring { display: block; font-size: .84rem; color: var(--pine-soft); margin-bottom: .45rem; }
+        .bfelt input[type=text], .bfelt input[type=tel], .bfelt input[type=email], .bfelt input[type=url], .bfelt textarea, .bfelt select { width: 100%; font: inherit; padding: .7rem .85rem; border: 1px solid var(--line); border-radius: 8px; background: var(--sand); color: var(--pine); }
+        .bfelt input:focus, .bfelt textarea:focus, .bfelt select:focus { outline: 2px solid var(--signal); outline-offset: 1px; border-color: var(--signal); }
+        .bfelt .eksempel { display:block; font-size: .82rem; color: var(--signal-dark); margin-top: .3rem; font-style: italic; }
+        .bfelt .valgfri { font-weight: 400; color: var(--pine-soft); font-size: .8rem; }
+        .bfelt-rekke { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .design-velg-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+        .dv-kort { position: relative; border: 2px solid var(--line); border-radius: var(--radius); padding: 1.2rem; cursor: pointer; transition: all .15s ease; }
+        .dv-kort:hover { border-color: var(--signal); }
+        .dv-kort input { position: absolute; top: 1rem; right: 1rem; }
+        .dv-kort.valgt { border-color: var(--signal); background: rgba(232,100,27,.05); }
+        .dv-kort strong { display: block; font-family: var(--font-display); color: var(--pine); margin-bottom: .3rem; }
+        .dv-kort > span { font-size: .86rem; color: var(--pine-soft); }
+        .dv-forhandsvis { height: 70px; border-radius: 8px; margin-bottom: .8rem; }
+        .farge-intro { font-size: .88rem; color: var(--pine-soft); margin-bottom: 1.2rem; line-height: 1.55; }
+        .combo-rad { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.6rem; }
+        .combo-kort { border: 2px solid var(--line); border-radius: 10px; padding: .9rem; cursor: pointer; transition: all .15s ease; }
+        .combo-kort:hover { border-color: var(--signal); }
+        .combo-kort.valgt { border-color: var(--signal); box-shadow: 0 0 0 3px rgba(232,100,27,.15); }
+        .combo-prov { display: flex; height: 40px; border-radius: 6px; overflow: hidden; margin-bottom: .6rem; }
+        .combo-prov span { flex: 1; }
+        .combo-navn { font-family: var(--font-display); font-weight: 600; font-size: .92rem; color: var(--pine); }
+        .combo-beskr { font-size: .78rem; color: var(--pine-soft); }
+        .avansert-toggle { display: inline-block; margin-bottom: 1.2rem; color: var(--signal-dark); font-size: .9rem; font-weight: 600; cursor: pointer; text-decoration: underline; }
+        .avansert-boks { display: none; padding-top: .4rem; }
+        .avansert-boks.vis { display: block; }
+        .farge-gruppe { margin-bottom: 1.6rem; }
+        .farge-gruppe > label.gruppe-tittel { display: block; font-weight: 600; color: var(--pine); margin-bottom: .15rem; font-size: .96rem; }
+        .farge-gruppe .gruppe-hint { display:block; font-size: .84rem; color: var(--pine-soft); margin-bottom: .7rem; }
+        .valgt-preview { display: inline-block; width: 1.3rem; height: 1.3rem; border-radius: 4px; vertical-align: middle; margin-left: .3rem; border: 1px solid var(--line); }
+        .swatch-rad { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .8rem; }
+        .swatch { width: 2.4rem; height: 2.4rem; border-radius: 8px; cursor: pointer; border: 3px solid transparent; transition: transform .12s ease, border-color .12s ease; }
+        .swatch:hover { transform: scale(1.08); }
+        .swatch.valgt { border-color: var(--pine); box-shadow: 0 0 0 2px #fff inset; }
+        .farge-egen { display: flex; align-items: center; gap: .8rem; background: var(--sand); border-radius: 8px; padding: .7rem .9rem; flex-wrap: wrap; }
+        .farge-egen label { font-size: .85rem; color: var(--pine-soft); font-weight: 500; }
+        .farge-egen input[type=color] { width: 3rem; height: 2.4rem; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; padding: 2px; background: #fff; }
+        .farge-kode { font-family: monospace; font-size: .95rem; font-weight: 600; color: var(--pine); background: #fff; padding: .35rem .7rem; border-radius: 6px; border: 1px solid var(--line); text-transform: uppercase; min-width: 5.5rem; text-align: center; }
+        .bakgrunn-rad { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; }
+        .bak-kort { border: 2px solid var(--line); border-radius: 8px; padding: .5rem; cursor: pointer; text-align: center; transition: all .15s ease; }
+        .bak-kort:hover { border-color: var(--signal); }
+        .bak-kort.valgt { border-color: var(--signal); }
+        .bak-prov { height: 42px; border-radius: 5px; margin-bottom: .4rem; border: 1px solid rgba(0,0,0,.06); }
+        .bak-kort span { font-size: .78rem; color: var(--pine-soft); }
+        .ja-nei { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+        .ja-nei label { padding: .55rem 1.3rem; cursor: pointer; font-weight: 600; font-size: .9rem; background: var(--sand); color: var(--pine); margin: 0; }
+        .ja-nei input { display: none; }
+        .ja-nei label:has(input:checked) { background: var(--signal); color: #fff; }
+        .beh-kat { border: 1px solid var(--line); border-radius: 10px; margin-bottom: .9rem; overflow: hidden; background: var(--sand); }
+        .beh-kat-topp { display: flex; align-items: center; gap: .7rem; padding: .9rem 1rem; font-weight: 600; }
+        .beh-kat-topp .beh-under { font-weight: 400; color: var(--pine-soft); font-size: .82rem; }
+        .beh-kat-topp input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--signal); }
+        .beh-kat-body { padding: .3rem 1rem 1rem; }
+        .beh-kat-body.skjult { display: none; }
+        .beh-rad { display: grid; grid-template-columns: 24px 1fr 130px 32px; gap: .5rem; align-items: center; margin-bottom: .5rem; }
+        .beh-rad input[type=checkbox] { width: 17px; height: 17px; accent-color: var(--signal); }
+        .beh-rad .beh-navn, .beh-rad .beh-pris { padding: .5rem .6rem; border: 1px solid var(--line); border-radius: 7px; font: inherit; font-size: .88rem; background: #fff; color: var(--pine); }
+        .beh-pris-boks { display: flex; align-items: center; gap: .3rem; }
+        .beh-pris-boks .beh-pris { width: 70px; text-align: right; }
+        .beh-pris-boks .beh-kr { color: var(--pine-soft); font-size: .8rem; }
+        .beh-fjern { border: none; background: #e7d8cc; color: #a15a3a; border-radius: 7px; height: 30px; cursor: pointer; font-size: 1.1rem; line-height: 1; }
+        .beh-fjern:hover { background: #dcc4b2; }
+        .beh-legg-til { margin-top: .3rem; background: #fff; border: 1px dashed var(--signal); color: var(--signal-dark); padding: .5rem .9rem; border-radius: 7px; cursor: pointer; font-weight: 600; font-size: .84rem; }
+        .beh-legg-til:hover { background: rgba(232,100,27,.06); }
+        .booking-valg { display: flex; gap: .7rem; align-items: flex-start; border: 2px solid var(--line); border-radius: 10px; padding: 1rem; margin-bottom: .7rem; cursor: pointer; }
+        .booking-valg:has(input:checked) { border-color: var(--signal); background: rgba(232,100,27,.05); }
+        .booking-valg input[type=radio] { margin-top: .2rem; }
+        .booking-valg strong { display: block; color: var(--pine); }
+        .booking-valg span { font-size: .85rem; color: var(--pine-soft); }
+        #bookingUrlFelt.skjult { display: none; }
+        .opplast-kort { border: 2px dashed var(--line); border-radius: 10px; padding: 1.2rem; text-align: center; background: var(--sand); }
+        .opplast-kort h4 { color: var(--pine); font-size: .95rem; margin-bottom: .2rem; }
+        .opplast-kort .valgfri { font-weight: 400; color: var(--pine-soft); font-size: .8rem; }
+        .opplast-rad { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: .5rem; }
+        .opplast-knapp { background: var(--pine); color: #fff; border: none; padding: .6rem 1.2rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: var(--font-display); font-size: .9rem; }
+        .opplast-knapp:hover { background: var(--signal); }
+        .opplast-status { margin-top: .7rem; font-size: .82rem; }
+        .opplast-thumbs { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; justify-content: center; }
+        .opplast-thumbs img { width: 48px; height: 48px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
+        .dv-kort.jur-valg { display: flex; }
+        .best-send { background: var(--pine); color: #fff; border: none; width: 100%; padding: 1.1rem; border-radius: var(--radius); font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; cursor: pointer; margin-top: 1rem; }
+        .best-send:hover { background: var(--signal); }
+        .resultat-boks { display: none; background: var(--pine); color: #e8ecec; border-radius: var(--radius); padding: 1.6rem; margin-top: 1.5rem; }
+        .resultat-boks.vis { display: block; }
+        .resultat-boks h3 { color: #fff; margin-bottom: .3rem; }
+        .resultat-boks p.res-intro { color: #cfd8dd; font-size: .9rem; margin-bottom: 1rem; }
+        .resultat-tekst { width: 100%; min-height: 320px; font-family: monospace; font-size: .82rem; line-height: 1.5; padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.15); background: rgba(0,0,0,.25); color: #d9e3dd; resize: vertical; }
+        .kopier-knapp { margin-top: .8rem; background: var(--signal); color: #fff; border: none; padding: .7rem 1.4rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: var(--font-display); }
+        .kopier-knapp:hover { background: var(--signal-dark); }
+        .kopier-ok { display: inline-block; margin-left: .8rem; color: #8ce5c6; font-size: .88rem; }
+        @media (max-width: 600px) {
+            .bfelt-rekke, .design-velg-3, .opplast-rad, .combo-rad { grid-template-columns: 1fr; }
+            .bakgrunn-rad { grid-template-columns: 1fr 1fr; }
+            .beh-rad { grid-template-columns: 24px 1fr 110px 30px; }
+        }
+:root { --sand: #dfe4e1; --surface: #eceeed; --line: #ccd3cf; }
+body { background: linear-gradient(160deg, #232b36, #141a21); color: #b9c4bd; }
+.best-topp h1, h1 { color: #f2ede2; }
+.best-topp p { color: rgba(242, 237, 226, .8); }
+.best-del { background: var(--surface); }
+.best-del h2, .best-del h3, .best-del h4, .best-del label { color: var(--pine); }
+.best-del p, .best-del li, .best-del span { color: var(--pine-soft); }
+input, select, textarea { background: #f7f9f8; color: #1b2229; border-color: #c6cec9; }
+.best-del h2, .best-del h3, .best-del h4, .best-del label,
+.best-topp h1 { color: #1b2229 !important; }
+.best-del p, .best-del li, .best-del span, .best-del .forklaring { color: #4a5560 !important; }
+.best-topp h1 { color: #f2f5f3 !important; }
+.best-nr { background: #4d9670 !important; color: #0e1a13 !important; }
+a { color: #8fc9a8; }
+.best-del a { color: #2f6b4f; }
+.best-del a:hover { color: #1f4d38; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">hjemmesiden<span>din</span></a>
+            <nav class="nav">
+                <div class="nav-drop"><button type="button" class="nav-drop-knapp">Pris<span class="nav-pil">&#9662;</span></button><div class="nav-drop-meny"><a href="index.html#pris">Ny nettside</a><a href="index.html#oppdateringer">Oppdateringer</a></div></div>
+                <a href="index.html#faq">Sp&oslash;rsm&aring;l</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="best-wrap">
+        <div class="best-topp">
+            <p class="eyebrow">Bestilling &middot; Salong &amp; fris&oslash;r</p>
+            <h1>Fyll ut innholdet til salongsiden din</h1>
+            <p>Vi bruker det du skriver her til &aring; lage nettsiden din. Alt er fleksibelt &ndash; legg til, fjern eller endre behandlinger og priser akkurat som du vil.</p>
+        </div>
+
+        <form name="bestill-spa" method="POST" data-netlify="true" action="takk-nettside.html" id="bestillSkjema">
+            <input type="hidden" name="form-name" value="bestill-spa">
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">1</span><h2>Velg design</h2></div>
+                <p class="best-del-hint">Vi har tre design for salongsider. Samme innhold &ndash; tre ulike stiler. <a href="demoer-spa.html" target="_blank">Se alle her</a>.</p>
+                <div class="design-velg-3">
+                    <label class="dv-kort valgt">
+                        <input type="radio" name="design" value="Serene" checked>
+                        <div class="dv-forhandsvis" style="background:linear-gradient(135deg,#f2ede4 40%,#a8895f 72%,#c9b79c)"></div>
+                        <strong>Serene</strong><span>Elegant og rolig, beige toner</span>
+                    </label>
+                    <label class="dv-kort">
+                        <input type="radio" name="design" value="Bloom">
+                        <div class="dv-forhandsvis" style="background:linear-gradient(135deg,#fdf2f6 40%,#e8688f 72%,#b07bd4)"></div>
+                        <strong>Bloom</strong><span>Moderne og fargerik</span>
+                    </label>
+                    <label class="dv-kort">
+                        <input type="radio" name="design" value="Noir">
+                        <div class="dv-forhandsvis" style="background:linear-gradient(135deg,#1a1714 40%,#c67b4a 72%,#3a332d)"></div>
+                        <strong>Noir</strong><span>M&oslash;rk og maskulin, barber-stil</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">2</span><h2>Velg farger</h2></div>
+                <p class="best-del-hint">Fargene gir nettsiden din personlighet og knytter den til salongen din.</p>
+                <p class="farge-intro">Du kan bruke fargene fra et av designene v&aring;re &ndash; de er satt sammen for &aring; se profesjonelle ut &ndash; eller sette sammen dine egne under <em>&laquo;Tilpass fargene selv&raquo;</em>. Har du en egen merkefarge fra logoen, kan du bruke <strong>pipetten</strong> til &aring; plukke den n&oslash;yaktig.</p>
+                <div class="combo-rad" id="comboRad">
+                    <div class="combo-kort" data-combo="serene">
+                        <div class="combo-prov"><span style="background:#2b2622"></span><span style="background:#a8895f"></span><span style="background:#c9b79c"></span><span style="background:#f2ede4"></span></div>
+                        <div class="combo-navn">Serene-farger</div><div class="combo-beskr">Beige + bronse (elegant)</div>
+                    </div>
+                    <div class="combo-kort" data-combo="bloom">
+                        <div class="combo-prov"><span style="background:#4a2c4d"></span><span style="background:#e8688f"></span><span style="background:#b07bd4"></span><span style="background:#fdf2f6"></span></div>
+                        <div class="combo-navn">Bloom-farger</div><div class="combo-beskr">Korall + lilla (fargerik)</div>
+                    </div>
+                    <div class="combo-kort" data-combo="noir">
+                        <div class="combo-prov"><span style="background:#141210"></span><span style="background:#c67b4a"></span><span style="background:#8a8580"></span><span style="background:#efe9e2"></span></div>
+                        <div class="combo-navn">Noir-farger</div><div class="combo-beskr">Kobber + natt (maskulin)</div>
+                    </div>
+                </div>
+                <span class="avansert-toggle" id="avansertToggle">&#9881;&#65039; Tilpass fargene selv</span>
+                <div class="avansert-boks" id="avansertBoks">
+                    <div class="farge-gruppe">
+                        <label class="gruppe-tittel">Hovedfarge <span class="valgt-preview" id="prev-hoved"></span></label>
+                        <span class="gruppe-hint">Brukes p&aring; knapper, lenker og viktige detaljer.</span>
+                        <div class="swatch-rad" data-mal="hoved"></div>
+                        <div class="farge-egen"><label>Egen farge (pipette):</label><input type="color" id="hoved-picker" value="#a8895f"><span class="farge-kode" id="hoved-kode">#A8895F</span></div>
+                    </div>
+                    <div class="farge-gruppe">
+                        <label class="gruppe-tittel">M&oslash;rk farge / bunnfarge <span class="valgt-preview" id="prev-mork"></span></label>
+                        <span class="gruppe-hint">Brukes p&aring; toppfeltet, m&oslash;rke seksjoner og bunnen.</span>
+                        <div class="swatch-rad" data-mal="mork"></div>
+                        <div class="farge-egen"><label>Egen farge (pipette):</label><input type="color" id="mork-picker" value="#2b2622"><span class="farge-kode" id="mork-kode">#2B2622</span></div>
+                    </div>
+                    <div class="farge-gruppe">
+                        <label class="gruppe-tittel">Sekund&aelig;rfarge <span class="valgt-preview" id="prev-sekundaer"></span></label>
+                        <span class="gruppe-hint">En st&oslash;ttefarge til mindre detaljer og ikoner.</span>
+                        <div class="swatch-rad" data-mal="sekundaer"></div>
+                        <div class="farge-egen"><label>Egen farge (pipette):</label><input type="color" id="sekundaer-picker" value="#c9b79c"><span class="farge-kode" id="sekundaer-kode">#C9B79C</span></div>
+                    </div>
+                </div>
+                <div class="farge-gruppe" style="margin-top:1.6rem">
+                    <label class="gruppe-tittel">Bakgrunnsfarge</label>
+                    <span class="gruppe-hint">De lyse feltene p&aring; siden. Velg tonen som passer salongen din best.</span>
+                    <div class="bakgrunn-rad" id="bakgrunnRad"></div>
+                </div>
+                <input type="hidden" name="farge_hoved" id="farge_hoved" value="#a8895f">
+                <input type="hidden" name="farge_mork" id="farge_mork" value="#2b2622">
+                <input type="hidden" name="farge_sekundaer" id="farge_sekundaer" value="#c9b79c">
+                <input type="hidden" name="farge_bakgrunn" id="farge_bakgrunn" value="#f2ede4">
+                <input type="hidden" name="valgt_farge" id="valgt_farge" value="">
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">3</span><h2>Om salongen &amp; domene</h2></div>
+                <p class="best-del-hint">Grunnleggende info som vises flere steder (topp, bunn, kontaktdel), samt nettadressen din.</p>
+                <div class="bfelt">
+                    <label for="firmanavn">Salongens navn</label>
+                    <span class="forklaring">Navnet som vises p&aring; siden og i toppen.</span>
+                    <input type="text" id="firmanavn" name="firmanavn" placeholder="F.eks: Salong Noir">
+                </div>
+                <div class="bfelt-rekke">
+                    <div class="bfelt">
+                        <label for="orgnr">Organisasjonsnummer <span class="valgfri">(valgfritt)</span></label>
+                        <span class="forklaring">Har du enkeltpersonforetak eller AS? Fyll ut her &ndash; da registreres domenet p&aring; firmaet.</span>
+                        <input type="text" id="orgnr" name="orgnr" placeholder="912 345 678">
+                    </div>
+                    <div class="bfelt">
+                        <label for="pid">PID <span class="valgfri">(valgfritt)</span></label>
+                        <span class="forklaring">Har du ikke firma? Da registreres domenet p&aring; deg privat. PID er en anonym kode du henter gratis hos <a href="https://www.norid.no" target="_blank" rel="noopener">Norid</a> &ndash; den er knyttet til f&oslash;dselsnummeret ditt, men vi ser aldri selve nummeret.</span>
+                        <input type="text" id="pid" name="pid" placeholder="PID-koden din">
+                    </div>
+                </div>
+                <div class="bfelt">
+                    <label for="domene_status">Har du domenet fra f&oslash;r?</label>
+                    <select id="domene_status" name="domene_status">
+                        <option>Nei &ndash; dere registrerer det for meg</option>
+                        <option>Ja &ndash; jeg eier det allerede</option>
+                        <option>Vet ikke enn&aring;</option>
+                    </select>
+                </div>
+                <div class="bfelt">
+                    <label>Domene &ndash; nettadressen din</label>
+                    <span class="forklaring">Foresl&aring; tre alternativer i prioritert rekkef&oslash;lge. Vi sjekker hva som er ledig og bekrefter med deg f&oslash;r vi registrerer noe. Domenet registreres med din bedrift som eier.</span>
+                    <input type="text" name="domene_1" placeholder="1. valg &ndash; f.eks: dinsalong.no" style="margin-bottom:.5rem">
+                    <input type="text" name="domene_2" placeholder="2. valg &ndash; f.eks: din-salong.no" style="margin-bottom:.5rem">
+                    <input type="text" name="domene_3" placeholder="3. valg &ndash; f.eks: dinsalongoslo.no">
+                    <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine); margin-top:.7rem; font-size:.9rem"><input type="checkbox" name="har_domene" value="Ja" style="position:static"> Jeg eier allerede 1. valg</label>
+                </div>
+                <div class="bfelt">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" id="adresse" name="adresse" placeholder="F.eks: Storgata 5, 0155 Oslo">
+                </div>
+                <div class="bfelt-rekke">
+                    <div class="bfelt">
+                        <label for="omrade">Omr&aring;de</label>
+                        <input type="text" id="omrade" name="omrade" placeholder="F.eks: Oslo sentrum">
+                    </div>
+                    <div class="bfelt">
+                        <label for="startaar">&Aring;ret salongen startet <span class="valgfri">(valgfritt)</span></label>
+                        <input type="text" id="startaar" name="startaar" placeholder="F.eks: 2015">
+                    </div>
+                </div>
+                <div class="bfelt-rekke">
+                    <div class="bfelt">
+                        <label for="instagram">Instagram <span class="valgfri">(valgfritt)</span></label>
+                        <input type="text" id="instagram" name="instagram" placeholder="@dinsalong">
+                    </div>
+                    <div class="bfelt">
+                        <label for="facebook">Facebook <span class="valgfri">(valgfritt)</span></label>
+                        <input type="text" id="facebook" name="facebook" placeholder="facebook.com/dinsalong">
+                    </div>
+                </div>
+                <div class="bfelt">
+                    <label>Logo <span class="valgfri">(valgfritt)</span></label>
+                    <span class="forklaring">PNG eller SVG, gjerne med gjennomsiktig bakgrunn.</span>
+                    <div class="opplast-kort" style="max-width:280px">
+                        <button type="button" class="opplast-knapp" data-type="logo">Last opp logo</button>
+                        <div class="opplast-status" id="status-logo"></div>
+                        <div class="opplast-thumbs" id="thumbs-logo"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">4</span><h2>Toppen av siden</h2></div>
+                <p class="best-del-hint">Det f&oslash;rste folk ser &ndash; helt &oslash;verst p&aring; siden.</p>
+                <div class="bfelt">
+                    <label for="hero_stikkord">Stikkord <span class="valgfri">(valgfritt)</span></label>
+                    <span class="forklaring">Den lille teksten over tittelen.</span>
+                    <input type="text" id="hero_stikkord" name="hero_stikkord" placeholder="F.eks: Fris&oslash;r &amp; skj&oslash;nnhet i Oslo">
+                </div>
+                <div class="bfelt">
+                    <label for="hero_tittel">Stor overskrift</label>
+                    <span class="forklaring">Den store tittelen helt &oslash;verst.</span>
+                    <input type="text" id="hero_tittel" name="hero_tittel" placeholder="F.eks: Der stil m&oslash;ter h&aring;ndverk">
+                </div>
+                <div class="bfelt">
+                    <label for="hero_frase">Presentasjonstekst</label>
+                    <span class="forklaring">1&ndash;2 setninger under overskriften.</span>
+                    <textarea id="hero_frase" name="hero_frase" rows="2" placeholder="Skriv her..."></textarea>
+                    <span class="eksempel">Eks: &laquo;Velkommen til en salong der du kan slappe av mens vi tar oss av resten.&raquo;</span>
+                </div>
+                <div class="bfelt">
+                    <label>Toppbilde <span class="valgfri">(valgfritt)</span></label>
+                    <span class="forklaring">Et stemningsbilde fra salongen. Har du ikke eget, bruker vi et n&oslash;ytralt bilde.</span>
+                    <div class="opplast-kort" style="max-width:280px">
+                        <button type="button" class="opplast-knapp" data-type="hero_bilde">Last opp toppbilde</button>
+                        <div class="opplast-status" id="status-hero_bilde"></div>
+                        <div class="opplast-thumbs" id="thumbs-hero_bilde"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">5</span><h2>Behandlinger &amp; priser</h2></div>
+                <p class="best-del-hint">Huk av kategoriene du tilbyr. Rediger, fjern (&#10005;) eller legg til behandlinger fritt. La prisfeltet st&aring; tomt for behandlinger uten pris.</p>
+                <div class="bfelt">
+                    <label>Vis priser (&laquo;fra &hellip;&raquo;) p&aring; nettsiden?</label>
+                    <span class="forklaring">Noen salonger foretrekker &aring; ikke vise priser. Du kan skru det av her.</span>
+                    <div class="ja-nei">
+                        <label><input type="radio" name="vis_priser" value="Ja" checked> Ja</label>
+                        <label><input type="radio" name="vis_priser" value="Nei"> Nei</label>
+                    </div>
+                </div>
+                <div id="katListe"></div>
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">6</span><h2>Produkter <span class="valgfri" style="font-size:.9rem">(valgfritt)</span></h2></div>
+                <p class="best-del-hint">Selger du produkter i salongen? Skru p&aring; for &aring; vise en produktseksjon.</p>
+                <div class="bfelt">
+                    <label>Vis produktseksjon?</label>
+                    <div class="ja-nei">
+                        <label><input type="radio" name="vis_produkter" value="Ja"> Ja</label>
+                        <label><input type="radio" name="vis_produkter" value="Nei" checked> Nei</label>
+                    </div>
+                </div>
+                <div class="bfelt" id="produktTekstFelt">
+                    <label for="produkter_tekst">Produkter &ndash; tekst</label>
+                    <span class="forklaring">Fortell kort om merkene du bruker og selger.</span>
+                    <textarea id="produkter_tekst" name="produkter_tekst" rows="3" placeholder="F.eks: Vi bruker og selger K&eacute;rastase, Olaplex og GHD."></textarea>
+                </div>
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">7</span><h2>Galleri</h2></div>
+                <p class="best-del-hint">Last opp bilder fra salongen. Alt er valgfritt &ndash; vi optimaliserer dem for deg, og bruker n&oslash;ytrale bilder der du ikke har egne.</p>
+                <div class="opplast-rad" id="galleriRad"></div>
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">8</span><h2>En salong med hjerte</h2></div>
+                <p class="best-del-hint">En kort tekst om salongen &ndash; hvem dere er og hva som gj&oslash;r dere spesielle.</p>
+                <div class="bfelt">
+                    <label for="om_tekst">Om-tekst</label>
+                    <textarea id="om_tekst" name="om_tekst" rows="4" placeholder="Skriv her om salongen din..."></textarea>
+                </div>
+                <div class="bfelt">
+                    <label>Bilde til &laquo;om&raquo;-delen <span class="valgfri">(valgfritt)</span></label>
+                    <div class="opplast-kort" style="max-width:280px">
+                        <button type="button" class="opplast-knapp" data-type="om_bilde">Last opp bilde</button>
+                        <div class="opplast-status" id="status-om_bilde"></div>
+                        <div class="opplast-thumbs" id="thumbs-om_bilde"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">9</span><h2>Kontakt, &aring;pningstider &amp; booking</h2></div>
+                <p class="best-del-hint">Kontaktinfo som vises p&aring; siden, og hvordan kundene bestiller time.</p>
+                <div class="bfelt-rekke">
+                    <div class="bfelt">
+                        <label for="epost">E-post</label>
+                        <input type="email" id="epost" name="epost" placeholder="post@dinsalong.no">
+                    </div>
+                    <div class="bfelt">
+                        <label for="telefon">Telefon</label>
+                        <input type="tel" id="telefon" name="telefon" placeholder="+47 000 00 000">
+                    </div>
+                </div>
+                <div class="bfelt">
+                    <label for="apningstider">&Aring;pningstider</label>
+                    <span class="forklaring">&Eacute;n linje per dag eller gruppe.</span>
+                    <textarea id="apningstider" name="apningstider" rows="3" placeholder="Man&ndash;fre: 09&ndash;18&#10;L&oslash;r: 10&ndash;15&#10;S&oslash;n: stengt"></textarea>
+                </div>
+                <div class="bfelt" style="margin-top:1.6rem">
+                    <label>Hvordan skal kundene bestille time?</label>
+                    <span class="forklaring">Merk: prislisten p&aring; nettsiden og tjenestene i bookingsystemet er to separate lister.</span>
+                    <div style="margin-top:.6rem">
+                        <label class="booking-valg">
+                            <input type="radio" name="booking" value="Cal.com (vi setter opp)" checked>
+                            <span><strong>Vi setter opp booking for deg</strong><span>Vi konfigurerer og bygger inn et bookingsystem (Cal.com) du selv styrer.</span></span>
+                        </label>
+                        <label class="booking-valg">
+                            <input type="radio" name="booking" value="Eget system">
+                            <span><strong>Jeg har allerede et system</strong><span>Reservio, Fixit, Timma e.l. &ndash; lim inn lenken din under.</span></span>
+                        </label>
+                        <label class="booking-valg">
+                            <input type="radio" name="booking" value="Ingen &ndash; kontaktknapp">
+                            <span><strong>Ingen booking &ndash; bruk &laquo;Kontakt oss&raquo;</strong><span>Kundene ringer eller sender e-post i stedet.</span></span>
+                        </label>
+                    </div>
+                    <div class="bfelt skjult" id="bookingUrlFelt" style="margin-top:.9rem">
+                        <label for="booking_url">Lenke til ditt bookingsystem</label>
+                        <input type="url" id="booking_url" name="booking_url" placeholder="https://...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">10</span><h2>Juridiske sider</h2></div>
+                <p class="best-del-hint">En nettside som samler kontaktinfo (f.eks. via skjema) b&oslash;r ha en personvernerkl&aelig;ring (GDPR) og informasjon om cookies.</p>
+                <div style="background:var(--sand); border-radius:8px; padding:1rem 1.2rem; font-size:.87rem; line-height:1.55; margin-bottom:1.3rem">
+                    &#128161; <strong>V&aring;r anbefaling:</strong> De fleste nettsider trenger en <strong>personvernerkl&aelig;ring</strong> og en <strong>cookie-erkl&aelig;ring</strong>. Vi lager gjerne enkle, ryddige versjoner med bedriftens opplysninger &ndash; helt gratis som del av siden.<br><br>
+                    <em>Merk: Dette er ikke juridisk r&aring;dgivning. Vi lager gode standardtekster, men har du spesielle behov, anbefaler vi &aring; f&aring; dem sjekket av en jurist.</em>
+                </div>
+                <div class="bfelt">
+                    <label>Hvordan vil du h&aring;ndtere juridiske sider?</label>
+                    <div style="display:grid; gap:.7rem; margin-top:.5rem">
+                        <label class="dv-kort jur-valg" style="padding:1rem; align-items:flex-start; gap:.7rem; cursor:pointer">
+                            <input type="radio" name="juridisk" value="Lag for meg" checked style="margin-top:.2rem; position:static">
+                            <span><strong style="display:block; color:var(--pine)">Ja, lag personvern- og cookie-erkl&aelig;ring for meg</strong><span style="font-size:.85rem; color:var(--pine-soft)">Fyll ut litt info under, s&aring; lager vi sidene for deg.</span></span>
+                        </label>
+                        <label class="dv-kort jur-valg" style="padding:1rem; align-items:flex-start; gap:.7rem; cursor:pointer">
+                            <input type="radio" name="juridisk" value="Har egne" style="margin-top:.2rem; position:static">
+                            <span><strong style="display:block; color:var(--pine)">Nei, jeg har egne juridiske tekster</strong><span style="font-size:.85rem; color:var(--pine-soft)">Lim inn tekstene dine under, s&aring; legger vi dem inn.</span></span>
+                        </label>
+                    </div>
+                </div>
+                <div id="jurLagForMeg" style="margin-top:1.6rem; padding-top:1.4rem; border-top:1px solid var(--line)">
+                    <p style="font-size:.9rem; color:var(--pine-soft); margin-bottom:1.2rem">Fyll ut det du kan. Er du usikker p&aring; noe, la standardvalget st&aring; &ndash; vi g&aring;r gjennom det sammen.</p>
+                    <p style="font-weight:600; color:var(--pine); margin-bottom:.8rem; font-size:1rem">&#128203; Personvernerkl&aelig;ring</p>
+                    <div class="bfelt">
+                        <label for="jur_ansvarlig">Behandlingsansvarlig</label>
+                        <span class="forklaring">Hvem er ansvarlig for personopplysningene? Vanligvis bedriften.</span>
+                        <input type="text" id="jur_ansvarlig" name="jur_ansvarlig" placeholder="F.eks: Salong Noir AS">
+                    </div>
+                    <div class="bfelt-rekke">
+                        <div class="bfelt">
+                            <label for="jur_kontakt_navn">Kontaktperson for personvern</label>
+                            <input type="text" id="jur_kontakt_navn" name="jur_kontakt_navn" placeholder="F.eks: Kari Nordmann">
+                        </div>
+                        <div class="bfelt">
+                            <label for="jur_kontakt_epost">E-post for personvern</label>
+                            <input type="email" id="jur_kontakt_epost" name="jur_kontakt_epost" placeholder="F.eks: post@dinsalong.no">
+                        </div>
+                    </div>
+                    <div class="bfelt">
+                        <label for="jur_kontakt_tlf">Telefon for personvern <span class="valgfri">(valgfritt)</span></label>
+                        <input type="tel" id="jur_kontakt_tlf" name="jur_kontakt_tlf" placeholder="F.eks: 912 34 567">
+                    </div>
+                    <div class="bfelt">
+                        <label>Hvilke personopplysninger samles inn via siden?</label>
+                        <span class="forklaring">Vanligvis det folk fyller inn i kontaktskjemaet.</span>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:.5rem; margin-top:.4rem">
+                            <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="checkbox" name="jur_data" value="Navn" checked style="position:static"> Navn</label>
+                            <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="checkbox" name="jur_data" value="E-post" checked style="position:static"> E-post</label>
+                            <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="checkbox" name="jur_data" value="Telefon" checked style="position:static"> Telefon</label>
+                            <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="checkbox" name="jur_data" value="Adresse" style="position:static"> Adresse</label>
+                        </div>
+                    </div>
+                    <div class="bfelt">
+                        <label for="jur_formaal">Hvorfor samles opplysningene inn?</label>
+                        <input type="text" id="jur_formaal" name="jur_formaal" value="For &aring; svare p&aring; henvendelser og gi tilbud">
+                    </div>
+                    <div class="bfelt">
+                        <label for="jur_lagring">Hvor lenge lagres opplysningene?</label>
+                        <input type="text" id="jur_lagring" name="jur_lagring" value="Til henvendelsen er ferdig behandlet, deretter slettes de">
+                    </div>
+                    <div class="bfelt">
+                        <label>Deles data med tredjeparter?</label>
+                        <div style="display:grid; gap:.5rem; margin-top:.4rem">
+                            <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="radio" name="jur_deling" value="Nei" checked style="position:static"> Nei, data deles ikke med andre</label>
+                            <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="radio" name="jur_deling" value="Ja" style="position:static"> Ja (f.eks. regnskapsf&oslash;rer, IT-leverand&oslash;r)</label>
+                        </div>
+                    </div>
+                    <p style="font-weight:600; color:var(--pine); margin:1.6rem 0 .8rem; font-size:1rem">&#127850; Cookie-erkl&aelig;ring</p>
+                    <div class="bfelt">
+                        <label>Bruker nettsiden informasjonskapsler (cookies)?</label>
+                        <div style="display:grid; gap:.5rem; margin-top:.4rem">
+                            <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="radio" name="jur_cookies" value="Bare n&oslash;dvendige" checked style="position:static"> Bare n&oslash;dvendige (standard)</label>
+                            <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="radio" name="jur_cookies" value="Ja, med analyse" style="position:static"> Ja, ogs&aring; analyse (f.eks. Google Analytics)</label>
+                            <label style="display:flex; align-items:center; gap:.5rem; font-weight:400; color:var(--pine)"><input type="radio" name="jur_cookies" value="Vet ikke" style="position:static"> Vet ikke &ndash; hjelp meg</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="jurHarEgne" style="display:none; margin-top:1.6rem; padding-top:1.4rem; border-top:1px solid var(--line)">
+                    <p style="font-size:.9rem; color:var(--pine-soft); margin-bottom:1.2rem">Lim inn tekstene dine under. Har du dem som fil, kan du sende dem til oss senere.</p>
+                    <div class="bfelt">
+                        <label for="jur_egen_personvern">Personvernerkl&aelig;ring</label>
+                        <textarea id="jur_egen_personvern" name="jur_egen_personvern" rows="5" placeholder="Lim inn personvernerkl&aelig;ringen din her..."></textarea>
+                    </div>
+                    <div class="bfelt">
+                        <label for="jur_egen_cookies">Cookie-erkl&aelig;ring</label>
+                        <textarea id="jur_egen_cookies" name="jur_egen_cookies" rows="4" placeholder="Lim inn cookie-erkl&aelig;ringen din her..."></textarea>
+                    </div>
+                    <div class="bfelt">
+                        <label for="jur_egen_annet">Andre juridiske tekster <span class="valgfri">(valgfritt)</span></label>
+                        <textarea id="jur_egen_annet" name="jur_egen_annet" rows="3" placeholder="F.eks. vilk&aring;r, ansvarsfraskrivelse..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">11</span><h2>Kommentar</h2></div>
+                <p class="best-del-hint">Har du noe &aring; tilf&oslash;ye? Spesielle &oslash;nsker, sp&oslash;rsm&aring;l eller noe vi b&oslash;r vite?</p>
+                <div class="bfelt">
+                    <textarea name="kommentar" rows="4" placeholder="Skriv gjerne her &ndash; alt er nyttig for oss. (valgfritt)"></textarea>
+                </div>
+            </div>
+
+            <div class="best-del">
+                <div class="best-del-topp"><span class="best-nr">12</span><h2>Din kontaktinfo</h2></div>
+                <p class="best-del-hint">S&aring; vi kan ta kontakt med deg om bestillingen (ikke det samme som vises p&aring; siden).</p>
+                <div class="bfelt-rekke">
+                    <div class="bfelt">
+                        <label for="din_navn">Ditt navn</label>
+                        <input type="text" id="din_navn" name="din_navn" required>
+                    </div>
+                    <div class="bfelt">
+                        <label for="din_telefon">Din telefon</label>
+                        <input type="tel" id="din_telefon" name="din_telefon" required>
+                    </div>
+                </div>
+                <div class="bfelt">
+                    <label for="din_epost">Din e-post</label>
+                    <input type="email" id="din_epost" name="din_epost" required>
+                </div>
+            </div>
+
+            <button type="button" class="best-send" id="lagResultat">Lag oppsummering &rarr;</button>
+
+            <div class="resultat-boks" id="resultatBoks">
+                <h3>&#10003; Oppsummering av bestillingen din</h3>
+                <p class="res-intro">Kopier teksten under og send den til oss &ndash; s&aring; setter vi i gang.</p>
+                <textarea class="resultat-tekst" id="resultat" readonly></textarea>
+                <button type="button" class="kopier-knapp" id="kopierKnapp">Kopier oppsummering</button>
+                <span class="kopier-ok" id="kopierOk" style="display:none">Kopiert &#10003;</span>
+            </div>
+
+            <input type="hidden" name="bilde_logo" id="bilde_logo">
+            <input type="hidden" name="bilde_hero_bilde" id="bilde_hero_bilde">
+            <input type="hidden" name="bilde_om_bilde" id="bilde_om_bilde">
+            <input type="hidden" name="bilde_galleri_1" id="bilde_galleri_1">
+            <input type="hidden" name="bilde_galleri_2" id="bilde_galleri_2">
+            <input type="hidden" name="bilde_galleri_3" id="bilde_galleri_3">
+            <input type="hidden" name="bilde_galleri_4" id="bilde_galleri_4">
+            <input type="hidden" name="bilde_galleri_5" id="bilde_galleri_5">
+            <input type="hidden" name="bilde_galleri_6" id="bilde_galleri_6">
+        </form>
+    </div>
+
+    <script>
+        const swatchFarger = {
+            hoved: ["#a8895f","#e8688f","#c67b4a","#b4551d","#2f6247","#4d9670","#3d6b8c","#c4703f","#a3562c","#8b5a2b","#b07bd4","#d98324"],
+            mork: ["#2b2622","#4a2c4d","#141210","#16232e","#1d3a2f","#232b36","#23272e","#3e2f26","#4a3b32"],
+            sekundaer: ["#c9b79c","#b07bd4","#8a8580","#ffb84d","#5aa4d4","#4d9670","#c4703f","#e5b93c","#a8845c","#b8a888"]
+        };
+        const bakgrunner = [
+            { navn: "Varm krem", kode: "#f2ede4" },
+            { navn: "Lys rosa", kode: "#fdf2f6" },
+            { navn: "Sandbeige", kode: "#efe9e2" },
+            { navn: "Kj\u00f8lig gr\u00e5", kode: "#f5f7f9" }
+        ];
+        const combos = {
+            serene: { hoved:"#a8895f", mork:"#2b2622", sekundaer:"#c9b79c", bakgrunn:"#f2ede4", navn:"Serene-farger" },
+            bloom:  { hoved:"#e8688f", mork:"#4a2c4d", sekundaer:"#b07bd4", bakgrunn:"#fdf2f6", navn:"Bloom-farger" },
+            noir:   { hoved:"#c67b4a", mork:"#141210", sekundaer:"#8a8580", bakgrunn:"#efe9e2", navn:"Noir-farger" }
+        };
+        function settFarge(mal, kode) {
+            document.getElementById("farge_" + mal).value = kode;
+            const kodeEl = document.getElementById(mal + "-kode");
+            if (kodeEl) kodeEl.textContent = kode.toUpperCase();
+            const picker = document.getElementById(mal + "-picker");
+            if (picker) picker.value = kode;
+            const prev = document.getElementById("prev-" + mal);
+            if (prev) prev.style.background = kode;
+            document.querySelectorAll('.swatch-rad[data-mal="' + mal + '"] .swatch').forEach(s => {
+                s.classList.toggle("valgt", s.dataset.kode.toLowerCase() === kode.toLowerCase());
+            });
+        }
+        document.querySelectorAll(".combo-kort").forEach(kort => {
+            kort.addEventListener("click", () => {
+                document.querySelectorAll(".combo-kort").forEach(k => k.classList.remove("valgt"));
+                kort.classList.add("valgt");
+                const c = combos[kort.dataset.combo];
+                settFarge("hoved", c.hoved); settFarge("mork", c.mork); settFarge("sekundaer", c.sekundaer);
+                document.getElementById("farge_bakgrunn").value = c.bakgrunn;
+                document.querySelectorAll(".bak-kort").forEach((b, bi) => {
+                    b.classList.toggle("valgt", bakgrunner[bi] && bakgrunner[bi].kode === c.bakgrunn);
+                });
+                document.getElementById("valgt_farge").value = c.navn;
+            });
+        });
+        ["hoved","mork","sekundaer"].forEach(mal => {
+            const rad = document.querySelector('.swatch-rad[data-mal="' + mal + '"]');
+            swatchFarger[mal].forEach(kode => {
+                const s = document.createElement("div");
+                s.className = "swatch"; s.style.background = kode; s.dataset.kode = kode; s.title = kode;
+                s.addEventListener("click", () => {
+                    settFarge(mal, kode);
+                    document.getElementById("valgt_farge").value = "Egendefinert";
+                    document.querySelectorAll(".combo-kort").forEach(k => k.classList.remove("valgt"));
+                });
+                rad.appendChild(s);
+            });
+            const prev = document.getElementById("prev-" + mal);
+            if (prev) prev.style.background = document.getElementById("farge_" + mal).value;
+            const picker = document.getElementById(mal + "-picker");
+            picker.addEventListener("input", () => {
+                settFarge(mal, picker.value);
+                document.getElementById("valgt_farge").value = "Egendefinert";
+                document.querySelectorAll(".combo-kort").forEach(k => k.classList.remove("valgt"));
+            });
+        });
+        const bakRad = document.getElementById("bakgrunnRad");
+        bakgrunner.forEach((b, i) => {
+            const k = document.createElement("div");
+            k.className = "bak-kort" + (i === 0 ? " valgt" : "");
+            k.innerHTML = '<div class="bak-prov" style="background:' + b.kode + '"></div><span>' + b.navn + '</span><span style="display:block; font-family:monospace; font-size:.72rem; color:var(--pine-soft); margin-top:.15rem">' + b.kode.toUpperCase() + '</span>';
+            k.addEventListener("click", () => {
+                document.querySelectorAll(".bak-kort").forEach(x => x.classList.remove("valgt"));
+                k.classList.add("valgt");
+                document.getElementById("farge_bakgrunn").value = b.kode;
+            });
+            bakRad.appendChild(k);
+        });
+        document.getElementById("avansertToggle").addEventListener("click", () => {
+            document.getElementById("avansertBoks").classList.toggle("vis");
+        });
+        document.querySelectorAll('.dv-kort input[name="design"]').forEach(radio => {
+            radio.addEventListener("change", () => {
+                document.querySelectorAll(".dv-kort").forEach(k => { if (k.querySelector('input[name="design"]')) k.classList.remove("valgt"); });
+                if (radio.checked) radio.closest(".dv-kort").classList.add("valgt");
+            });
+        });
+        const KATEGORIER = [
+            { navn:"H\u00e5r", under:"Klipp, farge & styling", behandlinger:[
+                {navn:"Klipp dame", pris:"590"}, {navn:"Klipp herre", pris:"490"}, {navn:"Farge", pris:"1290"},
+                {navn:"Striper / highlights", pris:"1490"}, {navn:"F\u00f8n & styling", pris:"450"},
+                {navn:"H\u00e5rkur & behandling", pris:"350"}, {navn:"Extensions", pris:"2500"} ]},
+            { navn:"Skjegg", under:"Skjegg & barbering", behandlinger:[
+                {navn:"Skjeggtrim", pris:"290"}, {navn:"Skjeggforming", pris:"350"},
+                {navn:"Barbering", pris:"390"}, {navn:"Klipp + skjegg", pris:"690"} ]},
+            { navn:"Hudpleie", under:"Ansiktsbehandling & pleie", behandlinger:[
+                {navn:"Ansiktsbehandling", pris:"790"}, {navn:"Dyprens", pris:"690"},
+                {navn:"Peeling", pris:"590"}, {navn:"Voksing ansikt", pris:"250"} ]},
+            { navn:"Negler", under:"Manikyr & pedikyr", behandlinger:[
+                {navn:"Manikyr", pris:"450"}, {navn:"Pedikyr", pris:"550"},
+                {navn:"Gellack", pris:"490"}, {navn:"Negleforlengelse", pris:"750"} ]},
+            { navn:"Vipper & bryn", under:"Vipper & bryn", behandlinger:[
+                {navn:"Brynsforming", pris:"290"}, {navn:"Brynsfarge", pris:"250"},
+                {navn:"Vippefarge", pris:"290"}, {navn:"Vippeextensions", pris:"890"} ]},
+            { navn:"Massasje", under:"Massasje & velv\u00e6re", behandlinger:[
+                {navn:"Klassisk massasje (60 min)", pris:"890"}, {navn:"Aromaterapi (60 min)", pris:"990"},
+                {navn:"Nakke & skulder (30 min)", pris:"550"} ]}
+        ];
+        function lagRad(beh) {
+            const rad = document.createElement("div");
+            rad.className = "beh-rad";
+            rad.innerHTML =
+                '<input type="checkbox" class="beh-inkluder" checked title="Inkluder">' +
+                '<input type="text" class="beh-navn" value="' + (beh.navn||"").replace(/"/g,"&quot;") + '" placeholder="Behandlingens navn">' +
+                '<div class="beh-pris-boks"><span class="beh-kr">fra</span><input type="text" class="beh-pris" value="' + (beh.pris||"") + '" placeholder="\u2013"><span class="beh-kr">,-</span></div>' +
+                '<button type="button" class="beh-fjern" title="Fjern">\u2715</button>';
+            rad.querySelector(".beh-fjern").addEventListener("click", () => rad.remove());
+            return rad;
+        }
+        const katListe = document.getElementById("katListe");
+        KATEGORIER.forEach(kat => {
+            const boks = document.createElement("div");
+            boks.className = "beh-kat";
+            boks.dataset.navn = kat.navn;
+            const topp = document.createElement("div");
+            topp.className = "beh-kat-topp";
+            topp.innerHTML = '<input type="checkbox" class="beh-kat-av" checked><span>' + kat.navn + ' <span class="beh-under">' + kat.under + '</span></span>';
+            const body = document.createElement("div");
+            body.className = "beh-kat-body";
+            kat.behandlinger.forEach(beh => body.appendChild(lagRad(beh)));
+            const leggTil = document.createElement("button");
+            leggTil.type = "button";
+            leggTil.className = "beh-legg-til";
+            leggTil.textContent = "+ Legg til behandling";
+            leggTil.addEventListener("click", () => body.insertBefore(lagRad({navn:"", pris:""}), leggTil));
+            body.appendChild(leggTil);
+            topp.querySelector(".beh-kat-av").addEventListener("change", e => body.classList.toggle("skjult", !e.target.checked));
+            boks.appendChild(topp); boks.appendChild(body);
+            katListe.appendChild(boks);
+        });
+        document.querySelectorAll('[name="vis_produkter"]').forEach(r => {
+            r.addEventListener("change", () => {
+                const vis = document.querySelector('[name="vis_produkter"]:checked').value === "Ja";
+                document.getElementById("produktTekstFelt").style.display = vis ? "" : "none";
+            });
+        });
+        document.getElementById("produktTekstFelt").style.display = "none";
+        document.querySelectorAll('[name="booking"]').forEach(r => {
+            r.addEventListener("change", () => {
+                const eget = document.querySelector('[name="booking"]:checked').value === "Eget system";
+                document.getElementById("bookingUrlFelt").classList.toggle("skjult", !eget);
+            });
+        });
+        function oppdaterJuridisk() {
+            const valg = document.querySelector('[name="juridisk"]:checked').value;
+            document.getElementById("jurLagForMeg").style.display = (valg === "Lag for meg") ? "block" : "none";
+            document.getElementById("jurHarEgne").style.display = (valg === "Har egne") ? "block" : "none";
+            document.querySelectorAll(".jur-valg").forEach(k => k.classList.remove("valgt"));
+            document.querySelector('[name="juridisk"]:checked').closest(".jur-valg").classList.add("valgt");
+        }
+        document.querySelectorAll('[name="juridisk"]').forEach(radio => radio.addEventListener("change", oppdaterJuridisk));
+        oppdaterJuridisk();
+        const galleriRad = document.getElementById("galleriRad");
+        for (let i = 1; i <= 6; i++) {
+            const kort = document.createElement("div");
+            kort.className = "opplast-kort";
+            kort.innerHTML =
+                '<h4>Bilde ' + i + ' <span class="valgfri">(valgfritt)</span></h4>' +
+                '<button type="button" class="opplast-knapp" data-type="galleri_' + i + '">Last opp</button>' +
+                '<div class="opplast-status" id="status-galleri_' + i + '"></div>' +
+                '<div class="opplast-thumbs" id="thumbs-galleri_' + i + '"></div>';
+            galleriRad.appendChild(kort);
+        }
+        const CLOUD_NAME = "jsl4llt9";
+        const UPLOAD_PRESET = "ml_default";
+        function visBilde(type, url) {
+            const thumbs = document.getElementById("thumbs-" + type);
+            thumbs.innerHTML = "";
+            const wrap = document.createElement("div");
+            wrap.style.cssText = "position:relative; display:inline-block";
+            const img = document.createElement("img");
+            img.src = url;
+            const slett = document.createElement("button");
+            slett.type = "button"; slett.textContent = "\u2715"; slett.title = "Fjern bilde";
+            slett.style.cssText = "position:absolute; top:-6px; right:-6px; width:20px; height:20px; border-radius:50%; border:none; background:#c0392b; color:#fff; font-size:12px; line-height:1; cursor:pointer; padding:0; display:grid; place-items:center";
+            slett.addEventListener("click", () => {
+                thumbs.innerHTML = "";
+                document.getElementById("bilde_" + type).value = "";
+                document.getElementById("status-" + type).innerHTML = "";
+            });
+            wrap.appendChild(img); wrap.appendChild(slett); thumbs.appendChild(wrap);
+        }
+        const widget = cloudinary.createUploadWidget({
+            cloudName: CLOUD_NAME, uploadPreset: UPLOAD_PRESET,
+            sources: ["local", "url", "camera"], multiple: false,
+            clientAllowedFormats: ["image"], maxImageFileSize: 10000000
+        }, (error, result) => {
+            if (!error && result && result.event === "success") {
+                const type = widget._aktivType || "logo";
+                const url = result.info.secure_url;
+                visBilde(type, url);
+                document.getElementById("status-" + type).innerHTML = '<span style="color:var(--signal-dark)">\u2713 Lastet opp</span>';
+                document.getElementById("bilde_" + type).value = url;
+            }
+        });
+        document.querySelectorAll(".opplast-knapp").forEach(btn => {
+            btn.addEventListener("click", () => { widget._aktivType = btn.dataset.type; widget.open(); });
+        });
+        function v(name) { const el = document.querySelector('[name="' + name + '"]'); return el ? el.value.trim() : ""; }
+        function valgtRadio(name) { const el = document.querySelector('[name="' + name + '"]:checked'); return el ? el.value : ""; }
+        document.getElementById("lagResultat").addEventListener("click", () => {
+            const visPriser = valgtRadio("vis_priser") === "Ja";
+            let t = "";
+            t += "===================================\n";
+            t += "  SALONG-BESTILLING\n";
+            t += "===================================\n\n";
+            t += "-- DESIGN & FARGER --\n";
+            t += "Design:        " + valgtRadio("design") + "\n";
+            t += "Fargevalg:     " + (v("valgt_farge") || "(standard for designet)") + "\n";
+            t += "  Hovedfarge:  " + v("farge_hoved") + "\n";
+            t += "  Mork farge:  " + v("farge_mork") + "\n";
+            t += "  Sekundaer:   " + v("farge_sekundaer") + "\n";
+            t += "  Bakgrunn:    " + v("farge_bakgrunn") + "\n\n";
+            t += "-- OM SALONGEN & DOMENE --\n";
+            t += "Salongnavn:  " + v("firmanavn") + "\n";
+            t += "Org.nr:      " + (v("orgnr") || "-") + "\n";
+            t += "PID:         " + (v("pid") || "-") + "\n";
+            t += "Domenestatus:" + v("domene_status") + "\n";
+            t += "1. valg: " + (v("domene_1") || "(ikke oppgitt)") + "\n";
+            t += "2. valg: " + (v("domene_2") || "-") + "\n";
+            t += "3. valg: " + (v("domene_3") || "-") + "\n";
+            t += "Eier allerede 1. valg: " + (document.querySelector('[name="har_domene"]:checked') ? "JA" : "Nei") + "\n";
+            t += "Adresse:     " + v("adresse") + "\n";
+            t += "Omrade:      " + v("omrade") + "\n";
+            t += "Startet:     " + (v("startaar") || "-") + "\n";
+            t += "Instagram:   " + (v("instagram") || "-") + "\n";
+            t += "Facebook:    " + (v("facebook") || "-") + "\n";
+            t += "Logo:        " + (v("bilde_logo") || "(ingen)") + "\n\n";
+            t += "-- TOPPEN AV SIDEN --\n";
+            t += "Stikkord:     " + v("hero_stikkord") + "\n";
+            t += "Overskrift:   " + v("hero_tittel") + "\n";
+            t += "Presentasjon: " + v("hero_frase") + "\n";
+            t += "Toppbilde:    " + (v("bilde_hero_bilde") || "(ingen)") + "\n\n";
+            t += "-- BEHANDLINGER --\n";
+            t += "Vis priser: " + valgtRadio("vis_priser") + "\n";
+            document.querySelectorAll(".beh-kat").forEach(boks => {
+                if (!boks.querySelector(".beh-kat-av").checked) return;
+                const linjer = [];
+                boks.querySelectorAll(".beh-rad").forEach(rad => {
+                    if (!rad.querySelector(".beh-inkluder").checked) return;
+                    const navn = rad.querySelector(".beh-navn").value.trim();
+                    if (!navn) return;
+                    const pris = rad.querySelector(".beh-pris").value.trim();
+                    if (visPriser && pris) linjer.push("   - " + navn + " | fra " + pris + ",-");
+                    else linjer.push("   - " + navn);
+                });
+                if (linjer.length) t += "[" + boks.dataset.navn + "]\n" + linjer.join("\n") + "\n";
+            });
+            t += "\n";
+            t += "-- PRODUKTER --\n";
+            if (valgtRadio("vis_produkter") === "Ja") t += (v("produkter_tekst") || "(pa, men ingen tekst)") + "\n";
+            else t += "(vises ikke)\n";
+            t += "\n";
+            t += "-- GALLERI --\n";
+            for (let i = 1; i <= 6; i++) { const u = v("bilde_galleri_" + i); if (u) t += "Bilde " + i + ": " + u + "\n"; }
+            t += "\n";
+            t += "-- EN SALONG MED HJERTE --\n";
+            t += (v("om_tekst") || "-") + "\n";
+            t += "Om-bilde: " + (v("bilde_om_bilde") || "(ingen)") + "\n\n";
+            t += "-- KONTAKT & BOOKING --\n";
+            t += "E-post:      " + v("epost") + "\n";
+            t += "Telefon:     " + v("telefon") + "\n";
+            t += "Apningstider:" + v("apningstider").replace(/\n/g, " | ") + "\n";
+            t += "Booking:     " + valgtRadio("booking") + "\n";
+            if (valgtRadio("booking") === "Eget system") t += "Booking-URL: " + v("booking_url") + "\n";
+            t += "\n";
+            t += "-- JURIDISK --\n";
+            const jur = valgtRadio("juridisk");
+            t += "Valg: " + jur + "\n";
+            if (jur === "Lag for meg") {
+                t += "Behandlingsansvarlig: " + v("jur_ansvarlig") + "\n";
+                t += "Kontakt: " + v("jur_kontakt_navn") + " / " + v("jur_kontakt_epost") + " / " + (v("jur_kontakt_tlf") || "-") + "\n";
+                const data = Array.from(document.querySelectorAll('[name="jur_data"]:checked')).map(x => x.value).join(", ");
+                t += "Data samlet inn: " + data + "\n";
+                t += "Formal: " + v("jur_formaal") + "\n";
+                t += "Lagring: " + v("jur_lagring") + "\n";
+                t += "Deling: " + valgtRadio("jur_deling") + "\n";
+                t += "Cookies: " + valgtRadio("jur_cookies") + "\n";
+            } else {
+                t += "Egen personvern: " + (v("jur_egen_personvern") || "-") + "\n";
+                t += "Egen cookies: " + (v("jur_egen_cookies") || "-") + "\n";
+                t += "Egen annet: " + (v("jur_egen_annet") || "-") + "\n";
+            }
+            t += "\n";
+            t += "-- KOMMENTAR --\n";
+            t += (v("kommentar") || "-") + "\n\n";
+            t += "-- KONTAKTPERSON --\n";
+            t += "Navn:    " + v("din_navn") + "\n";
+            t += "Telefon: " + v("din_telefon") + "\n";
+            t += "E-post:  " + v("din_epost") + "\n";
+            document.getElementById("resultat").value = t;
+            document.getElementById("resultatBoks").classList.add("vis");
+            document.getElementById("resultat").scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+        document.getElementById("kopierKnapp").addEventListener("click", () => {
+            const r = document.getElementById("resultat");
+            r.select(); document.execCommand("copy");
+            const ok = document.getElementById("kopierOk");
+            ok.style.display = "inline-block";
+            setTimeout(() => ok.style.display = "none", 1800);
+        });
+    </script>
+</body>
+</html>
